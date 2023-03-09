@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<!--初期設定HTML-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>N/S Captcha｜私はN/S高生です。</title>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="N/S Captcha｜私はN/S高生です。" />
+    <meta property="og:site_name" content="ehor.work｜便利ツール" />
+    <meta property="og:description" content="インターネット上でよく見る、「私はロボットではありません」から着想を得て、
+    N/S高生かどうかを判定するアプリを作りました。エンカ時やオフ会等でN/S高生かどうか、本人確認をすることができます。
+    このツールを使用するにはGoogleアカウントでログインが必要です。" />
+
+    <meta name="robots" content="noarchive">
+
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+<!--ページの要素-->
+
+<body>
+    <section class="hero is-link">
+        <div class="hero-body">
+            <div class="container">
+                <p class="title is-1">N/S Captcha</p>
+                <p class="title is-5">あなたは本当のN/S高生？！</p>
+            </div>
+        </div>
+    </section>
+    <div class="container" style="margin-top: 20pt; padding: 20pt;">
+
+
+        <div class="box">
+            <b>オフ会/エンカなど、リアルに会うときや、その他本人確認等にお使いください。<br>
+                なお、このツールは結果を保証するものではありません。</b>
+        </div>
+
+        <!-- ログインボタン -->
+        <button class="button" onclick="login()"><input type="checkbox" id="check"
+                style="transform: scale(2); margin: 1em;" disabled="disabled">私はN/S高生です。</button>
+        <!-- N/S高生かどうかについてとメールアドレスを表示する要素 -->
+        <b>
+            <div class="container">
+                <div id="message">
+                    <div class="box" style="margin-top: 10pt; display: block;">
+                        <div class="message-box">
+                            <span class="icon-text">
+                                <span class="icon">
+                                    <i class="material-symbols-outlined" id="icon" style="font-size: 30pt;">verified</i>
+                                </span>
+                                <span>
+                                    <p style="font-size: 20pt; margin-left: 0.3em;" id="verify"></p>
+                                </span>
+                            </span>
+                        </div>
+                        <p id="email"></p>
+                    </div>
+                </div>
+                <!-- プロフィール -->
+                <div id="my-profile" style="margin-top:1em;margin-bottom: 1em;">
+                    <p id="email"></p>
+                    <div class="box">
+                        <hr style="border:none;border-top:dashed 3px #4b4b4b;height:1px;width:36vh;">
+                        <span class="icon-text">
+                            <span class="icon">
+                                <i class="material-symbols-outlined">badge</i>
+                            </span>
+                            <span>
+                                <p>あなたについての情報</p>
+                            </span>
+                        </span>
+                        <hr style="border:none;border-top:dashed 3px #4b4b4b;height:1px;width:36vh;">
+                        <div class="school">
+                            <span class="icon-text">
+                                <span class="icon">
+                                    <i class="material-symbols-outlined">school</i>
+                                </span>
+                                <span>
+                                    <p id="school"></p>
+                                </span>
+                            </span>
+                        </div>
+                        <div class="new">
+                            <span class="icon-text">
+                                <span class="icon">
+                                    <i class="material-symbols-outlined">celebration</i>
+                                </span>
+                                <span>
+                                    <p id="new_student"></p>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <!--共有画面 -->
+                <div id="share">
+                    <span class="icon-text">
+                        <span class="icon">
+                            <i class="material-symbols-outlined" style="font-size: 30pt;">share</i>
+                        </span>
+                        <span>
+                            <p style="font-size: 20pt; margin-left: 1em;">判定結果を証明しよう！</p>
+                        </span>
+                    </span></p>
+                    <div class="box" style="margin-top:1em">
+                        <p>ステップ1.相手に伝わるようなニックネームを入力！</p>
+                        <form action="shield/post.php" method="post">
+                            <input class="input is-link" type="text" placeholder="ここで入力した情報は相手に共有されるよ。" id="nickname">
+                            <p>ステップ2.注意事項を読もう！</p>
+                            <li>ここで発行したIDは1回しか使うことができません。</li>
+                            <li>このツールを使用することで、<a href="https://ehor.work/user-policy.html#user-policy">利用規約</a>と
+                                <a
+                                    href="https://ehor.work/user-policy.html#privacy-policy">プライバシーポリシー</a>に同意したものとみなされます。
+                            </li>
+                            <button class="button is-link" onclick="submitForm()" style="margin-top:1em"
+                                id="button">同意しました！</button>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+                <div class="container" id="shares">
+                    <div class="box" style="margin-top:1em" style="margin-left: 1em;">
+                        <p>発行されたID：<span id="id"></span></p>
+                        <input id="urlInput" class="input" type="text"
+                            placeholder="リンクが発行できませんでした。">
+                        <button onclick="copyUrl()" class="button">コピー</button>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </div>
+</body>
+</b>
+<style>
+    @media screen and (max-width: 480px) {
+        #icon {
+            text-align: center;
+        }
+
+        p {
+            margin: 1em;
+        }
+    }
+
+    .icon {
+        margin-left: 1em;
+    }
+
+    .material-symbols-outlined {
+
+        vertical-align: middle;
+        line-height: 0;
+    }
+
+    span {
+        margin-top: 0.1em;
+    }
+
+    .message-box span {
+        margin-top: 0.5;
+    }
+
+
+    #my-profile {
+        display: none;
+    }
+
+    #share {
+        display: none;
+    }
+
+    #message {
+        display: none;
+    }
+
+    #shares {
+        display: none;
+    }
+</style>
+<script src="js/main.js"></script>

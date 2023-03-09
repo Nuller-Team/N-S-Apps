@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>N/S Captcha｜私はN/S高生です。</title>
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="N/S Captcha｜私はN/S高生です。" />
+  <meta property="og:site_name" content="ehor.work｜便利ツール" />
+  <meta property="og:description" content="インターネット上でよく見る、「私はロボットではありません」から着想を得て、
+    N/S高生かどうかを判定するアプリを作りました。エンカ時やオフ会等でN/S高生かどうか、本人確認をすることができます。
+    このツールを使用するにはGoogleアカウントでログインが必要です。" />
+
+  <meta name="robots" content="noarchive">
+
+  <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+
+<body>
+  <section class="hero is-link">
+    <div class="hero-body">
+      <div class="container">
+        <p class="title is-1">N/S Captcha</p>
+        <p class="title is-5">あなたは本当のN/S高生？！</p>
+      </div>
+    </div>
+  </section>
+  <div class="container" style="margin-top: 20pt; padding: 20pt;">
+
+
+    <div class="box">
+      <b>オフ会/エンカなど、リアルに会うときや、その他本人確認等にお使いください。<br>
+        なお、このツールは結果を保証するものではありません。</b>
+    </div>
+    <!-- メッセージとメールアドレスを表示する要素 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <div id="test0">
+      <b>
+        <div class="container" id="test1">
+          <div class="box" style="margin-top: 10pt; display: block;">
+            <label for="id">ID: </label>
+            <input class="input is-link" type="text" id="id" name="id"><br><br>
+            <button class="button is-link" onclick="checkID()">確認</button><br><br>
+            <div id="result"></div>
+          </div>
+
+      </b>
+      <p style="margin-top: 1em;">このツールを使用することで、</b><a href="https://ehor.work/user-policy.html#user-policy">利用規約</a>と
+        <a href="https://ehor.work/user-policy.html#privacy-policy">プライバシーポリシー</a>に同意したものとみなされます。</p>
+    </div>
+
+
+    <style>
+      .material-symbols-outlined {
+        display: inline-flex;
+        vertical-align: middle;
+        line-height: 0;
+      }
+
+      span {
+        margin-top: 0.1em;
+      }
+
+      .message-box span {
+        margin-top: 0.5;
+      }
+
+      .test0 {
+        display: none;
+      }
+    </style>
+    <script src="js/main.js"></script>
+
+
+  </div>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    console.log(params.get('id'));
+    function checkID() {
+      var id = document.getElementById("id").value;
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          var result = document.getElementById("result");
+          if (this.responseText === "存在しません") {
+            result.innerHTML = "このIDは存在しませんでした。<br>情報が間違っている可能性があります。ご確認ください。";
+            result.style.color = "hsl(348, 100%, 61%)";
+          } else {
+            result.innerHTML = "相手はN/S高生の可能性が高いです。<br><p style='font-size:20pt'>相手のニックネーム： " + this.responseText +
+              "</p>";
+            result.style.color = "hsl(141, 53%, 53%)"
+          }
+        }
+      };
+      xmlhttp.open("POST", "shield/verify.php", true);
+      xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xmlhttp.send("id=" + id);
+    }
+  </script>
+</body>
+
+</html>
+</body>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings:
+      'FILL'1,
+      'wght'400,
+      'GRAD'0,
+      'opsz'48
+  }
+
+  #test {
+    display: none;
+  }
+</style>
