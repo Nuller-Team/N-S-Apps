@@ -16,20 +16,19 @@
     このツールを使用するにはGoogleアカウントでログインが必要です。" />
 
     <meta name="robots" content="noarchive">
-
+    <link rel="stylesheet" href="css/style.css">
     <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 </head>
 <!--ページの要素-->
 
 <body>
     <section class="hero is-link">
         <div class="hero-body">
-            <div class="container">
+            <div class="container blue">
                 <p class="title is-1">N/S Captcha</p>
                 <p class="title is-5">あなたは本当のN/S高生？！</p>
             </div>
@@ -129,8 +128,7 @@
                 <div class="container" id="shares">
                     <div class="box" style="margin-top:1em" style="margin-left: 1em;">
                         <p>発行されたID：<span id="id"></span></p>
-                        <input id="urlInput" class="input" type="text"
-                            placeholder="リンクが発行できませんでした。">
+                        <input id="urlInput" class="input" type="text" placeholder="リンクが発行できませんでした。">
                         <button onclick="copyUrl()" class="button">コピー</button>
                     </div>
                 </div>
@@ -139,50 +137,4 @@
     </div>
 </body>
 </b>
-<style>
-    @media screen and (max-width: 480px) {
-        #icon {
-            text-align: center;
-        }
-
-        p {
-            margin: 1em;
-        }
-    }
-
-    .icon {
-        margin-left: 1em;
-    }
-
-    .material-symbols-outlined {
-
-        vertical-align: middle;
-        line-height: 0;
-    }
-
-    span {
-        margin-top: 0.1em;
-    }
-
-    .message-box span {
-        margin-top: 0.5;
-    }
-
-
-    #my-profile {
-        display: none;
-    }
-
-    #share {
-        display: none;
-    }
-
-    #message {
-        display: none;
-    }
-
-    #shares {
-        display: none;
-    }
-</style>
 <script src="js/main.js"></script>
