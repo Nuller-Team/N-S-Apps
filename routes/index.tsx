@@ -1,14 +1,22 @@
-import { Head } from "$fresh/runtime.ts";
-import Counter from "../islands/Counter.tsx";
-
-export default function Home() {
+export default function Index() {
   return (
     <>
-      <Head>
-        <title>Fresh App</title>
-      </Head>
-      <div>
-      <button class="bg-indigo-700 font-semibold text-white py-2 px-4 rounded">ボタン</button>
+      <div class="flex flex-col items-center justify-center h-screen bg-gray-100">
+        <h1 class="text-3xl font-bold text-gray-800 mb-8">N/S CAPTCHA</h1>
+        <div class="bg-white shadow-md rounded-md p-8 w-full sm:w-[30rem]">
+          <div class="mb-6">
+            <a
+              href="https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&response_type=code&client_id=3759644925-v0nm19g18f1n069v3tuutsf94p4p3eev.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Flogin%2Fcallback"
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring w-full flex items-center justify-center"
+            >
+              <i class="mr-2"></i> 私はN/S高生です
+            </a>
+          </div>
+          <p class="text-sm text-gray-500 text-center">
+            オフ会/エンカなど、リアルに会うときや<br></br>その他本人確認等にお使いください。<br></br>
+            なお、このツールは結果を保証するものではありません。
+          </p>
+        </div>
       </div>
     </>
   );
