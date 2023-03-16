@@ -4,8 +4,14 @@ import { MongoClient } from "mongoDB/mod.ts";
 
 import type { UserCookieType, UserDataType } from "../types/db.ts";
 
+import {Env} from "https://deno.land/x/env@v2.2.3/env.js";
+const env = new Env();
+
+const MONGO_URI = env.require("MONGODB_URL");
+
+
 const client = new MongoClient();
-await client.connect("mongodb://127.0.0.1:27017");
+await client.connect(`${MONGO_URI}?authMechanism=SCRAM-SHA-1`);
 const db = client.database("N-S-CAPTCHA");
 const User = db.collection<UserDataType>("User");
 const UserCookie = db.collection<UserCookieType>("UserCookie");

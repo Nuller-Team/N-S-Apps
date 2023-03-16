@@ -2,7 +2,7 @@ import { Handlers, PageProps } from "$fresh/server.ts";
 import { setCookie } from "std/http/cookie.ts";
 import { MongoClient } from "mongoDB/mod.ts";
 import { axiod } from "https://deno.land/x/axiod@0.26.2/mod.ts";
-import { google } from "https://esm.sh/googleapis";
+import { google } from "https://esm.sh/googleapis@113.0.0";
 import { UserCookieType, UserDataType } from "../../types/db.ts";
 import {Env} from "https://deno.land/x/env@v2.2.3/env.js";
 const env = new Env();
@@ -10,6 +10,7 @@ const env = new Env();
 const CLIENT_ID = env.require("GOOGLE_CLIENT_ID");
 const CLIENT_SECRET = env.require("GOOGLE_CLIENT_SECRET");
 const REDIRECT_URI = env.require("REDIRECT_URL");
+const MONGO_URI = env.require("MONGODB_URL");
 
 const oauth2Client = new google.auth.OAuth2({
   clientId: CLIENT_ID,
@@ -18,7 +19,7 @@ const oauth2Client = new google.auth.OAuth2({
 });
 
 const client = new MongoClient();
-await client.connect("mongodb://127.0.0.1:27017");
+await client.connect(`${MONGO_URI}?authMechanism=SCRAM-SHA-1`);
 const db = client.database("N-S-CAPTCHA");
 
 export const handler: Handlers = {
