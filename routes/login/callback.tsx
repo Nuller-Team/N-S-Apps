@@ -3,15 +3,13 @@ import { setCookie } from "std/http/cookie.ts";
 import { MongoClient } from "mongoDB/mod.ts";
 import { axiod } from "https://deno.land/x/axiod@0.26.2/mod.ts";
 import { google } from "https://esm.sh/googleapis";
-
-import { config } from "https://deno.land/x/dotenv@v3.2.2/mod.ts";
 import { UserCookieType, UserDataType } from "../../types/db.ts";
+import {Env} from "https://deno.land/x/env@v2.2.3/env.js";
+const env = new Env();
 
-const env = config();
-
-const CLIENT_ID = env["GOOGLE_CLIENT_ID"];
-const CLIENT_SECRET = env["GOOGLE_CLIENT_SECRET"];
-const REDIRECT_URI = env["REDIRECT_URL"];
+const CLIENT_ID = env.require("GOOGLE_CLIENT_ID");
+const CLIENT_SECRET = env.require("GOOGLE_CLIENT_SECRET");
+const REDIRECT_URI = env.require("REDIRECT_URL");
 
 const oauth2Client = new google.auth.OAuth2({
   clientId: CLIENT_ID,
