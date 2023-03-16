@@ -4,6 +4,7 @@ interface UserCookieType {
 }
 interface UserDataType {
   id: string;
+  email: string;
   school: "N" | "S";
   th: number;
 }
