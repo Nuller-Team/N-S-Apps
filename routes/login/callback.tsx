@@ -93,6 +93,7 @@ export const handler: Handlers = {
         return ctx.render("ERROR2");
       }
     } catch (e) {
+      console.log(e);
       return ctx.render("ERROR");
     }
   },
