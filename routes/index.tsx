@@ -8,13 +8,14 @@ import {Env} from "https://deno.land/x/env@v2.2.3/env.js";
 const env = new Env();
 
 const MONGO_URI = env.require("MONGODB_URL");
-
+const REDIRECT_URI = env.require("REDIRECT_URL");
 
 const client = new MongoClient();
 await client.connect(`${MONGO_URI}?authMechanism=SCRAM-SHA-1`);
 const db = client.database("N-S-CAPTCHA");
 const User = db.collection<UserDataType>("User");
 const UserCookie = db.collection<UserCookieType>("UserCookie");
+
 
 export const handler: Handlers = {
   async GET(req, ctx) {
@@ -30,6 +31,7 @@ export const handler: Handlers = {
 };
 
 export default function Index({ data }: PageProps<string | UserDataType>) {
+  const auth_url = `https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&response_type=code&client_id=3759644925-v0nm19g18f1n069v3tuutsf94p4p3eev.apps.googleusercontent.com&redirect_uri=${REDIRECT_URI}`
   if (data == "default") {
     return (
       <>
@@ -38,7 +40,7 @@ export default function Index({ data }: PageProps<string | UserDataType>) {
           <div class="bg-white shadow-md rounded-md p-8 w-full sm:w-[30rem]">
             <div class="mb-6">
               <a
-                href="https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&response_type=code&client_id=3759644925-v0nm19g18f1n069v3tuutsf94p4p3eev.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Flogin%2Fcallback"
+                href={auth_url}
                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring w-full flex items-center justify-center"
               >
                 <i class="mr-2"></i> 私はN/S高生です

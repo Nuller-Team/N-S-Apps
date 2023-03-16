@@ -2,7 +2,7 @@ import { Handlers, PageProps } from "$fresh/server.ts";
 import { setCookie } from "std/http/cookie.ts";
 import { MongoClient } from "mongoDB/mod.ts";
 import { axiod } from "https://deno.land/x/axiod@0.26.2/mod.ts";
-import { google } from "https://esm.sh/googleapis@113.0.0";
+import { google } from "npm:googleapis"
 import { UserCookieType, UserDataType } from "../../types/db.ts";
 import {Env} from "https://deno.land/x/env@v2.2.3/env.js";
 const env = new Env();
