@@ -2,7 +2,7 @@ import { Handlers, PageProps } from "$fresh/server.ts";
 import { setCookie } from "std/http/cookie.ts";
 import { MongoClient } from "mongoDB/mod.ts";
 import { axiod } from "https://deno.land/x/axiod@0.26.2/mod.ts";
-import { google } from "npm:googleapis";
+import { google } from "https://esm.sh/googleapis";
 
 import { config } from "https://deno.land/x/dotenv@v3.2.2/mod.ts";
 import { UserCookieType, UserDataType } from "../../types/db.ts";
