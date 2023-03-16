@@ -18,6 +18,10 @@ const oauth2Client = new google.auth.OAuth2({
   redirectUri: REDIRECT_URI,
 });
 
+const client = new MongoClient();
+await client.connect("mongodb://127.0.0.1:27017");
+const db = client.database("N-S-CAPTCHA");
+
 export const handler: Handlers = {
   async GET(req, ctx) {
     try {
@@ -49,26 +53,51 @@ export const handler: Handlers = {
           th -= 20;
         }
         const graduates = school + "高等学校" + th + "期生";
-        console.log(graduates);
       } else {
-        console.log("N/S高生だと判定できませんでした。");
+        return ctx.render("ERROR2");
       }
-      const client = new MongoClient();
-      await client.connect("mongodb://127.0.0.1:27017");
-      const db = client.database("N-S-CAPTCHA");
       return response;
     } catch (e) {
-      const response = new Response("", {
-        status: 303,
-        headers: {
-          Location: `../`,
-        },
-      });
-      return response;
+      return ctx.render("ERROR");
     }
   },
 };
 
-export default function Callback({ data }: PageProps<null>) {
-  return ("");
+export default function Callback({ data }: PageProps<string>) {
+  if (data == "ERROR") {
+    return (
+      <>
+        <div class="flex items-center justify-center h-screen bg-gray-50">
+          <div class="bg-white items-center p-8 rounded-md shadow-md w-full sm:w-96">
+            <h1 class="text-2xl font-bold mb-4">エラーが発生しました。</h1>
+            <p class="text-gray-500 mb-4">
+              内部でエラーが発生しました。<br></br>再度お試しください。
+            </p>
+            <a
+              href="/"
+              class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md transition duration-300 ease-in-out"
+            >
+              Go back to home
+            </a>
+          </div>
+        </div>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <div class="flex items-center justify-center h-screen bg-gray-50">
+          <div class="bg-white items-center p-8 rounded-md shadow-md w-full sm:w-96">
+            <h1 class="text-2xl font-bold mb-4">N/S高生ではないようです。</h1>
+            <a
+              href="/"
+              class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md transition duration-300 ease-in-out"
+            >
+              Go back to home
+            </a>
+          </div>
+        </div>
+      </>
+    );
+  }
 }

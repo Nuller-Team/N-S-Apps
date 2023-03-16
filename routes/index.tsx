@@ -1,3 +1,22 @@
+import { Handlers, PageProps } from "$fresh/server.ts";
+import { getCookies } from "std/http/cookie.ts";
+import { MongoClient } from "mongoDB/mod.ts";
+
+import type {Use} from "../types/db.ts"
+
+const client = new MongoClient();
+await client.connect("mongodb://127.0.0.1:27017");
+const db = client.database("N-S-CAPTCHA");
+
+export const handler: Handlers = {
+  async GET(req, ctx) {
+    const cookie = getCookies(req.headers);
+    if (cookie["remember-me"]) {
+    }
+    return ctx.render("HEY");
+  },
+};
+
 export default function Index() {
   return (
     <>
@@ -13,7 +32,8 @@ export default function Index() {
             </a>
           </div>
           <p class="text-sm text-gray-500 text-center">
-            オフ会/エンカなど、リアルに会うときや<br></br>その他本人確認等にお使いください。<br></br>
+            オフ会/エンカなど、リアルに会うときや<br>
+            </br>その他本人確認等にお使いください。<br></br>
             なお、このツールは結果を保証するものではありません。
           </p>
         </div>
