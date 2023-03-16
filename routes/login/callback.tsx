@@ -2,7 +2,6 @@ import { Handlers, PageProps } from "$fresh/server.ts";
 import { setCookie } from "std/http/cookie.ts";
 import { MongoClient } from "mongoDB/mod.ts";
 import { axiod } from "https://deno.land/x/axiod@0.26.2/mod.ts";
-import { google } from "npm:googleapis"
 import { UserCookieType, UserDataType } from "../../types/db.ts";
 import {Env} from "https://deno.land/x/env@v2.2.3/env.js";
 const env = new Env();
@@ -11,12 +10,6 @@ const CLIENT_ID = env.require("GOOGLE_CLIENT_ID");
 const CLIENT_SECRET = env.require("GOOGLE_CLIENT_SECRET");
 const REDIRECT_URI = env.require("REDIRECT_URL");
 const MONGO_URI = env.require("MONGODB_URL");
-
-const oauth2Client = new google.auth.OAuth2({
-  clientId: CLIENT_ID,
-  clientSecret: CLIENT_SECRET,
-  redirectUri: REDIRECT_URI,
-});
 
 const client = new MongoClient();
 await client.connect(`${MONGO_URI}?authMechanism=SCRAM-SHA-1`);
@@ -28,11 +21,18 @@ export const handler: Handlers = {
       const url = new URL(req.url);
       const code = url.searchParams.get("code")!;
 
-      const { tokens } = await oauth2Client.getToken(code);
+      const params = new URLSearchParams();
+      params.append("client_id", CLIENT_ID);
+      params.append("client_secret", CLIENT_SECRET);
+      params.append("code", code);
+      params.append("grant_type", 'authorization_code');
+      params.append('redirect_uri', REDIRECT_URI)
+
+      const {data: res_token} = await axiod.post(`https://accounts.google.com/o/oauth2/token`,params);
 
       const remember_me_token = crypto.randomUUID();
-      const { data: UserInfo } = await axiod(
-        `https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${tokens.access_token}`,
+      const { data: UserInfo } = await axiod.get(
+        `https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${res_token.access_token}`,
       );
       const email: string = UserInfo["email"];
 
@@ -92,7 +92,6 @@ export const handler: Handlers = {
         return ctx.render("ERROR2");
       }
     } catch (e) {
-      console.log(e);
       return ctx.render("ERROR");
     }
   },
