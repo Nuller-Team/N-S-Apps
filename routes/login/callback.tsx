@@ -1,13 +1,9 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { setCookie } from "std/http/cookie.ts";
-import { MongoClient } from "mongoDB/mod.ts";
 import { axiod } from "https://deno.land/x/axiod@0.26.2/mod.ts";
 import { UserCookieType, UserDataType } from "../../types/db.ts";
 import env from "../../utils/env.ts";
-
-const client = new MongoClient();
-await client.connect(`${env.MONGO_URI}?authMechanism=SCRAM-SHA-1`);
-const db = client.database("N-S-CAPTCHA");
+import db from "../../utils/mongodb.ts";
 
 export const handler: Handlers = {
   async GET(req, ctx) {
@@ -19,10 +15,13 @@ export const handler: Handlers = {
       params.append("client_id", env.CLIENT_ID);
       params.append("client_secret", env.CLIENT_SECRET);
       params.append("code", code);
-      params.append("grant_type", 'authorization_code');
-      params.append('redirect_uri', env.REDIRECT_URI)
+      params.append("grant_type", "authorization_code");
+      params.append("redirect_uri", env.REDIRECT_URI);
 
-      const {data: res_token} = await axiod.post(`https://accounts.google.com/o/oauth2/token`,params);
+      const { data: res_token } = await axiod.post(
+        `https://accounts.google.com/o/oauth2/token`,
+        params,
+      );
 
       const remember_me_token = crypto.randomUUID();
       const { data: UserInfo } = await axiod.get(
