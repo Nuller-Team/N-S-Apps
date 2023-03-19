@@ -3,6 +3,8 @@ import { getCookies } from "std/http/cookie.ts";
 import db from "../utils/mongodb.ts";
 import env from "../utils/env.ts";
 
+import TOKEN from "../islands/token.tsx";
+
 import type { UserCookieType, UserDataType } from "../types/db.ts";
 
 const User = db.collection<UserDataType>("User");
@@ -63,6 +65,7 @@ export default function Index({ data }: PageProps<string | UserDataType>) {
             <p class="text-sm text-gray-500 text-center">
               <p class="mr-3">あなたの情報：{data}</p>
             </p>
+            <TOKEN></TOKEN>
           </div>
         </div>
       </>
