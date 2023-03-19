@@ -9,4 +9,11 @@ interface UserDataType {
   th: number;
 }
 
-export type { UserCookieType, UserDataType };
+interface VerifyDataType {
+  token: string;
+  name: string;
+  school: "N" | "S";
+  th: number;
+}
+
+export type { UserCookieType, UserDataType, VerifyDataType };
