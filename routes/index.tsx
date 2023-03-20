@@ -65,7 +65,10 @@ export default function Index({ data }: PageProps<string | UserDataType>) {
             <p class="text-sm text-gray-500 text-center">
               <p class="mr-3">あなたの情報：{data}</p>
             </p>
-            <TOKEN></TOKEN>
+          </div>
+          <div class="p-4"></div>
+          <div class="bg-white shadow-md rounded-md p-8 w-full sm:w-[30rem]">
+          <TOKEN></TOKEN>
           </div>
         </div>
       </>
