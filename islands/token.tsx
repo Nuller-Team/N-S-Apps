@@ -1,8 +1,5 @@
 import { useState } from "preact/hooks";
-
-interface CounterProps {
-  start: number;
-}
+import env from "utils/env.ts"
 
 export default function TOKEN() {
   const [name, setName] = useState("");
@@ -23,7 +20,7 @@ export default function TOKEN() {
         setError(data["text"]);
       } else {
         setError("");
-        setSuccess(`http://localhost:8000/verify/${data["text"]}`)
+        setSuccess(`http://${env.SERVER_URL}/verify/${data["text"]}`)
       }
     });
   };
