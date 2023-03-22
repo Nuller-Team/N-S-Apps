@@ -11,7 +11,6 @@ export const handler: Handlers = {
       return ctx.render("ERROR");
     }
     const check = await Verify.findOne({ token: token });
-    console.log(check);
     if (!check) {
       return ctx.render("ERROR2");
     }
