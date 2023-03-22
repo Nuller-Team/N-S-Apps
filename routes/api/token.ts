@@ -2,6 +2,7 @@ import { Handlers } from "$fresh/server.ts";
 import { getCookies } from "std/http/cookie.ts";
 
 import db from "utils/mongodb.ts";
+import env from "utils/env.ts";
 
 import type { UserCookieType, VerifyDataType, UserDataType } from "types/db.ts";
 import type { tokenResponse } from "types/token.ts";
@@ -52,7 +53,7 @@ export const handler: Handlers = {
     });
     res = {
       status: "Success",
-      text: token,
+      text: `${env.SERVER_URL}/verify/${token}`,
     };
     return new Response(JSON.stringify(res));
   },

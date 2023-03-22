@@ -1,5 +1,4 @@
 import { useState } from "preact/hooks";
-import env from "../utils/env.ts";
 
 export default function TOKEN() {
   const [name, setName] = useState("");
@@ -20,7 +19,7 @@ export default function TOKEN() {
         setError(data["text"]);
       } else {
         setError("");
-        setSuccess(`${env.SERVER_URL}/verify/${data["text"]}`);
+        setSuccess(data["text"]);
       }
     });
   };
