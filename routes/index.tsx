@@ -27,7 +27,7 @@ export const handler: Handlers = {
 
 export default function Index({ data }: PageProps<string | UserDataType>) {
   const auth_url =
-    `https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&response_type=code&client_id=3759644925-v0nm19g18f1n069v3tuutsf94p4p3eev.apps.googleusercontent.com&redirect_uri=${env.REDIRECT_URI}`;
+    `https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&response_type=code&client_id=3759644925-v0nm19g18f1n069v3tuutsf94p4p3eev.apps.googleusercontent.com&redirect_uri=${env.SERVER_URL}/login/callback`;
   if (data == "default") {
     return (
       <>
@@ -68,7 +68,7 @@ export default function Index({ data }: PageProps<string | UserDataType>) {
           </div>
           <div class="p-4"></div>
           <div class="bg-white shadow-md rounded-md p-8 w-full sm:w-[30rem]">
-          <TOKEN></TOKEN>
+            <TOKEN></TOKEN>
           </div>
         </div>
       </>

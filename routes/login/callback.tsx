@@ -16,7 +16,7 @@ export const handler: Handlers = {
       params.append("client_secret", env.CLIENT_SECRET);
       params.append("code", code);
       params.append("grant_type", "authorization_code");
-      params.append("redirect_uri", env.REDIRECT_URI);
+      params.append("redirect_uri", `${env.SERVER_URL}/login/callback`);
 
       const { data: res_token } = await axiod.post(
         `https://accounts.google.com/o/oauth2/token`,
