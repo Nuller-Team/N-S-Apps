@@ -1,19 +1,9 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { setCookie } from "std/http/cookie.ts";
-import { MongoClient } from "mongoDB/mod.ts";
 import { axiod } from "https://deno.land/x/axiod@0.26.2/mod.ts";
 import { UserCookieType, UserDataType } from "../../types/db.ts";
-import {Env} from "https://deno.land/x/env@v2.2.3/env.js";
-const env = new Env();
-
-const CLIENT_ID = env.require("GOOGLE_CLIENT_ID");
-const CLIENT_SECRET = env.require("GOOGLE_CLIENT_SECRET");
-const REDIRECT_URI = env.require("REDIRECT_URL");
-const MONGO_URI = env.require("MONGODB_URL");
-
-const client = new MongoClient();
-await client.connect(`${MONGO_URI}?authMechanism=SCRAM-SHA-1`);
-const db = client.database("N-S-CAPTCHA");
+import env from "../../utils/env.ts";
+import db from "../../utils/mongodb.ts";
 
 export const handler: Handlers = {
   async GET(req, ctx) {
@@ -22,13 +12,16 @@ export const handler: Handlers = {
       const code = url.searchParams.get("code")!;
 
       const params = new URLSearchParams();
-      params.append("client_id", CLIENT_ID);
-      params.append("client_secret", CLIENT_SECRET);
+      params.append("client_id", env.CLIENT_ID);
+      params.append("client_secret", env.CLIENT_SECRET);
       params.append("code", code);
-      params.append("grant_type", 'authorization_code');
-      params.append('redirect_uri', REDIRECT_URI)
+      params.append("grant_type", "authorization_code");
+      params.append("redirect_uri", `${env.SERVER_URL}/login/callback`);
 
-      const {data: res_token} = await axiod.post(`https://accounts.google.com/o/oauth2/token`,params);
+      const { data: res_token } = await axiod.post(
+        `https://accounts.google.com/o/oauth2/token`,
+        params,
+      );
 
       const remember_me_token = crypto.randomUUID();
       const { data: UserInfo } = await axiod.get(
@@ -36,15 +29,15 @@ export const handler: Handlers = {
       );
       const email: string = UserInfo["email"];
 
-      let th = Number(email.slice(-20, -18));
+      let gen = Number(email.slice(-20, -18));
       const school_name = email.slice(-18, -17).toUpperCase();
 
       if (email.endsWith("@nnn.ed.jp")) {
         let school: UserDataType["school"] = "N";
         if (school_name === "N") {
-          th -= 15;
+          gen -= 15;
         } else if (school_name === "S") {
-          th -= 20;
+          gen -= 20;
           school = "S";
         }
 
@@ -56,7 +49,7 @@ export const handler: Handlers = {
           id: UserInfo["id"],
           email: UserInfo["email"],
           school: school,
-          th: th,
+          gen: gen,
         };
 
         const User = db.collection<UserDataType>("User");

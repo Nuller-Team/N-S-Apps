@@ -2,11 +2,20 @@ interface UserCookieType {
   id: string;
   token: string;
 }
+
 interface UserDataType {
   id: string;
   email: string;
   school: "N" | "S";
-  th: number;
+  gen: number;
 }
 
-export type { UserCookieType, UserDataType };
+interface VerifyDataType {
+  token: string;
+  name: string;
+  id: string;
+  school: "N" | "S";
+  gen: number;
+}
+
+export type { UserCookieType, UserDataType, VerifyDataType };
