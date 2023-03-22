@@ -29,15 +29,15 @@ export const handler: Handlers = {
       );
       const email: string = UserInfo["email"];
 
-      let th = Number(email.slice(-20, -18));
+      let gen = Number(email.slice(-20, -18));
       const school_name = email.slice(-18, -17).toUpperCase();
 
       if (email.endsWith("@nnn.ed.jp")) {
         let school: UserDataType["school"] = "N";
         if (school_name === "N") {
-          th -= 15;
+          gen -= 15;
         } else if (school_name === "S") {
-          th -= 20;
+          gen -= 20;
           school = "S";
         }
 
@@ -49,7 +49,7 @@ export const handler: Handlers = {
           id: UserInfo["id"],
           email: UserInfo["email"],
           school: school,
-          th: th,
+          gen: gen,
         };
 
         const User = db.collection<UserDataType>("User");
