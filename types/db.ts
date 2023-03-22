@@ -6,14 +6,14 @@ interface UserDataType {
   id: string;
   email: string;
   school: "N" | "S";
-  th: number;
+  gen: number;
 }
 
 interface VerifyDataType {
   token: string;
   name: string;
   school: "N" | "S";
-  th: number;
+  gen: number;
 }
 
 export type { UserCookieType, UserDataType, VerifyDataType };
