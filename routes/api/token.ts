@@ -11,7 +11,7 @@ const Verify = db.collection<VerifyDataType>("Verify");
 const User = db.collection<UserDataType>("User");
 
 export const handler: Handlers = {
-  async GET(req, ctx) {
+  async GET(req, _ctx) {
     const cookie = getCookies(req.headers);
     let res: tokenResponse;
 
