@@ -17,7 +17,7 @@ export const handler: Handlers = {
       const UserId = await UserCookie.findOne({ token: cookie["remember-me"] });
       const UserData = await User.findOne({ id: UserId?.id });
       if (UserId) {
-        return ctx.render(`${UserData?.school}高等学校${UserData?.th}期生`);
+        return ctx.render(`${UserData?.school}高等学校${UserData?.gen}期生`);
       }
       return ctx.render("default");
     }
