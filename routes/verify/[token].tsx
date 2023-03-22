@@ -15,7 +15,7 @@ export const handler: Handlers = {
     if (!check) {
       return ctx.render("ERROR2");
     }
-    await Verify.deleteOne({ token: token });
+    await Verify.deleteMany({ token: token });
     return ctx.render();
   },
 };

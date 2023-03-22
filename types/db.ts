@@ -2,6 +2,7 @@ interface UserCookieType {
   id: string;
   token: string;
 }
+
 interface UserDataType {
   id: string;
   email: string;
@@ -12,6 +13,7 @@ interface UserDataType {
 interface VerifyDataType {
   token: string;
   name: string;
+  id: string;
   school: "N" | "S";
   gen: number;
 }
