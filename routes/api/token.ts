@@ -43,8 +43,8 @@ export const handler: Handlers = {
       };
       return new Response(JSON.stringify(res));
     }
-    Verify.deleteMany({ id: UserInfo.id });
-    Verify.insertOne({
+    await Verify.deleteMany({ id: UserInfo.id });
+    await Verify.insertOne({
       token: token,
       name: name,
       id: UserInfo.id,

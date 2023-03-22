@@ -47,6 +47,7 @@ export default function verifyPage({ data }: PageProps<VerifyDataType>) {
         <div class="bg-white shadow-md rounded-md p-8 w-full sm:w-[30rem]">
           <div class="mb-6">
             <p class="bg-pink-400 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring w-full flex items-center justify-center">
+            <i class="mr-2"></i> {data.name}はN/S高生です
             </p>
           </div>
         </div>
