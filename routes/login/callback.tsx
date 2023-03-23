@@ -1,9 +1,9 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { setCookie } from "std/http/cookie.ts";
 import { axiod } from "https://deno.land/x/axiod@0.26.2/mod.ts";
-import { UserCookieType, UserDataType } from "../../types/db.ts";
-import env from "../../utils/env.ts";
-import {User, UserCookie} from "../../utils/mongodb.ts";
+import { UserCookieType, UserDataType } from "@/types/db.ts";
+import env from "@/utils/env.ts";
+import {User, UserCookie} from "@/utils/mongodb.ts";
 
 export const handler: Handlers = {
   async GET(req, ctx) {

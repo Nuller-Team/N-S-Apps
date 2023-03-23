@@ -1,15 +1,9 @@
 import { Handlers } from "$fresh/server.ts";
 import { getCookies } from "std/http/cookie.ts";
+import env from "@/utils/env.ts";
 
-import db from "utils/mongodb.ts";
-import env from "utils/env.ts";
-
-import type { UserCookieType, VerifyDataType, UserDataType } from "types/db.ts";
-import type { tokenResponse } from "types/token.ts";
-
-const UserCookie = db.collection<UserCookieType>("UserCookie");
-const Verify = db.collection<VerifyDataType>("Verify");
-const User = db.collection<UserDataType>("User");
+import type { tokenResponse } from "@/types/token.ts";
+import { User, UserCookie, Verify } from "@/utils/mongodb.ts";
 
 export const handler: Handlers = {
   async GET(req, _ctx) {

@@ -1,13 +1,13 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { getCookies } from "std/http/cookie.ts";
-import { User, UserCookie } from "../utils/mongodb.ts";
-import env from "../utils/env.ts";
+import { User, UserCookie } from "@/utils/mongodb.ts";
+import env from "@/utils/env.ts";
 
-import Title from "../components/title.tsx";
+import Title from "@/components/title.tsx";
 
-import TOKEN from "../islands/token.tsx";
+import TOKEN from "@/islands/token.tsx";
 
-import type { UserCookieType, UserDataType } from "../types/db.ts";
+import type { UserDataType } from "@/types/db.ts";
 
 export const handler: Handlers = {
   async GET(req, ctx) {
