@@ -1,9 +1,5 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
-import db from "utils/mongodb.ts";
-import type { VerifyDataType } from "types/db.ts";
 import Title from "../../components/title.tsx";
-
-const Verify = db.collection<VerifyDataType>("Verify");
 
 export const handler: Handlers = {
   async GET(req, ctx) {

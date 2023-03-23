@@ -3,7 +3,7 @@ import { setCookie } from "std/http/cookie.ts";
 import { axiod } from "https://deno.land/x/axiod@0.26.2/mod.ts";
 import { UserCookieType, UserDataType } from "../../types/db.ts";
 import env from "../../utils/env.ts";
-import db from "../../utils/mongodb.ts";
+import {User, UserCookie} from "../../utils/mongodb.ts";
 
 export const handler: Handlers = {
   async GET(req, ctx) {
@@ -51,9 +51,6 @@ export const handler: Handlers = {
           school: school,
           gen: gen,
         };
-
-        const User = db.collection<UserDataType>("User");
-        const UserCookie = db.collection<UserCookieType>("UserCookie");
 
         const already_made_user = await User.findOne({ id: UserInfo["id"] });
 
