@@ -1,6 +1,7 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 import db from "utils/mongodb.ts";
 import type { VerifyDataType } from "types/db.ts";
+import Title from "../../components/title.tsx";
 
 const Verify = db.collection<VerifyDataType>("Verify");
 
@@ -27,7 +28,8 @@ export default function verifyPage({ data }: PageProps<VerifyDataType>) {
           <div class="bg-white items-center p-8 rounded-md shadow-md w-full sm:w-96">
             <h1 class="text-2xl font-bold mb-4">エラーが発生しました。</h1>
             <p class="text-gray-500 mb-4">
-              TOKENが既に無効である可能性があります。<br></br>再度お試しください。
+              TOKENが既に無効である可能性があります。<br>
+              </br>再度お試しください。
             </p>
             <a
               href="/"
@@ -42,16 +44,15 @@ export default function verifyPage({ data }: PageProps<VerifyDataType>) {
   }
   return (
     <>
-      <div class="flex flex-col items-center justify-center h-screen bg-gray-100">
-        <h1 class="text-3xl font-bold text-gray-800 mb-8">N/S CAPTCHA</h1>
+      <Title>
         <div class="bg-white shadow-md rounded-md p-8 w-full sm:w-[30rem]">
           <div class="mb-6">
             <p class="bg-pink-400 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring w-full flex items-center justify-center">
-            <i class="mr-2"></i> {data.name}はN/S高生です
+              <i class="mr-2"></i> {data.name}はN/S高生です
             </p>
           </div>
         </div>
-      </div>
+      </Title>
     </>
   );
 }

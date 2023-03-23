@@ -3,6 +3,8 @@ import { getCookies } from "std/http/cookie.ts";
 import db from "../utils/mongodb.ts";
 import env from "../utils/env.ts";
 
+import Title from "../components/title.tsx";
+
 import TOKEN from "../islands/token.tsx";
 
 import type { UserCookieType, UserDataType } from "../types/db.ts";
@@ -31,8 +33,7 @@ export default function Index({ data }: PageProps<string | UserDataType>) {
   if (data == "default") {
     return (
       <>
-        <div class="flex flex-col items-center justify-center h-screen bg-gray-100">
-          <h1 class="text-3xl font-bold text-gray-800 mb-8">N/S CAPTCHA</h1>
+        <Title>
           <div class="bg-white shadow-md rounded-md p-8 w-full sm:w-[30rem]">
             <div class="mb-6">
               <a
@@ -48,14 +49,13 @@ export default function Index({ data }: PageProps<string | UserDataType>) {
               なお、このツールは結果を保証するものではありません。
             </p>
           </div>
-        </div>
+        </Title>
       </>
     );
   } else {
     return (
       <>
-        <div class="flex flex-col items-center justify-center h-screen bg-gray-100">
-          <h1 class="text-3xl font-bold text-gray-800 mb-8">N/S CAPTCHA</h1>
+        <Title>
           <div class="bg-white shadow-md rounded-md p-8 w-full sm:w-[30rem]">
             <div class="mb-6">
               <p class="bg-green-500 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring w-full flex items-center justify-center">
@@ -70,7 +70,7 @@ export default function Index({ data }: PageProps<string | UserDataType>) {
           <div class="bg-white shadow-md rounded-md p-8 w-full sm:w-[30rem]">
             <TOKEN></TOKEN>
           </div>
-        </div>
+        </Title>
       </>
     );
   }
