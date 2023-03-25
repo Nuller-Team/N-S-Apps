@@ -22,7 +22,7 @@ export default function TOKEN() {
       } else {
         setError("");
         setSuccess(`✅確認用URLを発行しました✅
-        ${data["text"]}`);
+\n${data["text"]}`);
       }
     });
   };
