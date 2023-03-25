@@ -1,30 +1,22 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { asset, Head } from "$fresh/runtime.ts";
-import { getCookies } from "std/http/cookie.ts";
-import { User, UserCookie } from "@/utils/mongodb.ts";
 import env from "@/utils/env.ts";
+import { User, UserCookie } from "@/utils/mongodb.ts";
+import type { State } from "@/types/session.ts";
 
 import Title from "@/components/title.tsx";
 
 import TOKEN from "@/islands/token.tsx";
 
-import type { UserDataType } from "@/types/db.ts";
-export const handler: Handlers = {
-  async GET(req, ctx) {
-    const cookie = getCookies(req.headers);
-    if (cookie["remember-me"]) {
-      const UserId = await UserCookie.findOne({ token: cookie["remember-me"] });
-      const UserData = await User.findOne({ id: UserId?.id });
-      if (UserId) {
-        return ctx.render(`${UserData?.school}高等学校${UserData?.gen}期生`);
-      }
-      return ctx.render("default");
-    }
-    return ctx.render("default");
+export const handler: Handlers<any, State> = {
+  GET(req, ctx) {
+    console.log(ctx);
+    if (!ctx.state.token) return ctx.render("default");
+    return ctx.render(`${ctx.state.school}高等学校${ctx.state.gen}期生`);
   },
 };
 
-export default function Index(props: PageProps<string | UserDataType>) {
+export default function Index(props: PageProps<string>) {
   const auth_url =
     `https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&response_type=code&client_id=3759644925-v0nm19g18f1n069v3tuutsf94p4p3eev.apps.googleusercontent.com&redirect_uri=${env.SERVER_URL}/login/callback`;
   if (props.data == "default") {
