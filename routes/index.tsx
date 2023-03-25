@@ -10,7 +10,6 @@ import TOKEN from "@/islands/token.tsx";
 
 export const handler: Handlers<any, State> = {
   GET(req, ctx) {
-    console.log(ctx);
     if (!ctx.state.token) return ctx.render("default");
     return ctx.render(`${ctx.state.school}高等学校${ctx.state.gen}期生`);
   },

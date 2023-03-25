@@ -7,7 +7,8 @@ import * as $0 from "./routes/_middleware.ts";
 import * as $1 from "./routes/api/token.ts";
 import * as $2 from "./routes/index.tsx";
 import * as $3 from "./routes/login/callback.tsx";
-import * as $4 from "./routes/verify/[token].tsx";
+import * as $4 from "./routes/test.tsx";
+import * as $5 from "./routes/verify/[token].tsx";
 import * as $$0 from "./islands/token.tsx";
 
 const manifest = {
@@ -16,7 +17,8 @@ const manifest = {
     "./routes/api/token.ts": $1,
     "./routes/index.tsx": $2,
     "./routes/login/callback.tsx": $3,
-    "./routes/verify/[token].tsx": $4,
+    "./routes/test.tsx": $4,
+    "./routes/verify/[token].tsx": $5,
   },
   islands: {
     "./islands/token.tsx": $$0,
