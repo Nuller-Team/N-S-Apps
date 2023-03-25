@@ -7,19 +7,22 @@ export default function TOKEN() {
   const fetchToken = async () => {
     console.log(name);
     if (name == "") {
-      setError("ERROR：ハンドルネームが空白です！");
+      setError("⚠️ハンドルネームが空白です！⚠️");
+      setSuccess("");
       return;
     }
     setError("");
     const res = await fetch(`api/token?name=${name}`);
     res.json().catch((e) => {
-      setError("ERROR：予期せぬエラーが発生しました");
+      setError("⛔️予期せぬエラーが発生しました⛔️");
+      setSuccess("");
     }).then((data) => {
       if (data["status"] == "Error") {
         setError(data["text"]);
       } else {
         setError("");
-        setSuccess(data["text"]);
+        setSuccess(`✅確認用URLを発行しました✅
+        ${data["text"]}`);
       }
     });
   };
