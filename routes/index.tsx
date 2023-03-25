@@ -1,7 +1,6 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { asset, Head } from "$fresh/runtime.ts";
 import env from "@/utils/env.ts";
-import { User, UserCookie } from "@/utils/mongodb.ts";
 import type { State } from "@/types/session.ts";
 
 import Title from "@/components/title.tsx";
