@@ -2,10 +2,9 @@ import { Handlers, PageProps } from "$fresh/server.ts";
 import { asset, Head } from "$fresh/runtime.ts";
 import env from "@/utils/env.ts";
 import type { State } from "@/types/session.ts";
-
+import Projects, { Project } from "@/components/Projects.tsx";
+import apps from "@/data/apps.json" assert { type: "json" };
 import Title from "@/components/title.tsx";
-
-import TOKEN from "@/islands/token.tsx";
 
 export const handler: Handlers<any, State> = {
   GET(req, ctx) {
@@ -15,14 +14,14 @@ export const handler: Handlers<any, State> = {
 };
 
 export default function Index(props: PageProps<string>) {
-  const auth_url =
-    `https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&response_type=code&client_id=3759644925-v0nm19g18f1n069v3tuutsf94p4p3eev.apps.googleusercontent.com&redirect_uri=${env.SERVER_URL}/login/callback`;
   if (props.data == "default") {
+    const auth_url =
+      `https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&response_type=code&client_id=3759644925-v0nm19g18f1n069v3tuutsf94p4p3eev.apps.googleusercontent.com&redirect_uri=${env.SERVER_URL}/login/callback`;
     const ogImageUrl = new URL(asset("/home-og.png"), props.url).href;
-    const TITLE = "N/S Captcha｜私はN/S高生です";
+    const TITLE = "N/S Apps｜N/S高生のためのアプリ";
     const DESCRIPTION =
-      `エンカ時やオフ会等でN/S高生かどうか、本人確認をすることができます。
-  このツールを使用するにはGoogleアカウントでログインが必要です。`;
+      `N/S高生の学校生活をより便利にするために作られたアプリたちです。
+このツールを使用するにはGoogleアカウントでログインが必要です。`;
     return (
       <>
         <Head>
@@ -37,8 +36,8 @@ export default function Index(props: PageProps<string>) {
           <meta property="og:url" content={props.url.href} />
           <meta property="og:image" content={ogImageUrl} />
         </Head>
-        <Title>
-          <div class="bg-white shadow-md rounded-md p-8 w-full sm:w-[30rem]">
+        <Title name="N/S Apps">
+          <div class="bg-white shadow-md rounded-md p-8 w-full sm:w-[31rem]">
             <div class="mb-6">
               <a
                 href={auth_url}
@@ -48,9 +47,11 @@ export default function Index(props: PageProps<string>) {
               </a>
             </div>
             <p class="text-sm text-gray-500 text-center">
-              オフ会/エンカなど、リアルに会うときや<br>
-              </br>その他本人確認等にお使いください。<br></br>
-              なお、このツールは結果を保証するものではありません。
+              N/S高生の開発チーム
+              <a href="https://nuller.net">『Nuller』</a>が開発した、<br></br>
+              N/S高での学校生活をより便利にする為に作られたアプリたちです。<br>
+              </br>
+              N/S高生以外は使うことができません。
             </p>
           </div>
         </Title>
@@ -59,23 +60,26 @@ export default function Index(props: PageProps<string>) {
   } else {
     return (
       <>
-        <Title>
-          <div class="bg-white shadow-md rounded-md p-8 w-full sm:w-[30rem]">
-            <div class="mb-6">
-              <p class="bg-green-500 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring w-full flex items-center justify-center">
-                <i class="mr-2"></i> あなたはN/S高生です
-              </p>
-            </div>
-            <p class="text-sm text-gray-500 text-center">
-              <p class="mr-3">あなたの情報：{props.data}</p>
-            </p>
+        <div class="flex flex-col min-h-screen">
+          <div class="flex-1">
+            <Apps items={apps} />
           </div>
-          <div class="p-4"></div>
-          <div class="bg-white shadow-md rounded-md p-8 w-full sm:w-[30rem]">
-            <TOKEN></TOKEN>
-          </div>
-        </Title>
+        </div>
       </>
     );
   }
+}
+
+function Apps({ items }: { items: Project[] }) {
+  return (
+    <section class="max-w-screen-lg mx-auto my-16 px(4 sm:6 md:8) space-y-4">
+      <h2 class="text(3xl gray-600) font-bold">
+        N/S Apps
+      </h2>
+      <p class="text-gray-600">
+        N/S高生の開発チーム『Nuller』が開発した N/S高生のためのアプリです。
+      </p>
+      <Projects items={items} class="gap-16" />
+    </section>
+  );
 }

@@ -1,7 +1,17 @@
 [
   {
-    "title": "N/S CAPTCHA",
-    "link": "/n-s-capture",
-    "image": "n-s-capture"
+    "title": "N/S Checker",
+    "link": "/checker",
+    "image": "checker"
+  },
+  {
+    "title": "N/S Result",
+    "link": "/result",
+    "image": "result"
+  },
+  {
+    "title": "N/S Profile",
+    "link": "/profile",
+    "image": "profile"
   }
 ]
