@@ -4,10 +4,16 @@
 /// <reference lib="dom.asynciterable" />
 /// <reference lib="deno.ns" />
 
-import { start } from "$fresh/server.ts";
+import { RenderFunction, start } from "$fresh/server.ts";
 import manifest from "./fresh.gen.ts";
 
 import twindPlugin from "$fresh/plugins/twind.ts";
 import twindConfig from "./twind.config.ts";
 
-await start(manifest, { plugins: [twindPlugin(twindConfig)] });
+const render: RenderFunction = (ctx, render) => {
+  ctx.lang = "ja";
+  render();
+};
+
+
+await start(manifest, { render, plugins: [twindPlugin(twindConfig)] });
