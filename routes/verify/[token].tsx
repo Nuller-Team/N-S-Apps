@@ -13,7 +13,14 @@ export const handler: Handlers = {
     if (!check) {
       return ctx.render();
     }
-    await Verify.deleteMany({ token: token });
+    if (check.times > 9) {
+      await Verify.deleteMany({ token: token });
+    } else {
+      check.times++;
+      await Verify.updateMany({ token: token }, {
+        $set: { times: check.times },
+      });
+    }
     return ctx.render(check);
   },
 };

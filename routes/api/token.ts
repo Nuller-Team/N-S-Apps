@@ -44,6 +44,7 @@ export const handler: Handlers = {
       id: UserInfo.id,
       school: UserInfo.school,
       gen: UserInfo.gen,
+      times: 0,
     });
     res = {
       status: "Success",

@@ -16,6 +16,7 @@ interface VerifyDataType {
   id: string;
   school: "N" | "S";
   gen: number;
+  times: number;
 }
 
 export type { UserCookieType, UserDataType, VerifyDataType };
