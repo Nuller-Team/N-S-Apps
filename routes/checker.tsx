@@ -59,7 +59,10 @@ export default function Checker(props: PageProps<string>) {
   } else {
     return (
       <>
-        <Title name="N/S CAPTCHA">
+      <Head>
+        <title>N/S Checker</title>
+      </Head>
+        <Title name="N/S Checker">
           <div class="bg-white shadow-md rounded-md p-8 w-full sm:w-[30rem]">
             <div class="mb-6">
               <p class="bg-green-500 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring w-full flex items-center justify-center">

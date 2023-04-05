@@ -1,7 +1,7 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { Verify } from "@/utils/mongodb.ts";
 import type { VerifyDataType } from "@/types/db.ts";
-import Title from "../../components/title.tsx";
+import Title from "@/components/title.tsx";
 
 export const handler: Handlers = {
   async GET(req, ctx) {
@@ -42,7 +42,7 @@ export default function verifyPage({ data }: PageProps<VerifyDataType>) {
   }
   return (
     <>
-      <Title>
+      <Title name="N/S Checker">
         <div class="bg-white shadow-md rounded-md p-8 w-full sm:w-[30rem]">
           <div class="mb-6">
             <p class="bg-pink-400 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring w-full flex items-center justify-center">
