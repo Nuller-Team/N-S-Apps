@@ -3,5 +3,10 @@
     "title": "N/S Checker",
     "link": "/checker",
     "image": "checker"
+  },
+  {
+    "title": "Nullerへ応募する",
+    "link": "/entry",
+    "image": "entry"
   }
 ]
