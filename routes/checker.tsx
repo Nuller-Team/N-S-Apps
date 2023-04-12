@@ -1,11 +1,12 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { asset, Head } from "$fresh/runtime.ts";
-import env from "@/utils/env.ts";
 import type { State } from "@/types/session.ts";
 
 import Title from "@/components/title.tsx";
 
 import TOKEN from "@/islands/token.tsx";
+
+import { auth_url } from "@/utils/auth.ts";
 
 export const handler: Handlers<any, State> = {
   GET(req, ctx) {
@@ -15,8 +16,6 @@ export const handler: Handlers<any, State> = {
 };
 
 export default function Checker(props: PageProps<string>) {
-  const auth_url =
-    `https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&response_type=code&client_id=3759644925-v0nm19g18f1n069v3tuutsf94p4p3eev.apps.googleusercontent.com&redirect_uri=${env.SERVER_URL}/login/callback`;
   if (props.data == "default") {
     const ogImageUrl = new URL(asset("/ns-app/apps.png"), props.url).href;
     const TITLE = "N/S Checker｜私はN/S高生です";
@@ -59,9 +58,9 @@ export default function Checker(props: PageProps<string>) {
   } else {
     return (
       <>
-      <Head>
-        <title>N/S Checker</title>
-      </Head>
+        <Head>
+          <title>N/S Checker</title>
+        </Head>
         <Title name="N/S Checker">
           <div class="bg-white shadow-md rounded-md p-8 w-full sm:w-[30rem]">
             <div class="mb-6">
@@ -82,4 +81,3 @@ export default function Checker(props: PageProps<string>) {
     );
   }
 }
-
