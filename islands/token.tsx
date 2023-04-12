@@ -2,7 +2,7 @@ import { useState } from "preact/hooks";
 import IconCheck from "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/check.tsx";
 import IconCopy from "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/copy.tsx";
 
-import Modal from "@/components/token/modal.tsx";
+import Modal from "@/components/modal.tsx";
 
 export default function TOKEN() {
   const [name, setName] = useState("");

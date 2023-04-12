@@ -16,7 +16,7 @@ export async function handler(
   if (!UserData) return ctx.next();
   ctx.state = {
     id: UserData.id,
-    email: UserData.id,
+    email: UserData.email,
     school: UserData.school,
     gen: UserData.gen,
     token: remember_me,
