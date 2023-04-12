@@ -7,10 +7,12 @@ import * as $0 from "./routes/_404.tsx";
 import * as $1 from "./routes/_middleware.ts";
 import * as $2 from "./routes/api/token.ts";
 import * as $3 from "./routes/checker.tsx";
-import * as $4 from "./routes/index.tsx";
-import * as $5 from "./routes/login/callback.tsx";
-import * as $6 from "./routes/verify/[token].tsx";
-import * as $$0 from "./islands/token.tsx";
+import * as $4 from "./routes/entry.tsx";
+import * as $5 from "./routes/index.tsx";
+import * as $6 from "./routes/login/callback.tsx";
+import * as $7 from "./routes/verify/[token].tsx";
+import * as $$0 from "./islands/entry.tsx";
+import * as $$1 from "./islands/token.tsx";
 
 const manifest = {
   routes: {
@@ -18,12 +20,14 @@ const manifest = {
     "./routes/_middleware.ts": $1,
     "./routes/api/token.ts": $2,
     "./routes/checker.tsx": $3,
-    "./routes/index.tsx": $4,
-    "./routes/login/callback.tsx": $5,
-    "./routes/verify/[token].tsx": $6,
+    "./routes/entry.tsx": $4,
+    "./routes/index.tsx": $5,
+    "./routes/login/callback.tsx": $6,
+    "./routes/verify/[token].tsx": $7,
   },
   islands: {
-    "./islands/token.tsx": $$0,
+    "./islands/entry.tsx": $$0,
+    "./islands/token.tsx": $$1,
   },
   baseUrl: import.meta.url,
   config,
