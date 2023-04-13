@@ -42,13 +42,24 @@ export default function EntryForm(props: propsType) {
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline disabled:(cursor-not-allowed)"
               id="email"
               type="email"
-              disabled={false}
+              disabled={true}
               value={props.email}
               name="entry.559509131"
               required
             >
             </input>
           </div>
+          <input
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline disabled:(cursor-not-allowed)"
+              id="email"
+              type="email"
+              disabled={false}
+              value={props.email}
+              name="entry.559509131"
+              required
+              hidden={true}
+            >
+            </input>
           <div class="mb-4">
             <label class="block text-gray-700 font-bold mb-2" for="github">
               Discord
