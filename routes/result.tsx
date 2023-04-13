@@ -11,12 +11,12 @@ export const handler: Handlers<any, State> = {
   },
 };
 
-export default function Checker(props: PageProps<string>) {
+export default function Result(props: PageProps<string>) {
   if (props.data == "default") {
     const ogImageUrl = new URL(asset("/ns-app/result.png"), props.url).href;
-    const TITLE = "N/S Checker｜私はN/S高生です";
+    const TITLE = "N/S Result｜成績を素早く簡単に確認";
     const DESCRIPTION =
-      `エンカ時やオフ会等でN/S高生かどうか、本人確認をすることができます。
+      `Chromeの拡張機能を用いてN/S高の成績を素早く簡単に確認することができます。
 このツールを使用するにはGoogleアカウントでログインが必要です。`;
     return (
       <>
