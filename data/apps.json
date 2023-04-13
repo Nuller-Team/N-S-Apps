@@ -5,6 +5,11 @@
     "image": "checker"
   },
   {
+    "title": "N/S Result",
+    "link": "/result",
+    "image": "result"
+  },
+  {
     "title": "Nullerへ応募する",
     "link": "/entry",
     "image": "entry"
