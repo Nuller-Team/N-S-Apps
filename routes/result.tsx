@@ -13,7 +13,7 @@ export const handler: Handlers<any, State> = {
 
 export default function Checker(props: PageProps<string>) {
   if (props.data == "default") {
-    const ogImageUrl = new URL(asset("/ns-app/apps.png"), props.url).href;
+    const ogImageUrl = new URL(asset("/ns-app/result.png"), props.url).href;
     const TITLE = "N/S Checker｜私はN/S高生です";
     const DESCRIPTION =
       `エンカ時やオフ会等でN/S高生かどうか、本人確認をすることができます。
