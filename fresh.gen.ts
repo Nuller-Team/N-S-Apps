@@ -10,7 +10,8 @@ import * as $3 from "./routes/checker.tsx";
 import * as $4 from "./routes/entry.tsx";
 import * as $5 from "./routes/index.tsx";
 import * as $6 from "./routes/login/callback.tsx";
-import * as $7 from "./routes/verify/[token].tsx";
+import * as $7 from "./routes/result.tsx";
+import * as $8 from "./routes/verify/[token].tsx";
 import * as $$0 from "./islands/entry.tsx";
 import * as $$1 from "./islands/token.tsx";
 
@@ -23,7 +24,8 @@ const manifest = {
     "./routes/entry.tsx": $4,
     "./routes/index.tsx": $5,
     "./routes/login/callback.tsx": $6,
-    "./routes/verify/[token].tsx": $7,
+    "./routes/result.tsx": $7,
+    "./routes/verify/[token].tsx": $8,
   },
   islands: {
     "./islands/entry.tsx": $$0,
