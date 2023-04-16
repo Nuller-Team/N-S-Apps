@@ -8,16 +8,13 @@ import * as $1 from "./routes/_app.tsx";
 import * as $2 from "./routes/_middleware.ts";
 import * as $3 from "./routes/api/token.ts";
 import * as $4 from "./routes/checker.tsx";
-import * as $5 from "./routes/docs/terms.tsx";
-import * as $6 from "./routes/entry.tsx";
-import * as $7 from "./routes/index.tsx";
-import * as $8 from "./routes/login/callback.tsx";
-import * as $9 from "./routes/profile.tsx";
-import * as $10 from "./routes/result.tsx";
-import * as $11 from "./routes/verify/[token].tsx";
+import * as $5 from "./routes/entry.tsx";
+import * as $6 from "./routes/index.tsx";
+import * as $7 from "./routes/login/callback.tsx";
+import * as $8 from "./routes/result.tsx";
+import * as $9 from "./routes/verify/[token].tsx";
 import * as $$0 from "./islands/entry.tsx";
-import * as $$1 from "./islands/profile.tsx";
-import * as $$2 from "./islands/token.tsx";
+import * as $$1 from "./islands/token.tsx";
 
 const manifest = {
   routes: {
@@ -26,18 +23,15 @@ const manifest = {
     "./routes/_middleware.ts": $2,
     "./routes/api/token.ts": $3,
     "./routes/checker.tsx": $4,
-    "./routes/docs/terms.tsx": $5,
-    "./routes/entry.tsx": $6,
-    "./routes/index.tsx": $7,
-    "./routes/login/callback.tsx": $8,
-    "./routes/profile.tsx": $9,
-    "./routes/result.tsx": $10,
-    "./routes/verify/[token].tsx": $11,
+    "./routes/entry.tsx": $5,
+    "./routes/index.tsx": $6,
+    "./routes/login/callback.tsx": $7,
+    "./routes/result.tsx": $8,
+    "./routes/verify/[token].tsx": $9,
   },
   islands: {
     "./islands/entry.tsx": $$0,
-    "./islands/profile.tsx": $$1,
-    "./islands/token.tsx": $$2,
+    "./islands/token.tsx": $$1,
   },
   baseUrl: import.meta.url,
   config,
