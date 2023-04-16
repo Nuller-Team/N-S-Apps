@@ -6,6 +6,7 @@ import apps from "@/data/apps.json" assert { type: "json" };
 import Title from "@/components/title.tsx";
 
 import { auth_url } from "@/utils/auth.ts";
+import { Footer } from "../components/footer.tsx";
 
 export const handler: Handlers<any, State> = {
   GET(req, ctx) {
