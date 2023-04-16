@@ -48,7 +48,8 @@ export default function Result(props: PageProps<string>) {
                 </div>
               </div>
             </nav>
-            <hr></hr>
+            <hr>
+            </hr>
             <section
               class="bg-white py-80 font-bold"
               style="background-image: url(result/back.png);"
@@ -66,7 +67,7 @@ export default function Result(props: PageProps<string>) {
                     href={auth_url}
                     class="px-6 py-3 font-semibold text-white bg-blue-500 hover:bg-blue-600 rounded-md"
                   >
-                    ログインしてダウンロードする
+                    ログインしてダウンロード
                   </a>
                 </div>
               </div>
@@ -212,34 +213,44 @@ export default function Result(props: PageProps<string>) {
                   Chromeのみ対応
                 </h2>
                 <div class="flex flex-wrap -mx-4">
-                  <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-6">
+                  <div class="w-full md:w-1/2 lg:w-1/2 px-4 mb-6">
                     <div class="bg-white rounded-lg shadow-md p-6">
                       <h3 class="text-xl font-semibold text-gray-800 mb-2">
-                        ✅以下の手順で拡張機能タブを開きます
-                      </h3>
-                      <p>︙＞その他ツール＞拡張機能</p>
-                      <img src="result/Chrome_1.png"></img>
-                    </div>
-                  </div>
-                  <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-6">
-                    <div class="bg-white rounded-lg shadow-md p-6">
-                      <h3 class="text-xl font-semibold text-gray-800 mb-2">
-                        ✅ダウンロードしたファイルを解凍（展開）
+                        ✅ダウンロードリンクを開き、「Chromeに追加」を選択します。
                       </h3>
                       <p>
-                        Macの場合、ダウンロードしたファイルを開くことで解凍可能です。
+                        このページの「ダウンロード」ボタンにリンクが記載されています。Googleアカウントログインが必要です。
                       </p>
+                      <img src="result/Chrome1.png"></img>
                     </div>
                   </div>
-                  <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-6">
+                  <div class="w-full md:w-1/2 lg:w-1/2 px-4 mb-6">
                     <div class="bg-white rounded-lg shadow-md p-6">
                       <h3 class="text-xl font-semibold text-gray-800 mb-2">
-                        ✅以下の手順でダウンロード
+                        ✅拡張機能を追加を選択
+                      </h3>
+                      <p>これを行うことによりインストールが完了します。</p>
+                      <img src="result/Chrome2.png"></img>
+                    </div>
+                  </div>
+                  <div class="w-full md:w-1/2 lg:w-1/2 px-4 mb-6">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                      <h3 class="text-xl font-semibold text-gray-800 mb-2">
+                        ✅成績を素早く確認できるようにします。
+                      </h3>
+                      <p>パズルボタンから「N/SResult」をピン留めします。</p>
+                      <img src="result/Chrome3.png"></img>
+                    </div>
+                  </div>
+                  <div class="w-full md:w-1/2 lg:w-1/2 px-4 mb-6">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                      <h3 class="text-xl font-semibold text-gray-800 mb-2">
+                        ✅完了！成績を素早く確認できます！
                       </h3>
                       <p>
-                        デベロッパーモードを有効化して、パッケージ化されていない拡張機能を読み込む
+                        成績を確認する際は、N/SResultのアイコンをクリックして、所属校がN高かS高を選びます。
                       </p>
-                      <img src="result/Chrome_3.png"></img>
+                      <img src="result/Chrome4.png"></img>
                     </div>
                   </div>
                 </div>
@@ -252,10 +263,20 @@ export default function Result(props: PageProps<string>) {
                     <h2 class="text-lg font-semibold mb-4">Links</h2>
                     <ul>
                       <li>
-                        <a href="#" class="block mb-2">Twitter</a>
+                        <a
+                          href="https://twitter.com/Nuller_jp"
+                          class="block mb-2"
+                        >
+                          Twitter
+                        </a>
                       </li>
                       <li>
-                        <a href="#" class="block mb-2">Github</a>
+                        <a
+                          href="https://github.com/Nuller-Team"
+                          class="block mb-2"
+                        >
+                          Github
+                        </a>
                       </li>
                       <li>
                         <a href="https://nuller.net/" class="block mb-2">
@@ -306,7 +327,8 @@ export default function Result(props: PageProps<string>) {
               </div>
             </div>
           </nav>
-          <hr></hr>
+          <hr>
+          </hr>
           <section
             class="bg-white py-80 font-bold"
             style="background-image: url(result/back.png);"
@@ -321,10 +343,10 @@ export default function Result(props: PageProps<string>) {
               </p>
               <div class="mt-8">
                 <a
-                  href="/N-S-Result.zip"
+                  href="https://chrome.google.com/webstore/detail/ns-result/bpcfecdbikofccaldngncmhhiemjoakg?hl=ja&authuser=0"
                   class="px-6 py-3 font-semibold text-white bg-blue-500 hover:bg-blue-600 rounded-md"
                 >
-                  ダウンロードする
+                  ダウンロード
                 </a>
               </div>
             </div>
@@ -452,7 +474,7 @@ export default function Result(props: PageProps<string>) {
                 <p class="text-lg mb-8 text-center">Chrome 対応</p>
                 <div class="flex justify-center">
                   <a
-                    href="#"
+                    href="https://chrome.google.com/webstore/detail/ns-result/bpcfecdbikofccaldngncmhhiemjoakg?hl=ja&authuser=0"
                     class="bg-white text-blue-600 hover:bg-blue-700 font-semibold py-3 px-6 rounded-full mr-4"
                   >
                     ダウンロード
@@ -470,34 +492,44 @@ export default function Result(props: PageProps<string>) {
                 Chromeのみ対応
               </h2>
               <div class="flex flex-wrap -mx-4">
-                <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-6">
+                <div class="w-full md:w-1/2 lg:w-1/2 px-4 mb-6">
                   <div class="bg-white rounded-lg shadow-md p-6">
                     <h3 class="text-xl font-semibold text-gray-800 mb-2">
-                      ✅以下の手順で拡張機能タブを開きます
-                    </h3>
-                    <p>︙＞その他ツール＞拡張機能</p>
-                    <img src="result/Chrome_1.png"></img>
-                  </div>
-                </div>
-                <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-6">
-                  <div class="bg-white rounded-lg shadow-md p-6">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">
-                      ✅ダウンロードしたファイルを解凍（展開）
+                      ✅ダウンロードリンクを開き、「Chromeに追加」を選択します。
                     </h3>
                     <p>
-                      Macの場合、ダウンロードしたファイルを開くことで解凍可能です。
+                      このページの「ダウンロード」ボタンにリンクが記載されています。Googleアカウントログインが必要です。
                     </p>
+                    <img src="result/Chrome1.png"></img>
                   </div>
                 </div>
-                <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-6">
+                <div class="w-full md:w-1/2 lg:w-1/2 px-4 mb-6">
                   <div class="bg-white rounded-lg shadow-md p-6">
                     <h3 class="text-xl font-semibold text-gray-800 mb-2">
-                      ✅以下の手順でダウンロード
+                      ✅拡張機能を追加を選択
+                    </h3>
+                    <p>これを行うことによりインストールが完了します。</p>
+                    <img src="result/Chrome2.png"></img>
+                  </div>
+                </div>
+                <div class="w-full md:w-1/2 lg:w-1/2 px-4 mb-6">
+                  <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">
+                      ✅成績を素早く確認できるようにします。
+                    </h3>
+                    <p>パズルボタンから「N/SResult」をピン留めします。</p>
+                    <img src="result/Chrome3.png"></img>
+                  </div>
+                </div>
+                <div class="w-full md:w-1/2 lg:w-1/2 px-4 mb-6">
+                  <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">
+                      ✅完了！成績を素早く確認できます！
                     </h3>
                     <p>
-                      デベロッパーモードを有効化して、パッケージ化されていない拡張機能を読み込む
+                      成績を確認する際は、N/SResultのアイコンをクリックして、所属校がN高かS高を選びます。
                     </p>
-                    <img src="result/Chrome_3.png"></img>
+                    <img src="result/Chrome4.png"></img>
                   </div>
                 </div>
               </div>
@@ -510,10 +542,20 @@ export default function Result(props: PageProps<string>) {
                   <h2 class="text-lg font-semibold mb-4">Links</h2>
                   <ul>
                     <li>
-                      <a href="#" class="block mb-2">Twitter</a>
+                      <a
+                        href="https://twitter.com/Nuller_jp"
+                        class="block mb-2"
+                      >
+                        Twitter
+                      </a>
                     </li>
                     <li>
-                      <a href="#" class="block mb-2">Github</a>
+                      <a
+                        href="https://github.com/Nuller-Team"
+                        class="block mb-2"
+                      >
+                        Github
+                      </a>
                     </li>
                     <li>
                       <a href="https://nuller.net/" class="block mb-2">
@@ -540,6 +582,8 @@ export default function Result(props: PageProps<string>) {
               </div>
             </div>
           </footer>
+          <style>
+          </style>
         </div>
       </>
     );
