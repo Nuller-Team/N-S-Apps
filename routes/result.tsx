@@ -256,55 +256,6 @@ export default function Result(props: PageProps<string>) {
                 </div>
               </div>
             </section>
-            <footer class="text-gray-800 py-8">
-              <div class="bg-gray-100 container mx-auto">
-                <div class="flex flex-wrap">
-                  <div class="w-full md:w-1/4 lg:w-1/4 px-4 mb-4 md:mb-0">
-                    <h2 class="text-lg font-semibold mb-4">Links</h2>
-                    <ul>
-                      <li>
-                        <a
-                          href="https://twitter.com/Nuller_jp"
-                          class="block mb-2"
-                        >
-                          Twitter
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="https://github.com/Nuller-Team"
-                          class="block mb-2"
-                        >
-                          Github
-                        </a>
-                      </li>
-                      <li>
-                        <a href="https://nuller.net/" class="block mb-2">
-                          nuller.net
-                        </a>
-                      </li>
-                      <li>
-                        <a href="https://nuller.net/contact" class="block mb-2">
-                          お問い合わせ
-                        </a>
-                      </li>
-                      <li>
-                        <a href="https://nuller.net/privacy" class="block mb-2">
-                          プライバシーポリシー
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="container mx-auto justify-center text-center flex items-center">
-                <div class="w-full md:w-1/2 lg:w-1/4 px-4 mb-4 md:mb-0">
-                  <p class="text-sm">© Nuller All rights reserved.</p>
-                </div>
-              </div>
-            </footer>
-            <style>
-            </style>
           </div>
         </>
       </>
@@ -535,55 +486,6 @@ export default function Result(props: PageProps<string>) {
               </div>
             </div>
           </section>
-          <footer class="text-gray-800 py-8">
-            <div class="bg-gray-100 container mx-auto">
-              <div class="flex flex-wrap">
-                <div class="w-full md:w-1/4 lg:w-1/4 px-4 mb-4 md:mb-0">
-                  <h2 class="text-lg font-semibold mb-4">Links</h2>
-                  <ul>
-                    <li>
-                      <a
-                        href="https://twitter.com/Nuller_jp"
-                        class="block mb-2"
-                      >
-                        Twitter
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="https://github.com/Nuller-Team"
-                        class="block mb-2"
-                      >
-                        Github
-                      </a>
-                    </li>
-                    <li>
-                      <a href="https://nuller.net/" class="block mb-2">
-                        nuller.net
-                      </a>
-                    </li>
-                    <li>
-                      <a href="https://nuller.net/contact" class="block mb-2">
-                        お問い合わせ
-                      </a>
-                    </li>
-                    <li>
-                      <a href="https://nuller.net/privacy" class="block mb-2">
-                        プライバシーポリシー
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="container mx-auto justify-center text-center flex items-center">
-              <div class="w-full md:w-1/2 lg:w-1/4 px-4 mb-4 md:mb-0">
-                <p class="text-sm">© Nuller All rights reserved.</p>
-              </div>
-            </div>
-          </footer>
-          <style>
-          </style>
         </div>
       </>
     );

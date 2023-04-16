@@ -7,12 +7,12 @@ export function Footer(): JSX.Element {
         <div class="w-full max-w-screen-lg flex flex-col sm:flex-row justify-between items-center">
           <div class="logo">
             <a
-              href="/"
+              href="https://nuller.net"
               target="_top"
               class="text-black no-underline"
             >
               <img
-                src="https://nuller-team.github.io/nuller-net/picture/Nuller.png"
+                src="/nuller.png"
                 class="w-16"
                 alt="Nuller Logo"
               >
@@ -20,14 +20,14 @@ export function Footer(): JSX.Element {
             </a>
           </div>
           <div class="links font-semibold text-lg flex flex-col sm:flex-row">
-            <a href="/about" target="_top" class="mr-4 mb-2 sm:mb-0">About</a>
-            <a href="/project" target="_top" class="mr-4 mb-2 sm:mb-0">
+            <a href="https://nuller.net/about" target="_top" class="mr-4 mb-2 sm:mb-0">About</a>
+            <a href="https://nuller.net/project" target="_top" class="mr-4 mb-2 sm:mb-0">
               Project
             </a>
-            <a href="/contact" target="_top" class="mr-4 mb-2 sm:mb-0">
+            <a href="https://nuller.net/contact" target="_top" class="mr-4 mb-2 sm:mb-0">
               Contact
             </a>
-            <a href="/privacy" target="_top" class="mr-4 mb-2 sm:mb-0">
+            <a href="https://nuller.net/privacy" target="_top" class="mr-4 mb-2 sm:mb-0">
               Privacy Policy
             </a>
           </div>
