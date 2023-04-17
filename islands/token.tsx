@@ -12,7 +12,6 @@ export default function TOKEN() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const fetchToken = async () => {
-    console.log(name);
     if (name == "") {
       setError("⚠️ハンドルネームが空白です！⚠️");
       return;
