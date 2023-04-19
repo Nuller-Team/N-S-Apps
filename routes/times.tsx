@@ -18,7 +18,7 @@ export default function Times(props: PageProps<State | undefined>) {
     return (
       <>
         <Title name="N/S Times">
-          <div class="bg-white shadow-md rounded-md p-8 w-full sm:w-[30rem]">
+          <div class="bg-white shadow-md rounded-md p-8 w-full sm:w-[31rem]">
             <div class="mb-6">
               <a
                 href={auth_url}
@@ -28,8 +28,11 @@ export default function Times(props: PageProps<State | undefined>) {
               </a>
             </div>
             <p class="text-sm text-gray-500 text-center">
-              Nullerに応募する為にはN/S高生アカウントでの<br>
-              </br>ログインが必要です。
+              N/S高生の開発チーム
+              <a href="https://nuller.net">『Nuller』</a>が開発した、<br></br>
+              N/S高での学校生活をより便利にする為に作られたアプリたちです。<br>
+              </br>
+              N/S高生以外は使うことができません。
             </p>
           </div>
         </Title>
