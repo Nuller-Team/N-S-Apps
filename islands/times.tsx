@@ -52,7 +52,30 @@ export default function TIMES({ state }: propsType) {
       setEnrollmentDate(
         date(`${Enrollment_year + 1}-01-01 00:00`).tz("asia/Tokyo").t
       );
-  }, [selectedOption.value, haveUsed]);
+  }, []);
+
+  useEffect(() => {
+    let Enrollment_year = 2000 + 20 + state.gen;
+    if (state.school == "N") {
+      Enrollment_year = 2000 + 15 + state.gen;
+    }
+    if (selectedOption.value == 4) {
+      setEnrollmentDate(
+        date(`${Enrollment_year}-04-01 00:00`).tz("asia/Tokyo").t
+      );
+    } else if (selectedOption.value == 7)
+      setEnrollmentDate(
+        date(`${Enrollment_year}-07-01 00:00`).tz("asia/Tokyo").t
+      );
+    else if (selectedOption.value == 10)
+      setEnrollmentDate(
+        date(`${Enrollment_year}-10-01 00:00`).tz("asia/Tokyo").t
+      );
+    else if (selectedOption.value == 1)
+      setEnrollmentDate(
+        date(`${Enrollment_year + 1}-01-01 00:00`).tz("asia/Tokyo").t
+      );
+  }, [selectedOption.value]);
   useEffect(() => {
     const intervalID = setInterval(() => tick(), 1000);
     return () => clearInterval(intervalID);
