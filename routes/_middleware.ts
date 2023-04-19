@@ -19,6 +19,7 @@ export async function handler(
     email: UserData.email,
     school: UserData.school,
     gen: UserData.gen,
+    admission_month: UserData.admission_month,
     token: remember_me,
   }
   return ctx.next();

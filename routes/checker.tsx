@@ -15,21 +15,18 @@ export const handler: Handlers<any, State> = {
   },
 };
 
+const TITLE = "N/S Checker｜私はN/S高生です";
+const DESCRIPTION = `エンカ時やオフ会等でN/S高生かどうか、本人確認をすることができます。
+このツールを使用するにはGoogleアカウントでログインが必要です。`;
+
 export default function Checker(props: PageProps<string>) {
   if (props.data == "default") {
     const ogImageUrl = new URL(asset("/ns-app/apps.png"), props.url).href;
-    const TITLE = "N/S Checker｜私はN/S高生です";
-    const DESCRIPTION =
-      `エンカ時やオフ会等でN/S高生かどうか、本人確認をすることができます。
-このツールを使用するにはGoogleアカウントでログインが必要です。`;
     return (
       <>
         <Head>
           <title>{TITLE}</title>
-          <meta
-            name="description"
-            content={DESCRIPTION}
-          />
+          <meta name="description" content={DESCRIPTION} />
           <meta property="og:title" content={TITLE} />
           <meta property="og:type" content="website" />
           <meta property="og:description" content={DESCRIPTION} />
@@ -40,15 +37,15 @@ export default function Checker(props: PageProps<string>) {
           <div class="bg-white shadow-md rounded-md p-8 w-full sm:w-[30rem]">
             <div class="mb-6">
               <a
-                href={auth_url}
+                href={auth_url + "&state=checker"}
                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring w-full flex items-center justify-center"
               >
                 <i class="mr-2"></i> 私はN/S高生です
               </a>
             </div>
             <p class="text-sm text-gray-500 text-center">
-              オフ会/エンカなど、リアルに会うときや<br>
-              </br>その他本人確認等にお使いください。<br></br>
+              オフ会/エンカなど、リアルに会うときや<br></br>
+              その他本人確認等にお使いください。<br></br>
               なお、このツールは結果を保証するものではありません。
             </p>
           </div>
@@ -59,7 +56,7 @@ export default function Checker(props: PageProps<string>) {
     return (
       <>
         <Head>
-          <title>N/S Checker</title>
+          <title>{TITLE}</title>
         </Head>
         <Title name="N/S Checker">
           <div class="bg-white shadow-md rounded-md p-8 w-full sm:w-[30rem]">
