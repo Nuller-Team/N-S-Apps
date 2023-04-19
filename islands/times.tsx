@@ -7,12 +7,6 @@ interface propsType {
   state: State;
 }
 
-function daysBetween(startDate: Date) {
-  const today = date().tz("asia/Tokyo").t;
-  const diff = today.getTime() - startDate.getTime();
-  return diff;
-}
-
 const options = [
   { value: 4, label: "4月生" },
   { value: 7, label: "7月生" },
@@ -21,78 +15,53 @@ const options = [
 ];
 
 export default function TIMES({ state }: propsType) {
-  const [haveUsed, setHaveUsed] = useState<boolean>();
+  const [haveUsed, setHaveUsed] = useState<boolean>(false);
   const [selectedOption, setSelectedOption] = useState(options[0]);
   const [error, setError] = useState("");
+  const [EnrollmentDate, setEnrollmentDate] = useState<Date>(
+    date().tz("asia/Tokyo").t
+  );
   useEffect(() => {
     if (state.admission_month) {
+      if (state.admission_month == "4") setSelectedOption(options[0]);
+      if (state.admission_month == "7") setSelectedOption(options[1]);
+      if (state.admission_month == "10") setSelectedOption(options[2]);
+      if (state.admission_month == "1") setSelectedOption(options[3]);
       setHaveUsed(true);
-    } else {
-      setHaveUsed(false);
     }
   }, []);
 
-  let Enrollment_date: Date = date().tz("asia/Tokyo").t;
-
   useEffect(() => {
+    let Enrollment_year = 2000 + 20 + state.gen;
     if (state.school == "N") {
-      const Enrollment_year = 2000 + 15 + state.gen;
-      if (state.admission_month == "4")
-        Enrollment_date = date(`${Enrollment_year}-04-01 00:00`).tz(
-          "asia/Tokyo"
-        ).t;
-      else if (state.admission_month == "7")
-        Enrollment_date = date(`${Enrollment_year}-07-01 00:00`).tz(
-          "asia/Tokyo"
-        ).t;
-      else if (state.admission_month == "10")
-        Enrollment_date = date(`${Enrollment_year}-10-01 00:00`).tz(
-          "asia/Tokyo"
-        ).t;
-      else if (state.admission_month == "1")
-        Enrollment_date = date(`${Enrollment_year + 1}-01-01 00:00`).tz(
-          "asia/Tokyo"
-        ).t;
-      else
-        Enrollment_date = date(`${Enrollment_year}-04-01 00:00`).tz(
-          "asia/Tokyo"
-        ).t;
-    } else {
-      const Enrollment_year = 2000 + 20 + state.gen;
-      if (state.admission_month == "4")
-        Enrollment_date = date(`${Enrollment_year}-04-01 00:00`).tz(
-          "asia/Tokyo"
-        ).t;
-      else if (state.admission_month == "7")
-        Enrollment_date = date(`${Enrollment_year}-07-01 00:00`).tz(
-          "asia/Tokyo"
-        ).t;
-      else if (state.admission_month == "10")
-        Enrollment_date = date(`${Enrollment_year}-10-01 00:00`).tz(
-          "asia/Tokyo"
-        ).t;
-      else if (state.admission_month == "1")
-        Enrollment_date = date(`${Enrollment_year + 1}-04-01 00:00`).tz(
-          "asia/Tokyo"
-        ).t;
-      else
-        Enrollment_date = date(`${Enrollment_year}-04-01 00:00`).tz(
-          "asia/Tokyo"
-        ).t;
+      Enrollment_year = 2000 + 15 + state.gen;
     }
-  },[haveUsed]);
-  const [time, setTime] = useState(new Date(daysBetween(Enrollment_date)));
-
+    if (selectedOption.value == 4) {
+      setEnrollmentDate(
+        date(`${Enrollment_year}-04-01 00:00`).tz("asia/Tokyo").t
+      );
+    } else if (selectedOption.value == 7)
+      setEnrollmentDate(
+        date(`${Enrollment_year}-07-01 00:00`).tz("asia/Tokyo").t
+      );
+    else if (selectedOption.value == 10)
+      setEnrollmentDate(
+        date(`${Enrollment_year}-10-01 00:00`).tz("asia/Tokyo").t
+      );
+    else if (selectedOption.value == 1)
+      setEnrollmentDate(
+        date(`${Enrollment_year + 1}-01-01 00:00`).tz("asia/Tokyo").t
+      );
+  }, [selectedOption.value]);
   useEffect(() => {
     const intervalID = setInterval(() => tick(), 1000);
     return () => clearInterval(intervalID);
-  }, [haveUsed]);
+  }, [selectedOption.value, haveUsed]);
 
+  const [time, setTime] = useState(new Date(daysBetween(EnrollmentDate)));
   const tick = () => {
-    setTime(new Date(daysBetween(Enrollment_date)));
+    setTime(new Date(daysBetween(EnrollmentDate)));
   };
-
-  const times = Math.floor(time.getTime() / 1000);
 
   const handleChange = (
     event: h.JSX.TargetedEvent<HTMLSelectElement, Event>
@@ -108,6 +77,7 @@ export default function TIMES({ state }: propsType) {
     const res = await fetch(
       `/api/admission_month?month=${selectedOption.value}`
     );
+    console.log(selectedOption.value);
     res
       .json()
       .catch((e) => {
@@ -118,19 +88,15 @@ export default function TIMES({ state }: propsType) {
           setError(data["text"]);
         } else {
           setHaveUsed(true);
-          console.log(haveUsed);
-          console.log("trueeeee");
-          const admission_month_from_selected = selectedOption.value.toString();
-          if (admission_month_from_selected == "4") state.admission_month = "4";
-          else if (admission_month_from_selected == "7")
-            state.admission_month = "7";
-          else if (admission_month_from_selected == "10")
-            state.admission_month = "10";
-          else if (admission_month_from_selected == "1")
-            state.admission_month = "1";
         }
       });
   };
+
+  function daysBetween(startDate: Date) {
+    const today = date().tz("asia/Tokyo").t;
+    const diff = today.getTime() - startDate.getTime();
+    return diff;
+  }
 
   return (
     <>
@@ -143,7 +109,7 @@ export default function TIMES({ state }: propsType) {
               setHaveUsed(false);
             }}
           >
-            {times}
+            {Math.floor(time.getTime() / 1000)}
           </a>
           <br></br>
           秒が経過しています
