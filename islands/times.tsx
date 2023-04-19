@@ -52,7 +52,7 @@ export default function TIMES({ state }: propsType) {
       setEnrollmentDate(
         date(`${Enrollment_year + 1}-01-01 00:00`).tz("asia/Tokyo").t
       );
-  }, [selectedOption.value]);
+  }, [selectedOption.value, haveUsed]);
   useEffect(() => {
     const intervalID = setInterval(() => tick(), 1000);
     return () => clearInterval(intervalID);
