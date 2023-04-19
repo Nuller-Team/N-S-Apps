@@ -3,7 +3,7 @@ import { setCookie } from "std/http/cookie.ts";
 import { axiod } from "https://deno.land/x/axiod@0.26.2/mod.ts";
 import { UserCookieType, UserDataType } from "@/types/db.ts";
 import env from "@/utils/env.ts";
-import {User, UserCookie} from "@/utils/mongodb.ts";
+import { User, UserCookie } from "@/utils/mongodb.ts";
 
 export const handler: Handlers = {
   async GET(req, ctx) {
@@ -20,12 +20,12 @@ export const handler: Handlers = {
 
       const { data: res_token } = await axiod.post(
         `https://accounts.google.com/o/oauth2/token`,
-        params,
+        params
       );
 
       const remember_me_token = crypto.randomUUID();
       const { data: UserInfo } = await axiod.get(
-        `https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${res_token.access_token}`,
+        `https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${res_token.access_token}`
       );
       const email: string = UserInfo["email"];
 
@@ -45,31 +45,46 @@ export const handler: Handlers = {
           id: UserInfo["id"],
           token: remember_me_token,
         };
-        const UserInfoData: UserDataType = {
-          id: UserInfo["id"],
-          email: UserInfo["email"],
-          school: school,
-          gen: gen,
-        };
 
         const already_made_user = await User.findOne({ id: UserInfo["id"] });
 
         if (!already_made_user) {
+          const UserInfoData: UserDataType = {
+            id: UserInfo["id"],
+            email: UserInfo["email"],
+            school: school,
+            gen: gen,
+            admission_month: "",
+          };
           await User.insertOne(UserInfoData);
           await UserCookie.insertOne(UserCookieData);
         } else {
+          const UserInfoData: UserDataType = {
+            id: UserInfo["id"],
+            email: UserInfo["email"],
+            school: school,
+            gen: gen,
+            admission_month: already_made_user.admission_month ?? "",
+          };
+          console.log(already_made_user.admission_month)
           await User.updateOne({ id: UserInfoData.id }, { $set: UserInfoData });
-          await UserCookie.updateOne({ id: UserInfoData.id }, {
-            $set: UserCookieData,
-          });
+          await UserCookie.updateOne(
+            { id: UserInfoData.id },
+            {
+              $set: UserCookieData,
+            }
+          );
         }
+
+        const state = url.searchParams.get("state")!;
 
         const response = new Response("", {
           status: 303,
           headers: {
-            Location: "../",
+            Location: `../${state}`,
           },
         });
+
         setCookie(response.headers, {
           name: "remember-me",
           value: remember_me_token,
