@@ -10,6 +10,11 @@
     "image": "result"
   },
   {
+    "title": "N/S Times",
+    "link": "/times",
+    "image": "times"
+  },
+  {
     "title": "Nullerへ応募する",
     "link": "/entry",
     "image": "entry"

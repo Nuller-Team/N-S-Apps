@@ -13,10 +13,24 @@ export const handler: Handlers<any, State> = {
   },
 };
 
+const TITLE = "N/S Times｜N/S高に入ってから何秒？";
+const DESCRIPTION = `N/S高に入学してから何秒経過しているかを確認することができます。
+このツールを使用するにはGoogleアカウントでログインが必要です。`;
+
 export default function Times(props: PageProps<State | undefined>) {
+  const ogImageUrl = new URL(asset("/ns-app/times.png"), props.url).href;
   if (!props.data?.email) {
     return (
       <>
+        <Head>
+          <title>{TITLE}</title>
+          <meta name="description" content={DESCRIPTION} />
+          <meta property="og:title" content={TITLE} />
+          <meta property="og:type" content="website" />
+          <meta property="og:description" content={DESCRIPTION} />
+          <meta property="og:url" content={props.url.href} />
+          <meta property="og:image" content={ogImageUrl} />
+        </Head>
         <Title name="N/S Times">
           <div class="bg-white shadow-md rounded-md p-8 w-full sm:w-[31rem]">
             <div class="mb-6">
@@ -30,8 +44,8 @@ export default function Times(props: PageProps<State | undefined>) {
             <p class="text-sm text-gray-500 text-center">
               N/S高生の開発チーム
               <a href="https://nuller.net">『Nuller』</a>が開発した、<br></br>
-              N/S高での学校生活をより便利にする為に作られたアプリたちです。<br>
-              </br>
+              N/S高での学校生活をより便利にする為に作られたアプリたちです。
+              <br></br>
               N/S高生以外は使うことができません。
             </p>
           </div>
