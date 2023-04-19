@@ -8,6 +8,7 @@ interface UserDataType {
   email: string;
   school: "N" | "S";
   gen: number;
+  admission_month: "4" | "7" | "10" | "1" | "";
 }
 
 interface VerifyDataType {
