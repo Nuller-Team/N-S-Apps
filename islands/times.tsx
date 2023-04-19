@@ -24,63 +24,69 @@ export default function TIMES({ state }: propsType) {
   const [haveUsed, setHaveUsed] = useState<boolean>();
   const [selectedOption, setSelectedOption] = useState(options[0]);
   const [error, setError] = useState("");
-  if (state.admission_month) {
-    setHaveUsed(true);
-  } else {
-    setHaveUsed(false);
-  }
-  let Enrollment_date: Date;
-  if (state.school == "N") {
-    const Enrollment_year = 2000 + 15 + state.gen;
-    if (state.admission_month == "4")
-      Enrollment_date = date(`${Enrollment_year}-04-01 00:00`).tz(
-        "asia/Tokyo"
-      ).t;
-    else if (state.admission_month == "7")
-      Enrollment_date = date(`${Enrollment_year}-07-01 00:00`).tz(
-        "asia/Tokyo"
-      ).t;
-    else if (state.admission_month == "10")
-      Enrollment_date = date(`${Enrollment_year}-10-01 00:00`).tz(
-        "asia/Tokyo"
-      ).t;
-    else if (state.admission_month == "1")
-      Enrollment_date = date(`${Enrollment_year + 1}-01-01 00:00`).tz(
-        "asia/Tokyo"
-      ).t;
-    else
-      Enrollment_date = date(`${Enrollment_year}-04-01 00:00`).tz(
-        "asia/Tokyo"
-      ).t;
-  } else {
-    const Enrollment_year = 2000 + 20 + state.gen;
-    if (state.admission_month == "4")
-      Enrollment_date = date(`${Enrollment_year}-04-01 00:00`).tz(
-        "asia/Tokyo"
-      ).t;
-    else if (state.admission_month == "7")
-      Enrollment_date = date(`${Enrollment_year}-07-01 00:00`).tz(
-        "asia/Tokyo"
-      ).t;
-    else if (state.admission_month == "10")
-      Enrollment_date = date(`${Enrollment_year}-10-01 00:00`).tz(
-        "asia/Tokyo"
-      ).t;
-    else if (state.admission_month == "1")
-      Enrollment_date = date(`${Enrollment_year + 1}-04-01 00:00`).tz(
-        "asia/Tokyo"
-      ).t;
-    else
-      Enrollment_date = date(`${Enrollment_year}-04-01 00:00`).tz(
-        "asia/Tokyo"
-      ).t;
-  }
+  useEffect(() => {
+    if (state.admission_month) {
+      setHaveUsed(true);
+    } else {
+      setHaveUsed(false);
+    }
+  }, []);
+
+  let Enrollment_date: Date = date().tz("asia/Tokyo").t;
+
+  useEffect(() => {
+    if (state.school == "N") {
+      const Enrollment_year = 2000 + 15 + state.gen;
+      if (state.admission_month == "4")
+        Enrollment_date = date(`${Enrollment_year}-04-01 00:00`).tz(
+          "asia/Tokyo"
+        ).t;
+      else if (state.admission_month == "7")
+        Enrollment_date = date(`${Enrollment_year}-07-01 00:00`).tz(
+          "asia/Tokyo"
+        ).t;
+      else if (state.admission_month == "10")
+        Enrollment_date = date(`${Enrollment_year}-10-01 00:00`).tz(
+          "asia/Tokyo"
+        ).t;
+      else if (state.admission_month == "1")
+        Enrollment_date = date(`${Enrollment_year + 1}-01-01 00:00`).tz(
+          "asia/Tokyo"
+        ).t;
+      else
+        Enrollment_date = date(`${Enrollment_year}-04-01 00:00`).tz(
+          "asia/Tokyo"
+        ).t;
+    } else {
+      const Enrollment_year = 2000 + 20 + state.gen;
+      if (state.admission_month == "4")
+        Enrollment_date = date(`${Enrollment_year}-04-01 00:00`).tz(
+          "asia/Tokyo"
+        ).t;
+      else if (state.admission_month == "7")
+        Enrollment_date = date(`${Enrollment_year}-07-01 00:00`).tz(
+          "asia/Tokyo"
+        ).t;
+      else if (state.admission_month == "10")
+        Enrollment_date = date(`${Enrollment_year}-10-01 00:00`).tz(
+          "asia/Tokyo"
+        ).t;
+      else if (state.admission_month == "1")
+        Enrollment_date = date(`${Enrollment_year + 1}-04-01 00:00`).tz(
+          "asia/Tokyo"
+        ).t;
+      else
+        Enrollment_date = date(`${Enrollment_year}-04-01 00:00`).tz(
+          "asia/Tokyo"
+        ).t;
+    }
+  },[haveUsed]);
   const [time, setTime] = useState(new Date(daysBetween(Enrollment_date)));
 
   useEffect(() => {
     const intervalID = setInterval(() => tick(), 1000);
     return () => clearInterval(intervalID);
-  }, []);
+  }, [haveUsed]);
 
   const tick = () => {
     setTime(new Date(daysBetween(Enrollment_date)));
@@ -131,9 +137,14 @@ export default function TIMES({ state }: propsType) {
       <div hidden={!haveUsed}>
         <div className="font-bold text-center text-xl md:text-2xl lg:text-3xl 2xl:text-4xl">
           あなたが{state.school}高に入ってから<br></br>
-          <span className="text-6xl md:text-7xl lg:text-8xl 2xl:text-9xl text-green-400 rounded-md">
+          <a
+            className="text-6xl md:text-7xl lg:text-8xl 2xl:text-9xl text-green-400"
+            onClick={() => {
+              setHaveUsed(false);
+            }}
+          >
             {times}
-          </span>
+          </a>
           <br></br>
           秒が経過しています
         </div>
