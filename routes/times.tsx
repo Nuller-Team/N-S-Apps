@@ -55,6 +55,9 @@ export default function Times(props: PageProps<State | undefined>) {
   }
   return (
     <>
+      <Head>
+        <title>{TITLE}</title>
+      </Head>
       <div class="flex justify-center items-center h-screen">
         <TIMES state={props.data} />
       </div>

@@ -15,11 +15,10 @@ export const handler: Handlers<any, State> = {
 };
 
 const TITLE = "Nullerに応募する";
-const DESCRIPTION =
-  `Nullerは、Discord上で活動する学生による開発チームで、「学生が描く未来」というテーマで、
-      便利なアプリや面白いゲーム、今までにないツールを作ることに取り組んでいます。
-      チームメンバーは多様であり、コミュニケーションや協働性の確保にも取り組んでいます。
-      Nullerの目標は、プログラミングを通じた自己表現や社会貢献です。興味がある方は是非参加してみてください。`;
+const DESCRIPTION = `Nullerは、Discord上で活動する学生による開発チームで、「学生が描く未来」というテーマで、
+便利なアプリや面白いゲーム、今までにないツールを作ることに取り組んでいます。
+チームメンバーは多様であり、コミュニケーションや協働性の確保にも取り組んでいます。
+Nullerの目標は、プログラミングを通じた自己表現や社会貢献です。興味がある方は是非参加してみてください。`;
 
 export default function Entry(props: PageProps<State | undefined>) {
   const ogImageUrl = new URL(asset("/ns-app/entry.png"), props.url).href;
@@ -28,10 +27,7 @@ export default function Entry(props: PageProps<State | undefined>) {
       <>
         <Head>
           <title>{TITLE}</title>
-          <meta
-            name="description"
-            content={DESCRIPTION}
-          />
+          <meta name="description" content={DESCRIPTION} />
           <meta property="og:title" content={TITLE} />
           <meta property="og:type" content="website" />
           <meta property="og:description" content={DESCRIPTION} />
@@ -49,8 +45,8 @@ export default function Entry(props: PageProps<State | undefined>) {
               </a>
             </div>
             <p class="text-sm text-gray-500 text-center">
-              Nullerに応募する為にはN/S高生アカウントでの<br>
-              </br>ログインが必要です。
+              Nullerに応募する為にはN/S高生アカウントでの<br></br>
+              ログインが必要です。
             </p>
           </div>
         </Title>

@@ -6,7 +6,6 @@ import apps from "@/data/apps.json" assert { type: "json" };
 import Title from "@/components/title.tsx";
 
 import { auth_url } from "@/utils/auth.ts";
-import { Footer } from "../components/footer.tsx";
 
 export const handler: Handlers<any, State> = {
   GET(req, ctx) {
@@ -15,21 +14,18 @@ export const handler: Handlers<any, State> = {
   },
 };
 
+const TITLE = "N/S Apps｜N/S高生のためのアプリ";
+const DESCRIPTION = `N/S高生の学校生活をより便利にするために作られたアプリたちです。
+このツールを使用するにはGoogleアカウントでログインが必要です。`;
+
 export default function Index(props: PageProps<string>) {
   if (props.data == "default") {
     const ogImageUrl = new URL(asset("/home-og.png"), props.url).href;
-    const TITLE = "N/S Apps｜N/S高生のためのアプリ";
-    const DESCRIPTION =
-      `N/S高生の学校生活をより便利にするために作られたアプリたちです。
-このツールを使用するにはGoogleアカウントでログインが必要です。`;
     return (
       <>
         <Head>
           <title>{TITLE}</title>
-          <meta
-            name="description"
-            content={DESCRIPTION}
-          />
+          <meta name="description" content={DESCRIPTION} />
           <meta property="og:title" content={TITLE} />
           <meta property="og:type" content="website" />
           <meta property="og:description" content={DESCRIPTION} />
@@ -49,8 +45,8 @@ export default function Index(props: PageProps<string>) {
             <p class="text-sm text-gray-500 text-center">
               N/S高生の開発チーム
               <a href="https://nuller.net">『Nuller』</a>が開発した、<br></br>
-              N/S高での学校生活をより便利にする為に作られたアプリたちです。<br>
-              </br>
+              N/S高での学校生活をより便利にする為に作られたアプリたちです。
+              <br></br>
               N/S高生以外は使うことができません。
             </p>
           </div>
@@ -72,14 +68,17 @@ export default function Index(props: PageProps<string>) {
 
 function Apps({ items }: { items: Project[] }) {
   return (
-    <section class="max-w-screen-lg mx-auto my-16 px(4 sm:6 md:8) space-y-4">
-      <h2 class="text(3xl gray-600) font-bold">
-        N/S Apps
-      </h2>
-      <p class="text-gray-600">
-        N/S高生の開発チーム『Nuller』が開発した N/S高生のためのアプリです。
-      </p>
-      <Projects items={items} class="gap-16" />
-    </section>
+    <>
+      <Head>
+        <title>{TITLE}</title>
+      </Head>
+      <section class="max-w-screen-lg mx-auto my-16 px(4 sm:6 md:8) space-y-4">
+        <h2 class="text(3xl gray-600) font-bold">N/S Apps</h2>
+        <p class="text-gray-600">
+          N/S高生の開発チーム『Nuller』が開発した N/S高生のためのアプリです。
+        </p>
+        <Projects items={items} class="gap-16" />
+      </section>
+    </>
   );
 }

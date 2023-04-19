@@ -4,16 +4,16 @@ import type { State } from "@/types/session.ts";
 
 export const handler: Handlers<any, State> = {
   GET(req, ctx) {
-    if (!ctx.state.token) return ctx.render("default");
-    return ctx.render(`${ctx.state.school}高等学校${ctx.state.gen}期生`);
+    return ctx.render();
   },
 };
 
-export default function Result(props: PageProps<string>) {
-  const ogImageUrl = new URL(asset("/ns-app/result.png"), props.url).href;
-  const TITLE = "N/S Result｜成績を素早く簡単に確認";
-  const DESCRIPTION = `Chromeの拡張機能を用いてN/S高の成績を素早く簡単に確認することができます。
+const TITLE = "N/S Result｜成績を素早く簡単に確認";
+const DESCRIPTION = `Chromeの拡張機能を用いてN/S高の成績を素早く簡単に確認することができます。
 このツールを使用するにはGoogleアカウントでログインが必要です。`;
+
+export default function Result(props: PageProps<undefined>) {
+  const ogImageUrl = new URL(asset("/ns-app/result.png"), props.url).href;
   return (
     <>
       <Head>
