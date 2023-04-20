@@ -76,12 +76,12 @@ export const handler: Handlers = {
           );
         }
 
-        const state = url.searchParams.get("state")!;
+        const state = url.searchParams.get("state");
 
         const response = new Response("", {
           status: 303,
           headers: {
-            Location: `../${state}`,
+            Location: `../${state ?? ""}`,
           },
         });
 
