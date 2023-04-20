@@ -66,7 +66,6 @@ export const handler: Handlers = {
             gen: gen,
             admission_month: already_made_user.admission_month ?? "",
           };
-          console.log(already_made_user.admission_month)
           await User.updateOne({ id: UserInfoData.id }, { $set: UserInfoData });
           await UserCookie.updateOne(
             { id: UserInfoData.id },

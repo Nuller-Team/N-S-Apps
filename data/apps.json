@@ -15,6 +15,11 @@
     "image": "times"
   },
   {
+    "title": "N/S Grad Timer",
+    "link": "/grad_timer",
+    "image": "grad-timer"
+  },
+  {
     "title": "Nullerへ応募する",
     "link": "/entry",
     "image": "entry"

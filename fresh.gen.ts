@@ -11,15 +11,17 @@ import * as $4 from "./routes/api/token.ts";
 import * as $5 from "./routes/api/verify_token.ts";
 import * as $6 from "./routes/checker.tsx";
 import * as $7 from "./routes/entry.tsx";
-import * as $8 from "./routes/index.tsx";
-import * as $9 from "./routes/login/callback.tsx";
-import * as $10 from "./routes/result.tsx";
-import * as $11 from "./routes/times.tsx";
-import * as $12 from "./routes/verify/[token].tsx";
+import * as $8 from "./routes/grad_timer.tsx";
+import * as $9 from "./routes/index.tsx";
+import * as $10 from "./routes/login/callback.tsx";
+import * as $11 from "./routes/result.tsx";
+import * as $12 from "./routes/times.tsx";
+import * as $13 from "./routes/verify/[token].tsx";
 import * as $$0 from "./islands/entry.tsx";
-import * as $$1 from "./islands/times.tsx";
-import * as $$2 from "./islands/token.tsx";
-import * as $$3 from "./islands/verify_token.tsx";
+import * as $$1 from "./islands/grad_timer.tsx";
+import * as $$2 from "./islands/times.tsx";
+import * as $$3 from "./islands/token.tsx";
+import * as $$4 from "./islands/verify_token.tsx";
 
 const manifest = {
   routes: {
@@ -31,17 +33,19 @@ const manifest = {
     "./routes/api/verify_token.ts": $5,
     "./routes/checker.tsx": $6,
     "./routes/entry.tsx": $7,
-    "./routes/index.tsx": $8,
-    "./routes/login/callback.tsx": $9,
-    "./routes/result.tsx": $10,
-    "./routes/times.tsx": $11,
-    "./routes/verify/[token].tsx": $12,
+    "./routes/grad_timer.tsx": $8,
+    "./routes/index.tsx": $9,
+    "./routes/login/callback.tsx": $10,
+    "./routes/result.tsx": $11,
+    "./routes/times.tsx": $12,
+    "./routes/verify/[token].tsx": $13,
   },
   islands: {
     "./islands/entry.tsx": $$0,
-    "./islands/times.tsx": $$1,
-    "./islands/token.tsx": $$2,
-    "./islands/verify_token.tsx": $$3,
+    "./islands/grad_timer.tsx": $$1,
+    "./islands/times.tsx": $$2,
+    "./islands/token.tsx": $$3,
+    "./islands/verify_token.tsx": $$4,
   },
   baseUrl: import.meta.url,
   config,
