@@ -92,6 +92,58 @@ export const handler: Handlers = {
           path: "/",
         });
         return response;
+      } else if (email.endsWith("@n-jr.jp")) {
+        const UserCookieData: UserCookieType = {
+          id: UserInfo["id"],
+          token: remember_me_token,
+        };
+
+        const already_made_user = await User.findOne({ id: UserInfo["id"] });
+
+        if (!already_made_user) {
+          const UserInfoData: UserDataType = {
+            id: UserInfo["id"],
+            email: UserInfo["email"],
+            school: "NJR",
+            gen: gen,
+            admission_month: "",
+          };
+          await User.insertOne(UserInfoData);
+          await UserCookie.insertOne(UserCookieData);
+        } else {
+          const UserInfoData: UserDataType = {
+            id: UserInfo["id"],
+            email: UserInfo["email"],
+            school: "NJR",
+            gen: gen,
+            admission_month: already_made_user.admission_month ?? "",
+          };
+          await User.updateOne({ id: UserInfoData.id }, { $set: UserInfoData });
+          await UserCookie.updateOne(
+            { id: UserInfoData.id },
+            {
+              $set: UserCookieData,
+            }
+          );
+        }
+
+        const state = url.searchParams.get("state");
+
+        const response = new Response("", {
+          status: 303,
+          headers: {
+            Location: `../${state ?? ""}`,
+          },
+        });
+
+        setCookie(response.headers, {
+          name: "remember-me",
+          value: remember_me_token,
+          maxAge: 60 * 60 * 24 * 7,
+          httpOnly: true,
+          path: "/",
+        });
+        return response;
       } else {
         return ctx.render("ERROR2");
       }

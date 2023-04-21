@@ -6,7 +6,7 @@ interface UserCookieType {
 interface UserDataType {
   id: string;
   email: string;
-  school: "N" | "S";
+  school: "N" | "S" | "NJR";
   gen: number;
   admission_month: "4" | "7" | "10" | "1" | "";
 }
