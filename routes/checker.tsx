@@ -10,17 +10,17 @@ import { auth_url } from "@/utils/auth.ts";
 
 export const handler: Handlers<any, State> = {
   GET(req, ctx) {
-    if (!ctx.state.token) return ctx.render("default");
-    return ctx.render(`${ctx.state.school}高等学校${ctx.state.gen}期生`);
+    if (!ctx.state.token) return ctx.render();
+    return ctx.render(ctx.state);
   },
 };
 
-const TITLE = "N/S Checker｜私はN/S高生です";
+const TITLE = "N/S Checker｜私はN/S高生、N中等部です";
 const DESCRIPTION = `エンカ時やオフ会等でN/S高生かどうか、本人確認をすることができます。
 このツールを使用するにはGoogleアカウントでログインが必要です。`;
 
-export default function Checker(props: PageProps<string>) {
-  if (props.data == "default") {
+export default function Checker(props: PageProps<State | undefined>) {
+  if (!props.data?.email) {
     const ogImageUrl = new URL(asset("/ns-app/apps.png"), props.url).href;
     return (
       <>
@@ -40,7 +40,7 @@ export default function Checker(props: PageProps<string>) {
                 href={auth_url + "&state=checker"}
                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring w-full flex items-center justify-center"
               >
-                <i class="mr-2"></i> 私はN/S高生です
+                <i class="mr-2"></i> 私はN/S高生、N中等部です
               </a>
             </div>
             <p class="text-sm text-gray-500 text-center">
@@ -48,6 +48,30 @@ export default function Checker(props: PageProps<string>) {
               その他本人確認等にお使いください。<br></br>
               なお、このツールは結果を保証するものではありません。
             </p>
+          </div>
+        </Title>
+      </>
+    );
+  }else if (props.data.school == "NJR"){
+    return (
+      <>
+        <Head>
+          <title>{TITLE}</title>
+        </Head>
+        <Title name="N/S Checker">
+          <div class="bg-white shadow-md rounded-md p-8 w-full sm:w-[30rem]">
+            <div class="mb-6">
+              <p class="bg-green-500 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring w-full flex items-center justify-center">
+                <i class="mr-2"></i> あなたはN中等部生です
+              </p>
+            </div>
+            <p class="text-sm text-gray-500 text-center">
+              <p class="mr-3">あなたの情報：N中等部 20{props.data.gen}年度入学</p>
+            </p>
+          </div>
+          <div class="p-4"></div>
+          <div class="bg-white shadow-md rounded-md p-8 w-full sm:w-[30rem]">
+            <TOKEN />
           </div>
         </Title>
       </>
@@ -62,11 +86,11 @@ export default function Checker(props: PageProps<string>) {
           <div class="bg-white shadow-md rounded-md p-8 w-full sm:w-[30rem]">
             <div class="mb-6">
               <p class="bg-green-500 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring w-full flex items-center justify-center">
-                <i class="mr-2"></i> あなたはN/S高生です
+                <i class="mr-2"></i> あなたは{props.data.school}高生です
               </p>
             </div>
             <p class="text-sm text-gray-500 text-center">
-              <p class="mr-3">あなたの情報：{props.data}</p>
+              <p class="mr-3">あなたの情報：{props.data.school}高等学校{props.data.gen}期生</p>
             </p>
           </div>
           <div class="p-4"></div>

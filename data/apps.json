@@ -2,26 +2,31 @@
   {
     "title": "N/S Checker",
     "link": "/checker",
-    "image": "checker"
+    "image": "checker",
+    "njr": true
   },
   {
     "title": "N/S Result",
     "link": "/result",
-    "image": "result"
+    "image": "result",
+    "njr": false
   },
   {
     "title": "N/S Times",
     "link": "/times",
-    "image": "times"
+    "image": "times",
+    "njr": true
   },
   {
     "title": "N/S Grad Timer",
     "link": "/grad_timer",
-    "image": "grad-timer"
+    "image": "grad-timer",
+    "njr": false
   },
   {
     "title": "Nullerへ応募する",
     "link": "/entry",
-    "image": "entry"
+    "image": "entry",
+    "njr": true
   }
 ]

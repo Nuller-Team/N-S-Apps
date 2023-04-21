@@ -38,7 +38,7 @@ export default function Times(props: PageProps<State | undefined>) {
                 href={auth_url + "&state=grad_timer"}
                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring w-full flex items-center justify-center"
               >
-                <i class="mr-2"></i> 私はN/S高生です
+                <i class="mr-2"></i> 私はN/S高生、N中等部です
               </a>
             </div>
             <p class="text-sm text-gray-500 text-center">
@@ -50,6 +50,22 @@ export default function Times(props: PageProps<State | undefined>) {
             </p>
           </div>
         </Title>
+      </>
+    );
+  }else if (props.data.school == "NJR") {
+    return (
+      <>
+        <div class="flex items-center justify-center h-screen bg-gray-50">
+          <div class="bg-white items-center p-8 rounded-md shadow-md w-full sm:w-96">
+            <h1 class="text-2xl font-bold mb-4">N中等部はこのアプリを利用することはできません。</h1>
+            <a
+              href="/"
+              class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md transition duration-300 ease-in-out"
+            >
+              Go back to home
+            </a>
+          </div>
+        </div>
       </>
     );
   }

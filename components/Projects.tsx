@@ -2,6 +2,7 @@ export interface Project {
   image: string;
   title: string;
   link: string;
+  njr: boolean;
 }
 interface ProjectProps {
   items: Project[];

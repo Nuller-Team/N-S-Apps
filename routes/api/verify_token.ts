@@ -26,6 +26,7 @@ export const handler: Handlers = {
     await Verify.deleteMany({token: token})
     res = {
       status: "Success",
+      school: check.school,
       text: `${check.name}`
     }
     return new Response(JSON.stringify(res))
