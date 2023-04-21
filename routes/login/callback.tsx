@@ -28,11 +28,10 @@ export const handler: Handlers = {
         `https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${res_token.access_token}`
       );
       const email: string = UserInfo["email"];
-
-      let gen = Number(email.slice(-20, -18));
       const school_name = email.slice(-18, -17).toUpperCase();
 
       if (email.endsWith("@nnn.ed.jp")) {
+        let gen = Number(email.split("_")[1].slice(0,2));
         let school: UserDataType["school"] = "N";
         if (school_name === "N") {
           gen -= 15;
@@ -93,6 +92,7 @@ export const handler: Handlers = {
         });
         return response;
       } else if (email.endsWith("@n-jr.jp")) {
+        let gen = Number(email.split("_")[1].slice(0,2));
         const UserCookieData: UserCookieType = {
           id: UserInfo["id"],
           token: remember_me_token,
