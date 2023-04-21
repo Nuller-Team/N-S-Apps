@@ -19,7 +19,7 @@ const DESCRIPTION = `N/S高に入学してから何秒経過しているかを�
 
 export default function Times(props: PageProps<State | undefined>) {
   const ogImageUrl = new URL(asset("/ns-app/times.png"), props.url).href;
-  if (!props.data?.email) {
+  if (!props.data?.school) {
     return (
       <>
         <Head>
@@ -38,7 +38,7 @@ export default function Times(props: PageProps<State | undefined>) {
                 href={auth_url + "&state=times"}
                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring w-full flex items-center justify-center"
               >
-                <i class="mr-2"></i> 私はN/S高生です
+                <i class="mr-2"></i> 私はN/S高生、N中等部です
               </a>
             </div>
             <p class="text-sm text-gray-500 text-center">
@@ -46,7 +46,7 @@ export default function Times(props: PageProps<State | undefined>) {
               <a href="https://nuller.net">『Nuller』</a>が開発した、<br></br>
               N/S高での学校生活をより便利にする為に作られたアプリたちです。
               <br></br>
-              N/S高生以外は使うことができません。
+              N/S高生、N中等部以外は使うことができません。
             </p>
           </div>
         </Title>

@@ -15,7 +15,7 @@ export const handler: Handlers<any, State> = {
   },
 };
 
-const TITLE = "N/S Checker｜私はN/S高生です";
+const TITLE = "N/S Checker｜私はN/S高生、N中等部です";
 const DESCRIPTION = `エンカ時やオフ会等でN/S高生かどうか、本人確認をすることができます。
 このツールを使用するにはGoogleアカウントでログインが必要です。`;
 
@@ -40,7 +40,7 @@ export default function Checker(props: PageProps<string>) {
                 href={auth_url + "&state=checker"}
                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring w-full flex items-center justify-center"
               >
-                <i class="mr-2"></i> 私はN/S高生です
+                <i class="mr-2"></i> 私はN/S高生、N中等部です
               </a>
             </div>
             <p class="text-sm text-gray-500 text-center">

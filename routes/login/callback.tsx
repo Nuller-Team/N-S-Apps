@@ -178,7 +178,7 @@ export default function Callback({ data }: PageProps<string>) {
       <>
         <div class="flex items-center justify-center h-screen bg-gray-50">
           <div class="bg-white items-center p-8 rounded-md shadow-md w-full sm:w-96">
-            <h1 class="text-2xl font-bold mb-4">N/S高生ではないようです。</h1>
+            <h1 class="text-2xl font-bold mb-4">N/S高生<br></br>N中等部ではないようです。</h1>
             <a
               href="/"
               class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md transition duration-300 ease-in-out"

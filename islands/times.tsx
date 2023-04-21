@@ -20,39 +20,36 @@ const options = [
 
 export default function TIMES({ state }: propsType) {
   const [haveUsed, setHaveUsed] = useState<boolean>(false);
+  const [school, setSchool] = useState("S高");
   const [EnrollmentDate, setEnrollmentDate] = useState<DateTime>(() => {
     if (state.admission_month) {
       let Enrollment_year = 2000 + 20 + state.gen;
-          if (state.school == "N") {
-            Enrollment_year = 2000 + 15 + state.gen;
-          }
-          setHaveUsed(true);
-          if (state.admission_month == "4")
-          return(
-              datetime(`${Enrollment_year}-04-01 00:00`).toZonedTime(
-                "asia/Tokyo"
-              )
-            );
-          if (state.admission_month == "7")
-          return(
-              datetime(`${Enrollment_year}-07-01 00:00`).toZonedTime(
-                "asia/Tokyo"
-              )
-            );
-          if (state.admission_month == "10")
-          return(
-              datetime(`${Enrollment_year}-10-01 00:00`).toZonedTime(
-                "asia/Tokyo"
-              )
-            );
-          if (state.admission_month == "1")
-            return(
-              datetime(`${Enrollment_year + 1}-01-01 00:00`).toZonedTime(
-                "asia/Tokyo"
-              )
-            );
+      if (state.school == "N") {
+        Enrollment_year = 2000 + 15 + state.gen;
+        setSchool("N高");
+      } else if (state.school == "NJR") {
+        Enrollment_year = 2000 + state.gen;
+        setSchool("N中等部");
+      }
+      setHaveUsed(true);
+      if (state.admission_month == "4")
+        return datetime(`${Enrollment_year}-04-01 00:00`).toZonedTime(
+          "asia/Tokyo"
+        );
+      if (state.admission_month == "7")
+        return datetime(`${Enrollment_year}-07-01 00:00`).toZonedTime(
+          "asia/Tokyo"
+        );
+      if (state.admission_month == "10")
+        return datetime(`${Enrollment_year}-10-01 00:00`).toZonedTime(
+          "asia/Tokyo"
+        );
+      if (state.admission_month == "1")
+        return datetime(`${Enrollment_year + 1}-01-01 00:00`).toZonedTime(
+          "asia/Tokyo"
+        );
     }
-    return datetime().toZonedTime("asia/Tokyo")
+    return datetime().toZonedTime("asia/Tokyo");
   });
   const [selectedOption, setSelectedOption] = useState(options[0]);
   const [error, setError] = useState("");
@@ -131,7 +128,7 @@ export default function TIMES({ state }: propsType) {
     <>
       <div hidden={!haveUsed}>
         <div className="font-bold text-center text-xl md:text-2xl lg:text-3xl 2xl:text-4xl">
-          あなたが{state.school}高に入ってから<br></br>
+          あなたが{school}に入ってから<br></br>
           <a
             className="text-6xl md:text-7xl lg:text-8xl 2xl:text-9xl text-green-400"
             onClick={() => {

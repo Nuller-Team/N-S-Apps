@@ -41,7 +41,7 @@ export default function Entry(props: PageProps<State | undefined>) {
                 href={auth_url + "&state=entry"}
                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring w-full flex items-center justify-center"
               >
-                <i class="mr-2"></i> 私はN/S高生です
+                <i class="mr-2"></i> 私はN/S高生、N中等部です
               </a>
             </div>
             <p class="text-sm text-gray-500 text-center">
