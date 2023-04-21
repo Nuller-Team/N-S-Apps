@@ -20,7 +20,7 @@ const DESCRIPTION = `N/S高生の学校生活をより便利にするために�
 
 export default function Index(props: PageProps<State | undefined>) {
   if (!props.data?.email) {
-    const ogImageUrl = new URL(asset("/home-og.png"), props.url).href;
+    const ogImageUrl = new URL(asset("/ns-app/apps.png"), props.url).href;
     return (
       <>
         <Head>
