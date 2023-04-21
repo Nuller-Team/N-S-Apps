@@ -94,6 +94,8 @@ export default function TIMES({ state }: propsType) {
           let Enrollment_year = 2000 + 20 + state.gen;
           if (state.school == "N") {
             Enrollment_year = 2000 + 15 + state.gen;
+          }else if (state.school == "NJR") {
+            Enrollment_year = 2000 + state.gen;
           }
           if (selectedOption.value == 4)
             setEnrollmentDate(
