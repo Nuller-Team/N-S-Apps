@@ -20,16 +20,18 @@ const options = [
 
 export default function TIMES({ state }: propsType) {
   const [haveUsed, setHaveUsed] = useState<boolean>(false);
-  const [school, setSchool] = useState("S高");
+  const [school, setSchool] = useState(() => {
+    if (state.school == "N") return ("N高")
+    if (state.school == "S") return ("S高")
+    else return ("N中等部")
+  });
   const [EnrollmentDate, setEnrollmentDate] = useState<DateTime>(() => {
     if (state.admission_month) {
       let Enrollment_year = 2000 + 20 + state.gen;
       if (state.school == "N") {
         Enrollment_year = 2000 + 15 + state.gen;
-        setSchool("N高");
       } else if (state.school == "NJR") {
         Enrollment_year = 2000 + state.gen;
-        setSchool("N中等部");
       }
       setHaveUsed(true);
       if (state.admission_month == "4")
