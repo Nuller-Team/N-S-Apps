@@ -53,8 +53,21 @@ export default function Times(props: PageProps<State | undefined>) {
       </>
     );
   }else if (props.data.school == "NJR") {
-    
-
+    return (
+      <>
+        <div class="flex items-center justify-center h-screen bg-gray-50">
+          <div class="bg-white items-center p-8 rounded-md shadow-md w-full sm:w-96">
+            <h1 class="text-2xl font-bold mb-4">N中等部はこのアプリを利用することはできません。</h1>
+            <a
+              href="/"
+              class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md transition duration-300 ease-in-out"
+            >
+              Go back to home
+            </a>
+          </div>
+        </div>
+      </>
+    );
   }
   return (
     <>

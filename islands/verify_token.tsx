@@ -32,11 +32,27 @@ export default function VerifyToken(props: VerifyTokenType) {
           );
           setIsVerify(true);
         } else {
-          setName(data["text"] + "はN/S高生です");
-          setColor(
-            "bg-green-400 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring w-full flex items-center justify-center"
-          );
-          setIsVerify(true);
+          if (data["school"] == "N") {
+            setName(data["text"] + "はN高生です");
+            setColor(
+              "bg-green-400 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring w-full flex items-center justify-center"
+            );
+            setIsVerify(true);
+          }
+          if (data["school"] == "S") {
+            setName(data["text"] + "はS高生です");
+            setColor(
+              "bg-green-400 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring w-full flex items-center justify-center"
+            );
+            setIsVerify(true);
+          }
+          if (data["school"] == "NJR") {
+            setName(data["text"] + "はN中等部生です");
+            setColor(
+              "bg-green-400 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring w-full flex items-center justify-center"
+            );
+            setIsVerify(true);
+          }
         }
       });
   };
@@ -51,7 +67,7 @@ export default function VerifyToken(props: VerifyTokenType) {
                 class="bg-pink-400 hover:bg-pink-500 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring w-full flex items-center justify-center"
                 onClick={fetchVerifyToken}
               >
-                <i class="mr-2"></i> N/S高生か確認する
+                <i class="mr-2"></i> N/S高生、N中等部生か確認する
               </button>
             </div>
             <div hidden={!isVerify}>

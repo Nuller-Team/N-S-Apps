@@ -1,6 +1,4 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
-import { Verify } from "@/utils/mongodb.ts";
-import Title from "@/components/title.tsx";
 import VerifyToken from "../../islands/verify_token.tsx";
 
 export const handler: Handlers = {
