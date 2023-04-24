@@ -31,7 +31,7 @@ export default function Times(props: PageProps<State | undefined>) {
           <meta property="og:url" content={props.url.href} />
           <meta property="og:image" content={ogImageUrl} />
         </Head>
-        <Title name="N/S Times Left">
+        <Title name="N/S Grad Timer">
           <div class="bg-white shadow-md rounded-md p-8 w-full sm:w-[31rem]">
             <div class="mb-6">
               <a

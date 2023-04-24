@@ -21,7 +21,7 @@ const DESCRIPTION = `エンカ時やオフ会等でN/S高生かどうか、本�
 
 export default function Checker(props: PageProps<State | undefined>) {
   if (!props.data?.email) {
-    const ogImageUrl = new URL(asset("/ns-app/apps.png"), props.url).href;
+    const ogImageUrl = new URL(asset("/ns-app/checker.png"), props.url).href;
     return (
       <>
         <Head>
