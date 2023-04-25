@@ -1,7 +1,6 @@
 import { Handlers } from "$fresh/server.ts";
 import type { State } from "@/types/session.ts";
 import { apiResponse } from "../../types/api.ts";
-import { User } from "@/utils/mongodb.ts";
 
 export const handler: Handlers<any, State> = {
   async GET(req, ctx) {
@@ -25,10 +24,6 @@ export const handler: Handlers<any, State> = {
       };
       return new Response(JSON.stringify(res));
     }
-    await User.updateOne(
-      { id: ctx.state.id },
-      { $set: { admission_month: admission_month } }
-    );
     res = {
       "status": "Success",
       text: "成功しました"

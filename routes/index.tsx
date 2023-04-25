@@ -4,8 +4,7 @@ import type { State } from "@/types/session.ts";
 import Projects, { Project } from "@/components/Projects.tsx";
 import apps from "@/data/apps.json" assert { type: "json" };
 import Title from "@/components/title.tsx";
-
-import { auth_url } from "@/utils/auth.ts";
+import OAuthLoginButton from "../components/OAuthLoginButton.tsx";
 
 export const handler: Handlers<any, State> = {
   GET(req, ctx) {
@@ -35,12 +34,9 @@ export default function Index(props: PageProps<State | undefined>) {
         <Title name="N/S Apps">
           <div class="bg-white shadow-md rounded-md p-8 w-full sm:w-[31rem]">
             <div class="mb-6">
-              <a
-                href={auth_url}
-                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring w-full flex items-center justify-center"
-              >
+            <OAuthLoginButton provider="google">
                 <i class="mr-2"></i> 私はN/S高生、N中等部です
-              </a>
+              </OAuthLoginButton>
             </div>
             <p class="text-sm text-gray-500 text-center">
               N/S高生の開発チーム
