@@ -1,24 +1,37 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { asset, Head } from "$fresh/runtime.ts";
-import type { State } from "@/types/session.ts";
+import type {State} from "./_middleware.ts"
 import Projects, { Project } from "@/components/Projects.tsx";
 import apps from "@/data/apps.json" assert { type: "json" };
 import Title from "@/components/title.tsx";
 import OAuthLoginButton from "../components/OAuthLoginButton.tsx";
+import { Database } from "../utils/supabase_types.ts";
 
-export const handler: Handlers<any, State> = {
-  GET(req, ctx) {
-    if (!ctx.state.token) return ctx.render();
-    return ctx.render(ctx.state);
+export const handler: Handlers<HomePageData, State> = {
+  async GET(req, ctx) {
+    if (!ctx.state.session) {
+      return ctx.render();
+    }
+    const user = await ctx.state.createOrGetUser();
+    if (!user) {
+      console.log("ERROR");
+      return ctx.render();
+    }
+    console.log("USER")
+    return ctx.render({...ctx.state, user});
   },
 };
+
+interface HomePageData extends State {
+  user: Database["public"]["Tables"]["user"]["Row"];
+}
 
 const TITLE = "N/S Apps｜N/S高生のためのアプリ";
 const DESCRIPTION = `N/S高生の学校生活をより便利にするために作られたアプリたちです。
 このツールを使用するにはGoogleアカウントでログインが必要です。`;
 
-export default function Index(props: PageProps<State | undefined>) {
-  if (!props.data?.email) {
+export default function Index(props: PageProps<HomePageData | undefined>) {
+  if (!props.data?.session) {
     const ogImageUrl = new URL(asset("/ns-app/apps.png"), props.url).href;
     return (
       <>
@@ -34,8 +47,8 @@ export default function Index(props: PageProps<State | undefined>) {
         <Title name="N/S Apps">
           <div class="bg-white shadow-md rounded-md p-8 w-full sm:w-[31rem]">
             <div class="mb-6">
-            <OAuthLoginButton provider="google">
-                <i class="mr-2"></i> 私はN/S高生、N中等部です
+            <OAuthLoginButton>
+              私はN/S高生、N中等部です
               </OAuthLoginButton>
             </div>
             <p class="text-sm text-gray-500 text-center">
@@ -49,7 +62,7 @@ export default function Index(props: PageProps<State | undefined>) {
         </Title>
       </>
     );
-  } else if (props.data.school == "NJR") {
+  } else if (props.data.user.school == "NJR") {
     const njrApps = apps.filter((project) => project.njr);
     return (
       <>

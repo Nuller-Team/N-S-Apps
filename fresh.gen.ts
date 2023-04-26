@@ -3,31 +3,21 @@
 // This file is automatically updated during development when running `dev.ts`.
 
 import config from "./deno.json" assert { type: "json" };
-import * as $0 from "./routes/api/oauth.tsx";
-import * as $1 from "./routes/index.tsx";
-import * as $2 from "./routes/login/success.tsx";
-import * as $3 from "./routes/test.tsx";
+import * as $0 from "./routes/_middleware.ts";
+import * as $1 from "./routes/api/oauth.tsx";
+import * as $2 from "./routes/index.tsx";
+import * as $3 from "./routes/login/success.tsx";
 import * as $$0 from "./islands/AuthFragmentCatcher.tsx";
-import * as $$1 from "./islands/entry.tsx";
-import * as $$2 from "./islands/grad_timer.tsx";
-import * as $$3 from "./islands/times.tsx";
-import * as $$4 from "./islands/token.tsx";
-import * as $$5 from "./islands/verify_token.tsx";
 
 const manifest = {
   routes: {
-    "./routes/api/oauth.tsx": $0,
-    "./routes/index.tsx": $1,
-    "./routes/login/success.tsx": $2,
-    "./routes/test.tsx": $3,
+    "./routes/_middleware.ts": $0,
+    "./routes/api/oauth.tsx": $1,
+    "./routes/index.tsx": $2,
+    "./routes/login/success.tsx": $3,
   },
   islands: {
     "./islands/AuthFragmentCatcher.tsx": $$0,
-    "./islands/entry.tsx": $$1,
-    "./islands/grad_timer.tsx": $$2,
-    "./islands/times.tsx": $$3,
-    "./islands/token.tsx": $$4,
-    "./islands/verify_token.tsx": $$5,
   },
   baseUrl: import.meta.url,
   config,

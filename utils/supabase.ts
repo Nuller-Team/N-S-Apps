@@ -43,7 +43,7 @@ async function createUser(
   supabaseClient: SupabaseClient<Database>,
   user: Database["public"]["Tables"]["user"]["Insert"]
 ) {
-  const { data } = await supabaseClient
+  const { data } = await supabaseAdminClient
     .from("user")
     .insert(user)
     .select()
@@ -72,11 +72,13 @@ export async function createOrGetUser(
       school = "S";
     }
     return await createUser(supabaseClient, {
-      id: user?.id!,
       email: user?.email!,
       school: school,
       gen: gen,
+      name: user.user_metadata["full_name"],
+      image: user.user_metadata["avatar_url"]
     });
+  }else{
+    return
   }
-  console.log("WTF")
 }

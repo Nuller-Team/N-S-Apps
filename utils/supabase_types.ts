@@ -11,42 +11,27 @@ export interface Database {
     Tables: {
       user: {
         Row: {
-          id: string;
           email: string;
           school: "N" | "S" | "NJR";
           gen: number;
           admission_month: "4" | "7" | "10" | "1";
-          name: {
-            full: string;
-            given: string;
-            family: string;
-          };
+          name: string;
           image: string;
         };
         Insert: {
-          id: string;
           email: string;
           school: "N" | "S" | "NJR";
           gen: number;
           admission_month?: "4" | "7" | "10" | "1";
-          name?: {
-            full?: string;
-            given?: string;
-            family?: string;
-          };
+          name?: string;
           image?: string;
         };
         Update: {
-          id?: string;
           email?: string;
           school?: "N" | "S" | "NJR";
           gen?: number;
           admission_month?: "4" | "7" | "10" | "1";
-          name?: {
-            full?: string;
-            given?: string;
-            family?: string;
-          };
+          name?: string;
           image?: string;
         };
       };

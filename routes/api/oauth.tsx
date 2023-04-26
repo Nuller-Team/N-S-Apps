@@ -18,6 +18,10 @@ export const handler: Handlers = {
       provider: provider as Provider,
       options: {
         redirectTo: origin + "/login/success",
+        queryParams: {
+          access_type: 'offline',
+          prompt: 'consent',
+        },
       },
     });
 
