@@ -3,21 +3,23 @@
 // This file is automatically updated during development when running `dev.ts`.
 
 import config from "./deno.json" assert { type: "json" };
-import * as $0 from "./routes/_middleware.ts";
-import * as $1 from "./routes/api/oauth.tsx";
-import * as $2 from "./routes/index.tsx";
-import * as $3 from "./routes/login/success.tsx";
-import * as $$0 from "./islands/AuthFragmentCatcher.tsx";
+import * as $0 from "./routes/_app.tsx";
+import * as $1 from "./routes/_middleware.ts";
+import * as $2 from "./routes/env.js.ts";
+import * as $3 from "./routes/index.tsx";
+import * as $$0 from "./islands/LoginButton.tsx";
+import * as $$1 from "./islands/UserHandler.tsx";
 
 const manifest = {
   routes: {
-    "./routes/_middleware.ts": $0,
-    "./routes/api/oauth.tsx": $1,
-    "./routes/index.tsx": $2,
-    "./routes/login/success.tsx": $3,
+    "./routes/_app.tsx": $0,
+    "./routes/_middleware.ts": $1,
+    "./routes/env.js.ts": $2,
+    "./routes/index.tsx": $3,
   },
   islands: {
-    "./islands/AuthFragmentCatcher.tsx": $$0,
+    "./islands/LoginButton.tsx": $$0,
+    "./islands/UserHandler.tsx": $$1,
   },
   baseUrl: import.meta.url,
   config,

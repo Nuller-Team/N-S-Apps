@@ -1,27 +1,114 @@
 import { MiddlewareHandlerContext } from "$fresh/server.ts";
-import { createOrGetUser, createSupabaseClient } from "@/utils/supabase.ts";
-import type { Session, SupabaseClient } from "@supabase/supabase-js";
-import { Database } from "@/utils/supabase_types.ts";
+import { supabase, supabaseAdminClient } from "@/utils/supabase.ts";
+import { getCookies } from "std/http/cookie.ts";
+import { Database } from "../utils/supabase_types.ts";
 
 export interface State {
-  session: Session | null;
-  supabaseClient: SupabaseClient<Database>;
-  createOrGetUser: () => Promise<Database["public"]["Tables"]["user"]["Row"] | undefined>;
+  user: {
+    id: string;
+    email: string;
+    name: string;
+    school: {
+      name: "N" | "S" | "NJR"
+      gen: number;
+      admission_month: "4" | "7" | "10" | "1" | "";
+    };
+    avatar_url: string;
+    access_token: string;
+  };
+  active: boolean | undefined;
 }
 
-export async function handler(
-  request: Request,
+export const handler = async (
+  req: Request,
   ctx: MiddlewareHandlerContext<State>
-) {
-  const headers = new Headers();
-  const supabaseClient = createSupabaseClient(request.headers, headers);
+) => {
+  const cookies = getCookies(req.headers);
+  const access_token = cookies["supabase-access-token"];
 
-  const {
-    data: { session },
-  } = await supabaseClient.auth.getSession();
-  ctx.state.session = session;
-  ctx.state.supabaseClient = supabaseClient;
-  ctx.state.createOrGetUser = async () =>
-    await createOrGetUser(supabaseClient);
+  if (access_token) {
+    const { data } = await supabase.auth.getUser(access_token);
+
+    if (!data.user) {
+      return ctx.next();
+    }
+    const { data: dbData } = await supabaseAdminClient
+      .from("user")
+      .select()
+      .eq("auth_id", data.user.id)
+      .single();
+    if (!dbData) {
+      const school_name = data.user.email?.slice(-18, -17).toUpperCase();
+      if (data.user.email?.endsWith("@nnn.ed.jp")) {
+        let gen = Number(data.user.email.split("_")[1].slice(0, 2));
+        let school: Database["public"]["Tables"]["user"]["Insert"]["school"] =
+          "N";
+        if (school_name === "N") {
+          gen -= 15;
+        } else if (school_name === "S") {
+          gen -= 20;
+          school = "S";
+        }
+        await supabaseAdminClient
+          .from("user")
+          .insert({
+            auth_id: data.user.id,
+            gen,
+            school,
+          })
+          .throwOnError();
+        ctx.state.user = {
+          id: data.user.id,
+          email: data.user.email!,
+          name: data.user.user_metadata?.full_name,
+          avatar_url: data.user.user_metadata?.avatar_url,
+          school: {
+            name: school,
+            gen: gen,
+            admission_month: "",
+          },
+          access_token,
+        };
+        ctx.state.active = true;
+      } else if (data.user.email?.endsWith("@n-jr.jp")) {
+        const gen = Number(data.user.email.split("_")[1].slice(0, 2));
+        await supabaseAdminClient.from("user").insert({
+          auth_id: data.user.id,
+          gen,
+          school: "NJR",
+        });
+        ctx.state.user = {
+          id: data.user.id,
+          email: data.user.email!,
+          name: data.user.user_metadata?.full_name,
+          avatar_url: data.user.user_metadata?.avatar_url,
+          school: {
+            name: "NJR",
+            gen: gen,
+            admission_month: "",
+          },
+          access_token,
+        };
+        ctx.state.active = true;
+      }else{
+        ctx.state.active = false;
+      }
+      return ctx.next();
+    }
+    //--データがある場合の処理--
+    ctx.state.user = {
+      id: data.user.id,
+      email: data.user.email!,
+      name: data.user.user_metadata?.full_name,
+      avatar_url: data.user.user_metadata?.avatar_url,
+      school: {
+        name: dbData?.school!,
+        gen: dbData?.gen!,
+        admission_month: dbData?.admission_month ?? "",
+      },
+      access_token,
+    };
+    ctx.state.active = true;
+  }
   return ctx.next();
-}
+};
