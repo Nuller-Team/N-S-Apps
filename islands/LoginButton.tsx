@@ -1,5 +1,5 @@
 import { ComponentChildren } from "preact";
-import { supabase } from "../utils/supabase-client.ts"
+import { supabase } from "@/utils/supabase-client.ts"
 
 type LoginButtonType = {
   children: ComponentChildren;
@@ -10,7 +10,7 @@ export default function LoginButton(props: LoginButtonType) {
     supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: window.location.origin + "/",
+        redirectTo: window.location.origin + "/home",
       }
     })
   }

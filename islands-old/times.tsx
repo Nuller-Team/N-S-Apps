@@ -1,5 +1,5 @@
 import { useState, useEffect } from "preact/hooks";
-import { State } from "../types/session.ts";
+import { State } from "../routes/_middleware.ts";
 import {
   DateTime,
   datetime,
@@ -18,35 +18,35 @@ const options = [
   { value: 1, label: "1月生" },
 ];
 
-export default function TIMES({ state }: propsType) {
+export default function TIMES({ state: {user: {school: scData} }, }: propsType) {
   const [haveUsed, setHaveUsed] = useState<boolean>(false);
   const [school, setSchool] = useState(() => {
-    if (state.school == "N") return ("N高")
-    if (state.school == "S") return ("S高")
+    if (scData.name == "N") return ("N高")
+    if (scData.name == "S") return ("S高")
     else return ("N中等部")
   });
   const [EnrollmentDate, setEnrollmentDate] = useState<DateTime>(() => {
-    if (state.admission_month) {
-      let Enrollment_year = 2000 + 20 + state.gen;
-      if (state.school == "N") {
-        Enrollment_year = 2000 + 15 + state.gen;
-      } else if (state.school == "NJR") {
-        Enrollment_year = 2000 + state.gen;
+    if (scData.admission_month) {
+      let Enrollment_year = 2000 + 20 + scData.gen;
+      if (scData.name == "N") {
+        Enrollment_year = 2000 + 15 + scData.gen;
+      } else if (scData.name == "NJR") {
+        Enrollment_year = 2000 + scData.gen
       }
       setHaveUsed(true);
-      if (state.admission_month == "4")
+      if (scData.admission_month == "4")
         return datetime(`${Enrollment_year}-04-01 00:00`).toZonedTime(
           "asia/Tokyo"
         );
-      if (state.admission_month == "7")
+      if (scData.admission_month == "7")
         return datetime(`${Enrollment_year}-07-01 00:00`).toZonedTime(
           "asia/Tokyo"
         );
-      if (state.admission_month == "10")
+      if (scData.admission_month == "10")
         return datetime(`${Enrollment_year}-10-01 00:00`).toZonedTime(
           "asia/Tokyo"
         );
-      if (state.admission_month == "1")
+      if (scData.admission_month == "1")
         return datetime(`${Enrollment_year + 1}-01-01 00:00`).toZonedTime(
           "asia/Tokyo"
         );
@@ -93,11 +93,11 @@ export default function TIMES({ state }: propsType) {
         if (data["status"] == "Error") {
           setError(data["text"]);
         } else {
-          let Enrollment_year = 2000 + 20 + state.gen;
-          if (state.school == "N") {
-            Enrollment_year = 2000 + 15 + state.gen;
-          }else if (state.school == "NJR") {
-            Enrollment_year = 2000 + state.gen;
+          let Enrollment_year = 2000 + 20 + scData.gen;
+          if (scData.name == "N") {
+            Enrollment_year = 2000 + 15 + scData.gen;
+          }else if (scData.name == "NJR") {
+            Enrollment_year = 2000 + scData.gen;
           }
           if (selectedOption.value == 4)
             setEnrollmentDate(

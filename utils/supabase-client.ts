@@ -7,6 +7,7 @@ export const createSupabaseClient = () => {
 		const { SUPABASE_URL, SUPABASE_ANON_KEY } = globalThis.env;
 		return createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 	}
+
 	return null as unknown as SupabaseClient;
 };
 

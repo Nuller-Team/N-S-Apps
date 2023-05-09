@@ -16,7 +16,7 @@ export interface State {
     avatar_url: string;
     access_token: string;
   };
-  active: boolean | undefined;
+  active: "enabled" | "disabled" | "Not logged in";
 }
 
 export const handler = async (
@@ -30,6 +30,7 @@ export const handler = async (
     const { data } = await supabase.auth.getUser(access_token);
 
     if (!data.user) {
+      ctx.state.active == "Not logged in";
       return ctx.next();
     }
     const { data: dbData } = await supabaseAdminClient
@@ -69,7 +70,7 @@ export const handler = async (
           },
           access_token,
         };
-        ctx.state.active = true;
+        ctx.state.active = "enabled";
       } else if (data.user.email?.endsWith("@n-jr.jp")) {
         const gen = Number(data.user.email.split("_")[1].slice(0, 2));
         await supabaseAdminClient.from("user").insert({
@@ -89,9 +90,9 @@ export const handler = async (
           },
           access_token,
         };
-        ctx.state.active = true;
+        ctx.state.active = "enabled";
       }else{
-        ctx.state.active = false;
+        ctx.state.active = "disabled";
       }
       return ctx.next();
     }
@@ -108,7 +109,7 @@ export const handler = async (
       },
       access_token,
     };
-    ctx.state.active = true;
+    ctx.state.active = "enabled";
   }
   return ctx.next();
 };
