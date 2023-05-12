@@ -3,25 +3,29 @@
 // This file is automatically updated during development when running `dev.ts`.
 
 import config from "./deno.json" assert { type: "json" };
-import * as $0 from "./routes/_app.tsx";
-import * as $1 from "./routes/_middleware.ts";
-import * as $2 from "./routes/env.js.ts";
-import * as $3 from "./routes/home.tsx";
-import * as $4 from "./routes/index.tsx";
-import * as $$0 from "./islands/LoginButton.tsx";
-import * as $$1 from "./islands/UserHandler.tsx";
+import * as $0 from "./routes/_middleware.ts";
+import * as $1 from "./routes/index.tsx";
+import * as $2 from "./routes/login/index.tsx";
+import * as $3 from "./routes/login/oauth.ts";
+import * as $4 from "./routes/login/success.tsx";
+import * as $5 from "./routes/logout.ts";
+import * as $$0 from "./islands/AuthFragmentCatcher.tsx";
+import * as $$1 from "./islands/LoginButton.tsx";
+import * as $$2 from "./islands/UserHandler.tsx";
 
 const manifest = {
   routes: {
-    "./routes/_app.tsx": $0,
-    "./routes/_middleware.ts": $1,
-    "./routes/env.js.ts": $2,
-    "./routes/home.tsx": $3,
-    "./routes/index.tsx": $4,
+    "./routes/_middleware.ts": $0,
+    "./routes/index.tsx": $1,
+    "./routes/login/index.tsx": $2,
+    "./routes/login/oauth.ts": $3,
+    "./routes/login/success.tsx": $4,
+    "./routes/logout.ts": $5,
   },
   islands: {
-    "./islands/LoginButton.tsx": $$0,
-    "./islands/UserHandler.tsx": $$1,
+    "./islands/AuthFragmentCatcher.tsx": $$0,
+    "./islands/LoginButton.tsx": $$1,
+    "./islands/UserHandler.tsx": $$2,
   },
   baseUrl: import.meta.url,
   config,
