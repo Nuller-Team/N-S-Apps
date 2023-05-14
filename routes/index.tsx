@@ -50,11 +50,13 @@ export default function test(props: PageProps<State>) {
     const njrApps = apps.filter((project) => project.njr);
     return (
       <>
-        <div class="flex flex-col min-h-screen">
-          <div class="flex-1">
-            <Apps items={njrApps} />
+        <Layout session={props.data.session}>
+          <div class="flex flex-col min-h-screen">
+            <div class="flex-1">
+              <Apps items={njrApps} />
+            </div>
           </div>
-        </div>
+        </Layout>
       </>
     );
   } else {
@@ -69,7 +71,10 @@ export default function test(props: PageProps<State>) {
             >
               <h1 class={"text-black"}>あなたはN/S高生ではないため</h1>
               <h1 class={"text-red-500"}>アプリを使うことはできません</h1>
-              <a href={"/logout"} class="bg-red-500 hover:bg-red-700 text-white font-black py-2 px-4 rounded text-2xl">
+              <a
+                href={"/logout"}
+                class="bg-red-500 hover:bg-red-700 text-white font-black py-2 px-4 rounded text-2xl"
+              >
                 ログアウト
               </a>
             </div>

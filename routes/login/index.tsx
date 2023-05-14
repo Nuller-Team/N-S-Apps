@@ -9,6 +9,7 @@ import {
 import Logo from "../../components/Logo.tsx";
 import OAuthLoginButton from "../../components/OAuthLoginButton.tsx";
 
+// deno-lint-ignore no-explicit-any
 export const handler: Handlers<any, State> = {
   async GET(req, ctx) {
     const {

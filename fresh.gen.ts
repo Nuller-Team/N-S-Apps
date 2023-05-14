@@ -9,9 +9,9 @@ import * as $2 from "./routes/login/index.tsx";
 import * as $3 from "./routes/login/oauth.ts";
 import * as $4 from "./routes/login/success.tsx";
 import * as $5 from "./routes/logout.ts";
+import * as $6 from "./routes/times.tsx";
 import * as $$0 from "./islands/AuthFragmentCatcher.tsx";
-import * as $$1 from "./islands/LoginButton.tsx";
-import * as $$2 from "./islands/UserHandler.tsx";
+import * as $$1 from "./islands/times.tsx";
 
 const manifest = {
   routes: {
@@ -21,11 +21,11 @@ const manifest = {
     "./routes/login/oauth.ts": $3,
     "./routes/login/success.tsx": $4,
     "./routes/logout.ts": $5,
+    "./routes/times.tsx": $6,
   },
   islands: {
     "./islands/AuthFragmentCatcher.tsx": $$0,
-    "./islands/LoginButton.tsx": $$1,
-    "./islands/UserHandler.tsx": $$2,
+    "./islands/times.tsx": $$1,
   },
   baseUrl: import.meta.url,
   config,
