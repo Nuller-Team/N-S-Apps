@@ -1,11 +1,11 @@
 import { useState, useEffect } from "preact/hooks";
-import { State } from "../routes/_middleware.ts";
 import {
   DateTime,
   datetime,
   diffInMillisec,
 } from "https://deno.land/x/ptera@v1.0.2/mod.ts";
 import { h } from "preact";
+import { State } from "../routes/_middleware.ts";
 
 interface propsType {
   state: State;
@@ -18,12 +18,13 @@ const options = [
   { value: 1, label: "1月生" },
 ];
 
-export default function TIMES({ state: {user: {school: scData} }, }: propsType) {
+export default function TIMES({ state }: propsType) {
+  const scData = state.user?.school!;
   const [haveUsed, setHaveUsed] = useState<boolean>(false);
   const [school, setSchool] = useState(() => {
-    if (scData.name == "N") return ("N高")
-    if (scData.name == "S") return ("S高")
-    else return ("N中等部")
+    if (scData.name == "N") return "N高";
+    if (scData.name == "S") return "S高";
+    else return "N中等部";
   });
   const [EnrollmentDate, setEnrollmentDate] = useState<DateTime>(() => {
     if (scData.admission_month) {
@@ -31,7 +32,7 @@ export default function TIMES({ state: {user: {school: scData} }, }: propsType) 
       if (scData.name == "N") {
         Enrollment_year = 2000 + 15 + scData.gen;
       } else if (scData.name == "NJR") {
-        Enrollment_year = 2000 + scData.gen
+        Enrollment_year = 2000 + scData.gen;
       }
       setHaveUsed(true);
       if (scData.admission_month == "4")
@@ -79,52 +80,29 @@ export default function TIMES({ state: {user: {school: scData} }, }: propsType) 
     );
   };
 
-  const decision_admission_month = async () => {
-    setError("");
-    const res = await fetch(
-      `/api/admission_month?month=${selectedOption.value}`
-    );
-    res
-      .json()
-      .catch((e) => {
-        setError("⛔️予期せぬエラーが発生しました⛔️");
-      })
-      .then((data) => {
-        if (data["status"] == "Error") {
-          setError(data["text"]);
-        } else {
-          let Enrollment_year = 2000 + 20 + scData.gen;
-          if (scData.name == "N") {
-            Enrollment_year = 2000 + 15 + scData.gen;
-          }else if (scData.name == "NJR") {
-            Enrollment_year = 2000 + scData.gen;
-          }
-          if (selectedOption.value == 4)
-            setEnrollmentDate(
-              datetime(`${Enrollment_year}-04-01 00:00`).toZonedTime(
-                "asia/Tokyo"
-              )
-            );
-          if (selectedOption.value == 7)
-            setEnrollmentDate(
-              datetime(`${Enrollment_year}-07-01 00:00`).toZonedTime(
-                "asia/Tokyo"
-              )
-            );
-          if (selectedOption.value == 10)
-            setEnrollmentDate(
-              datetime(`${Enrollment_year}-10-01 00:00`).toZonedTime(
-                "asia/Tokyo"
-              )
-            );
-          if (selectedOption.value == 1)
-            setEnrollmentDate(
-              datetime(`${Enrollment_year + 1}-01-01 00:00`).toZonedTime(
-                "asia/Tokyo"
-              )
-            );
-        }
-      });
+  const decision_admission_month = () => {
+    let Enrollment_year = 2000 + 20 + scData.gen;
+    if (scData.name == "N") {
+      Enrollment_year = 2000 + 15 + scData.gen;
+    } else if (scData.name == "NJR") {
+      Enrollment_year = 2000 + scData.gen;
+    }
+    if (selectedOption.value == 4)
+      setEnrollmentDate(
+        datetime(`${Enrollment_year}-04-01 00:00`).toZonedTime("asia/Tokyo")
+      );
+    if (selectedOption.value == 7)
+      setEnrollmentDate(
+        datetime(`${Enrollment_year}-07-01 00:00`).toZonedTime("asia/Tokyo")
+      );
+    if (selectedOption.value == 10)
+      setEnrollmentDate(
+        datetime(`${Enrollment_year}-10-01 00:00`).toZonedTime("asia/Tokyo")
+      );
+    if (selectedOption.value == 1)
+      setEnrollmentDate(
+        datetime(`${Enrollment_year + 1}-01-01 00:00`).toZonedTime("asia/Tokyo")
+      );
     setHaveUsed(true);
   };
 

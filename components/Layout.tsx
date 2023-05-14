@@ -1,6 +1,7 @@
 import type { ComponentChild, ComponentChildren, JSX } from "preact";
 import { Session } from "@supabase/supabase-js";
 import { BUTTON_STYLES, NOTICE_STYLES } from "../utils/constants.ts";
+import { State } from "../routes/_middleware.ts";
 
 export function Header(props: JSX.HTMLAttributes<HTMLElement>) {
   return (
@@ -8,8 +9,8 @@ export function Header(props: JSX.HTMLAttributes<HTMLElement>) {
       <nav class="py-4 border-b">
         <div class="container mx-auto px-4">
           <div class="flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-black">
-              N/S Apps
+            <a href="/">
+              <image src="/head.png" class={"h-11 p-1"}></image>
             </a>
             {props.children}
           </div>
@@ -86,19 +87,36 @@ function Footer(): JSX.Element {
 
 interface LayoutProps {
   children: ComponentChildren;
-  session: Session | null;
+  state: State;
 }
 
 export default function Layout(props: LayoutProps) {
   const headerNavItems = [
-    props.session
+    props.state.active == "Not logged in"
       ? {
-          href: "/home",
-          inner: <div><img src={props.session.user.user_metadata.picture} class={"h-10 rounded-full"}></img></div>,
-        }
-      : {
+        //Not Logged in
           href: "/login",
           inner: <span class={BUTTON_STYLES}>Login</span>,
+        }
+      : props.state.active == "enabled"
+      ? {
+        //Enabled
+          href: "/account",
+          inner: (
+            <div>
+              <img
+                src={props.state.user?.avatar_url}
+                class={"h-10 rounded-full"}
+              ></img>
+            </div>
+          ),
+        }
+      : {
+        //Disabled
+          href: "/",
+          inner: (
+            <div />
+          ),
         },
   ];
   return (
