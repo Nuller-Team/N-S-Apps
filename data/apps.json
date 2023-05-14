@@ -1,11 +1,5 @@
 [
   {
-    "title": "N/S Checker",
-    "link": "/checker",
-    "image": "checker",
-    "njr": true
-  },
-  {
     "title": "N/S Result",
     "link": "/result",
     "image": "result",

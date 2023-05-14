@@ -1,8 +1,11 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
-import TIMES from "../islands/times.tsx";
+import { asset } from "$fresh/runtime.ts";
+
+import Title from "@/components/title.tsx";
+
+import EntryForm from "@/islands/entry.tsx";
 import { State } from "./_middleware.ts";
 import Head from "../components/Head.tsx";
-import { asset } from "https://deno.land/x/fresh@1.1.5/runtime.ts";
 import Layout from "../components/Layout.tsx";
 
 export const handler: Handlers<any, State> = {
@@ -11,12 +14,14 @@ export const handler: Handlers<any, State> = {
   },
 };
 
-const TITLE = "N/S Times｜N/S高に入ってから何秒？";
-const DESCRIPTION = `N/S高に入学してから何秒経過しているかを確認することができます。
-このツールを使用するにはGoogleアカウントでログインが必要です。`;
+const TITLE = "Nullerに応募する";
+const DESCRIPTION = `Nullerは、Discord上で活動する学生による開発チームで、「学生が描く未来」というテーマで、
+便利なアプリや面白いゲーム、今までにないツールを作ることに取り組んでいます。
+チームメンバーは多様であり、コミュニケーションや協働性の確保にも取り組んでいます。
+Nullerの目標は、プログラミングを通じた自己表現や社会貢献です。興味がある方は是非参加してみてください。`;
 
-export default function Times(props: PageProps<State>) {
-  const ogImageUrl = new URL(asset("/ns-app/times.png"), props.url).href;
+export default function Entry(props: PageProps<State>) {
+  const ogImageUrl = new URL(asset("/ns-app/entry.png"), props.url).href;
   if (props.data.active == "Not logged in") {
     return (
       <>
@@ -31,24 +36,25 @@ export default function Times(props: PageProps<State>) {
             <div class="container mx-auto px-4">
               <div
                 class={
-                  "font-semibold mb-8 text-center py-20 md:py-36 space-y-2"
+                  "text-2xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-semibold mb-8 text-center py-20 md:py-36 space-y-2"
                 }
               >
-                <h1 class={"text-yellow-500 text-5xl md:text-7xl"}>
-                  N/S Times
-                </h1>
-                <h1 class={"text-black font-bold text-lg md:text-xl"}>
-                  N/S高に入ってから何秒経過していますか？
-                </h1>
+                <h1 class={"text-black"}>Nullerに応募する</h1>
+                <a
+                  href={"/login"}
+                  class="bg-blue-500 hover:bg-blue-700 text-white font-black py-2 px-4 rounded text-2xl"
+                >
+                  ログイン
+                </a>
               </div>
               <footer class={"flex justify-center py-10"}>
-                <img src="/svg/times.svg" />
+                <image src="/svg/entry.svg" />
               </footer>
             </div>
             <div class="flex justify-center">
               <img
                 class="p-2 rounded-lg shadow-lg w-auto sm:w-96"
-                src={"/ns-app/times.png"}
+                src={"/ns-app/entry.png"}
               ></img>
             </div>
           </section>
@@ -64,14 +70,14 @@ export default function Times(props: PageProps<State>) {
           href={props.url.href}
           imageUrl={ogImageUrl}
         />
-        <Layout state={props.data}>
-          <div class="flex justify-center items-center h-screen">
-            <TIMES state={props.data} />
+        <Title name={TITLE}>
+          <div class="bg-white shadow-md rounded-md p-8 w-full sm:w-[30rem]">
+            <EntryForm state={props.data} />
           </div>
-        </Layout>
+        </Title>
       </>
     );
-  } else {
+  }else{
     return (
       <>
         <Head
@@ -89,7 +95,7 @@ export default function Times(props: PageProps<State>) {
                 }
               >
                 <h1 class={"text-black"}>あなたはN/S高生ではないため</h1>
-                <h1 class={"text-red-500"}>アプリを使うことはできません</h1>
+                <h1 class={"text-red-500"}>Nullerにエントリーすることはできません</h1>
                 <a
                   href={"/logout"}
                   class="bg-red-500 hover:bg-red-700 text-white font-black py-2 px-4 rounded text-2xl"
@@ -98,13 +104,13 @@ export default function Times(props: PageProps<State>) {
                 </a>
               </div>
               <footer class={"flex justify-center py-10"}>
-                <image src="/svg/times.svg" />
+                <image src="/svg/entry.svg" />
               </footer>
             </div>
             <div class="flex justify-center">
               <img
                 class="p-2 rounded-lg shadow-lg w-auto sm:w-96"
-                src={"/ns-app/times.png"}
+                src={"/ns-app/entry.png"}
               ></img>
             </div>
           </section>

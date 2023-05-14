@@ -4,30 +4,38 @@
 
 import config from "./deno.json" assert { type: "json" };
 import * as $0 from "./routes/_middleware.ts";
-import * as $1 from "./routes/index.tsx";
-import * as $2 from "./routes/login/index.tsx";
-import * as $3 from "./routes/login/oauth.ts";
-import * as $4 from "./routes/login/success.tsx";
-import * as $5 from "./routes/logout.ts";
-import * as $6 from "./routes/result.tsx";
-import * as $7 from "./routes/times.tsx";
+import * as $1 from "./routes/entry.tsx";
+import * as $2 from "./routes/grad_timer.tsx";
+import * as $3 from "./routes/index.tsx";
+import * as $4 from "./routes/login/index.tsx";
+import * as $5 from "./routes/login/oauth.ts";
+import * as $6 from "./routes/login/success.tsx";
+import * as $7 from "./routes/logout.ts";
+import * as $8 from "./routes/result.tsx";
+import * as $9 from "./routes/times.tsx";
 import * as $$0 from "./islands/AuthFragmentCatcher.tsx";
-import * as $$1 from "./islands/times.tsx";
+import * as $$1 from "./islands/entry.tsx";
+import * as $$2 from "./islands/grad_timer.tsx";
+import * as $$3 from "./islands/times.tsx";
 
 const manifest = {
   routes: {
     "./routes/_middleware.ts": $0,
-    "./routes/index.tsx": $1,
-    "./routes/login/index.tsx": $2,
-    "./routes/login/oauth.ts": $3,
-    "./routes/login/success.tsx": $4,
-    "./routes/logout.ts": $5,
-    "./routes/result.tsx": $6,
-    "./routes/times.tsx": $7,
+    "./routes/entry.tsx": $1,
+    "./routes/grad_timer.tsx": $2,
+    "./routes/index.tsx": $3,
+    "./routes/login/index.tsx": $4,
+    "./routes/login/oauth.ts": $5,
+    "./routes/login/success.tsx": $6,
+    "./routes/logout.ts": $7,
+    "./routes/result.tsx": $8,
+    "./routes/times.tsx": $9,
   },
   islands: {
     "./islands/AuthFragmentCatcher.tsx": $$0,
-    "./islands/times.tsx": $$1,
+    "./islands/entry.tsx": $$1,
+    "./islands/grad_timer.tsx": $$2,
+    "./islands/times.tsx": $$3,
   },
   baseUrl: import.meta.url,
   config,

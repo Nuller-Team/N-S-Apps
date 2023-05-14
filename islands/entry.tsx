@@ -1,9 +1,10 @@
 import { useState } from "preact/hooks";
 import Modal from "@/components/modal.tsx";
 import IconCheck from "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/check.tsx";
+import { State } from "../routes/_middleware.ts";
 
 interface propsType {
-  email: string;
+  state: State
 }
 
 export default function EntryForm(props: propsType) {
@@ -26,14 +27,25 @@ export default function EntryForm(props: propsType) {
               お名前
             </label>
             <input
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline disabled:(cursor-not-allowed)"
               id="name"
+              disabled={true}
               type="text"
               name="entry.1813499992"
+              value={props.state.user?.name}
               required
             >
             </input>
           </div>
+          <input
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="name"
+              type="text"
+              name="entry.1813499992"
+              value={props.state.user?.name}
+              required
+              hidden={true}
+            ></input>
           <div class="mb-4">
             <label class="block text-gray-700 font-bold mb-2" for="email">
               メールアドレス
@@ -43,7 +55,7 @@ export default function EntryForm(props: propsType) {
               id="email"
               type="email"
               disabled={true}
-              value={props.email}
+              value={props.state.user?.email}
               name="entry.559509131"
               required
             >
@@ -54,7 +66,7 @@ export default function EntryForm(props: propsType) {
               id="email"
               type="email"
               disabled={false}
-              value={props.email}
+              value={props.state.user?.email}
               name="entry.559509131"
               required
               hidden={true}

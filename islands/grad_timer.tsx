@@ -1,11 +1,11 @@
 import { useState, useEffect } from "preact/hooks";
-import { State } from "../types/session.ts";
 import {
   DateTime,
   datetime,
   diffInMillisec,
 } from "https://deno.land/x/ptera@v1.0.2/mod.ts";
 import { h } from "preact";
+import { State } from "../routes/_middleware.ts";
 
 interface propsType {
   state: State;
@@ -19,40 +19,33 @@ const options = [
 ];
 
 export default function TIMES({ state }: propsType) {
+  const scData = state.user?.school!;
   const [haveUsed, setHaveUsed] = useState<boolean>(false);
   const [GraduationDate, setGraduationDate] = useState<DateTime>(() => {
-    if (state.admission_month) {
-      let Graduation_year = 2000 + 20 + state.gen + 3;
-          if (state.school == "N") {
-            Graduation_year = 2000 + 15 + state.gen + 3;
-          }
-          setHaveUsed(true);
-          if (state.admission_month == "4")
-          return(
-              datetime(`${Graduation_year}-04-01 00:00`).toZonedTime(
-                "asia/Tokyo"
-              )
-            );
-          if (state.admission_month == "7")
-          return(
-              datetime(`${Graduation_year}-07-01 00:00`).toZonedTime(
-                "asia/Tokyo"
-              )
-            );
-          if (state.admission_month == "10")
-          return(
-              datetime(`${Graduation_year}-10-01 00:00`).toZonedTime(
-                "asia/Tokyo"
-              )
-            );
-          if (state.admission_month == "1")
-            return(
-              datetime(`${Graduation_year + 1}-01-01 00:00`).toZonedTime(
-                "asia/Tokyo"
-              )
-            );
+    if (scData.admission_month) {
+      let Graduation_year = 2000 + 20 + scData.gen + 3;
+      if (scData.name == "N") {
+        Graduation_year = 2000 + 15 + scData.gen + 3;
+      }
+      setHaveUsed(true);
+      if (scData.admission_month == "4")
+        return datetime(`${Graduation_year}-04-01 00:00`).toZonedTime(
+          "asia/Tokyo"
+        );
+      if (scData.admission_month == "7")
+        return datetime(`${Graduation_year}-07-01 00:00`).toZonedTime(
+          "asia/Tokyo"
+        );
+      if (scData.admission_month == "10")
+        return datetime(`${Graduation_year}-10-01 00:00`).toZonedTime(
+          "asia/Tokyo"
+        );
+      if (scData.admission_month == "1")
+        return datetime(`${Graduation_year + 1}-01-01 00:00`).toZonedTime(
+          "asia/Tokyo"
+        );
     }
-    return datetime().toZonedTime("asia/Tokyo")
+    return datetime().toZonedTime("asia/Tokyo");
   });
   const [selectedOption, setSelectedOption] = useState(options[0]);
   const [error, setError] = useState("");
@@ -80,50 +73,27 @@ export default function TIMES({ state }: propsType) {
     );
   };
 
-  const decision_admission_month = async () => {
-    setError("");
-    const res = await fetch(
-      `/api/admission_month?month=${selectedOption.value}`
-    );
-    res
-      .json()
-      .catch((e) => {
-        setError("⛔️予期せぬエラーが発生しました⛔️");
-      })
-      .then((data) => {
-        if (data["status"] == "Error") {
-          setError(data["text"]);
-        } else {
-          let Graduation_year = 2000 + 20 + state.gen + 3;
-          if (state.school == "N") {
-            Graduation_year = 2000 + 15 + state.gen + 3;
-          }
-          if (selectedOption.value == 4)
-            setGraduationDate(
-              datetime(`${Graduation_year}-04-01 00:00`).toZonedTime(
-                "asia/Tokyo"
-              )
-            );
-          if (selectedOption.value == 7)
-            setGraduationDate(
-              datetime(`${Graduation_year}-07-01 00:00`).toZonedTime(
-                "asia/Tokyo"
-              )
-            );
-          if (selectedOption.value == 10)
-            setGraduationDate(
-              datetime(`${Graduation_year}-10-01 00:00`).toZonedTime(
-                "asia/Tokyo"
-              )
-            );
-          if (selectedOption.value == 1)
-            setGraduationDate(
-              datetime(`${Graduation_year + 1}-01-01 00:00`).toZonedTime(
-                "asia/Tokyo"
-              )
-            );
-        }
-      });
+  const decision_admission_month = () => {
+    let Graduation_year = 2000 + 20 + scData.gen + 3;
+    if (scData.name == "N") {
+      Graduation_year = 2000 + 15 + scData.gen + 3;
+    }
+    if (selectedOption.value == 4)
+      setGraduationDate(
+        datetime(`${Graduation_year}-04-01 00:00`).toZonedTime("asia/Tokyo")
+      );
+    if (selectedOption.value == 7)
+      setGraduationDate(
+        datetime(`${Graduation_year}-07-01 00:00`).toZonedTime("asia/Tokyo")
+      );
+    if (selectedOption.value == 10)
+      setGraduationDate(
+        datetime(`${Graduation_year}-10-01 00:00`).toZonedTime("asia/Tokyo")
+      );
+    if (selectedOption.value == 1)
+      setGraduationDate(
+        datetime(`${Graduation_year + 1}-01-01 00:00`).toZonedTime("asia/Tokyo")
+      );
     setHaveUsed(true);
   };
 
@@ -131,7 +101,7 @@ export default function TIMES({ state }: propsType) {
     <>
       <div hidden={!haveUsed}>
         <div className="font-bold text-center text-xl md:text-2xl lg:text-3xl 2xl:text-4xl">
-          あなたが{state.school}高を卒業するまで<br></br>
+          あなたが{scData.name}高を卒業するまで<br></br>
           <a
             className="text-6xl md:text-7xl lg:text-8xl 2xl:text-9xl text-blue-400"
             onClick={() => {
