@@ -14,7 +14,7 @@ export const handler: Handlers<any, State> = {
       headers: { location: "/" },
       status: 303,
     });
-    deleteCookie(response.headers, "supabase-access-token", {path: "/"})
+    deleteCookie(response.headers, "supabase-auth-token", {path: "/"})
 
     console.log(response);
     return response;
