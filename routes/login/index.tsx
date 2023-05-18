@@ -38,8 +38,8 @@ export default function LoginPage(props: PageProps) {
       <Head title="Login" />
       <div class="max-w-xs flex h-screen m-auto">
         <div class="m-auto w-96">
-          <a href="/">
-            <Logo class="mb-8" />
+          <a href="/" class={"p-10"}>
+            <image src="/head.png" />
           </a>
           {errorMessage && POSSIBLE_ERROR_MESSAGES.has(errorMessage) && (
             <div class={NOTICE_STYLES}>{errorMessage}</div>

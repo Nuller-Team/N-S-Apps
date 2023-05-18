@@ -1,4 +1,3 @@
-import "dotenv";
 import { createClient } from "@supabase/supabase-js";
 import { createServerSupabaseClient } from "@supabase/auth-helpers-shared";
 import { Database } from "./supabase_types.ts";

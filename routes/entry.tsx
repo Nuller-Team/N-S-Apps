@@ -1,8 +1,5 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { asset } from "$fresh/runtime.ts";
-
-import Title from "@/components/title.tsx";
-
 import EntryForm from "@/islands/entry.tsx";
 import { State } from "./_middleware.ts";
 import Head from "../components/Head.tsx";
@@ -70,14 +67,17 @@ export default function Entry(props: PageProps<State>) {
           href={props.url.href}
           imageUrl={ogImageUrl}
         />
-        <Title name={TITLE}>
+        <div class="flex flex-col items-center justify-center h-screen bg-gray-100">
+          <h1 class="text-3xl font-bold text-gray-800 mb-8">
+            Nullerに応募する
+          </h1>
           <div class="bg-white shadow-md rounded-md p-8 w-full sm:w-[30rem]">
             <EntryForm state={props.data} />
           </div>
-        </Title>
+        </div>
       </>
     );
-  }else{
+  } else {
     return (
       <>
         <Head
@@ -95,7 +95,9 @@ export default function Entry(props: PageProps<State>) {
                 }
               >
                 <h1 class={"text-black"}>あなたはN/S高生ではないため</h1>
-                <h1 class={"text-red-500"}>Nullerにエントリーすることはできません</h1>
+                <h1 class={"text-red-500"}>
+                  Nullerにエントリーすることはできません
+                </h1>
               </div>
               <footer class={"flex justify-center py-10"}>
                 <image src="/svg/entry.svg" />
