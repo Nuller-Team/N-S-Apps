@@ -1,16 +1,13 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
-import { asset, Head } from "$fresh/runtime.ts";
-import { auth_url } from "../utils/auth.ts";
-import type { State } from "@/types/session.ts";
-
-import Title from "@/components/title.tsx";
-
+import { asset } from "$fresh/runtime.ts";
 import EntryForm from "@/islands/entry.tsx";
+import { State } from "./_middleware.ts";
+import Head from "../components/Head.tsx";
+import Layout from "../components/Layout.tsx";
 
 export const handler: Handlers<any, State> = {
-  GET(req, ctx) {
-    if (!ctx.state.token) return ctx.render();
-    return ctx.render(ctx.state);
+  GET(_req, ctx) {
+    return ctx.render({ ...ctx.state });
   },
 };
 
@@ -20,49 +17,100 @@ const DESCRIPTION = `Nullerは、Discord上で活動する学生による開発�
 チームメンバーは多様であり、コミュニケーションや協働性の確保にも取り組んでいます。
 Nullerの目標は、プログラミングを通じた自己表現や社会貢献です。興味がある方は是非参加してみてください。`;
 
-export default function Entry(props: PageProps<State | undefined>) {
+export default function Entry(props: PageProps<State>) {
   const ogImageUrl = new URL(asset("/ns-app/entry.png"), props.url).href;
-  if (!props.data?.email) {
+  if (props.data.active == "Not logged in") {
     return (
       <>
-        <Head>
-          <title>{TITLE}</title>
-          <meta name="description" content={DESCRIPTION} />
-          <meta property="og:title" content={TITLE} />
-          <meta property="og:type" content="website" />
-          <meta property="og:description" content={DESCRIPTION} />
-          <meta property="og:url" content={props.url.href} />
-          <meta property="og:image" content={ogImageUrl} />
-        </Head>
-        <Title name="Nullerに応募する">
-          <div class="bg-white shadow-md rounded-md p-8 w-full sm:w-[30rem]">
-            <div class="mb-6">
-              <a
-                href={auth_url + "&state=entry"}
-                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring w-full flex items-center justify-center"
+        <Head
+          title={TITLE}
+          description={DESCRIPTION}
+          href={props.url.href}
+          imageUrl={ogImageUrl}
+        />
+        <Layout state={props.data}>
+          <section class="bg-white py-12">
+            <div class="container mx-auto px-4">
+              <div
+                class={
+                  "text-2xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-semibold mb-8 text-center py-20 md:py-36 space-y-2"
+                }
               >
-                <i class="mr-2"></i> 私はN/S高生、N中等部です
-              </a>
+                <h1 class={"text-black"}>Nullerに応募する</h1>
+                <a
+                  href={"/login"}
+                  class="bg-blue-500 hover:bg-blue-700 text-white font-black py-2 px-4 rounded text-2xl"
+                >
+                  ログイン
+                </a>
+              </div>
+              <footer class={"flex justify-center py-10"}>
+                <image src="/svg/entry.svg" />
+              </footer>
             </div>
-            <p class="text-sm text-gray-500 text-center">
-              Nullerに応募する為にはN/S高生アカウントでの<br></br>
-              ログインが必要です。
-            </p>
+            <div class="flex justify-center">
+              <img
+                class="p-2 rounded-lg shadow-lg w-auto sm:w-96"
+                src={"/ns-app/entry.png"}
+              ></img>
+            </div>
+          </section>
+        </Layout>
+      </>
+    );
+  } else if (props.data.active == "enabled") {
+    return (
+      <>
+        <Head
+          title={TITLE}
+          description={DESCRIPTION}
+          href={props.url.href}
+          imageUrl={ogImageUrl}
+        />
+        <div class="flex flex-col items-center justify-center h-screen bg-gray-100">
+          <h1 class="text-3xl font-bold text-gray-800 mb-8">
+            Nullerに応募する
+          </h1>
+          <div class="bg-white shadow-md rounded-md p-8 w-full sm:w-[30rem]">
+            <EntryForm state={props.data} />
           </div>
-        </Title>
+        </div>
       </>
     );
   } else {
     return (
       <>
-        <Head>
-          <title>{TITLE}</title>
-        </Head>
-        <Title name={TITLE}>
-          <div class="bg-white shadow-md rounded-md p-8 w-full sm:w-[30rem]">
-            <EntryForm email={props.data.email} />
-          </div>
-        </Title>
+        <Head
+          title={TITLE}
+          description={DESCRIPTION}
+          href={props.url.href}
+          imageUrl={ogImageUrl}
+        />
+        <Layout state={props.data}>
+          <section class="bg-white py-12">
+            <div class="container mx-auto px-4">
+              <div
+                class={
+                  "text-2xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-semibold mb-8 text-center py-20 md:py-36 space-y-2"
+                }
+              >
+                <h1 class={"text-black"}>あなたはN/S高生ではないため</h1>
+                <h1 class={"text-red-500"}>
+                  Nullerにエントリーすることはできません
+                </h1>
+              </div>
+              <footer class={"flex justify-center py-10"}>
+                <image src="/svg/entry.svg" />
+              </footer>
+            </div>
+            <div class="flex justify-center">
+              <img
+                class="p-2 rounded-lg shadow-lg w-auto sm:w-96"
+                src={"/ns-app/entry.png"}
+              ></img>
+            </div>
+          </section>
+        </Layout>
       </>
     );
   }

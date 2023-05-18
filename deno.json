@@ -1,4 +1,6 @@
 {
+  "tasks": { "dev": "deno run -A --watch=static/,routes/ dev.ts" },
+  "lock": false,
   "importMap": "./import_map.json",
   "compilerOptions": {
     "jsx": "react-jsx",

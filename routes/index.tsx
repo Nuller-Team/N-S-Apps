@@ -1,94 +1,110 @@
-import { Handlers, PageProps } from "$fresh/server.ts";
-import { asset, Head } from "$fresh/runtime.ts";
-import type { State } from "@/types/session.ts";
-import Projects, { Project } from "@/components/Projects.tsx";
+import { Handlers, PageProps } from "https://deno.land/x/fresh@1.1.5/server.ts";
+import Layout, { Header } from "../components/Layout.tsx";
+import { State } from "./_middleware.ts";
 import apps from "@/data/apps.json" assert { type: "json" };
-import Title from "@/components/title.tsx";
+import Projects, { Project } from "@/components/Projects.tsx";
+import Head from "../components/Head.tsx";
+import { asset } from "https://deno.land/x/fresh@1.1.5/runtime.ts";
 
-import { auth_url } from "@/utils/auth.ts";
-
-export const handler: Handlers<any, State> = {
-  GET(req, ctx) {
-    if (!ctx.state.token) return ctx.render();
-    return ctx.render(ctx.state);
-  },
-};
-
-const TITLE = "N/S Apps｜N/S高生のためのアプリ";
-const DESCRIPTION = `N/S高生の学校生活をより便利にするために作られたアプリたちです。
-このツールを使用するにはGoogleアカウントでログインが必要です。`;
-
-export default function Index(props: PageProps<State | undefined>) {
-  if (!props.data?.email) {
-    const ogImageUrl = new URL(asset("/ns-app/apps.png"), props.url).href;
+export default function test(props: PageProps<State>) {
+  const ogImageUrl = new URL(asset("/ns-app/apps.png"), props.url).href;
+  if (props.data.active == "Not logged in") {
     return (
       <>
-        <Head>
-          <title>{TITLE}</title>
-          <meta name="description" content={DESCRIPTION} />
-          <meta property="og:title" content={TITLE} />
-          <meta property="og:type" content="website" />
-          <meta property="og:description" content={DESCRIPTION} />
-          <meta property="og:url" content={props.url.href} />
-          <meta property="og:image" content={ogImageUrl} />
-        </Head>
-        <Title name="N/S Apps">
-          <div class="bg-white shadow-md rounded-md p-8 w-full sm:w-[31rem]">
-            <div class="mb-6">
-              <a
-                href={auth_url}
-                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring w-full flex items-center justify-center"
+        <Head imageUrl={ogImageUrl} />
+        <Layout state={props.data}>
+          <section class="bg-white py-12">
+            <div class="container mx-auto px-4">
+              <div
+                class={
+                  "text-2xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-semibold mb-8 text-center py-20 md:py-36 space-y-2"
+                }
               >
-                <i class="mr-2"></i> 私はN/S高生、N中等部です
-              </a>
+                <h1 class={"text-black"}>N/S高生の学校生活を</h1>
+                <h1 class={"text-purple-500"}>より便利にするアプリたち</h1>
+              </div>
+              <footer class={"flex justify-center py-10"}>
+                <image src="/svg/home.svg" />
+              </footer>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-center">
+                <img class="p-2 rounded-lg" src={"/ns-app/apps.png"}></img>
+                <img class="p-2 rounded-lg" src={"/ns-app/checker.png"}></img>
+                <img
+                  class="p-2 rounded-lg"
+                  src={"/ns-app/grad-timer.png"}
+                ></img>
+                <img class="p-2 rounded-lg" src={"/ns-app/profile.png"}></img>
+                <img class="p-2 rounded-lg" src={"/ns-app/result.png"}></img>
+                <img class="p-2 rounded-lg" src={"/ns-app/times.png"}></img>
+              </div>
             </div>
-            <p class="text-sm text-gray-500 text-center">
-              N/S高生の開発チーム
-              <a href="https://nuller.net">『Nuller』</a>が開発した、<br></br>
-              N/S高での学校生活をより便利にする為に作られたアプリたちです。
-              <br></br>
-              N/S高生、N中等部以外は使うことができません。
-            </p>
-          </div>
-        </Title>
+          </section>
+        </Layout>
       </>
     );
-  } else if (props.data.school == "NJR") {
-    const njrApps = apps.filter((project) => project.njr);
+  } else if (props.data.active == "enabled") {
     return (
       <>
-        <div class="flex flex-col min-h-screen">
-          <div class="flex-1">
-            <Apps items={njrApps} />
+        <Head imageUrl={ogImageUrl} />
+        <Layout state={props.data}>
+          <div class="flex flex-col min-h-screen">
+            <div class="flex-1">
+              <Apps items={apps} state={props.data} />
+            </div>
           </div>
-        </div>
+        </Layout>
       </>
     );
   } else {
     return (
       <>
-        <div class="flex flex-col min-h-screen">
-          <div class="flex-1">
-            <Apps items={apps} />
-          </div>
-        </div>
+        <Head imageUrl={ogImageUrl} />
+        <Layout state={props.data}>
+          <section class="bg-white py-12">
+            <div class="container mx-auto px-4">
+              <div
+                class={
+                  "text-2xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-semibold mb-8 text-center py-20 md:py-36 space-y-2"
+                }
+              >
+                <h1 class={"text-black"}>あなたはN/S高生ではないため</h1>
+                <h1 class={"text-red-500"}>アプリを使うことはできません</h1>
+              </div>
+              <footer class={"flex justify-center py-10"}>
+                <image src="/svg/home.svg" />
+              </footer>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-center">
+                <img class="p-2 rounded-lg" src={"/ns-app/apps.png"}></img>
+                <img class="p-2 rounded-lg" src={"/ns-app/checker.png"}></img>
+                <img
+                  class="p-2 rounded-lg"
+                  src={"/ns-app/grad-timer.png"}
+                ></img>
+                <img class="p-2 rounded-lg" src={"/ns-app/profile.png"}></img>
+                <img class="p-2 rounded-lg" src={"/ns-app/result.png"}></img>
+                <img class="p-2 rounded-lg" src={"/ns-app/times.png"}></img>
+              </div>
+            </div>
+          </section>
+        </Layout>
       </>
     );
   }
 }
 
-function Apps({ items }: { items: Project[] }) {
+export const handler: Handlers<any, State> = {
+  GET(_req, ctx) {
+    return ctx.render({ ...ctx.state });
+  },
+};
+
+function Apps({ items, state }: { items: Project[]; state: State }) {
+  if (state.user?.school.name == "NJR") {
+    items.filter((project) => project.njr);
+  }
   return (
     <>
-      <Head>
-        <title>{TITLE}</title>
-      </Head>
       <section class="max-w-screen-lg mx-auto my-16 px(4 sm:6 md:8) space-y-4">
-        <h2 class="text(3xl gray-600) font-bold">N/S Apps</h2>
-        <p class="text-gray-600">
-          N/S高生の開発チーム『Nuller』が開発した
-          N/S高生、N中等部生のためのアプリです。
-        </p>
         <Projects items={items} class="gap-16" />
       </section>
     </>

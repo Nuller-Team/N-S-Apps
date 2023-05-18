@@ -1,15 +1,13 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
-import type { State } from "@/types/session.ts";
 import TIMES from "../islands/times.tsx";
-import { auth_url } from "../utils/auth.ts";
-import { asset, Head } from "$fresh/runtime.ts";
-
-import Title from "@/components/title.tsx";
+import { State } from "./_middleware.ts";
+import Head from "../components/Head.tsx";
+import { asset } from "https://deno.land/x/fresh@1.1.5/runtime.ts";
+import Layout from "../components/Layout.tsx";
 
 export const handler: Handlers<any, State> = {
-  GET(req, ctx) {
-    if (!ctx.state.token) return ctx.render();
-    return ctx.render(ctx.state);
+  GET(_req, ctx) {
+    return ctx.render({ ...ctx.state });
   },
 };
 
@@ -17,50 +15,96 @@ const TITLE = "N/S Times｜N/S高に入ってから何秒？";
 const DESCRIPTION = `N/S高に入学してから何秒経過しているかを確認することができます。
 このツールを使用するにはGoogleアカウントでログインが必要です。`;
 
-export default function Times(props: PageProps<State | undefined>) {
+export default function Times(props: PageProps<State>) {
   const ogImageUrl = new URL(asset("/ns-app/times.png"), props.url).href;
-  if (!props.data?.school) {
+  if (props.data.active == "Not logged in") {
     return (
       <>
-        <Head>
-          <title>{TITLE}</title>
-          <meta name="description" content={DESCRIPTION} />
-          <meta property="og:title" content={TITLE} />
-          <meta property="og:type" content="website" />
-          <meta property="og:description" content={DESCRIPTION} />
-          <meta property="og:url" content={props.url.href} />
-          <meta property="og:image" content={ogImageUrl} />
-        </Head>
-        <Title name="N/S Times">
-          <div class="bg-white shadow-md rounded-md p-8 w-full sm:w-[31rem]">
-            <div class="mb-6">
-              <a
-                href={auth_url + "&state=times"}
-                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring w-full flex items-center justify-center"
+        <Head
+          title={TITLE}
+          description={DESCRIPTION}
+          href={props.url.href}
+          imageUrl={ogImageUrl}
+        />
+        <Layout state={props.data}>
+          <section class="bg-white py-12">
+            <div class="container mx-auto px-4">
+              <div
+                class={
+                  "font-semibold mb-8 text-center py-20 md:py-36 space-y-2"
+                }
               >
-                <i class="mr-2"></i> 私はN/S高生、N中等部です
-              </a>
+                <h1 class={"text-yellow-500 text-5xl md:text-7xl"}>
+                  N/S Times
+                </h1>
+                <h1 class={"text-black font-bold text-lg md:text-xl"}>
+                  N/S高に入ってから何秒経過していますか？
+                </h1>
+              </div>
+              <footer class={"flex justify-center py-10"}>
+                <img src="/svg/times.svg" />
+              </footer>
             </div>
-            <p class="text-sm text-gray-500 text-center">
-              N/S高生の開発チーム
-              <a href="https://nuller.net">『Nuller』</a>が開発した、<br></br>
-              N/S高での学校生活をより便利にする為に作られたアプリたちです。
-              <br></br>
-              N/S高生、N中等部以外は使うことができません。
-            </p>
+            <div class="flex justify-center">
+              <img
+                class="p-2 rounded-lg shadow-lg w-auto sm:w-96"
+                src={"/ns-app/times.png"}
+              ></img>
+            </div>
+          </section>
+        </Layout>
+      </>
+    );
+  } else if (props.data.active == "enabled") {
+    return (
+      <>
+        <Head
+          title={TITLE}
+          description={DESCRIPTION}
+          href={props.url.href}
+          imageUrl={ogImageUrl}
+        />
+        <Layout state={props.data}>
+          <div class="flex justify-center items-center h-screen">
+            <TIMES state={props.data} />
           </div>
-        </Title>
+        </Layout>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <Head
+          title={TITLE}
+          description={DESCRIPTION}
+          href={props.url.href}
+          imageUrl={ogImageUrl}
+        />
+        <Layout state={props.data}>
+          <section class="bg-white py-12">
+            <div class="container mx-auto px-4">
+              <div
+                class={
+                  "text-2xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-semibold mb-8 text-center py-20 md:py-36 space-y-2"
+                }
+              >
+                <h1 class={"text-black"}>あなたはN/S高生ではないため</h1>
+                <h1 class={"text-red-500"}>アプリを使うことはできません</h1>
+
+              </div>
+              <footer class={"flex justify-center py-10"}>
+                <image src="/svg/times.svg" />
+              </footer>
+            </div>
+            <div class="flex justify-center">
+              <img
+                class="p-2 rounded-lg shadow-lg w-auto sm:w-96"
+                src={"/ns-app/times.png"}
+              ></img>
+            </div>
+          </section>
+        </Layout>
       </>
     );
   }
-  return (
-    <>
-      <Head>
-        <title>{TITLE}</title>
-      </Head>
-      <div class="flex justify-center items-center h-screen">
-        <TIMES state={props.data} />
-      </div>
-    </>
-  );
 }

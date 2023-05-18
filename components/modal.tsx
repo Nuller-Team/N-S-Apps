@@ -44,7 +44,7 @@ export default function Modal(props: Props & JSX.HTMLAttributes) {
       <dialog
         ref={ref}
         class={`p-0 bg-transparent ${
-          props.class?.split(" ").filter((p) => p.match(/^[h,w]/)).join(" ")
+          props.class?.toString().split(" ").filter((p) => p.match(/^[h,w]/)).join(" ")
         }`}
         onClick={() => {
           !props.isNoBackdropClose && doClose();
@@ -52,7 +52,7 @@ export default function Modal(props: Props & JSX.HTMLAttributes) {
       >
         <div
           class={`w-full h-full bg-white ${
-            props.class?.split(" ").filter((p) => !p.match(/^[h,w]-/)).join(" ")
+            props.class?.toString().split(" ").filter((p) => !p.match(/^[h,w]-/)).join(" ")
           }`}
           onClick={(e) => e.stopPropagation()}
         >

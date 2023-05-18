@@ -7,7 +7,7 @@
 import { RenderFunction, start } from "$fresh/server.ts";
 import manifest from "./fresh.gen.ts";
 
-import twindPlugin from "$fresh/plugins/twind.ts";
+import twindPlugin from "$fresh/plugins/twindv1.ts";
 import twindConfig from "./twind.config.ts";
 
 const render: RenderFunction = (ctx, render) => {

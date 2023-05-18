@@ -1,14 +1,9 @@
-import { Env } from "https://deno.land/x/env@v2.2.3/env.js";
-const env = new Env();
+export default function (envName: string) {
+  const envValue = Deno.env.get(envName);
 
-const CLIENT_ID = env.require("GOOGLE_CLIENT_ID");
-const CLIENT_SECRET = env.require("GOOGLE_CLIENT_SECRET");
-const SERVER_URL = env.require("SERVER_URL");
-const MONGO_URI = env.require("MONGODB_URL");
+  if (!envValue) {
+    throw new Error(`No token: ${envName}`);
+  }
 
-export default {
-  CLIENT_ID,
-  CLIENT_SECRET,
-  MONGO_URI,
-  SERVER_URL,
-};
+  return envValue;
+}
