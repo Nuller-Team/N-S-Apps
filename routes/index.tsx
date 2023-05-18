@@ -69,12 +69,6 @@ export default function test(props: PageProps<State>) {
               >
                 <h1 class={"text-black"}>あなたはN/S高生ではないため</h1>
                 <h1 class={"text-red-500"}>アプリを使うことはできません</h1>
-                <a
-                  href={"/logout"}
-                  class="bg-red-500 hover:bg-red-700 text-white font-black py-2 px-4 rounded text-2xl"
-                >
-                  ログアウト
-                </a>
               </div>
               <footer class={"flex justify-center py-10"}>
                 <image src="/svg/home.svg" />
