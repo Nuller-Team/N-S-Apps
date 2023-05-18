@@ -101,7 +101,7 @@ export default function Layout(props: LayoutProps) {
       : props.state.active == "enabled"
       ? {
         //Enabled
-          href: "/account",
+          href: "",
           inner: (
             <div>
               <img
