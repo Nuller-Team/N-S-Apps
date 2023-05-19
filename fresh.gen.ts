@@ -11,12 +11,14 @@ import * as $4 from "./routes/index.tsx";
 import * as $5 from "./routes/login/index.tsx";
 import * as $6 from "./routes/login/oauth.ts";
 import * as $7 from "./routes/login/success.tsx";
-import * as $8 from "./routes/result.tsx";
-import * as $9 from "./routes/times.tsx";
+import * as $8 from "./routes/pages.tsx";
+import * as $9 from "./routes/result.tsx";
+import * as $10 from "./routes/times.tsx";
 import * as $$0 from "./islands/AuthFragmentCatcher.tsx";
 import * as $$1 from "./islands/entry.tsx";
 import * as $$2 from "./islands/grad_timer.tsx";
-import * as $$3 from "./islands/times.tsx";
+import * as $$3 from "./islands/pages.tsx";
+import * as $$4 from "./islands/times.tsx";
 
 const manifest = {
   routes: {
@@ -28,14 +30,16 @@ const manifest = {
     "./routes/login/index.tsx": $5,
     "./routes/login/oauth.ts": $6,
     "./routes/login/success.tsx": $7,
-    "./routes/result.tsx": $8,
-    "./routes/times.tsx": $9,
+    "./routes/pages.tsx": $8,
+    "./routes/result.tsx": $9,
+    "./routes/times.tsx": $10,
   },
   islands: {
     "./islands/AuthFragmentCatcher.tsx": $$0,
     "./islands/entry.tsx": $$1,
     "./islands/grad_timer.tsx": $$2,
-    "./islands/times.tsx": $$3,
+    "./islands/pages.tsx": $$3,
+    "./islands/times.tsx": $$4,
   },
   baseUrl: import.meta.url,
   config,

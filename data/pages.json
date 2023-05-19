@@ -1,0 +1,158 @@
+[
+  {
+    "tag": "ポータルサイト,ヘルプ,サポート",
+    "name": "学内ヘルプページ（ナレッジベース）",
+    "links": "https://sites.google.com/nnn.ed.jp/knowledgebase/top",
+    "emoji": "❓"
+  },
+  {
+    "tag": "カレンダー,予定,ツール",
+    "name": "学内イベントカレンダー",
+    "links": "https://sites.google.com/nnn.ac.jp/event-calendar/",
+    "emoji": "📅"
+  },
+  {
+    "tag": "ポータルサイト,ヘルプ,サポート",
+    "name": "普通科バーチャル学習ポータルサイト",
+    "links": "https://sites.google.com/nnn.ed.jp/general-education/manabi",
+    "emoji": "VR"
+  },
+  {
+    "tag": "IT,デジタル,ツール,サポート,申請",
+    "name": "ITツール利用申請",
+    "links": "https://sites.google.com/nnn.ed.jp/it-tool",
+    "emoji": "IT"
+  },
+  {
+    "tag": "ポータルサイト,インフォ,ヘルプ",
+    "name": "N/S高インフォ",
+    "links": "https://sites.google.com/nnn.ed.jp/info",
+    "emoji": "ℹ︎"
+  },
+  {
+    "tag": "ヘルプ,サポート",
+    "name": "学内ヘルプセンター 新･転･編入生向けヘルプ",
+    "links": "https://sites.google.com/nnn.ed.jp/knowledgebase/category/start-help",
+    "emoji": "👋"
+  },
+  {
+    "tag": "ツール,マイページ,N高",
+    "name": "N高マイページ",
+    "links": "https://secure.nnn.ed.jp/mypage/",
+    "emoji": "N高"
+  },
+  {
+    "tag": "ツール,マイページ,S高",
+    "name": "S高マイページ",
+    "links": "https://secure.nnn.ed.jp/mypage/",
+    "emoji": "S高"
+  },
+  {
+    "tag": "レポート,ツール,学習",
+    "name": "N予備校",
+    "links": "https://www.nnn.ed.nico/",
+    "emoji": "N予備校"
+  },
+  {
+    "tag": "通学,ツール",
+    "name": "Classroom",
+    "links": "https://classroom.google.com/h",
+    "emoji": "🛠"
+  },
+  {
+    "tag": "ツール,連絡",
+    "name": "Gmail",
+    "links": "http://www.google.com/url?q=http%3A%2F%2Fmail.nnn.ed.jp&sa=D&sntz=1&usg=AOvVaw3X7r6xh4ukIySDLaPkA10",
+    "emoji": "📨"
+  },
+  {
+    "tag": "サイト,通学コース,ヘルプ,ポータルサイト",
+    "name": "通学コース生徒用サイト",
+    "links": "https://sites.google.com/nnn.ac.jp/curriculum/",
+    "emoji": "🏫"
+  },
+  {
+    "tag": "プロN,プロジェクトN,通学",
+    "name": "プロNサイト(通学)",
+    "links": "https://sites.google.com/nnn.ac.jp/project-n/tsugaku/",
+    "emoji": "📄"
+  },
+  {
+    "tag": "N/S高全体",
+    "name": "N/S高通報",
+    "links": "https://sites.google.com/nnn.ed.jp/knowledgebase/category/report",
+    "emoji": "🚨"
+  },
+  {
+    "tag": "N/S高全体",
+    "name": "N/S高フィートバック",
+    "links": "https://sites.google.com/nnn.ed.jp/knowledgebase/category/feedback",
+    "emoji": "📧"
+  },
+  {
+    "tag": "N/S高全体",
+    "name": "角川ドワンゴ学園 留学課",
+    "links": "https://sites.google.com/nnn.ac.jp/studyabroad",
+    "emoji": "📄"
+  },
+  {
+    "tag": "N/S高全体",
+    "name": "英検TOEICまとめサイト",
+    "links": "https://sites.google.com/nnn.ac.jp/toeic",
+    "emoji": "📄"
+  },
+  {
+    "tag": "N/S高全体",
+    "name": "N/S高生徒会",
+    "links": "https://sites.google.com/nnn.ac.jp/seitokai/",
+    "emoji": "👥"
+  },
+  {
+    "tag": "N/S高全体",
+    "name": "【起業部・N/S高アントレ】特別サイト",
+    "links": "https://sites.google.com/nnn.ac.jp/kigyobu-nsentre/",
+    "emoji": "🏢"
+  },
+  {
+    "tag": "N/S高全体,海外,N塾",
+    "name": "N塾｜海外進学コース",
+    "links": "https://sites.google.com/nnn.ed.jp/olc-pre",
+    "emoji": "🛩"
+  },
+  {
+    "tag": "通学コース,生徒用サイト,ポータルサイト",
+    "name": "通学コース生徒用サイト",
+    "links": "https://sites.google.com/nnn.ac.jp/curriculum/",
+    "emoji": "🏫"
+  },
+  {
+    "tag": "通学コース向け,プログラミング,ポータルサイト",
+    "name": "通学コース　プログラミングサイト",
+    "links": "https://sites.google.com/nnn.ac.jp/programming",
+    "emoji": "🏫"
+  },
+  {
+    "tag": "通学コース,ヘルプ,サポート",
+    "name": "通学コース向けヘルプ",
+    "links": "https://sites.google.com/nnn.ed.jp/knowledgebase/category/course/commute",
+    "emoji": "🏫"
+  },
+  {
+    "tag": "オンライン通学コース,プロN,プロジェクトN",
+    "name": "プロNサイト（オンライン通学コース）",
+    "links": "https://sites.google.com/nnn.ac.jp/project-n/online",
+    "emoji": "📄"
+  },
+  {
+    "tag": "ネットコース,サポート,ヘルプ",
+    "name": "ネットコース向けヘルプ",
+    "links": "https://sites.google.com/nnn.ed.jp/knowledgebase/category/course/net",
+    "emoji": "🌐"
+  },
+  {
+    "tag": "キャンパス所在地",
+    "name": "ネットコース向けヘルプ",
+    "links": "https://sites.google.com/nnn.ed.jp/knowledgebase/location",
+    "emoji": "🗾"
+  }
+]
