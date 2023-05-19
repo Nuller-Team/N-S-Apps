@@ -18,6 +18,12 @@
     "njr": false
   },
   {
+    "title": "N/S Pages",
+    "link": "/pages",
+    "image": "pages",
+    "njr": false
+  },
+  {
     "title": "Nullerへ応募する",
     "link": "/entry",
     "image": "entry",
