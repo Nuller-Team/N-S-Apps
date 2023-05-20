@@ -1,8 +1,15 @@
-import { Handlers, PageProps } from "$fresh/server.ts";
+import { PageProps } from "$fresh/server.ts";
 import { asset } from "$fresh/runtime.ts";
-import Head from "../components/Head.tsx";
-import { State } from "./_middleware.ts";
-import Layout from "../components/Layout.tsx";
+import Head from "@/components/Head.tsx";
+import { State } from "@/routes/_middleware.ts";
+import Layout from "@/components/Layout.tsx";
+import { Handlers } from "@/utils/handler.ts";
+
+export const handler: Handlers = {
+  GET(_req, ctx) {
+    return ctx.render({ ...ctx.state });
+  },
+};
 
 const TITLE = "N/S Result｜成績を素早く簡単に確認";
 const DESCRIPTION = `Chromeの拡張機能を用いてN/S高の成績を素早く簡単に確認することができます。
@@ -50,7 +57,7 @@ export default function Result(props: PageProps<State>) {
               <div
                 class={"bg-white py-5 px-6 shadow-md rounded-md text-center"}
               >
-                <h3 class="text-xl font-semibold text-gray-800 py-2 py-2">
+                <h3 class="text-xl font-semibold text-gray-800 py-2">
                   ✅簡単な成績確認！
                 </h3>
                 <p class="text-gray-600">
@@ -225,9 +232,3 @@ export default function Result(props: PageProps<State>) {
     </>
   );
 }
-
-export const handler: Handlers<any, State> = {
-  GET(_req, ctx) {
-    return ctx.render({ ...ctx.state });
-  },
-};

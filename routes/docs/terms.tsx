@@ -1,10 +1,11 @@
-import { Handlers, PageProps } from "$fresh/server.ts";
+import { PageProps } from "$fresh/server.ts";
 import { asset } from "$fresh/runtime.ts";
 import { State } from "@/routes/_middleware.ts";
 import Head from "@/components/Head.tsx";
 import Layout from "@/components/Layout.tsx";
+import { Handlers } from "@/utils/handler.ts";
 
-export const handler: Handlers<any, State> = {
+export const handler: Handlers = {
   GET(_req, ctx) {
     return ctx.render({ ...ctx.state });
   },
@@ -74,7 +75,9 @@ export default function Terms(props: PageProps<State>) {
                 利用者は、本アプリを利用するにあたり、自己の責任において行動することとします。
               </p>
 
-              <h2 class="text-2xl font-bold my-5">第4条（サービスの変更・中断）</h2>
+              <h2 class="text-2xl font-bold my-5">
+                第4条（サービスの変更・中断）
+              </h2>
               <p>
                 当チームは、本アプリの運営に必要な場合には、事前の通知なくして本アプリの内容や仕様を変更することができます。
               </p>
@@ -110,7 +113,9 @@ export default function Terms(props: PageProps<State>) {
                 利用者は、本規約の変更後に本アプリを利用する場合、変更後の利用規約に同意したものとみなされます。
               </p>
 
-              <h2 class="text-2xl font-bold my-5">第8条（準拠法・管轄裁判所）</h2>
+              <h2 class="text-2xl font-bold my-5">
+                第8条（準拠法・管轄裁判所）
+              </h2>
               <p>本規約の準拠法は日本法とします。</p>
               <p>
                 本規約に関する一切の紛争については、当チームの所在地を管轄する裁判所を専属的な管轄裁判所とします。

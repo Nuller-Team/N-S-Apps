@@ -1,6 +1,5 @@
 import { useEffect } from "preact/hooks";
 import { createBrowserSupabaseClient } from "@supabase/auth-helpers-shared";
-import { REDIRECT_PATH_AFTER_LOGIN } from "@/utils/constants.ts";
 
 interface AuthFragmentCatcherProps {
   supabaseUrl: string;
@@ -15,7 +14,7 @@ export default function AuthFragmentCatcher(props: AuthFragmentCatcherProps) {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
       if (session?.user) {
-        window.location.href = props.redirectTo || REDIRECT_PATH_AFTER_LOGIN;
+        window.location.href = props.redirectTo || "/";
       }
     });
 

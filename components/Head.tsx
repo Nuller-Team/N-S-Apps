@@ -9,7 +9,12 @@ interface HeadProps {
   imageUrl?: string;
 }
 
-export default function Head({ title, description, href, imageUrl }: HeadProps) {
+export default function Head({
+  title,
+  description,
+  href,
+  imageUrl,
+}: HeadProps) {
   return (
     <_Head>
       <Meta

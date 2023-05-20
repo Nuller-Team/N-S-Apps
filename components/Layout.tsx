@@ -1,16 +1,14 @@
 import type { ComponentChild, ComponentChildren, JSX } from "preact";
-import { Session } from "@supabase/supabase-js";
-import { BUTTON_STYLES, NOTICE_STYLES } from "../utils/constants.ts";
-import { State } from "../routes/_middleware.ts";
+import { State } from "@/routes/_middleware.ts";
 
-export function Header(props: JSX.HTMLAttributes<HTMLElement>) {
+function Header(props: JSX.HTMLAttributes<HTMLElement>) {
   return (
     <>
       <nav class="py-4 border-b">
         <div class="container mx-auto px-4">
           <div class="flex justify-between items-center">
             <a href="/">
-              <image src="/head.png" class={"h-11 p-1"}></image>
+              <image src="/logo.png" class={"h-11 p-1"}></image>
             </a>
             {props.children}
           </div>
@@ -28,7 +26,7 @@ function Footer(): JSX.Element {
           <div class="md:flex md:justify-between">
             <div class="mb-6 md:mb-0">
               <a href="https://n-s-apps-nuller.net/" class="flex items-center">
-                <img src="/head.png" class="w-48 mr-3" alt="N/S Apps Logo" />
+                <img src="/logo.png" class="w-48 mr-3" alt="N/S Apps Logo" />
               </a>
             </div>
             <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
@@ -81,7 +79,10 @@ function Footer(): JSX.Element {
                 </h2>
                 <ul class="text-gray-600 dark:text-gray-400 font-medium">
                   <li class="mb-4">
-                    <a href="https://nuller.net/privacy" class="hover:underline">
+                    <a
+                      href="https://nuller.net/privacy"
+                      class="hover:underline"
+                    >
                       Privacy Policy
                     </a>
                   </li>
@@ -155,7 +156,11 @@ export default function Layout(props: LayoutProps) {
       ? {
           //Not Logged in
           href: "/login",
-          inner: <span class={BUTTON_STYLES}>Login</span>,
+          inner: (
+            <span class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring w-full flex items-center justify-center disabled:(opacity-50 cursor-not-allowed)">
+              Login
+            </span>
+          ),
         }
       : props.state.active == "enabled"
       ? {

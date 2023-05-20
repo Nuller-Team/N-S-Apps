@@ -1,9 +1,7 @@
-import type { Handlers } from "$fresh/server.ts";
 import type { Provider } from "@supabase/supabase-js";
-import { State } from "@/routes/_middleware.ts";
+import { Handlers } from "@/utils/handler.ts";
 
-// deno-lint-ignore no-explicit-any
-export const handler: Handlers<any, State> = {
+export const handler: Handlers = {
   async POST(req, ctx) {
     const form = await req.formData();
     const provider = form.get("provider");
@@ -19,7 +17,7 @@ export const handler: Handlers<any, State> = {
         options: {
           redirectTo: origin + "/login/success",
         },
-      },
+      }
     );
 
     if (error) throw error;

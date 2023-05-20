@@ -1,4 +1,4 @@
-import { SITE_DESCRIPTION, SITE_NAME } from "../utils/constants.ts";
+import { SITE_DESCRIPTION, SITE_NAME } from "@/utils/constants.ts";
 
 interface MetaProps {
   title?: string;

@@ -1,6 +1,6 @@
 import type { PageProps } from "$fresh/server.ts";
 import AuthFragmentCatcher from "@/islands/AuthFragmentCatcher.tsx";
-import env from "../../utils/env.ts";
+import env from "@/utils/env.ts";
 
 export default function OAuthSuccessPage(props: PageProps) {
   return (

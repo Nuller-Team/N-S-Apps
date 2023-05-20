@@ -3,9 +3,9 @@ import {
   DateTime,
   datetime,
   diffInMillisec,
-} from "https://deno.land/x/ptera@v1.0.2/mod.ts";
+} from "ptera";
 import { h } from "preact";
-import { State } from "../routes/_middleware.ts";
+import { State } from "@/routes/_middleware.ts";
 
 interface propsType {
   state: State;

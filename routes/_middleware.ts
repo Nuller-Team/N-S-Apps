@@ -1,10 +1,7 @@
-import { MiddlewareHandlerContext } from "https://deno.land/x/fresh@1.1.5/server.ts";
+import { MiddlewareHandlerContext } from "$fresh/server.ts";
 import { walk } from "std/fs/walk.ts";
-import {
-  createSupabaseClient,
-  supabaseAdminClient,
-} from "../utils/supabase.ts";
-import { Database } from "../utils/supabase_types.ts";
+import { createSupabaseClient, supabaseAdminClient } from "@/utils/supabase.ts";
+import { Database } from "@/utils/supabase_types.ts";
 
 const STATIC_DIR_ROOT = new URL("../static", import.meta.url);
 const staticFileNames: string[] = [];

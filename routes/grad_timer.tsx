@@ -1,11 +1,12 @@
-import { Handlers, PageProps } from "$fresh/server.ts";
-import TIMES from "../islands/grad_timer.tsx";
-import { State } from "./_middleware.ts";
-import Head from "../components/Head.tsx";
-import { asset } from "https://deno.land/x/fresh@1.1.5/runtime.ts";
-import Layout from "../components/Layout.tsx";
+import { PageProps } from "$fresh/server.ts";
+import TIMES from "@/islands/grad_timer.tsx";
+import { State } from "@/routes/_middleware.ts";
+import Head from "@/components/Head.tsx";
+import { asset } from "$fresh/runtime.ts";
+import Layout from "@/components/Layout.tsx";
+import { Handlers } from "@/utils/handler.ts";
 
-export const handler: Handlers<any, State> = {
+export const handler: Handlers = {
   GET(_req, ctx) {
     return ctx.render({ ...ctx.state });
   },
@@ -90,7 +91,6 @@ export default function GradTimer(props: PageProps<State>) {
               >
                 <h1 class={"text-black"}>あなたはN/S高生ではないため</h1>
                 <h1 class={"text-red-500"}>アプリを使うことはできません</h1>
-
               </div>
               <footer class={"flex justify-center py-10"}>
                 <image src="/svg/grad-timer.svg" />

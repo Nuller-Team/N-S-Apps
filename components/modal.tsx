@@ -43,17 +43,21 @@ export default function Modal(props: Props & JSX.HTMLAttributes) {
     <>
       <dialog
         ref={ref}
-        class={`p-0 bg-transparent ${
-          props.class?.toString().split(" ").filter((p) => p.match(/^[h,w]/)).join(" ")
-        }`}
+        class={`p-0 bg-transparent ${props.class
+          ?.toString()
+          .split(" ")
+          .filter((p) => p.match(/^[h,w]/))
+          .join(" ")}`}
         onClick={() => {
           !props.isNoBackdropClose && doClose();
         }}
       >
         <div
-          class={`w-full h-full bg-white ${
-            props.class?.toString().split(" ").filter((p) => !p.match(/^[h,w]-/)).join(" ")
-          }`}
+          class={`w-full h-full bg-white ${props.class
+            ?.toString()
+            .split(" ")
+            .filter((p) => !p.match(/^[h,w]-/))
+            .join(" ")}`}
           onClick={(e) => e.stopPropagation()}
         >
           {props.children}

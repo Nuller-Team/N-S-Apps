@@ -1,7 +1,7 @@
 import { useState } from "preact/hooks";
 import Modal from "@/components/modal.tsx";
 import IconCheck from "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/check.tsx";
-import { State } from "../routes/_middleware.ts";
+import { State } from "@/routes/_middleware.ts";
 
 interface propsType {
   state: State

@@ -1,16 +1,9 @@
-import { Handlers, PageProps } from "https://deno.land/x/fresh@1.1.5/server.ts";
-import type { State } from "@/routes/_middleware.ts";
-import Head from "../../components/Head.tsx";
-import {
-  BUTTON_STYLES,
-  INPUT_STYLES,
-  NOTICE_STYLES,
-} from "../../utils/constants.ts";
-import Logo from "../../components/Logo.tsx";
-import OAuthLoginButton from "../../components/OAuthLoginButton.tsx";
+import { PageProps } from "$fresh/server.ts";
+import Head from "@/components/Head.tsx";
+import OAuthLoginButton from "@/components/OAuthLoginButton.tsx";
+import { Handlers } from "@/utils/handler.ts";
 
-// deno-lint-ignore no-explicit-any
-export const handler: Handlers<any, State> = {
+export const handler: Handlers = {
   async GET(req, ctx) {
     const {
       data: { session },
@@ -28,27 +21,18 @@ export const handler: Handlers<any, State> = {
   },
 };
 
-const POSSIBLE_ERROR_MESSAGES = new Set(["Invalid login credentials"]);
-
 export default function LoginPage(props: PageProps) {
-  const errorMessage = props.url.searchParams.get("error");
-
   return (
     <>
       <Head title="Login" />
       <div class="max-w-xs flex h-screen m-auto">
         <div class="m-auto w-96">
           <a href="/" class={"p-10"}>
-            <image src="/head.png" />
+            <image src="/logo.png" />
           </a>
-          {errorMessage && POSSIBLE_ERROR_MESSAGES.has(errorMessage) && (
-            <div class={NOTICE_STYLES}>{errorMessage}</div>
-          )}
-          <OAuthLoginButton
-            provider="google"
-            disabled={false}>
+          <OAuthLoginButton provider="google" disabled={false}>
             <img
-              src="/google.svg"
+              src="/svg/google.svg"
               alt="GitHub logo"
               class="inline mr-2 h-5 w-5 align-text-top"
             />

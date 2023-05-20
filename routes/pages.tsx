@@ -1,12 +1,13 @@
 import { asset } from "$fresh/runtime.ts";
-import PAGES from "../islands/pages.tsx";
-import links from "../data/pages.json" assert { type: "json" };
-import { Handlers, PageProps } from "https://deno.land/x/fresh@1.1.5/server.ts";
-import { State } from "./_middleware.ts";
-import Head from "../components/Head.tsx";
-import Layout from "../components/Layout.tsx";
+import PAGES from "@/islands/pages.tsx";
+import links from "@/data/pages.json" assert { type: "json" };
+import { PageProps } from "$fresh/server.ts";
+import { State } from "@/routes/_middleware.ts";
+import Head from "@/components/Head.tsx";
+import Layout from "@/components/Layout.tsx";
+import { Handlers } from "@/utils/handler.ts";
 
-export const handler: Handlers<any, State> = {
+export const handler: Handlers = {
   GET(_req, ctx) {
     return ctx.render({ ...ctx.state });
   },
@@ -66,7 +67,9 @@ export default function Pages(props: PageProps<State>) {
           imageUrl={ogImageUrl}
         />
         <Layout state={props.data}>
-          <div class={"font-semibold mb-8 text-center py-14 md:py-24 space-y-2"}>
+          <div
+            class={"font-semibold mb-8 text-center py-14 md:py-24 space-y-2"}
+          >
             <h1 class={"text-orange-300 text-5xl md:text-7xl"}>N/S Pages</h1>
             <h1 class={"text-black font-bold text-lg md:text-xl"}>
               N/S高でよく使うページやアプリをまとめています

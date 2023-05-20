@@ -1,11 +1,12 @@
-import { Handlers, PageProps } from "$fresh/server.ts";
-import TIMES from "../islands/times.tsx";
-import { State } from "./_middleware.ts";
-import Head from "../components/Head.tsx";
-import { asset } from "https://deno.land/x/fresh@1.1.5/runtime.ts";
-import Layout from "../components/Layout.tsx";
+import { PageProps } from "$fresh/server.ts";
+import TIMES from "@/islands/times.tsx";
+import { State } from "@/routes/_middleware.ts";
+import Head from "@/components/Head.tsx";
+import { asset } from "$fresh/runtime.ts";
+import Layout from "@/components/Layout.tsx";
+import { Handlers } from "@/utils/handler.ts";
 
-export const handler: Handlers<any, State> = {
+export const handler: Handlers = {
   GET(_req, ctx) {
     return ctx.render({ ...ctx.state });
   },

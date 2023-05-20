@@ -1,10 +1,20 @@
-import { Handlers, PageProps } from "https://deno.land/x/fresh@1.1.5/server.ts";
-import Layout, { Header } from "../components/Layout.tsx";
-import { State } from "./_middleware.ts";
-import apps from "@/data/apps.json" assert { type: "json" };
+import { PageProps } from "$fresh/server.ts";
+import { asset } from "$fresh/runtime.ts";
+
+import Layout from "@/components/Layout.tsx";
 import Projects, { Project } from "@/components/Projects.tsx";
-import Head from "../components/Head.tsx";
-import { asset } from "https://deno.land/x/fresh@1.1.5/runtime.ts";
+import Head from "@/components/Head.tsx";
+
+import { Handlers } from "@/utils/handler.ts";
+
+import { State } from "@/routes/_middleware.ts";
+import apps from "@/data/apps.json" assert { type: "json" };
+
+export const handler: Handlers = {
+  GET(_req, ctx) {
+    return ctx.render({ ...ctx.state });
+  },
+};
 
 export default function test(props: PageProps<State>) {
   const ogImageUrl = new URL(asset("/ns-app/apps.png"), props.url).href;
@@ -91,12 +101,6 @@ export default function test(props: PageProps<State>) {
     );
   }
 }
-
-export const handler: Handlers<any, State> = {
-  GET(_req, ctx) {
-    return ctx.render({ ...ctx.state });
-  },
-};
 
 function Apps({ items, state }: { items: Project[]; state: State }) {
   if (state.user?.school.name == "NJR") {
