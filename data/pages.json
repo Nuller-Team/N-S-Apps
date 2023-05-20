@@ -66,12 +66,6 @@
     "emoji": "📨"
   },
   {
-    "tag": "サイト,通学コース,ヘルプ,ポータルサイト",
-    "name": "通学コース生徒用サイト",
-    "links": "https://sites.google.com/nnn.ac.jp/curriculum/",
-    "emoji": "🏫"
-  },
-  {
     "tag": "プロN,プロジェクトN,通学",
     "name": "プロNサイト(通学)",
     "links": "https://sites.google.com/nnn.ac.jp/project-n/tsugaku/",
@@ -85,7 +79,7 @@
   },
   {
     "tag": "N/S高全体",
-    "name": "N/S高フィートバック",
+    "name": "N/S高フィードバック",
     "links": "https://sites.google.com/nnn.ed.jp/knowledgebase/category/feedback",
     "emoji": "📧"
   },
