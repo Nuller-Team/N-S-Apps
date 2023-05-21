@@ -1,0 +1,303 @@
+[
+  {
+  "hira": "さっぽろ",
+  "name": "札幌",
+  "municipalities": "北海道 札幌市",
+  "CLASS_AREA_CODE": "0110000",
+  "OFFICES_AREA_CODE": "016000"
+  },
+  {
+  "hira": "せんだい",
+  "name": "仙台",
+  "municipalities": "宮城県 仙台市",
+  "CLASS_AREA_CODE": "0410001",
+  "OFFICES_AREA_CODE": "040000"
+  },
+  {
+  "hira": "おちゃのみず",
+  "name": "御茶ノ水",
+  "municipalities": "東京都 千代田区",
+  "CLASS_AREA_CODE": "1310100",
+  "OFFICES_AREA_CODE": "130000"
+  },
+  {
+  "hira": "あきはばら",
+  "name": "秋葉原",
+  "municipalities": "東京都 千代田区",
+  "CLASS_AREA_CODE": "1310100",
+  "OFFICES_AREA_CODE": "130000"
+  },
+  {
+  "hira": "よよぎ",
+  "name": "代々木",
+  "municipalities": "東京都 千代田区",
+  "CLASS_AREA_CODE": "1311300",
+  "OFFICES_AREA_CODE": "130000"
+  },
+  {
+  "hira": "しぶや",
+  "name": "渋谷",
+  "municipalities": "東京都 渋谷区",
+  "CLASS_AREA_CODE": "1311300",
+  "OFFICES_AREA_CODE": "130000"
+  },
+  {
+  "hira": "いけぶくろ",
+  "name": "池袋",
+  "municipalities": "東京都 豊島区",
+  "CLASS_AREA_CODE": "1311600",
+  "OFFICES_AREA_CODE": "130000"
+  },
+  {
+  "hira": "たちかわ",
+  "name": "立川",
+  "municipalities": "東京都 立川市",
+  "CLASS_AREA_CODE": "1320200",
+  "OFFICES_AREA_CODE": "130000"
+  },
+  {
+  "hira": "むさしさかい",
+  "name": "武蔵境",
+  "municipalities": "東京都 武蔵野市",
+  "CLASS_AREA_CODE": "1320300",
+  "OFFICES_AREA_CODE": "130000"
+  },
+  {
+  "hira": "まちだ",
+  "name": "町田",
+  "municipalities": "東京都 町田市",
+  "CLASS_AREA_CODE": "1320900",
+  "OFFICES_AREA_CODE": "130000"
+  },
+  {
+  "hira": "よこはま",
+  "name": "横浜",
+  "municipalities": "神奈川県 横浜市",
+  "CLASS_AREA_CODE": "1410000",
+  "OFFICES_AREA_CODE": "140000"
+  },
+  {
+  "hira": "よこはまきんこう",
+  "name": "横浜金港",
+  "municipalities": "神奈川県 横浜市",
+  "CLASS_AREA_CODE": "1410000",
+  "OFFICES_AREA_CODE": "140000"
+  },
+  {
+  "hira": "ひらつか",
+  "name": "平塚",
+  "municipalities": "神奈川県 平塚市",
+  "CLASS_AREA_CODE": "1420300",
+  "OFFICES_AREA_CODE": "140000"
+  },
+  {
+  "hira": "おおみや",
+  "name": "大宮",
+  "municipalities": "埼玉県 大宮市",
+  "CLASS_AREA_CODE": "1110000",
+  "OFFICES_AREA_CODE": "110000"
+  },
+  {
+  "hira": "かわごえ",
+  "name": "川越",
+  "municipalities": "埼玉県 川越市",
+  "CLASS_AREA_CODE": "1120100",
+  "OFFICES_AREA_CODE": "110000"
+  },
+  {
+  "hira": "ちば",
+  "name": "千葉",
+  "municipalities": "千葉県 千葉市",
+  "CLASS_AREA_CODE": "1210000",
+  "OFFICES_AREA_CODE": "120000"
+  },
+  {
+  "hira": "かしわ",
+  "name": "柏",
+  "municipalities": "千葉県 柏市",
+  "CLASS_AREA_CODE": "1221700",
+  "OFFICES_AREA_CODE": "120000"
+  },
+  {
+  "hira": "みと",
+  "name": "水戸",
+  "municipalities": "茨城県 水戸市",
+  "CLASS_AREA_CODE": "0820100",
+  "OFFICES_AREA_CODE": "080000"
+  },
+  {
+  "hira": "とりで",
+  "name": "取手",
+  "municipalities": "茨城県 取手市",
+  "CLASS_AREA_CODE": "0821700",
+  "OFFICES_AREA_CODE": "080000"
+  },
+  {
+  "hira": "つくば",
+  "name": "つくば",
+  "municipalities": "茨城県 つくば市",
+  "CLASS_AREA_CODE": "0822000",
+  "OFFICES_AREA_CODE": "080000"
+  },
+  {
+  "hira": "たかさき",
+  "name": "高崎",
+  "municipalities": "群馬県 高崎市",
+  "CLASS_AREA_CODE": "1020200",
+  "OFFICES_AREA_CODE": "100000"
+  },
+  {
+  "hira": "うつのみや",
+  "name": "宇都宮",
+  "municipalities": "栃木県 宇都宮市",
+  "CLASS_AREA_CODE": "0920100",
+  "OFFICES_AREA_CODE": "090000"
+  },
+  {
+  "hira": "なごや",
+  "name": "名古屋",
+  "municipalities": "愛知県 名古屋市",
+  "CLASS_AREA_CODE": "2310000",
+  "OFFICES_AREA_CODE": "230000"
+  },
+  {
+  "hira": "めいえき",
+  "name": "名駅",
+  "municipalities": "愛知県 名古屋市",
+  "CLASS_AREA_CODE": "2310000",
+  "OFFICES_AREA_CODE": "230000"
+  },
+  {
+  "hira": "ひがしおかざき",
+  "name": "東岡崎",
+  "municipalities": "愛知県 岡崎市",
+  "CLASS_AREA_CODE": "2320200",
+  "OFFICES_AREA_CODE": "230000"
+  },
+  {
+  "hira": "しずおか",
+  "name": "静岡",
+  "municipalities": "静岡県 静岡市",
+  "CLASS_AREA_CODE": "2210001",
+  "OFFICES_AREA_CODE": "220000"
+  },
+  {
+  "hira": "はままつ",
+  "name": "浜松",
+  "municipalities": "静岡県 浜松市",
+  "CLASS_AREA_CODE": "2213001",
+  "OFFICES_AREA_CODE": "220000"
+  },
+  {
+  "hira": "ぎふ",
+  "name": "岐阜",
+  "municipalities": "岐阜県 岐阜市",
+  "CLASS_AREA_CODE": "2120100",
+  "OFFICES_AREA_CODE": "210000"
+  },
+  {
+  "hira": "よっかいち",
+  "name": "四日市",
+  "municipalities": "三重県 四日市市",
+  "CLASS_AREA_CODE": "2420200",
+  "OFFICES_AREA_CODE": "240000"
+  },
+  {
+  "hira": "にいがた",
+  "name": "新潟",
+  "municipalities": "新潟県 新潟市",
+  "CLASS_AREA_CODE": "1510000",
+  "OFFICES_AREA_CODE": "150000"
+  },
+  {
+  "hira": "かなざわ",
+  "name": "金沢",
+  "municipalities": "石川県 金沢市",
+  "CLASS_AREA_CODE": "1720100",
+  "OFFICES_AREA_CODE": "170000"
+  },
+  {
+  "hira": "てんのうじ",
+  "name": "天王寺",
+  "municipalities": "大阪府 大阪市",
+  "CLASS_AREA_CODE": "2710000",
+  "OFFICES_AREA_CODE": "270000"
+  },
+  {
+  "hira": "うめだ",
+  "name": "梅田",
+  "municipalities": "大阪府 大阪市",
+  "CLASS_AREA_CODE": "2710000",
+  "OFFICES_AREA_CODE": "270000"
+  },
+  {
+  "hira": "しんさいばし",
+  "name": "心斎橋",
+  "municipalities": "大阪府 大阪市",
+  "CLASS_AREA_CODE": "2710000",
+  "OFFICES_AREA_CODE": "270000"
+  },
+  {
+  "hira": "こうべ",
+  "name": "神戸",
+  "municipalities": "兵庫県 神戸市",
+  "CLASS_AREA_CODE": "2810000",
+  "OFFICES_AREA_CODE": "280000"
+  },
+  {
+    "hira": "ひめじ",
+    "name": "姫路",
+    "municipalities": "兵庫県 姫路市",
+    "CLASS_AREA_CODE": "2820100",
+    "OFFICES_AREA_CODE": "280000"
+  },
+  {
+    "hira": "きょうと",
+    "name": "京都",
+    "municipalities": "京都府 京都市",
+    "CLASS_AREA_CODE": "2610000",
+    "OFFICES_AREA_CODE": "260000"
+  },
+  {
+    "hira": "ひろしま",
+    "name": "広島",
+    "municipalities": "広島県 広島市中区",
+    "CLASS_AREA_CODE": "3410100",
+    "OFFICES_AREA_CODE": "340000"
+  },
+  {
+    "hira": "おかやま",
+    "name": "岡山",
+    "municipalities": "岡山県 岡山市",
+    "CLASS_AREA_CODE": "3310000",
+    "OFFICES_AREA_CODE": "330000"
+  },
+  {
+    "hira": "たかまつ",
+    "name": "高松",
+    "municipalities": "香川県 高松市",
+    "CLASS_AREA_CODE": "3720100",
+    "OFFICES_AREA_CODE": "370000"
+  },
+  {
+    "hira": "ふくおか",
+    "name": "福岡",
+    "municipalities": "福岡県 福岡市",
+    "CLASS_AREA_CODE": "4013000",
+    "OFFICES_AREA_CODE": "400000"
+  },
+  {
+    "hira": "きたきゅうしゅう",
+    "name": "北九州",
+    "municipalities": "福岡県 北九州市",
+    "CLASS_AREA_CODE": "4010000",
+    "OFFICES_AREA_CODE": "400000"
+  },
+  {
+    "hira": "かごしま",
+    "name": "鹿児島",
+    "municipalities": "鹿児島県 鹿児島市",
+    "CLASS_AREA_CODE": "4620100",
+    "OFFICES_AREA_CODE": "460100"
+  }
+]

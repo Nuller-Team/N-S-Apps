@@ -24,6 +24,12 @@
     "njr": false
   },
   {
+    "title": "N/S Campus Alert",
+    "link": "/campus-alert",
+    "image": "campus-alert",
+    "njr": false
+  },
+  {
     "title": "Nullerへ応募する",
     "link": "/entry",
     "image": "entry",
