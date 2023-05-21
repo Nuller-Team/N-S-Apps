@@ -74,7 +74,7 @@ export default function Home({ links }: HomeType) {
       setMenu(links);
     } else {
       const regex = new RegExp(searchMenu, "i");
-      const filteredLinks = links.filter((menu) => regex.test(menu.name));
+      const filteredLinks = links.filter((menu) => regex.test(menu.name) || regex.test(menu.municipalities));
       setMenu(filteredLinks);
     }
   }, [searchMenu, links]);
@@ -84,7 +84,7 @@ export default function Home({ links }: HomeType) {
     if (!cookie_data) {
       return [];
     }
-    let favoriteCampus_by_cookie: MenuType[] = [];
+    const favoriteCampus_by_cookie: MenuType[] = [];
     for (const data in cookie_data.split(",")) {
       if (
         !cookie_data.split(",")[data] ||
@@ -104,7 +104,7 @@ export default function Home({ links }: HomeType) {
   useEffect(() => {
     (async () => {
       let cookie = "";
-      let NewFavoriteCampusData: FavoriteCampusDataType[] = [];
+      const NewFavoriteCampusData: FavoriteCampusDataType[] = [];
       for (let i = 0; i < favoriteCampus.length; i++) {
         cookie += favoriteCampus[i].name + ",";
         const res = await fetch(
