@@ -34,5 +34,11 @@
     "link": "/entry",
     "image": "entry",
     "njr": true
+  },
+  {
+    "title": "#times_Nullerに参加する",
+    "link": "https://n-highschool.slack.com/archives/C0534GJBZT6",
+    "image": "slack",
+    "njr": false
   }
 ]
