@@ -4,42 +4,46 @@
 
 import config from "./deno.json" assert { type: "json" };
 import * as $0 from "./routes/_middleware.ts";
-import * as $1 from "./routes/docs/terms.tsx";
-import * as $2 from "./routes/entry.tsx";
-import * as $3 from "./routes/grad_timer.tsx";
-import * as $4 from "./routes/index.tsx";
-import * as $5 from "./routes/login/index.tsx";
-import * as $6 from "./routes/login/oauth.ts";
-import * as $7 from "./routes/login/success.tsx";
-import * as $8 from "./routes/pages.tsx";
-import * as $9 from "./routes/result.tsx";
-import * as $10 from "./routes/times.tsx";
+import * as $1 from "./routes/campus-alert.tsx";
+import * as $2 from "./routes/docs/terms.tsx";
+import * as $3 from "./routes/entry.tsx";
+import * as $4 from "./routes/grad_timer.tsx";
+import * as $5 from "./routes/index.tsx";
+import * as $6 from "./routes/login/index.tsx";
+import * as $7 from "./routes/login/oauth.ts";
+import * as $8 from "./routes/login/success.tsx";
+import * as $9 from "./routes/pages.tsx";
+import * as $10 from "./routes/result.tsx";
+import * as $11 from "./routes/times.tsx";
 import * as $$0 from "./islands/AuthFragmentCatcher.tsx";
-import * as $$1 from "./islands/entry.tsx";
-import * as $$2 from "./islands/grad_timer.tsx";
-import * as $$3 from "./islands/pages.tsx";
-import * as $$4 from "./islands/times.tsx";
+import * as $$1 from "./islands/campus_alert.tsx";
+import * as $$2 from "./islands/entry.tsx";
+import * as $$3 from "./islands/grad_timer.tsx";
+import * as $$4 from "./islands/pages.tsx";
+import * as $$5 from "./islands/times.tsx";
 
 const manifest = {
   routes: {
     "./routes/_middleware.ts": $0,
-    "./routes/docs/terms.tsx": $1,
-    "./routes/entry.tsx": $2,
-    "./routes/grad_timer.tsx": $3,
-    "./routes/index.tsx": $4,
-    "./routes/login/index.tsx": $5,
-    "./routes/login/oauth.ts": $6,
-    "./routes/login/success.tsx": $7,
-    "./routes/pages.tsx": $8,
-    "./routes/result.tsx": $9,
-    "./routes/times.tsx": $10,
+    "./routes/campus-alert.tsx": $1,
+    "./routes/docs/terms.tsx": $2,
+    "./routes/entry.tsx": $3,
+    "./routes/grad_timer.tsx": $4,
+    "./routes/index.tsx": $5,
+    "./routes/login/index.tsx": $6,
+    "./routes/login/oauth.ts": $7,
+    "./routes/login/success.tsx": $8,
+    "./routes/pages.tsx": $9,
+    "./routes/result.tsx": $10,
+    "./routes/times.tsx": $11,
   },
   islands: {
     "./islands/AuthFragmentCatcher.tsx": $$0,
-    "./islands/entry.tsx": $$1,
-    "./islands/grad_timer.tsx": $$2,
-    "./islands/pages.tsx": $$3,
-    "./islands/times.tsx": $$4,
+    "./islands/campus_alert.tsx": $$1,
+    "./islands/entry.tsx": $$2,
+    "./islands/grad_timer.tsx": $$3,
+    "./islands/pages.tsx": $$4,
+    "./islands/times.tsx": $$5,
   },
   baseUrl: import.meta.url,
   config,
