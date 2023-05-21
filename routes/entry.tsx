@@ -68,14 +68,16 @@ export default function Entry(props: PageProps<State>) {
           href={props.url.href}
           imageUrl={ogImageUrl}
         />
-        <div class="flex flex-col items-center justify-center h-screen bg-gray-100">
-          <h1 class="text-3xl font-bold text-gray-800 mb-8">
-            Nullerに応募する
-          </h1>
-          <div class="bg-white shadow-md rounded-md p-8 w-full sm:w-[30rem]">
-            <EntryForm state={props.data} />
+        <Layout state={props.data}>
+          <div class="flex flex-col items-center justify-center h-screen bg-gray-100">
+            <h1 class="text-3xl font-bold text-gray-800 mb-8">
+              Nullerに応募する
+            </h1>
+            <div class="bg-white shadow-md rounded-md p-8 w-full sm:w-[30rem]">
+              <EntryForm state={props.data} />
+            </div>
           </div>
-        </div>
+        </Layout>
       </>
     );
   } else {
