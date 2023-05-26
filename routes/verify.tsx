@@ -46,7 +46,7 @@ export default function NS_verify(props: PageProps<State>) {
                 </h1>
               </div>
               <footer class={"flex justify-center py-10"}>
-                <img src="/svg/apps.svg" alt="apps" />
+                <img src="/svg/verify.svg" alt="apps" />
               </footer>
             </div>
             <div class="flex justify-center">
