@@ -19,7 +19,7 @@ N/S高生同士でこの画面を表示し、集まった証拠として、み�
 最高の青春を送ることができます！`;
 
 export default function NS_verify(props: PageProps<State>) {
-  const ogImageUrl = new URL(asset("/ns-app/verify.png"), props.url).href;
+  const ogImageUrl = new URL(asset("/ns-app/apps.png"), props.url).href;
   if (props.data.active == "Not logged in") {
     return (
       <>
@@ -30,27 +30,30 @@ export default function NS_verify(props: PageProps<State>) {
           imageUrl={ogImageUrl}
         />
         <Layout state={props.data}>
+          <section class="bg-white py-12">
             <div class="container mx-auto px-4">
               <div
                 class={
-                  "font-semibold mb-8 text-center py-20 md:py-36 space-y-2"
+                  "text-2xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-semibold mb-8 text-center py-20 md:py-36 space-y-2"
                 }
               >
-                <h1 class="text-blue-500 text-5xl md:text-7xl">
+                <h1 class={"text-black"}>N/S Verify</h1>
+                <h1 class={"text-blue-500 text-5xl md:text-7xl"}>
                   N/S Verify
                 </h1>
-                <h1 class="text-black font-bold text-lg md:text-xl">
+                <h1 class={"text-black font-bold text-lg md:text-xl"}>
                   エンカをもっと楽しく。
                 </h1>
               </div>
-              <footer class="flex justify-center py-10">
-                <img src="/svg/verify.svg" />
+              <footer class={"flex justify-center py-10"}>
+                <img src="/svg/apps.svg" alt="apps" />
               </footer>
             </div>
             <div class="flex justify-center">
               <img
                 class="p-2 rounded-lg shadow-lg w-auto sm:w-96"
-                src="/ns-app/verify.png"
+                src={"/ns-app/verify.png"}
+                alt="verify"
               ></img>
             </div>
           </section>
@@ -101,13 +104,13 @@ export default function NS_verify(props: PageProps<State>) {
                 </h1>
               </div>
               <footer class={"flex justify-center py-10"}>
-                <img src="/svg/verify.svg" alt="entry" />
+                <img src="/svg/entry.svg" alt="entry" />
               </footer>
             </div>
             <div class="flex justify-center">
               <img
                 class="p-2 rounded-lg shadow-lg w-auto sm:w-96"
-                src={"/ns-app/verify.png"}
+                src={"/ns-app/entry.png"}
                 alt="entry"
               ></img>
             </div>
@@ -117,5 +120,6 @@ export default function NS_verify(props: PageProps<State>) {
     );
   }
 }
+
 
 
