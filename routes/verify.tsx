@@ -19,7 +19,7 @@ N/S高生同士でこの画面を表示し、集まった証拠として、み�
 最高の青春を送ることができます！`;
 
 export default function NS_verify(props: PageProps<State>) {
-  const ogImageUrl = new URL(asset("/ns-app/apps.png"), props.url).href;
+  const ogImageUrl = new URL(asset("/ns-app/verify.png"), props.url).href;
   if (props.data.active == "Not logged in") {
     return (
       <>
@@ -46,7 +46,7 @@ export default function NS_verify(props: PageProps<State>) {
                 </a>
               </div>
               <footer class={"flex justify-center py-10"}>
-                <img src="/svg/apps.svg" alt="apps" />
+                <img src="/svg/verify.svg" alt="apps" />
               </footer>
             </div>
             <div class="flex justify-center">
@@ -104,13 +104,13 @@ export default function NS_verify(props: PageProps<State>) {
                 </h1>
               </div>
               <footer class={"flex justify-center py-10"}>
-                <img src="/svg/entry.svg" alt="entry" />
+                <img src="/svg/verify.svg" alt="entry" />
               </footer>
             </div>
             <div class="flex justify-center">
               <img
                 class="p-2 rounded-lg shadow-lg w-auto sm:w-96"
-                src={"/ns-app/entry.png"}
+                src={"/ns-app/verify.png"}
                 alt="entry"
               ></img>
             </div>
