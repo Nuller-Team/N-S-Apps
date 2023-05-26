@@ -30,30 +30,27 @@ export default function NS_verify(props: PageProps<State>) {
           imageUrl={ogImageUrl}
         />
         <Layout state={props.data}>
-          <section class="bg-white py-12">
             <div class="container mx-auto px-4">
               <div
                 class={
-                  "text-2xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-semibold mb-8 text-center py-20 md:py-36 space-y-2"
+                  "font-semibold mb-8 text-center py-20 md:py-36 space-y-2"
                 }
               >
-                <h1 class={"text-black"}>N/S Verify</h1>
-                <a
-                  href={"/verify"}
-                  class="bg-blue-500 hover:bg-blue-700 text-white font-black py-2 px-4 rounded text-2xl"
-                >
-                  ログイン
-                </a>
+                <h1 class={"text-blue-500 text-5xl md:text-7xl"}>
+                  N/S Verify
+                </h1>
+                <h1 class={"text-black font-bold text-lg md:text-xl"}>
+                  エンカをもっと楽しく。
+                </h1>
               </div>
               <footer class={"flex justify-center py-10"}>
-                <img src="/svg/verify.svg" alt="apps" />
+                <img src="/svg/verify.svg" />
               </footer>
             </div>
             <div class="flex justify-center">
               <img
                 class="p-2 rounded-lg shadow-lg w-auto sm:w-96"
                 src={"/ns-app/verify.png"}
-                alt="verify"
               ></img>
             </div>
           </section>
