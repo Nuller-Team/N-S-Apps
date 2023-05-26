@@ -15,12 +15,14 @@ import * as $8 from "./routes/login/success.tsx";
 import * as $9 from "./routes/pages.tsx";
 import * as $10 from "./routes/result.tsx";
 import * as $11 from "./routes/times.tsx";
+import * as $12 from "./routes/verify.tsx";
 import * as $$0 from "./islands/AuthFragmentCatcher.tsx";
 import * as $$1 from "./islands/campus_alert.tsx";
 import * as $$2 from "./islands/entry.tsx";
 import * as $$3 from "./islands/grad_timer.tsx";
 import * as $$4 from "./islands/pages.tsx";
 import * as $$5 from "./islands/times.tsx";
+import * as $$6 from "./islands/ns_verify.tsx";
 
 const manifest = {
   routes: {
@@ -36,6 +38,7 @@ const manifest = {
     "./routes/pages.tsx": $9,
     "./routes/result.tsx": $10,
     "./routes/times.tsx": $11,
+    "./routes/verify.tsx": $12
   },
   islands: {
     "./islands/AuthFragmentCatcher.tsx": $$0,
@@ -44,9 +47,11 @@ const manifest = {
     "./islands/grad_timer.tsx": $$3,
     "./islands/pages.tsx": $$4,
     "./islands/times.tsx": $$5,
+    "./islands/ns_verify.tsx": $$6
   },
   baseUrl: import.meta.url,
   config,
 };
 
 export default manifest;
+
