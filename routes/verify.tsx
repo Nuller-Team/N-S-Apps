@@ -36,21 +36,21 @@ export default function NS_verify(props: PageProps<State>) {
                   "font-semibold mb-8 text-center py-20 md:py-36 space-y-2"
                 }
               >
-                <h1 class={"text-blue-500 text-5xl md:text-7xl"}>
+                <h1 class="text-blue-500 text-5xl md:text-7xl">
                   N/S Verify
                 </h1>
-                <h1 class={"text-black font-bold text-lg md:text-xl"}>
+                <h1 class="text-black font-bold text-lg md:text-xl">
                   エンカをもっと楽しく。
                 </h1>
               </div>
-              <footer class={"flex justify-center py-10"}>
+              <footer class="flex justify-center py-10">
                 <img src="/svg/verify.svg" />
               </footer>
             </div>
             <div class="flex justify-center">
               <img
                 class="p-2 rounded-lg shadow-lg w-auto sm:w-96"
-                src={"/ns-app/verify.png"}
+                src="/ns-app/verify.png"
               ></img>
             </div>
           </section>
