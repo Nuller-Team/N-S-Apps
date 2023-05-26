@@ -1,6 +1,5 @@
 import { PageProps } from "$fresh/server.ts";
 import { asset } from "$fresh/runtime.ts";
-import NSverify from "@/islands/ns_verify.tsx";
 import { State } from "@/routes/_middleware.ts";
 import Head from "@/components/Head.tsx";
 import Layout from "@/components/Layout.tsx";
@@ -12,14 +11,16 @@ export const handler: Handlers = {
   },
 };
 
-const TITLE = "N/S verify";
+const TITLE = "N/S Verify｜エンカをもっと楽しく";
 const DESCRIPTION = `N/S Verifyは、N/S高のエンカなどで、
 使用することができる便利アプリです。
 N/S高生同士でこの画面を表示し、集まった証拠として、みんなで撮影すれば、
-最高の青春を送ることができます！`;
+最高の青春を送ることができます！
+このツールを使用するにはGoogleアカウントでログインが必要です。`;
 
-export default function NS_verify(props: PageProps<State>) {
-  const ogImageUrl = new URL(asset("/ns-app/apps.png"), props.url).href;
+export default function Verify(props: PageProps<State>) {
+  const ogImageUrl = new URL(asset("/ns-app/verify.png"), props.url).href;
+  props.data.active = "Not logged in"
   if (props.data.active == "Not logged in") {
     return (
       <>
@@ -37,16 +38,13 @@ export default function NS_verify(props: PageProps<State>) {
                   "text-2xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-semibold mb-8 text-center py-20 md:py-36 space-y-2"
                 }
               >
-                <h1 class={"text-black"}>N/S Verify</h1>
-                <h1 class={"text-blue-500 text-5xl md:text-7xl"}>
-                  N/S Verify
-                </h1>
+                <h1 class={"text-sky-500 text-5xl md:text-7xl"}>N/S Verify</h1>
                 <h1 class={"text-black font-bold text-lg md:text-xl"}>
-                  エンカをもっと楽しく。
+                  エンカをもっと楽しく
                 </h1>
               </div>
               <footer class={"flex justify-center py-10"}>
-                <img src="/svg/verify.svg" alt="apps" />
+                <img src="/svg/verify.svg" alt="verify" />
               </footer>
             </div>
             <div class="flex justify-center">
@@ -71,11 +69,21 @@ export default function NS_verify(props: PageProps<State>) {
         />
         <Layout state={props.data}>
           <div class="flex flex-col items-center justify-center h-screen bg-gray-100">
-            <h1 class="text-3xl font-bold text-gray-800 mb-8">
-              N/S Verify
-            </h1>
+            <h1 class="text-3xl font-bold text-gray-800 mb-8">N/S Verify</h1>
             <div class="bg-white shadow-md rounded-md p-8 w-full sm:w-[30rem]">
-              <NSverify state={props.data} />
+              <div class="flex justify-center items-center mt-10 w-100">
+                <img
+                  src={props.data.user?.avatar_url}
+                  class="rounded-full"
+                ></img>
+              </div>
+              <div class="text-center mt-5">
+                <h1 class="text-2xl font-bold">🎉あなたはN/S高生です🎉</h1>
+                <p class="text-gray-500 mt-2">
+                  {props.data.user?.school.name}高等学校
+                  {props.data.user?.school.gen}期生
+                </p>
+              </div>
             </div>
           </div>
         </Layout>
@@ -99,19 +107,16 @@ export default function NS_verify(props: PageProps<State>) {
                 }
               >
                 <h1 class={"text-black"}>あなたはN/S高生ではないため</h1>
-                <h1 class={"text-red-500"}>
-                  このアプリを使うことができません。
-                </h1>
+                <h1 class={"text-red-500"}>アプリを使うことはできません</h1>
               </div>
               <footer class={"flex justify-center py-10"}>
-                <img src="/svg/entry.svg" alt="entry" />
+                <image src="/svg/verify.svg" />
               </footer>
             </div>
             <div class="flex justify-center">
               <img
                 class="p-2 rounded-lg shadow-lg w-auto sm:w-96"
-                src={"/ns-app/entry.png"}
-                alt="entry"
+                src={"/ns-app/verify.png"}
               ></img>
             </div>
           </section>
@@ -120,6 +125,3 @@ export default function NS_verify(props: PageProps<State>) {
     );
   }
 }
-
-
-
