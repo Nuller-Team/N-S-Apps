@@ -20,7 +20,6 @@ N/S高生同士でこの画面を表示し、集まった証拠として、み�
 
 export default function Verify(props: PageProps<State>) {
   const ogImageUrl = new URL(asset("/ns-app/verify.png"), props.url).href;
-  props.data.active = "Not logged in"
   if (props.data.active == "Not logged in") {
     return (
       <>
