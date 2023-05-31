@@ -25,7 +25,7 @@ function Footer(): JSX.Element {
         <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
           <div class="md:flex md:justify-between">
             <div class="mb-6 md:mb-0">
-              <a href="https://n-s-apps-nuller.net/" class="flex items-center">
+              <a href="https://n-s-apps.nuller.net/" class="flex items-center">
                 <img src="/logo.png" class="w-48 mr-3" alt="N/S Apps Logo" />
               </a>
             </div>
