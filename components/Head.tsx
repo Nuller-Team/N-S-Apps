@@ -24,6 +24,8 @@ export default function Head({
         imageUrl={imageUrl ?? "/ns-app/apps.png"}
       />
       <link rel="icon" href="/favicon.ico" sizes="48x48" />
+      <link rel="manifest" href="/manifest.json" />
+      <link rel="apple-touch-icon" href="./512.png"></link>
     </_Head>
   );
 }
