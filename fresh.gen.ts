@@ -16,6 +16,7 @@ import * as $9 from "./routes/pages.tsx";
 import * as $10 from "./routes/result.tsx";
 import * as $11 from "./routes/times.tsx";
 import * as $12 from "./routes/verify.tsx";
+import * as $13 from "./routes/guide.tsx";
 import * as $$0 from "./islands/AuthFragmentCatcher.tsx";
 import * as $$1 from "./islands/campus_alert.tsx";
 import * as $$2 from "./islands/entry.tsx";
@@ -38,6 +39,7 @@ const manifest = {
     "./routes/result.tsx": $10,
     "./routes/times.tsx": $11,
     "./routes/verify.tsx": $12,
+    "./routes/guide.tsx": $13,
   },
   islands: {
     "./islands/AuthFragmentCatcher.tsx": $$0,
@@ -52,3 +54,4 @@ const manifest = {
 };
 
 export default manifest;
+
