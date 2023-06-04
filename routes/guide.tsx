@@ -1,8 +1,29 @@
-import { Head } from "$fresh/runtime.ts";
+import { PageProps } from "$fresh/server.ts";
+import { asset } from "$fresh/runtime.ts";
+import { State } from "@/routes/_middleware.ts";
+import Head from "@/components/Head.tsx";
+import Layout from "@/components/Layout.tsx";
+import { Handlers } from "@/utils/handler.ts";
 
-export default function Home() {
+export const handler: Handlers = {
+  GET(_req, ctx) {
+    return ctx.render({ ...ctx.state });
+  },
+};
+const TITLE = "N/S Apps｜もっと、いろんなデバイスで";
+const DESCRIPTION = `N/S Appsをインストールする手順を公開しているページです。このページにアクセスする場合は、ログインは不要です。`;
+
+export default function Inst(props: PageProps<State>) {
+  const ogImageUrl = new URL(asset("/ns-app/apps.png"), props.url).href;
     return (
         <>
+        <Head
+          title={TITLE}
+          description={DESCRIPTION}
+          href={props.url.href}
+          imageUrl={ogImageUrl}
+        />
+        <Layout state={props.data}>
             <body class="bg-gray-100">
                 <div class="flex flex-wrap justify-center">
                     <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 space-y-4">
