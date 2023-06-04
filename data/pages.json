@@ -64,13 +64,7 @@
     "name": "Gmail",
     "links": "http://www.google.com/url?q=http%3A%2F%2Fmail.nnn.ed.jp&sa=D&sntz=1&usg=AOvVaw3X7r6xh4ukIySDLaPkA10",
     "emoji": "📨"
-  },
-  {
-    "tag": "プロN,プロジェクトN,通学",
-    "name": "プロNサイト(通学)",
-    "links": "https://sites.google.com/nnn.ac.jp/project-n/tsugaku/",
-    "emoji": "📄"
-  },
+  }
   {
     "tag": "N/S高全体",
     "name": "N/S高通報",
@@ -112,36 +106,6 @@
     "name": "N塾｜海外進学コース",
     "links": "https://sites.google.com/nnn.ed.jp/olc-pre",
     "emoji": "🛩"
-  },
-  {
-    "tag": "通学コース,生徒用サイト,ポータルサイト",
-    "name": "通学コース生徒用サイト",
-    "links": "https://sites.google.com/nnn.ac.jp/curriculum/",
-    "emoji": "🏫"
-  },
-  {
-    "tag": "通学コース向け,プログラミング,ポータルサイト",
-    "name": "通学コース　プログラミングサイト",
-    "links": "https://sites.google.com/nnn.ac.jp/programming",
-    "emoji": "🏫"
-  },
-  {
-    "tag": "通学コース,ヘルプ,サポート",
-    "name": "通学コース向けヘルプ",
-    "links": "https://sites.google.com/nnn.ed.jp/knowledgebase/category/course/commute",
-    "emoji": "🏫"
-  },
-  {
-    "tag": "オンライン通学コース,プロN,プロジェクトN",
-    "name": "プロNサイト（オンライン通学コース）",
-    "links": "https://sites.google.com/nnn.ac.jp/project-n/online",
-    "emoji": "📄"
-  },
-  {
-    "tag": "ネットコース,サポート,ヘルプ",
-    "name": "ネットコース向けヘルプ",
-    "links": "https://sites.google.com/nnn.ed.jp/knowledgebase/category/course/net",
-    "emoji": "🌐"
   },
   {
     "tag": "キャンパス所在地",
