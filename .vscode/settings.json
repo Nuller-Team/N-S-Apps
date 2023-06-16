@@ -5,5 +5,7 @@
   "editor.quickSuggestions": {
     "strings": true
   },
-  "tailwindCSS.includeLanguages": { "plaintext": "typescript" }
+  "tailwindCSS.includeLanguages": { "plaintext": "typescript" },
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
 }
