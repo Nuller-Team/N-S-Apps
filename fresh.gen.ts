@@ -17,12 +17,11 @@ import * as $11 from "./routes/signIn.ts";
 import * as $12 from "./routes/signout.ts";
 import * as $13 from "./routes/times.tsx";
 import * as $14 from "./routes/verify.tsx";
-import * as $$0 from "./islands/AuthFragmentCatcher.tsx";
-import * as $$1 from "./islands/campus_alert.tsx";
-import * as $$2 from "./islands/entry.tsx";
-import * as $$3 from "./islands/grad_timer.tsx";
-import * as $$4 from "./islands/pages.tsx";
-import * as $$5 from "./islands/times.tsx";
+import * as $$0 from "./islands/campus_alert.tsx";
+import * as $$1 from "./islands/entry.tsx";
+import * as $$2 from "./islands/grad_timer.tsx";
+import * as $$3 from "./islands/pages.tsx";
+import * as $$4 from "./islands/times.tsx";
 
 const manifest = {
   routes: {
@@ -43,12 +42,11 @@ const manifest = {
     "./routes/verify.tsx": $14,
   },
   islands: {
-    "./islands/AuthFragmentCatcher.tsx": $$0,
-    "./islands/campus_alert.tsx": $$1,
-    "./islands/entry.tsx": $$2,
-    "./islands/grad_timer.tsx": $$3,
-    "./islands/pages.tsx": $$4,
-    "./islands/times.tsx": $$5,
+    "./islands/campus_alert.tsx": $$0,
+    "./islands/entry.tsx": $$1,
+    "./islands/grad_timer.tsx": $$2,
+    "./islands/pages.tsx": $$3,
+    "./islands/times.tsx": $$4,
   },
   baseUrl: import.meta.url,
 };

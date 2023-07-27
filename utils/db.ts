@@ -1,4 +1,4 @@
-const KV_PATH_KEY = "";
+const KV_PATH_KEY = "KV_PATH";
 let path = undefined;
 if (
   (await Deno.permissions.query({ name: "env", variable: KV_PATH_KEY }))
