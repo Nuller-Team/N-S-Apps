@@ -62,7 +62,7 @@ export default function Inst(props: PageProps<State>) {
             </div>
           </div>
           <div class="flex flex-wrap justify-center">
-            <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 p-4 space-y-4">
+            <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 space-y-4">
               <p class="text-2xl m-2">Android（Chrome）の場合</p>
               <div class="bg-white rounded-lg shadow-md flex p-10 justify-beetween items-center">
                 <img

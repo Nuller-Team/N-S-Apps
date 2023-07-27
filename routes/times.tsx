@@ -18,7 +18,7 @@ const DESCRIPTION = `N/S高に入学してから何秒経過しているかを�
 
 export default function Times(props: PageProps<State>) {
   const ogImageUrl = new URL(asset("/ns-app/times.png"), props.url).href;
-  if (props.data.active == "Not logged in") {
+  if (!props.data.user?.id) {
     return (
       <>
         <Head
@@ -56,7 +56,7 @@ export default function Times(props: PageProps<State>) {
         </Layout>
       </>
     );
-  } else if (props.data.active == "enabled") {
+  } else {
     return (
       <>
         <Head
@@ -69,41 +69,6 @@ export default function Times(props: PageProps<State>) {
           <div class="flex justify-center items-center h-screen">
             <TIMES state={props.data} />
           </div>
-        </Layout>
-      </>
-    );
-  } else {
-    return (
-      <>
-        <Head
-          title={TITLE}
-          description={DESCRIPTION}
-          href={props.url.href}
-          imageUrl={ogImageUrl}
-        />
-        <Layout state={props.data}>
-          <section class="bg-white py-12">
-            <div class="container mx-auto px-4">
-              <div
-                class={
-                  "text-2xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-semibold mb-8 text-center py-20 md:py-36 space-y-2"
-                }
-              >
-                <h1 class={"text-black"}>あなたはN/S高生ではないため</h1>
-                <h1 class={"text-red-500"}>アプリを使うことはできません</h1>
-
-              </div>
-              <footer class={"flex justify-center py-10"}>
-                <image src="/svg/times.svg" />
-              </footer>
-            </div>
-            <div class="flex justify-center">
-              <img
-                class="p-2 rounded-lg shadow-lg w-auto sm:w-96"
-                src={"/ns-app/times.png"}
-              ></img>
-            </div>
-          </section>
         </Layout>
       </>
     );
