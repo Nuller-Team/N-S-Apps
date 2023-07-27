@@ -20,7 +20,7 @@ N/S高生同士でこの画面を表示し、集まった証拠として、み�
 
 export default function Verify(props: PageProps<State>) {
   const ogImageUrl = new URL(asset("/ns-app/verify.png"), props.url).href;
-  if (props.data.active == "Not logged in") {
+  if (!props.data.user?.id) {
     return (
       <>
         <Head
@@ -57,7 +57,7 @@ export default function Verify(props: PageProps<State>) {
         </Layout>
       </>
     );
-  } else if (props.data.active == "enabled") {
+  } else {
     return (
       <>
         <Head
@@ -72,7 +72,7 @@ export default function Verify(props: PageProps<State>) {
             <div class="bg-white shadow-md rounded-md p-8 w-full sm:w-[30rem]">
               <div class="flex justify-center items-center mt-10 w-100">
                 <img
-                  src={props.data.user?.avatar_url}
+                  src={props.data.user?.avatarUrl}
                   class="rounded-full"
                 ></img>
               </div>
@@ -85,40 +85,6 @@ export default function Verify(props: PageProps<State>) {
               </div>
             </div>
           </div>
-        </Layout>
-      </>
-    );
-  } else {
-    return (
-      <>
-        <Head
-          title={TITLE}
-          description={DESCRIPTION}
-          href={props.url.href}
-          imageUrl={ogImageUrl}
-        />
-        <Layout state={props.data}>
-          <section class="bg-white py-12">
-            <div class="container mx-auto px-4">
-              <div
-                class={
-                  "text-2xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-semibold mb-8 text-center py-20 md:py-36 space-y-2"
-                }
-              >
-                <h1 class={"text-black"}>あなたはN/S高生ではないため</h1>
-                <h1 class={"text-red-500"}>アプリを使うことはできません</h1>
-              </div>
-              <footer class={"flex justify-center py-10"}>
-                <image src="/svg/verify.svg" />
-              </footer>
-            </div>
-            <div class="flex justify-center">
-              <img
-                class="p-2 rounded-lg shadow-lg w-auto sm:w-96"
-                src={"/ns-app/verify.png"}
-              ></img>
-            </div>
-          </section>
         </Layout>
       </>
     );

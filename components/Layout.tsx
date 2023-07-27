@@ -152,33 +152,34 @@ interface LayoutProps {
 
 export default function Layout(props: LayoutProps) {
   const headerNavItems = [
-    props.state.active == "Not logged in"
-      ? {
-          //Not Logged in
-          href: "/login",
-          inner: (
-            <span class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring w-full flex items-center justify-center disabled:(opacity-50 cursor-not-allowed)">
-              Login
-            </span>
-          ),
-        }
-      : props.state.active == "enabled"
-      ? {
-          //Enabled
-          href: "",
+    !props.state.user?.id
+      ? props.state.sessionId
+        ? {
+            href: "/signout",
+            inner: (
+              <span class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring w-full flex items-center justify-center disabled:(opacity-50 cursor-not-allowed)">
+                Sign OUT
+              </span>
+            ),
+          }
+        : {
+            href: "/signIn",
+            inner: (
+              <span class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring w-full flex items-center justify-center disabled:(opacity-50 cursor-not-allowed)">
+                Sign In
+              </span>
+            ),
+          }
+      : {
+          href: "/account",
           inner: (
             <div>
               <img
-                src={props.state.user?.avatar_url}
+                src={props.state.user?.avatarUrl}
                 class={"h-10 rounded-full"}
               ></img>
             </div>
           ),
-        }
-      : {
-          //Disabled
-          href: "/",
-          inner: <div />,
         },
   ];
   return (

@@ -2,21 +2,21 @@
 // This file SHOULD be checked into source version control.
 // This file is automatically updated during development when running `dev.ts`.
 
-import config from "./deno.json" assert { type: "json" };
 import * as $0 from "./routes/_middleware.ts";
-import * as $1 from "./routes/campus-alert.tsx";
-import * as $2 from "./routes/docs/terms.tsx";
-import * as $3 from "./routes/entry.tsx";
-import * as $4 from "./routes/grad_timer.tsx";
-import * as $5 from "./routes/guide.tsx";
-import * as $6 from "./routes/index.tsx";
-import * as $7 from "./routes/login/index.tsx";
-import * as $8 from "./routes/login/oauth.ts";
-import * as $9 from "./routes/login/success.tsx";
-import * as $10 from "./routes/pages.tsx";
-import * as $11 from "./routes/result.tsx";
-import * as $12 from "./routes/times.tsx";
-import * as $13 from "./routes/verify.tsx";
+import * as $1 from "./routes/account.tsx";
+import * as $2 from "./routes/callback.tsx";
+import * as $3 from "./routes/campus-alert.tsx";
+import * as $4 from "./routes/docs/terms.tsx";
+import * as $5 from "./routes/entry.tsx";
+import * as $6 from "./routes/grad_timer.tsx";
+import * as $7 from "./routes/guide.tsx";
+import * as $8 from "./routes/index.tsx";
+import * as $9 from "./routes/pages.tsx";
+import * as $10 from "./routes/result.tsx";
+import * as $11 from "./routes/signIn.ts";
+import * as $12 from "./routes/signout.ts";
+import * as $13 from "./routes/times.tsx";
+import * as $14 from "./routes/verify.tsx";
 import * as $$0 from "./islands/AuthFragmentCatcher.tsx";
 import * as $$1 from "./islands/campus_alert.tsx";
 import * as $$2 from "./islands/entry.tsx";
@@ -27,19 +27,20 @@ import * as $$5 from "./islands/times.tsx";
 const manifest = {
   routes: {
     "./routes/_middleware.ts": $0,
-    "./routes/campus-alert.tsx": $1,
-    "./routes/docs/terms.tsx": $2,
-    "./routes/entry.tsx": $3,
-    "./routes/grad_timer.tsx": $4,
-    "./routes/guide.tsx": $5,
-    "./routes/index.tsx": $6,
-    "./routes/login/index.tsx": $7,
-    "./routes/login/oauth.ts": $8,
-    "./routes/login/success.tsx": $9,
-    "./routes/pages.tsx": $10,
-    "./routes/result.tsx": $11,
-    "./routes/times.tsx": $12,
-    "./routes/verify.tsx": $13,
+    "./routes/account.tsx": $1,
+    "./routes/callback.tsx": $2,
+    "./routes/campus-alert.tsx": $3,
+    "./routes/docs/terms.tsx": $4,
+    "./routes/entry.tsx": $5,
+    "./routes/grad_timer.tsx": $6,
+    "./routes/guide.tsx": $7,
+    "./routes/index.tsx": $8,
+    "./routes/pages.tsx": $9,
+    "./routes/result.tsx": $10,
+    "./routes/signIn.ts": $11,
+    "./routes/signout.ts": $12,
+    "./routes/times.tsx": $13,
+    "./routes/verify.tsx": $14,
   },
   islands: {
     "./islands/AuthFragmentCatcher.tsx": $$0,
@@ -50,9 +51,6 @@ const manifest = {
     "./islands/times.tsx": $$5,
   },
   baseUrl: import.meta.url,
-  config,
 };
 
 export default manifest;
-
-

@@ -20,7 +20,7 @@ const DESCRIPTION = `N/S高の全キャンパスの気象等による注意報,�
 
 export default function CampusAlert(props: PageProps<State>) {
   const ogImageUrl = new URL(asset("/ns-app/campus-alert.png"), props.url).href;
-  if (props.data.active == "Not logged in") {
+  if (!props.data.user?.id) {
     return (
       <>
         <Head
@@ -41,7 +41,7 @@ export default function CampusAlert(props: PageProps<State>) {
                   N/S Campus Alert
                 </h1>
                 <h1 class={"text-black font-bold text-lg md:text-xl"}>
-                N/S高のキャンパスに警報が出ているかを簡単に確認
+                  N/S高のキャンパスに警報が出ているかを簡単に確認
                 </h1>
               </div>
               <footer class={"flex justify-center py-10"}>
@@ -57,27 +57,7 @@ export default function CampusAlert(props: PageProps<State>) {
           </section>
         </Layout>
       </>
-    )
-  }else if (props.data.active == "enabled") {
-    return (
-      <>
-        <Head
-          title={TITLE}
-          description={DESCRIPTION}
-          href={props.url.href}
-          imageUrl={ogImageUrl}
-        />
-        <Layout state={props.data}>
-      <div class={"font-semibold mb-8 text-center py-14 md:py-24 space-y-2"}>
-        <h1 class={"text-red-400 text-5xl md:text-7xl"}>N/S Campus Alert</h1>
-        <h1 class={"text-black font-bold text-lg md:text-xl"}>
-          N/S高のキャンパスに警報が出ているかを簡単に確認
-        </h1>
-      </div>
-      <CAMPUSALERT state={props.data} links={links} />
-        </Layout>
-      </>
-    )
+    );
   } else {
     return (
       <>
@@ -88,27 +68,17 @@ export default function CampusAlert(props: PageProps<State>) {
           imageUrl={ogImageUrl}
         />
         <Layout state={props.data}>
-          <section class="bg-white py-12">
-            <div class="container mx-auto px-4">
-              <div
-                class={
-                  "text-2xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-semibold mb-8 text-center py-20 md:py-36 space-y-2"
-                }
-              >
-                <h1 class={"text-black"}>あなたはN/S高生ではないため</h1>
-                <h1 class={"text-red-500"}>アプリを使うことはできません</h1>
-              </div>
-              <footer class={"flex justify-center py-10"}>
-                <image src="/svg/campus-alert.svg" />
-              </footer>
-            </div>
-            <div class="flex justify-center">
-              <img
-                class="p-2 rounded-lg shadow-lg w-auto sm:w-96"
-                src={"/ns-app/campus-alert.png"}
-              ></img>
-            </div>
-          </section>
+          <div
+            class={"font-semibold mb-8 text-center py-14 md:py-24 space-y-2"}
+          >
+            <h1 class={"text-red-400 text-5xl md:text-7xl"}>
+              N/S Campus Alert
+            </h1>
+            <h1 class={"text-black font-bold text-lg md:text-xl"}>
+              N/S高のキャンパスに警報が出ているかを簡単に確認
+            </h1>
+          </div>
+          <CAMPUSALERT state={props.data} links={links} />
         </Layout>
       </>
     );
