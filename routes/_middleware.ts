@@ -1,8 +1,9 @@
 import { MiddlewareHandlerContext } from "$fresh/server.ts";
 import { walk } from "std/fs/walk.ts";
 import { getSessionId } from "kv_oauth";
-import { setRedirectUrlCookie } from "@/utils/redirect.ts";
+import { redirect, setRedirectUrlCookie } from "@/utils/redirect.ts";
 import { User, getUserBySession } from "@/utils/db.ts";
+import { Status } from "std/http/http_status.ts";
 
 const STATIC_DIR_ROOT = new URL("../static", import.meta.url);
 const staticFileNames: string[] = [];
@@ -19,7 +20,11 @@ export async function handler(
   req: Request,
   ctx: MiddlewareHandlerContext<State>
 ) {
-  const { pathname } = new URL(req.url);
+  const { hostname ,pathname } = new URL(req.url);
+
+  if (hostname != "n-s-apps.nuller.net" && hostname != "localhost") {
+    return redirect("https://n-s-apps.nuller.net", Status.Found);
+  }
 
   // KeepAlliveや静的リクエストのセッション管理データを処理しない
   if (["_frsh", ...staticFileNames].some((part) => pathname.includes(part))) {
