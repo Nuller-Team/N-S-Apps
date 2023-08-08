@@ -36,6 +36,12 @@
     "njr": false
   },
   {
+    "title": "N/S Profile",
+    "link": "/profile",
+    "image": "profile",
+    "njr": false
+  },
+  {
     "title": "Nullerへ応募する",
     "link": "/entry",
     "image": "entry",
