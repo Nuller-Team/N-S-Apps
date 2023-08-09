@@ -23,10 +23,10 @@ export default function PROFILE() {
         freespace: "",
         hobby: "",
         color: "",
-        fontColor: "#000",
+        fontColor: "#C7B299",
     });
 
-    const [backgroundImage, setBackgroundImage] = useState<string>("");
+    const [backgroundImage, setBackgroundImage] = useState<string>("apps/profile/image/moka.png");
     const [generatedImageUrl, setGeneratedImageUrl] = useState<string>("");
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalContent, setModalContent] = useState<JSX.Element | null>(null);
@@ -44,7 +44,7 @@ export default function PROFILE() {
             <div className="flex justify-center items-center">
                 <div className="bg-white p-4 rounded shadow-md">
                     <img src={imageURL} alt="Generated Profile" className="w-60 h-60 mx-auto my-4" />
-                    <p>長押し or 右クリックで保存しよう！</p>
+                    <p>長押し or 右クリックで保存できます。</p>
                     <button
                         onClick={() => setIsModalOpen(false)}
                         className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-300"
@@ -59,10 +59,6 @@ export default function PROFILE() {
     };
 
     const handleGenerateImage = () => {
-        if (!backgroundImage) {
-            alert("背景画像を選択してください。");
-            return;
-        }
 
         const canvas = canvasRef.current;
 
@@ -71,14 +67,12 @@ export default function PROFILE() {
             if (ctx) {
                 ctx.clearRect(0, 0, 1600, 1600);
                 const iconImage = iconImageRef.current;
-                console.log(iconImage)
                 const img = new Image();
-                console.log(img)
                 img.onload = () => {
                     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
                     if (iconImage) {
                         const iconSize = 420;
-                        const iconX = 1040;
+                        const iconX = 1036;
                         const iconY = 132;
                         ctx.save();
                         ctx.beginPath();
@@ -87,11 +81,11 @@ export default function PROFILE() {
                         ctx.drawImage(iconImage, iconX, iconY, iconSize, iconSize);
                         ctx.restore();
                     }
-                    ctx.font = "80px Yu Gothic";
+                    ctx.font = "600 80px Yu Gothic";
                     ctx.fillStyle = profile.fontColor;
                     ctx.fillText(profile.name, 360, 400);
-                    ctx.fillText(profile.age, 260, 540);
-                    ctx.fillText(profile.grade, 360, 680);
+                    ctx.fillText(profile.age, 280, 550);
+                    ctx.fillText(profile.grade, 360, 690);
                     ctx.fillText(profile.gender, 360, 840);
                     ctx.fillText(profile.sns, 1080, 800);
                     ctx.fillText(profile.hobby, 160, 1080);
@@ -106,7 +100,7 @@ export default function PROFILE() {
     };
 
     return (
-        <div className="flex items-center justify-center h-screen">
+        <div className="flex items-center justify-center  min-h-screen m-4">
             <canvas
                 ref={canvasRef}
                 className="border-2 border-black hidden"
@@ -127,28 +121,33 @@ export default function PROFILE() {
                             onChange={(e) => handleProfileChange("name", (e.target as HTMLInputElement).value)}
                         />
                     </div>
-                    <input
-                        type="file"
-                        accept="image/*"
-                        onChange={(e) => {
-                            const file = e.target.files[0];
-                            if (file) {
-                                const reader = new FileReader();
-                                reader.onload = (event) => {
-                                    setUploadedIcon(event.target.result as string);
-                                };
-                                reader.readAsDataURL(file);
-                            }
-                        }}
-                    />
-                    {uploadedIcon && (
-                        <img
-                            ref={iconImageRef}
-                            src={uploadedIcon}
-                            alt="Uploaded Icon"
-                            style={{ width: "80px", height: "80px", borderRadius: "50%" }}
+                    <div class="mb-4">
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">アイコン</label>
+                        <input
+                            class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-500 file:text-white     hover:file:bg-blue-600"
+                            type="file"
+                            accept="image/*"
+                            onChange={(e) => {
+                                const file = (e.target as HTMLInputElement)?.files?.[0];
+                                if (file) {
+                                    const reader = new FileReader();
+                                    reader.onload = (event) => {
+                                        setUploadedIcon(event.target?.result as string);
+                                    };
+                                    reader.readAsDataURL(file);
+                                }
+                            }}
                         />
-                    )}
+                        {uploadedIcon && (
+                            <img
+                                ref={iconImageRef}
+                                src={uploadedIcon}
+                                alt="アイコン"
+                                class="m-4"
+                                style={{ width: "80px", height: "80px", borderRadius: "50%" }}
+                            />
+                        )}
+                    </div>
                     <div class="mb-4">
                         <label for="age" class="block text-sm font-medium text-gray-700 mb-1">年齢</label>
                         <input
@@ -201,10 +200,13 @@ export default function PROFILE() {
                         class="data-te-select-init border-2 border-gray-700 w-full h-10 mb-3"
                     >
                         <option value="">背景を選択</option>
-                        <option value="apps/profile/image/darkblue.png">シンプル-ダークブルー</option>
                         <option value="apps/profile/image/moka.png">シンプル-モカ</option>
-                        <option value="apps/profile/image/pink.png">シンプル-ピンク</option>
-                        <option value="apps/profile/image/pop_yellow.png">シンプル-ポップイエロー</option>
+                        <option value="apps/profile/image/darkblue.png">シンプル-ダークブルー</option>
+                        <option value="apps/profile/image/salmonpink.png">シンプル-サーモンピンク</option>
+                        <option value="apps/profile/image/light-gray.png">シンプル-ライトグレー</option>
+                        <option value="apps/profile/image/orange.png">シンプル-オレンジ</option>
+                        <option value="apps/profile/image/black.png">シンプル-ブラック</option>
+                        <option value="apps/profile/image/dark.png">シンプル-ダーク</option>
                     </select>
                     <label for="gender" class="block text-sm font-medium text-gray-700 mb-1">フォントカラー</label>
                     <select
@@ -212,15 +214,13 @@ export default function PROFILE() {
                         onChange={(e) => handleProfileChange("fontColor", (e.target as HTMLSelectElement).value)}
                         class="data-te-select-init border-2 border-gray-700 w-full h-10 mb-3"
                     >
-                        <option value="">テキストカラーを選択</option>
-                        <option value="#FF69B4">ピンク</option>
-                        <option value="#8B4513">モカ</option>
-                        <option value="#A52A2A">ブラウン</option>
-                        <option value="#0000FF">ブルー</option>
-                        <option value="#000000">黒</option>
-                        <option value="#FFFFFF">ホワイト</option>
-                        <option value="#008000">緑</option>
+                        <option value="#C7B299">モカ</option>
+                        <option value="#1B1464">ダークブルー</option>
+                        <option value="#FF837C">サーモンピンク</option>
                         <option value="#808080">グレー</option>
+                        <option value="#FBB03B">オレンジ</option>
+                        <option value="#000000">ブラック</option>
+                        <option value="#FFFFFF">ホワイト</option>
                     </select>
                     <button
                         onClick={handleGenerateImage}
