@@ -89,8 +89,12 @@ export default function PROFILE() {
                         ctx.drawImage(iconImage, iconX, iconY, iconSize, iconSize);
                         ctx.restore();
                     }
+                    const textLines = profile.freespace.split('\n');
+                    const lineHeight = 60;
+                    const startY = 1220;
                     ctx.font = "600 60px Yu Gothic";
                     ctx.fillStyle = profile.fontColor;
+                    
                     ctx.fillText(profile.name, 600, 170);
                     ctx.fillText(profile.grade, 600, 320);
                     ctx.fillText(profile.course, 1150, 320);
@@ -103,7 +107,10 @@ export default function PROFILE() {
                     ctx.font = "600 40px Yu Gothic";
                     ctx.fillText(profile.hobby, 200, 990);
                     ctx.fillText(profile.special, 900, 990);
-                    ctx.fillText(profile.freespace, 200, 1220);
+                    textLines.forEach((line, index) => {
+                        const y = startY + index * lineHeight;
+                        ctx.fillText(line, 200, y);
+                    });
                     const dataURL = canvas.toDataURL();
                     setGeneratedImageUrl(dataURL);
                     openModal(dataURL);
@@ -233,7 +240,7 @@ export default function PROFILE() {
                     <hr class="my-3"></hr>
                     <div class="mb-4">
                         <label for="hobby" class="block text-sm font-medium text-gray-700 mb-1">✨趣味</label>
-                        <textarea
+                        <input
                             type="text"
                             class="w-full border border-gray-300 px-3 py-2 rounded"
                             value={profile.hobby}
@@ -242,7 +249,7 @@ export default function PROFILE() {
                     </div>
                     <div class="mb-4">
                         <label for="SNS" class="block text-sm font-medium text-gray-700 mb-1">👍特技</label>
-                        <textarea
+                        <input
                             type="text"
                             class="w-full border border-gray-300 px-3 py-2 rounded"
                             value={profile.special}
