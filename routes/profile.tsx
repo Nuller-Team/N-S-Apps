@@ -29,14 +29,16 @@ export default function Profile(props: PageProps<State>) {
           imageUrl={ogImageUrl}
         />
         <Layout state={props.data}>
-          <section class="bg-white py-12">
-            <div class="container mx-auto px-60">
+        <section class="bg-white py-12">
+            <div class="container mx-auto px-4">
               <div
                 class={
-                  "text-2xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-semibold mb-8 text-center py-20 md:py-36 space-y-2"
+                  "font-semibold mb-8 text-center py-20 md:py-36 space-y-2"
                 }
               >
-                <h1 class={"text-sky-300 text-5xl md:text-7xl"}>N/S Profile</h1>
+                <h1 class={"text-sky-300 text-5xl md:text-7xl"}>
+                  N/S Profile
+                </h1>
                 <h1 class={"text-black font-bold text-lg md:text-xl"}>
                   あなただけのプロフィールを
                 </h1>
