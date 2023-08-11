@@ -3,12 +3,16 @@ import { JSX } from "preact";
 
 interface ProfileType {
     name: string,
-    age: string,
     grade: string,
+    course: string,
+    birthday: string,
+    age: string,
     gender: string,
+    broadtype: string,
     sns: string,
-    freespace: string,
     hobby: string,
+    special: string,
+    freespace: string,
     color: string,
     fontColor: string,
 }
@@ -16,12 +20,16 @@ interface ProfileType {
 export default function PROFILE() {
     const [profile, setProfile] = useState<ProfileType>({
         name: "",
-        age: "",
         grade: "",
+        course: "",
+        birthday: "",
+        age: "",
         gender: "",
+        broadtype: "",
         sns: "",
-        freespace: "",
         hobby: "",
+        special: "",
+        freespace: "",
         color: "",
         fontColor: "#C7B299",
     });
@@ -43,11 +51,11 @@ export default function PROFILE() {
         const content = (
             <div className="flex justify-center items-center">
                 <div className="bg-white p-4 rounded shadow-md">
-                    <img src={imageURL} alt="Generated Profile" className="w-60 h-60 mx-auto my-4" />
+                    <img src={imageURL} alt="Generated Profile" class="w-[40vh] h-[40vh] mx-auto my-4" />
                     <p>長押し or 右クリックで保存できます。</p>
                     <button
                         onClick={() => setIsModalOpen(false)}
-                        className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-300"
+                        className="w-full bg-sky-500 text-white py-2 rounded-full hover:bg-sky-600 transition duration-300 font-bold"
                     >
                         閉じる
                     </button>
@@ -71,9 +79,9 @@ export default function PROFILE() {
                 img.onload = () => {
                     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
                     if (iconImage) {
-                        const iconSize = 420;
-                        const iconX = 1036;
-                        const iconY = 132;
+                        const iconSize = 300;
+                        const iconX = 62;
+                        const iconY = 55;
                         ctx.save();
                         ctx.beginPath();
                         ctx.arc(iconX + iconSize / 2, iconY + iconSize / 2, iconSize / 2, 0, Math.PI * 2);
@@ -81,15 +89,21 @@ export default function PROFILE() {
                         ctx.drawImage(iconImage, iconX, iconY, iconSize, iconSize);
                         ctx.restore();
                     }
-                    ctx.font = "600 80px Yu Gothic";
+                    ctx.font = "600 60px Yu Gothic";
                     ctx.fillStyle = profile.fontColor;
-                    ctx.fillText(profile.name, 360, 400);
-                    ctx.fillText(profile.age, 280, 550);
-                    ctx.fillText(profile.grade, 360, 690);
-                    ctx.fillText(profile.gender, 360, 840);
-                    ctx.fillText(profile.sns, 1080, 800);
-                    ctx.fillText(profile.hobby, 160, 1080);
-                    ctx.fillText(profile.freespace, 160, 1400);
+                    ctx.fillText(profile.name, 600, 170);
+                    ctx.fillText(profile.grade, 600, 320);
+                    ctx.fillText(profile.course, 1150, 320);
+                    ctx.fillText(profile.birthday, 320, 585);
+                    ctx.fillText(profile.age, 780, 585);
+                    ctx.fillText(profile.gender, 1180, 585);
+                    ctx.fillText(profile.broadtype, 200, 780);
+                    ctx.font = "600 50px Yu Gothic";
+                    ctx.fillText(profile.sns, 700, 780);
+                    ctx.font = "600 40px Yu Gothic";
+                    ctx.fillText(profile.hobby, 200, 990);
+                    ctx.fillText(profile.special, 900, 990);
+                    ctx.fillText(profile.freespace, 200, 1220);
                     const dataURL = canvas.toDataURL();
                     setGeneratedImageUrl(dataURL);
                     openModal(dataURL);
@@ -100,31 +114,32 @@ export default function PROFILE() {
     };
 
     return (
-        <div className="flex items-center justify-center  min-h-screen m-4">
-            <canvas
-                ref={canvasRef}
-                className="border-2 border-black hidden"
-                width="1600" height="1600"
-            />
-            <div class="bg-white p-8 rounded shadow-md">
-                <h1 class="text-2xl font-semibold mb-4">N/S Profile</h1>
-                <div class="mb-4 flex justify-center">
+        <div class="flex items-center justify-center">
+            <div className="w-[80vh]  min-h-screen m-4">
+                <canvas
+                    ref={canvasRef}
+                    className="hidden"
+                    width="1600" height="1600"
+                />
+                <div class="bg-white px-20 py-10 rounded shadow-md">
+                    <div class="mb-4 flex justify-center">
 
-                </div>
-                <div class="w-full">
+                    </div>
                     <div class="mb-4">
-                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">名前</label>
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">🙅名前</label>
                         <input
                             type="text"
                             class="w-full border border-gray-300 px-3 py-2 rounded"
                             value={profile.name}
                             onChange={(e) => handleProfileChange("name", (e.target as HTMLInputElement).value)}
                         />
+                        <hr class="my-3"></hr>
                     </div>
+
                     <div class="mb-4">
-                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">アイコン</label>
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">🖼️アイコン</label>
                         <input
-                            class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-500 file:text-white     hover:file:bg-blue-600"
+                            class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-sky-500 file:text-white     hover:file:bg-sky-600"
                             type="file"
                             accept="image/*"
                             onChange={(e) => {
@@ -148,17 +163,9 @@ export default function PROFILE() {
                             />
                         )}
                     </div>
+                    <hr class="my-3"></hr>
                     <div class="mb-4">
-                        <label for="age" class="block text-sm font-medium text-gray-700 mb-1">年齢</label>
-                        <input
-                            type="text"
-                            class="w-full border border-gray-300 px-3 py-2 rounded"
-                            value={profile.age}
-                            onChange={(e) => handleProfileChange("age", (e.target as HTMLInputElement).value)}
-                        />
-                    </div>
-                    <div class="mb-4">
-                        <label for="grade" class="block text-sm font-medium text-gray-700 mb-1">学年</label>
+                        <label for="grade" class="block text-sm font-medium text-gray-700 mb-1">🎒学年</label>
                         <input
                             type="text"
                             class="w-full border border-gray-300 px-3 py-2 rounded"
@@ -167,7 +174,36 @@ export default function PROFILE() {
                         />
                     </div>
                     <div class="mb-4">
-                        <label for="gender" class="block text-sm font-medium text-gray-700 mb-1">性別</label>
+                        <label for="course" class="block text-sm font-medium text-gray-700 mb-1">🏫コース</label>
+                        <input
+                            type="text"
+                            class="w-full border border-gray-300 px-3 py-2 rounded"
+                            value={profile.course}
+                            onChange={(e) => handleProfileChange("course", (e.target as HTMLInputElement).value)}
+                        />
+                    </div>
+                    <hr class="my-3"></hr>
+                    <div class="mb-4">
+                        <label for="birthday" class="block text-sm font-medium text-gray-700 mb-1">🎂誕生日</label>
+                        <input
+                            type="text"
+                            class="w-full border border-gray-300 px-3 py-2 rounded"
+                            value={profile.birthday}
+                            onChange={(e) => handleProfileChange("birthday", (e.target as HTMLInputElement).value)}
+                        />
+                    </div>
+                    <div class="mb-4">
+                        <label for="age" class="block text-sm font-medium text-gray-700 mb-1">🔢年齢</label>
+                        <input
+                            type="text"
+                            class="w-full border border-gray-300 px-3 py-2 rounded"
+                            value={profile.age}
+                            onChange={(e) => handleProfileChange("age", (e.target as HTMLInputElement).value)}
+                        />
+                    </div>
+                    <hr class="my-3"></hr>
+                    <div class="mb-4">
+                        <label for="gender" class="block text-sm font-medium text-gray-700 mb-1">❓性別</label>
                         <input
                             type="text"
                             class="w-full border border-gray-300 px-3 py-2 rounded"
@@ -176,7 +212,27 @@ export default function PROFILE() {
                         />
                     </div>
                     <div class="mb-4">
-                        <label for="SNS" class="block text-sm font-medium text-gray-700 mb-1">趣味</label>
+                        <label for="broadtype" class="block text-sm font-medium text-gray-700 mb-1">🩸血液型</label>
+                        <input
+                            type="text"
+                            class="w-full border border-gray-300 px-3 py-2 rounded"
+                            value={profile.broadtype}
+                            onChange={(e) => handleProfileChange("broadtype", (e.target as HTMLInputElement).value)}
+                        />
+                    </div>
+                    <hr class="my-3"></hr>
+                    <div class="mb-4">
+                        <label for="sns" class="block text-sm font-medium text-gray-700 mb-1">🌎SNS</label>
+                        <input
+                            type="text"
+                            class="w-full border border-gray-300 px-3 py-2 rounded"
+                            value={profile.sns}
+                            onChange={(e) => handleProfileChange("sns", (e.target as HTMLInputElement).value)}
+                        />
+                    </div>
+                    <hr class="my-3"></hr>
+                    <div class="mb-4">
+                        <label for="hobby" class="block text-sm font-medium text-gray-700 mb-1">✨趣味</label>
                         <textarea
                             type="text"
                             class="w-full border border-gray-300 px-3 py-2 rounded"
@@ -185,7 +241,17 @@ export default function PROFILE() {
                         />
                     </div>
                     <div class="mb-4">
-                        <label for="SNS" class="block text-sm font-medium text-gray-700 mb-1">自由欄</label>
+                        <label for="SNS" class="block text-sm font-medium text-gray-700 mb-1">👍特技</label>
+                        <textarea
+                            type="text"
+                            class="w-full border border-gray-300 px-3 py-2 rounded"
+                            value={profile.special}
+                            onChange={(e) => handleProfileChange("special", (e.target as HTMLInputElement).value)}
+                        />
+                    </div>
+                    <hr class="my-3"></hr>
+                    <div class="mb-4">
+                        <label for="SNS" class="block text-sm font-medium text-gray-700 mb-1">📖自由欄</label>
                         <textarea
                             type="text"
                             class="w-full border border-gray-300 px-3 py-2 rounded"
@@ -193,11 +259,12 @@ export default function PROFILE() {
                             onChange={(e) => handleProfileChange("freespace", (e.target as HTMLInputElement).value)}
                         />
                     </div>
-                    <label for="gender" class="block text-sm font-medium text-gray-700 mb-1">背景</label>
+                    <hr class="my-3"></hr>
+                    <label for="gender" class="block text-sm font-medium text-gray-700 mb-1">🎨背景</label>
                     <select
                         value={backgroundImage}
                         onChange={(e) => setBackgroundImage((e.target as HTMLSelectElement).value)}
-                        class="data-te-select-init border-2 border-gray-700 w-full h-10 mb-3"
+                        class="data-te-select-init border border-gray-300 w-full h-10 mb-3 rounded-md"
                     >
                         <option value="">背景を選択</option>
                         <option value="apps/profile/image/moka.png">シンプル-モカ</option>
@@ -208,11 +275,11 @@ export default function PROFILE() {
                         <option value="apps/profile/image/black.png">シンプル-ブラック</option>
                         <option value="apps/profile/image/dark.png">シンプル-ダーク</option>
                     </select>
-                    <label for="gender" class="block text-sm font-medium text-gray-700 mb-1">フォントカラー</label>
+                    <label for="gender" class="block text-sm font-medium text-gray-700 mb-1">🎨フォントカラー</label>
                     <select
                         value={profile.fontColor}
                         onChange={(e) => handleProfileChange("fontColor", (e.target as HTMLSelectElement).value)}
-                        class="data-te-select-init border-2 border-gray-700 w-full h-10 mb-3"
+                        class="data-te-select-init  border border-gray-300 w-full h-10 mb-3 rounded-md"
                     >
                         <option value="#C7B299">モカ</option>
                         <option value="#1B1464">ダークブルー</option>
@@ -220,11 +287,10 @@ export default function PROFILE() {
                         <option value="#808080">グレー</option>
                         <option value="#FBB03B">オレンジ</option>
                         <option value="#000000">ブラック</option>
-                        <option value="#FFFFFF">ホワイト</option>
                     </select>
                     <button
                         onClick={handleGenerateImage}
-                        class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition duration-300"
+                        class="w-full bg-sky-500 text-white py-2 rounded-full hover:bg-sky-600 transition duration-300 font-bold"
                     >
                         画像を生成
                     </button>
