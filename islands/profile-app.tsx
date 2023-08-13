@@ -1,6 +1,10 @@
-import { useState, useRef } from "preact/hooks";
+import { useState, useRef, useEffect } from "preact/hooks";
 import { JSX } from "preact";
+import { State } from "@/routes/_middleware.ts";
 
+interface propsType {
+    state: State
+}
 interface ProfileType {
     name: string,
     grade: string,
@@ -17,10 +21,10 @@ interface ProfileType {
     fontColor: string,
 }
 
-export default function PROFILE() {
+export default function PROFILE(props: propsType) {
     const [profile, setProfile] = useState<ProfileType>({
         name: "",
-        grade: "",
+        grade: props.state.user?.school.name + props.state.user?.school.gen,
         course: "",
         birthday: "",
         age: "",
@@ -38,7 +42,8 @@ export default function PROFILE() {
     const [generatedImageUrl, setGeneratedImageUrl] = useState<string>("");
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalContent, setModalContent] = useState<JSX.Element | null>(null);
-    const [uploadedIcon, setUploadedIcon] = useState<string>("");
+    const [uploadedIcon, setUploadedIcon] = useState<string>();
+    const [imageError, setImageError] = useState<string | null>(null);
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const iconImageRef = useRef<HTMLImageElement>(null);
     const handleProfileChange = (key: keyof ProfileType, value: string) => {
@@ -77,43 +82,51 @@ export default function PROFILE() {
                 const iconImage = iconImageRef.current;
                 const img = new Image();
                 img.onload = () => {
+                    setImageError(null);
                     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-                    if (iconImage) {
-                        const iconSize = 300;
-                        const iconX = 62;
-                        const iconY = 55;
-                        ctx.save();
-                        ctx.beginPath();
-                        ctx.arc(iconX + iconSize / 2, iconY + iconSize / 2, iconSize / 2, 0, Math.PI * 2);
-                        ctx.clip();
-                        ctx.drawImage(iconImage, iconX, iconY, iconSize, iconSize);
-                        ctx.restore();
+                    if (iconImage.width !== iconImage.height) {
+                        setImageError("true");
+                    } else {
+                        if (iconImage) {
+                            const iconSize = 300;
+                            const iconX = 62;
+                            const iconY = 55;
+                            const iconWidth = iconImage.width;
+                            const iconHeight = iconImage.height;
+
+                            ctx.save();
+                            ctx.beginPath();
+                            ctx.arc(iconX + iconSize / 2, iconY + iconSize / 2, iconSize / 2, 0, Math.PI * 2);
+                            ctx.clip();
+                            ctx.drawImage(iconImage, iconX, iconY, iconSize, iconSize);
+                            ctx.restore();
+                            const textLines = profile.freespace.split('\n');
+                            const lineHeight = 60;
+                            const startY = 1220;
+                            ctx.font = "600 60px Yu Gothic";
+                            ctx.fillStyle = profile.fontColor;
+        
+                            ctx.fillText(profile.name, 600, 170);
+                            ctx.fillText(profile.grade, 600, 320);
+                            ctx.fillText(profile.course, 1150, 320);
+                            ctx.fillText(profile.birthday, 320, 585);
+                            ctx.fillText(profile.age, 780, 585);
+                            ctx.fillText(profile.gender, 1180, 585);
+                            ctx.fillText(profile.broadtype, 200, 780);
+                            ctx.font = "600 50px Yu Gothic";
+                            ctx.fillText(profile.sns, 700, 780);
+                            ctx.font = "600 40px Yu Gothic";
+                            ctx.fillText(profile.hobby, 200, 990);
+                            ctx.fillText(profile.special, 900, 990);
+                            textLines.forEach((line, index) => {
+                                const y = startY + index * lineHeight;
+                                ctx.fillText(line, 200, y);
+                            });
+                            const dataURL = canvas.toDataURL();
+                            setGeneratedImageUrl(dataURL);
+                            openModal(dataURL);
+                        }
                     }
-                    const textLines = profile.freespace.split('\n');
-                    const lineHeight = 60;
-                    const startY = 1220;
-                    ctx.font = "600 60px Yu Gothic";
-                    ctx.fillStyle = profile.fontColor;
-                    
-                    ctx.fillText(profile.name, 600, 170);
-                    ctx.fillText(profile.grade, 600, 320);
-                    ctx.fillText(profile.course, 1150, 320);
-                    ctx.fillText(profile.birthday, 320, 585);
-                    ctx.fillText(profile.age, 780, 585);
-                    ctx.fillText(profile.gender, 1180, 585);
-                    ctx.fillText(profile.broadtype, 200, 780);
-                    ctx.font = "600 50px Yu Gothic";
-                    ctx.fillText(profile.sns, 700, 780);
-                    ctx.font = "600 40px Yu Gothic";
-                    ctx.fillText(profile.hobby, 200, 990);
-                    ctx.fillText(profile.special, 900, 990);
-                    textLines.forEach((line, index) => {
-                        const y = startY + index * lineHeight;
-                        ctx.fillText(line, 200, y);
-                    });
-                    const dataURL = canvas.toDataURL();
-                    setGeneratedImageUrl(dataURL);
-                    openModal(dataURL);
                 };
                 img.src = backgroundImage;
             }
@@ -146,7 +159,7 @@ export default function PROFILE() {
                     <div class="mb-4">
                         <label for="name" class="block text-sm font-medium text-gray-700 mb-1">🖼️アイコン</label>
                         <input
-                            class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-sky-500 file:text-white     hover:file:bg-sky-600"
+                            class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-sky-500 file:text-white hover:file:bg-sky-600"
                             type="file"
                             accept="image/*"
                             onChange={(e) => {
@@ -160,15 +173,35 @@ export default function PROFILE() {
                                 }
                             }}
                         />
+                        <p class="text-gray-600 text-sm mt-3">※アップロードする画像は正方形にする必要があります。</p>
                         {uploadedIcon && (
                             <img
                                 ref={iconImageRef}
                                 src={uploadedIcon}
                                 alt="アイコン"
-                                class="m-4"
-                                style={{ width: "80px", height: "80px", borderRadius: "50%" }}
+                                class="w-40 h-full mt-4"
                             />
                         )}
+                        {imageError && (
+                            <div
+                                onClick={() => setImageError(null)}
+                                className="fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 flex justify-center items-center"
+                            >
+                                <div className="flex justify-center items-center">
+                                    <div className="bg-white p-4 rounded shadow-md">
+                                        <p>アイコン画像は正方形ではありません。<br></br>1:1比率の正方形画像にする必要があります。</p>
+                                        <button
+                                            onClick={() => setImageError(null)}
+                                            className="w-full bg-sky-500 text-white py-2 rounded-full hover:bg-sky-600 transition duration-300 font-bold"
+                                        >
+                                            閉じる
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+
+
                     </div>
                     <hr class="my-3"></hr>
                     <div class="mb-4">
