@@ -84,10 +84,11 @@ export default function PROFILE(props: propsType) {
                 img.onload = () => {
                     setImageError(null);
                     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-                    if (iconImage.width !== iconImage.height) {
-                        setImageError("true");
-                    } else {
-                        if (iconImage) {
+                    if (iconImage) {
+                        if (iconImage.width !== iconImage.height) {
+                            setImageError("true");
+                        }
+                        else {
                             const iconSize = 300;
                             const iconX = 62;
                             const iconY = 55;
@@ -100,32 +101,39 @@ export default function PROFILE(props: propsType) {
                             ctx.clip();
                             ctx.drawImage(iconImage, iconX, iconY, iconSize, iconSize);
                             ctx.restore();
-                            const textLines = profile.freespace.split('\n');
-                            const lineHeight = 60;
-                            const startY = 1220;
-                            ctx.font = "600 60px Yu Gothic";
-                            ctx.fillStyle = profile.fontColor;
-        
-                            ctx.fillText(profile.name, 600, 170);
-                            ctx.fillText(profile.grade, 600, 320);
-                            ctx.fillText(profile.course, 1150, 320);
-                            ctx.fillText(profile.birthday, 320, 585);
-                            ctx.fillText(profile.age, 780, 585);
-                            ctx.fillText(profile.gender, 1180, 585);
-                            ctx.fillText(profile.broadtype, 200, 780);
-                            ctx.font = "600 50px Yu Gothic";
-                            ctx.fillText(profile.sns, 700, 780);
-                            ctx.font = "600 40px Yu Gothic";
-                            ctx.fillText(profile.hobby, 200, 990);
-                            ctx.fillText(profile.special, 900, 990);
-                            textLines.forEach((line, index) => {
-                                const y = startY + index * lineHeight;
-                                ctx.fillText(line, 200, y);
-                            });
-                            const dataURL = canvas.toDataURL();
-                            setGeneratedImageUrl(dataURL);
+                        }
+                    }
+                    const textLines = profile.freespace.split('\n');
+                    const lineHeight = 60;
+                    const startY = 1220;
+                    ctx.font = "600 60px Yu Gothic";
+                    ctx.fillStyle = profile.fontColor;
+
+                    ctx.fillText(profile.name, 600, 170);
+                    ctx.fillText(profile.grade, 600, 320);
+                    ctx.fillText(profile.course, 1150, 320);
+                    ctx.fillText(profile.birthday, 320, 585);
+                    ctx.fillText(profile.age, 780, 585);
+                    ctx.fillText(profile.gender, 1180, 585);
+                    ctx.fillText(profile.broadtype, 200, 780);
+                    ctx.font = "600 50px Yu Gothic";
+                    ctx.fillText(profile.sns, 700, 780);
+                    ctx.font = "600 40px Yu Gothic";
+                    ctx.fillText(profile.hobby, 200, 990);
+                    ctx.fillText(profile.special, 900, 990);
+                    textLines.forEach((line, index) => {
+                        const y = startY + index * lineHeight;
+                        ctx.fillText(line, 200, y);
+                    });
+                    const dataURL = canvas.toDataURL();
+                    setGeneratedImageUrl(dataURL);
+                    if (iconImage) {
+                        if (iconImage.width == iconImage.height) {
                             openModal(dataURL);
                         }
+                    }
+                    else {
+                        openModal(dataURL);
                     }
                 };
                 img.src = backgroundImage;
@@ -173,13 +181,12 @@ export default function PROFILE(props: propsType) {
                                 }
                             }}
                         />
-                        <p class="text-gray-600 text-sm mt-3">※アップロードする画像は正方形にする必要があります。</p>
                         {uploadedIcon && (
                             <img
                                 ref={iconImageRef}
                                 src={uploadedIcon}
                                 alt="アイコン"
-                                class="w-40 h-full mt-4"
+                                class="w-full h-auto"
                             />
                         )}
                         {imageError && (
@@ -189,7 +196,7 @@ export default function PROFILE(props: propsType) {
                             >
                                 <div className="flex justify-center items-center">
                                     <div className="bg-white p-4 rounded shadow-md">
-                                        <p>アイコン画像は正方形ではありません。<br></br>1:1比率の正方形画像にする必要があります。</p>
+                                        <p>画像は正方形ではありません。<br></br>1:1比率の正方形画像にする必要があります。</p>
                                         <button
                                             onClick={() => setImageError(null)}
                                             className="w-full bg-sky-500 text-white py-2 rounded-full hover:bg-sky-600 transition duration-300 font-bold"
