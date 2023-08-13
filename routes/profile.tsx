@@ -70,7 +70,7 @@ export default function Profile(props: PageProps<State>) {
         <Layout state={props.data}>
           <div class="bg-gray-100">
             <div class="space-y-2 py-14 font-semibold mb-8 text-center md:py-24 bg-white"><h1 class="text-sky-300 text-5xl md:text-7xl">N/S Profile</h1><h1 class="text-black text-lg font-bold md:text-xl">あなただけのプロフィールを</h1></div>
-            <PROFILE />
+            <PROFILE state={props.data}/>
           </div>
         </Layout>
       </>
