@@ -12,16 +12,18 @@ import * as $6 from "./routes/grad_timer.tsx";
 import * as $7 from "./routes/guide.tsx";
 import * as $8 from "./routes/index.tsx";
 import * as $9 from "./routes/pages.tsx";
-import * as $10 from "./routes/result.tsx";
-import * as $11 from "./routes/signIn.ts";
-import * as $12 from "./routes/signout.ts";
-import * as $13 from "./routes/times.tsx";
-import * as $14 from "./routes/verify.tsx";
+import * as $10 from "./routes/profile.tsx";
+import * as $11 from "./routes/result.tsx";
+import * as $12 from "./routes/signIn.ts";
+import * as $13 from "./routes/signout.ts";
+import * as $14 from "./routes/times.tsx";
+import * as $15 from "./routes/verify.tsx";
 import * as $$0 from "./islands/campus_alert.tsx";
 import * as $$1 from "./islands/entry.tsx";
 import * as $$2 from "./islands/grad_timer.tsx";
 import * as $$3 from "./islands/pages.tsx";
-import * as $$4 from "./islands/times.tsx";
+import * as $$4 from "./islands/profile-app.tsx";
+import * as $$5 from "./islands/times.tsx";
 
 const manifest = {
   routes: {
@@ -35,18 +37,20 @@ const manifest = {
     "./routes/guide.tsx": $7,
     "./routes/index.tsx": $8,
     "./routes/pages.tsx": $9,
-    "./routes/result.tsx": $10,
-    "./routes/signIn.ts": $11,
-    "./routes/signout.ts": $12,
-    "./routes/times.tsx": $13,
-    "./routes/verify.tsx": $14,
+    "./routes/profile.tsx": $10,
+    "./routes/result.tsx": $11,
+    "./routes/signIn.ts": $12,
+    "./routes/signout.ts": $13,
+    "./routes/times.tsx": $14,
+    "./routes/verify.tsx": $15,
   },
   islands: {
     "./islands/campus_alert.tsx": $$0,
     "./islands/entry.tsx": $$1,
     "./islands/grad_timer.tsx": $$2,
     "./islands/pages.tsx": $$3,
-    "./islands/times.tsx": $$4,
+    "./islands/profile-app.tsx": $$4,
+    "./islands/times.tsx": $$5,
   },
   baseUrl: import.meta.url,
 };
