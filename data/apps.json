@@ -42,6 +42,12 @@
     "njr": false
   },
   {
+    "title": "N/S Emoji",
+    "link": "/emoji",
+    "image": "emoji",
+    "njr": true
+  },
+  {
     "title": "Nullerへ応募する",
     "link": "/entry",
     "image": "entry",
