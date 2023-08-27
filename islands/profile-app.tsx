@@ -321,6 +321,9 @@ export default function PROFILE(props: propsType) {
                         <option value="apps/profile/image/orange.png">シンプル-オレンジ</option>
                         <option value="apps/profile/image/black.png">シンプル-ブラック</option>
                         <option value="apps/profile/image/dark.png">シンプル-ダーク</option>
+                        <option value="apps/profile/image/ps-pink.png">パステル-ピンク</option>
+                        <option value="apps/profile/image/ps-blue.png">パステル-スカイブルー</option>
+                        <option value="apps/profile/image/ps-purple.png">パステル-パープル</option>
                     </select>
                     <label for="gender" class="block text-sm font-medium text-gray-700 mb-1">🎨フォントカラー</label>
                     <select
@@ -334,6 +337,9 @@ export default function PROFILE(props: propsType) {
                         <option value="#808080">グレー</option>
                         <option value="#FBB03B">オレンジ</option>
                         <option value="#000000">ブラック</option>
+                        <option value="#f89992">パステルピンク</option>
+                        <option value="#0ac4ff">スカイブルー</option>
+                        <option value="#c194f6">紫</option>
                     </select>
                     <button
                         onClick={handleGenerateImage}
