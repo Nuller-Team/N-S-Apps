@@ -7,23 +7,25 @@ import * as $1 from "./routes/account.tsx";
 import * as $2 from "./routes/callback.tsx";
 import * as $3 from "./routes/campus-alert.tsx";
 import * as $4 from "./routes/docs/terms.tsx";
-import * as $5 from "./routes/entry.tsx";
-import * as $6 from "./routes/grad_timer.tsx";
-import * as $7 from "./routes/guide.tsx";
-import * as $8 from "./routes/index.tsx";
-import * as $9 from "./routes/pages.tsx";
-import * as $10 from "./routes/profile.tsx";
-import * as $11 from "./routes/result.tsx";
-import * as $12 from "./routes/signIn.ts";
-import * as $13 from "./routes/signout.ts";
-import * as $14 from "./routes/times.tsx";
-import * as $15 from "./routes/verify.tsx";
+import * as $5 from "./routes/emoji.tsx";
+import * as $6 from "./routes/entry.tsx";
+import * as $7 from "./routes/grad_timer.tsx";
+import * as $8 from "./routes/guide.tsx";
+import * as $9 from "./routes/index.tsx";
+import * as $10 from "./routes/pages.tsx";
+import * as $11 from "./routes/profile.tsx";
+import * as $12 from "./routes/result.tsx";
+import * as $13 from "./routes/signIn.ts";
+import * as $14 from "./routes/signout.ts";
+import * as $15 from "./routes/times.tsx";
+import * as $16 from "./routes/verify.tsx";
 import * as $$0 from "./islands/campus_alert.tsx";
-import * as $$1 from "./islands/entry.tsx";
-import * as $$2 from "./islands/grad_timer.tsx";
-import * as $$3 from "./islands/pages.tsx";
-import * as $$4 from "./islands/profile-app.tsx";
-import * as $$5 from "./islands/times.tsx";
+import * as $$1 from "./islands/emoji.tsx";
+import * as $$2 from "./islands/entry.tsx";
+import * as $$3 from "./islands/grad_timer.tsx";
+import * as $$4 from "./islands/pages.tsx";
+import * as $$5 from "./islands/profile-app.tsx";
+import * as $$6 from "./islands/times.tsx";
 
 const manifest = {
   routes: {
@@ -32,25 +34,27 @@ const manifest = {
     "./routes/callback.tsx": $2,
     "./routes/campus-alert.tsx": $3,
     "./routes/docs/terms.tsx": $4,
-    "./routes/entry.tsx": $5,
-    "./routes/grad_timer.tsx": $6,
-    "./routes/guide.tsx": $7,
-    "./routes/index.tsx": $8,
-    "./routes/pages.tsx": $9,
-    "./routes/profile.tsx": $10,
-    "./routes/result.tsx": $11,
-    "./routes/signIn.ts": $12,
-    "./routes/signout.ts": $13,
-    "./routes/times.tsx": $14,
-    "./routes/verify.tsx": $15,
+    "./routes/emoji.tsx": $5,
+    "./routes/entry.tsx": $6,
+    "./routes/grad_timer.tsx": $7,
+    "./routes/guide.tsx": $8,
+    "./routes/index.tsx": $9,
+    "./routes/pages.tsx": $10,
+    "./routes/profile.tsx": $11,
+    "./routes/result.tsx": $12,
+    "./routes/signIn.ts": $13,
+    "./routes/signout.ts": $14,
+    "./routes/times.tsx": $15,
+    "./routes/verify.tsx": $16,
   },
   islands: {
     "./islands/campus_alert.tsx": $$0,
-    "./islands/entry.tsx": $$1,
-    "./islands/grad_timer.tsx": $$2,
-    "./islands/pages.tsx": $$3,
-    "./islands/profile-app.tsx": $$4,
-    "./islands/times.tsx": $$5,
+    "./islands/emoji.tsx": $$1,
+    "./islands/entry.tsx": $$2,
+    "./islands/grad_timer.tsx": $$3,
+    "./islands/pages.tsx": $$4,
+    "./islands/profile-app.tsx": $$5,
+    "./islands/times.tsx": $$6,
   },
   baseUrl: import.meta.url,
 };
