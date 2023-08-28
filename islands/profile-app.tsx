@@ -24,7 +24,7 @@ interface ProfileType {
 export default function PROFILE(props: propsType) {
     const [profile, setProfile] = useState<ProfileType>({
         name: "",
-        grade: props.state.user?.school.name + props.state.user?.school.gen,
+        grade: props.state.user?.school.name! + props.state.user?.school.gen!,
         course: "",
         birthday: "",
         age: "",
