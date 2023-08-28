@@ -40,7 +40,7 @@ export default function EmojiGenerator() {
 
         const canvas = canvasRef.current;
         if (canvas) {
-            const ctx = canvas.getContext("2d");
+            const ctx = canvas.getContext("2d")!;
             ctx.clearRect(0, 0, 128, 128);
             if (ctx) {
                 ctx.clearRect(0, 0, 128, 128);
@@ -103,14 +103,14 @@ export default function EmojiGenerator() {
                         <textarea
                             className="w-full border border-gray-300 px-3 py-2 rounded"
                             value={emojiData.text}
-                            onChange={(e) => handleTextChange(e.target.value)}
+                            onChange={(e) => handleTextChange((e.target as HTMLInputElement).value)}
                         />
                     </div>
                     <div className="mb-4">
                         <label htmlFor="fontColor" className="block text-sm font-medium text-gray-700 mb-1">フォントカラーを選択</label>
                         <select
                             value={emojiData.fontColor}
-                            onChange={(e) => handleFontColorChange(e.target.value)}
+                            onChange={(e) => handleFontColorChange((e.target as HTMLInputElement).value)}
                             className="border border-gray-300 w-full h-10 mb-3 rounded-md"
                         >
                             <option value="#FF0000">赤</option>
