@@ -5,16 +5,10 @@
 /// <reference lib="deno.ns" />
 /// <reference lib="deno.unstable" />
 
-import { RenderFunction, start } from "$fresh/server.ts";
+import "$std/dotenv/load.ts";
+
+import { start } from "$fresh/server.ts";
 import manifest from "./fresh.gen.ts";
+import config from "./fresh.config.ts";
 
-import twindPlugin from "$fresh/plugins/twindv1.ts";
-import twindConfig from "./twind.config.ts";
-
-const render: RenderFunction = (ctx, render) => {
-  ctx.lang = "ja";
-  render();
-};
-
-
-await start(manifest, { render, plugins: [twindPlugin(twindConfig)] });
+await start(manifest, config);
