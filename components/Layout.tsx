@@ -138,6 +138,16 @@ function Footer(): JSX.Element {
                 <span class="sr-only">GitHub account</span>
               </a>
             </div>
+            <div class="p-3">
+              <a href="https://fresh.deno.dev">
+                <img
+                  width="197"
+                  height="37"
+                  src="https://fresh.deno.dev/fresh-badge.svg"
+                  alt="Made with Fresh"
+                />
+              </a>
+            </div>
           </div>
         </div>
       </footer>
