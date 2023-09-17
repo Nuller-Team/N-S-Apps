@@ -4,4 +4,4 @@ WORKDIR /app
 
 COPY . .
 
-CMD ["deno","run","-A","main.ts"]
+CMD ["deno","run","-A","--unstable","main.ts"]
