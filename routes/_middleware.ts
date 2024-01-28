@@ -22,8 +22,8 @@ export async function handler(
 ) {
   const { hostname, pathname } = new URL(req.url);
 
-  if (hostname != "n-s-apps.nuller.net" && hostname != "localhost") {
-    return redirect("https://n-s-apps.nuller.net", Status.Found);
+  if (hostname != "n-s-apps.nuller.jp" && hostname != "localhost") {
+    return redirect("https://n-s-apps.nuller.jp", Status.Found);
   }
 
   // KeepAlliveや静的リクエストのセッション管理データを処理しない
