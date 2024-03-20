@@ -123,7 +123,7 @@ export default function Result(props: PageProps<State>) {
                   ✅N/S高生で構成されたチーム
                 </h3>
                 <a
-                  href="https://nuller.net/"
+                  href="https://nuller.jp/"
                   class="bg-blue-500 hover:bg-blue-600 py-2 px-4 rounded text-white text-center justify-center flex items-center "
                 >
                   詳しく
@@ -136,7 +136,7 @@ export default function Result(props: PageProps<State>) {
                   ✅Nullerは技術の向上を目的として活動
                 </h3>
                 <a
-                  href="https://nuller.net/contact"
+                  href="https://nuller.jp/contact"
                   class="bg-blue-500 hover:bg-blue-600 py-2 px-4 rounded text-white text-center justify-center flex items-center "
                 >
                   応募する
@@ -149,7 +149,7 @@ export default function Result(props: PageProps<State>) {
                   ✅様々なアプリを公開
                 </h3>
                 <a
-                  href="https://app.nuller.net/"
+                  href="https://app.nuller.jp/"
                   class="bg-blue-500 hover:bg-blue-600 py-2 px-4 rounded text-white text-center justify-center flex items-center "
                 >
                   見てみる

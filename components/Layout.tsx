@@ -36,13 +36,13 @@ function Footer(): JSX.Element {
                 </h2>
                 <ul class="text-gray-600 font-medium">
                   <li class="mb-4">
-                    <a href="https://nuller.net/about/" class="hover:underline">
+                    <a href="https://nuller.jp/about/" class="hover:underline">
                       About
                     </a>
                   </li>
                   <li>
                     <a
-                      href="https://nuller.net/project/"
+                      href="https://nuller.jp/project/"
                       class="hover:underline"
                     >
                       Project
@@ -80,7 +80,7 @@ function Footer(): JSX.Element {
                 <ul class="text-gray-600 font-medium">
                   <li class="mb-4">
                     <a
-                      href="https://nuller.net/privacy"
+                      href="https://nuller.jp/privacy"
                       class="hover:underline"
                     >
                       Privacy Policy
@@ -99,7 +99,7 @@ function Footer(): JSX.Element {
           <div class="sm:flex sm:items-center sm:justify-between">
             <span class="text-sm text-gray-500 sm:text-center">
               © 2023{" "}
-              <a href="https://nuller.net/" class="hover:underline">
+              <a href="https://nuller.jp/" class="hover:underline">
                 Nuller
               </a>
               . All Rights Reserved.
@@ -165,32 +165,32 @@ export default function Layout(props: LayoutProps) {
     !props.state.user?.id
       ? props.state.sessionId
         ? {
-            href: "/signout",
-            inner: (
-              <span class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring w-full flex items-center justify-center disabled:(opacity-50 cursor-not-allowed)">
-                Sign OUT
-              </span>
-            ),
-          }
-        : {
-            href: "/signIn",
-            inner: (
-              <span class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring w-full flex items-center justify-center disabled:(opacity-50 cursor-not-allowed)">
-                Sign In
-              </span>
-            ),
-          }
-      : {
-          href: "/account",
+          href: "/signout",
           inner: (
-            <div>
-              <img
-                src={props.state.user?.avatarUrl}
-                class={"h-10 rounded-full"}
-              ></img>
-            </div>
+            <span class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring w-full flex items-center justify-center disabled:(opacity-50 cursor-not-allowed)">
+              Sign OUT
+            </span>
           ),
-        },
+        }
+        : {
+          href: "/signIn",
+          inner: (
+            <span class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring w-full flex items-center justify-center disabled:(opacity-50 cursor-not-allowed)">
+              Sign In
+            </span>
+          ),
+        }
+      : {
+        href: "/account",
+        inner: (
+          <div>
+            <img
+              src={props.state.user?.avatarUrl}
+              class={"h-10 rounded-full"}
+            ></img>
+          </div>
+        ),
+      },
   ];
   return (
     <>
@@ -209,9 +209,8 @@ function Nav(props: NavProps) {
   return (
     <nav>
       <ul
-        class={`flex gap-x-8 gap-y-2 items-center justify-between h-full ${
-          props.class ?? ""
-        }`}
+        class={`flex gap-x-8 gap-y-2 items-center justify-between h-full ${props.class ?? ""
+          }`}
       >
         {props.items.map((item) => (
           <li>

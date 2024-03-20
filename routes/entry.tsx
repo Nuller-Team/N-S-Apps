@@ -5,9 +5,9 @@ export const handler: Handlers = {
     const response = new Response("", {
       status: 303,
       headers: {
-        Location: "https://form.nuller.net/entry",
-    },
-  });
-  return response;
+        Location: "https://form.nuller.jp/entry",
+      },
+    });
+    return response;
   }
 }
