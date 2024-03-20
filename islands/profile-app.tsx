@@ -43,6 +43,7 @@ export default function PROFILE(props: propsType) {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalContent, setModalContent] = useState<JSX.Element | null>(null);
     const [uploadedIcon, setUploadedIcon] = useState<string>();
+    const [fontFamily, setFontFamily] = useState<string>("sans-serif")
     const [imageError, setImageError] = useState<string | null>(null);
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const iconImageRef = useRef<HTMLImageElement>(null);
@@ -70,7 +71,9 @@ export default function PROFILE(props: propsType) {
         setModalContent(content);
         setIsModalOpen(true);
     };
-
+    const handleFontFamilyChange = (e: JSX.TargetedEvent<HTMLSelectElement, Event>) => {
+        setFontFamily(e.currentTarget.value);
+    };
     const handleGenerateImage = () => {
 
         const canvas = canvasRef.current;
@@ -106,7 +109,7 @@ export default function PROFILE(props: propsType) {
                     const textLines = profile.freespace.split('\n');
                     const lineHeight = 60;
                     const startY = 1220;
-                    ctx.font = "600 60px Yu Gothic";
+                    ctx.font = `600 60px ${fontFamily}`;
                     ctx.fillStyle = profile.fontColor;
 
                     ctx.fillText(profile.name, 600, 170);
@@ -324,6 +327,11 @@ export default function PROFILE(props: propsType) {
                         <option value="apps/profile/image/ps-pink.png">パステル-ピンク</option>
                         <option value="apps/profile/image/ps-blue.png">パステル-スカイブルー</option>
                         <option value="apps/profile/image/ps-purple.png">パステル-パープル</option>
+                        <option value="apps/profile/image/popred.png">ポップ-レッド</option>
+                        <option value="apps/profile/image/popblue.png">ポップ-ブルー</option>
+                        <option value="apps/profile/image/popgreen.png">ポップ-グリーン</option>
+                        <option value="apps/profile/image/popyellow.png">ポップ-イエロー</option>
+                        <option value="apps/profile/image/popskyblue.png">ポップ-スカイブルー</option>
                     </select>
                     <label for="gender" class="block text-sm font-medium text-gray-700 mb-1">🎨フォントカラー</label>
                     <select
@@ -340,6 +348,21 @@ export default function PROFILE(props: propsType) {
                         <option value="#f89992">パステルピンク</option>
                         <option value="#0ac4ff">スカイブルー</option>
                         <option value="#c194f6">紫</option>
+                        <option value="#ED1C24">ポップな赤</option>
+                        <option value="#0900E7">ポップな青</option>
+                        <option value="#00D06F">ポップな緑</option>
+                        <option value="#DFBE00">ポップな黄色</option>
+                        <option value="#0885E7">ポップなスカイブルー</option>
+                    </select>
+
+                    <label for="font" class="block text-sm font-medium text-gray-700 mb-1">🎨フォント</label>
+                    <select
+                        value={fontFamily}
+                        onChange={handleFontFamilyChange}
+                        class="data-te-select-init border border-gray-300 w-full h-10 mb-3 rounded-md"
+                    >
+                        <option value="sans-serif">ゴシック体</option>
+                        <option value="serif">明朝体</option>
                     </select>
                     <button
                         onClick={handleGenerateImage}
