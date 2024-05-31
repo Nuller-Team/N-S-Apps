@@ -100,14 +100,14 @@ export default function EntryForm(props: propsType) {
             </input>
           </div>
           <div class="mb-4">
-            <label class="block text-gray-700 font-bold mb-2" for="twitter">
-              Twitter(ある場合)
+            <label class="block text-gray-700 font-bold mb-2" for="X">
+              X(ある場合)
             </label>
             <input
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="twitter"
+              id="x"
               type="text"
-              placeholder="https://twitter.com/..."
+              placeholder="https://x.com/..."
               name="entry.2069824763"
             >
             </input>
