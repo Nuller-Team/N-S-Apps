@@ -13,7 +13,7 @@ export const handler: Handlers = {
 };
 
 const TITLE = "N/S Profile｜あなただけのプロフィールを";
-const DESCRIPTION = `N/S Profileは、Twitterなどで使える、自己紹介画像を簡単に作成するアプリです。
+const DESCRIPTION = `N/S Profileは、Xなどで使える、自己紹介画像を簡単に作成するアプリです。
 様々なデザインを使ってあなただけのプロフィールを作成しましょう！
 このツールを使用するにはGoogleアカウントでログインが必要です。`;
 

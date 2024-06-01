@@ -2,65 +2,66 @@
 // This file SHOULD be checked into source version control.
 // This file is automatically updated during development when running `dev.ts`.
 
-import * as $0 from "./routes/_app.tsx";
-import * as $1 from "./routes/_middleware.ts";
-import * as $2 from "./routes/account.tsx";
-import * as $3 from "./routes/callback.tsx";
-import * as $4 from "./routes/campus-alert/[id].tsx";
-import * as $5 from "./routes/campus-alert/index.tsx";
-import * as $6 from "./routes/docs/terms.tsx";
-import * as $7 from "./routes/emoji.tsx";
-import * as $8 from "./routes/entry.tsx";
-import * as $9 from "./routes/grad_timer.tsx";
-import * as $10 from "./routes/guide.tsx";
-import * as $11 from "./routes/index.tsx";
-import * as $12 from "./routes/pages.tsx";
-import * as $13 from "./routes/profile.tsx";
-import * as $14 from "./routes/result.tsx";
-import * as $15 from "./routes/signIn.ts";
-import * as $16 from "./routes/signout.ts";
-import * as $17 from "./routes/times.tsx";
-import * as $18 from "./routes/verify.tsx";
-import * as $$0 from "./islands/campus-alert.tsx";
-import * as $$1 from "./islands/emoji.tsx";
-import * as $$2 from "./islands/entry.tsx";
-import * as $$3 from "./islands/grad_timer.tsx";
-import * as $$4 from "./islands/pages.tsx";
-import * as $$5 from "./islands/profile-app.tsx";
-import * as $$6 from "./islands/times.tsx";
+import * as $_app from "./routes/_app.tsx";
+import * as $_middleware from "./routes/_middleware.ts";
+import * as $account from "./routes/account.tsx";
+import * as $callback from "./routes/callback.tsx";
+import * as $campus_alert_id_ from "./routes/campus-alert/[id].tsx";
+import * as $campus_alert_index from "./routes/campus-alert/index.tsx";
+import * as $docs_terms from "./routes/docs/terms.tsx";
+import * as $emoji from "./routes/emoji.tsx";
+import * as $entry from "./routes/entry.tsx";
+import * as $grad_timer from "./routes/grad_timer.tsx";
+import * as $guide from "./routes/guide.tsx";
+import * as $index from "./routes/index.tsx";
+import * as $pages from "./routes/pages.tsx";
+import * as $profile from "./routes/profile.tsx";
+import * as $result from "./routes/result.tsx";
+import * as $signIn from "./routes/signIn.ts";
+import * as $signout from "./routes/signout.ts";
+import * as $times from "./routes/times.tsx";
+import * as $verify from "./routes/verify.tsx";
+import * as $campus_alert from "./islands/campus-alert.tsx";
+import * as $emoji_1 from "./islands/emoji.tsx";
+import * as $entry_1 from "./islands/entry.tsx";
+import * as $grad_timer_1 from "./islands/grad_timer.tsx";
+import * as $pages_1 from "./islands/pages.tsx";
+import * as $profile_app from "./islands/profile-app.tsx";
+import * as $times_1 from "./islands/times.tsx";
+import { type Manifest } from "$fresh/server.ts";
 
 const manifest = {
   routes: {
-    "./routes/_app.tsx": $0,
-    "./routes/_middleware.ts": $1,
-    "./routes/account.tsx": $2,
-    "./routes/callback.tsx": $3,
-    "./routes/campus-alert/[id].tsx": $4,
-    "./routes/campus-alert/index.tsx": $5,
-    "./routes/docs/terms.tsx": $6,
-    "./routes/emoji.tsx": $7,
-    "./routes/entry.tsx": $8,
-    "./routes/grad_timer.tsx": $9,
-    "./routes/guide.tsx": $10,
-    "./routes/index.tsx": $11,
-    "./routes/pages.tsx": $12,
-    "./routes/profile.tsx": $13,
-    "./routes/result.tsx": $14,
-    "./routes/signIn.ts": $15,
-    "./routes/signout.ts": $16,
-    "./routes/times.tsx": $17,
-    "./routes/verify.tsx": $18,
+    "./routes/_app.tsx": $_app,
+    "./routes/_middleware.ts": $_middleware,
+    "./routes/account.tsx": $account,
+    "./routes/callback.tsx": $callback,
+    "./routes/campus-alert/[id].tsx": $campus_alert_id_,
+    "./routes/campus-alert/index.tsx": $campus_alert_index,
+    "./routes/docs/terms.tsx": $docs_terms,
+    "./routes/emoji.tsx": $emoji,
+    "./routes/entry.tsx": $entry,
+    "./routes/grad_timer.tsx": $grad_timer,
+    "./routes/guide.tsx": $guide,
+    "./routes/index.tsx": $index,
+    "./routes/pages.tsx": $pages,
+    "./routes/profile.tsx": $profile,
+    "./routes/result.tsx": $result,
+    "./routes/signIn.ts": $signIn,
+    "./routes/signout.ts": $signout,
+    "./routes/times.tsx": $times,
+    "./routes/verify.tsx": $verify,
   },
   islands: {
-    "./islands/campus-alert.tsx": $$0,
-    "./islands/emoji.tsx": $$1,
-    "./islands/entry.tsx": $$2,
-    "./islands/grad_timer.tsx": $$3,
-    "./islands/pages.tsx": $$4,
-    "./islands/profile-app.tsx": $$5,
-    "./islands/times.tsx": $$6,
+    "./islands/campus-alert.tsx": $campus_alert,
+    "./islands/emoji.tsx": $emoji_1,
+    "./islands/entry.tsx": $entry_1,
+    "./islands/grad_timer.tsx": $grad_timer_1,
+    "./islands/pages.tsx": $pages_1,
+    "./islands/profile-app.tsx": $profile_app,
+    "./islands/times.tsx": $times_1,
   },
   baseUrl: import.meta.url,
-};
+} satisfies Manifest;
 
 export default manifest;
