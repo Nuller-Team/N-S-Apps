@@ -1,303 +1,416 @@
-[
-  {
-  "hira": "さっぽろ",
-  "name": "札幌",
-  "municipalities": "北海道 札幌市",
-  "CLASS_AREA_CODE": "0110000",
-  "OFFICES_AREA_CODE": "016000"
+{
+  "sapporo": {
+    "name": "札幌大通",
+    "municipalities": "北海道 札幌市",
+    "CLASS_AREA_CODE": "0110000",
+    "OFFICES_AREA_CODE": "016000"
   },
-  {
-  "hira": "せんだい",
-  "name": "仙台",
-  "municipalities": "宮城県 仙台市",
-  "CLASS_AREA_CODE": "0410001",
-  "OFFICES_AREA_CODE": "040000"
+  "sendai": {
+    "name": "仙台新寺通",
+    "municipalities": "宮城県 仙台市東部",
+    "CLASS_AREA_CODE": "0410001",
+    "OFFICES_AREA_CODE": "040000"
   },
-  {
-  "hira": "おちゃのみず",
-  "name": "御茶ノ水",
-  "municipalities": "東京都 千代田区",
-  "CLASS_AREA_CODE": "1310100",
-  "OFFICES_AREA_CODE": "130000"
+  "iwatemorioka": {
+    "name": "岩手盛岡",
+    "municipalities": "岩手県 盛岡市",
+    "CLASS_AREA_CODE": "0320100",
+    "OFFICES_AREA_CODE": "030000"
   },
-  {
-  "hira": "あきはばら",
-  "name": "秋葉原",
-  "municipalities": "東京都 千代田区",
-  "CLASS_AREA_CODE": "1310100",
-  "OFFICES_AREA_CODE": "130000"
+  "yamagata": {
+    "name": "山形",
+    "municipalities": "山形県 山形市",
+    "CLASS_AREA_CODE": "0620100",
+    "OFFICES_AREA_CODE": "060000"
   },
-  {
-  "hira": "よよぎ",
-  "name": "代々木",
-  "municipalities": "東京都 千代田区",
-  "CLASS_AREA_CODE": "1311300",
-  "OFFICES_AREA_CODE": "130000"
+  "fukushimakoriyama": {
+    "name": "福島郡山",
+    "municipalities": "福島県 郡山市",
+    "CLASS_AREA_CODE": "0720301",
+    "OFFICES_AREA_CODE": "070000"
   },
-  {
-  "hira": "しぶや",
-  "name": "渋谷",
-  "municipalities": "東京都 渋谷区",
-  "CLASS_AREA_CODE": "1311300",
-  "OFFICES_AREA_CODE": "130000"
+  "ochanomizu": {
+    "name": "御茶ノ水",
+    "municipalities": "東京都 千代田区",
+    "CLASS_AREA_CODE": "1310100",
+    "OFFICES_AREA_CODE": "130000"
   },
-  {
-  "hira": "いけぶくろ",
-  "name": "池袋",
-  "municipalities": "東京都 豊島区",
-  "CLASS_AREA_CODE": "1311600",
-  "OFFICES_AREA_CODE": "130000"
+  "akihabara": {
+    "name": "秋葉原",
+    "municipalities": "東京都 千代田区",
+    "CLASS_AREA_CODE": "1310100",
+    "OFFICES_AREA_CODE": "130000"
   },
-  {
-  "hira": "たちかわ",
-  "name": "立川",
-  "municipalities": "東京都 立川市",
-  "CLASS_AREA_CODE": "1320200",
-  "OFFICES_AREA_CODE": "130000"
+  "toyocho": {
+    "name": "東陽町",
+    "municipalities": "東京都 江東区",
+    "CLASS_AREA_CODE": "1310800",
+    "OFFICES_AREA_CODE": "130000"
   },
-  {
-  "hira": "むさしさかい",
-  "name": "武蔵境",
-  "municipalities": "東京都 武蔵野市",
-  "CLASS_AREA_CODE": "1320300",
-  "OFFICES_AREA_CODE": "130000"
+  "kamatanishiguchi": {
+    "name": "蒲田西口",
+    "municipalities": "東京都 大田区",
+    "CLASS_AREA_CODE": "1311100",
+    "OFFICES_AREA_CODE": "130000"
   },
-  {
-  "hira": "まちだ",
-  "name": "町田",
-  "municipalities": "東京都 町田市",
-  "CLASS_AREA_CODE": "1320900",
-  "OFFICES_AREA_CODE": "130000"
+  "yoyogi": {
+    "name": "新宿代々木",
+    "municipalities": "東京都 渋谷区",
+    "CLASS_AREA_CODE": "1311300",
+    "OFFICES_AREA_CODE": "130000"
   },
-  {
-  "hira": "よこはま",
-  "name": "横浜",
-  "municipalities": "神奈川県 横浜市",
-  "CLASS_AREA_CODE": "1410000",
-  "OFFICES_AREA_CODE": "140000"
+  "shibuya": {
+    "name": "渋谷",
+    "municipalities": "東京都 渋谷区",
+    "CLASS_AREA_CODE": "1311300",
+    "OFFICES_AREA_CODE": "130000"
   },
-  {
-  "hira": "よこはまきんこう",
-  "name": "横浜金港",
-  "municipalities": "神奈川県 横浜市",
-  "CLASS_AREA_CODE": "1410000",
-  "OFFICES_AREA_CODE": "140000"
+  "ikebukuro": {
+    "name": "池袋",
+    "municipalities": "東京都 豊島区",
+    "CLASS_AREA_CODE": "1311600",
+    "OFFICES_AREA_CODE": "130000"
   },
-  {
-  "hira": "ひらつか",
-  "name": "平塚",
-  "municipalities": "神奈川県 平塚市",
-  "CLASS_AREA_CODE": "1420300",
-  "OFFICES_AREA_CODE": "140000"
+  "tachikawa": {
+    "name": "立川",
+    "municipalities": "東京都 立川市",
+    "CLASS_AREA_CODE": "1320200",
+    "OFFICES_AREA_CODE": "130000"
   },
-  {
-  "hira": "おおみや",
-  "name": "大宮",
-  "municipalities": "埼玉県 大宮市",
-  "CLASS_AREA_CODE": "1110000",
-  "OFFICES_AREA_CODE": "110000"
+  "musashisakai": {
+    "name": "武蔵境",
+    "municipalities": "東京都 武蔵野市",
+    "CLASS_AREA_CODE": "1320300",
+    "OFFICES_AREA_CODE": "130000"
   },
-  {
-  "hira": "かわごえ",
-  "name": "川越",
-  "municipalities": "埼玉県 川越市",
-  "CLASS_AREA_CODE": "1120100",
-  "OFFICES_AREA_CODE": "110000"
+  "machida": {
+    "name": "町田",
+    "municipalities": "東京都 町田市",
+    "CLASS_AREA_CODE": "1320900",
+    "OFFICES_AREA_CODE": "130000"
   },
-  {
-  "hira": "ちば",
-  "name": "千葉",
-  "municipalities": "千葉県 千葉市",
-  "CLASS_AREA_CODE": "1210000",
-  "OFFICES_AREA_CODE": "120000"
+  "seisekisakuragaoka": {
+    "name": "聖蹟桜ヶ丘",
+    "municipalities": "東京都 多摩市",
+    "CLASS_AREA_CODE": "1322400",
+    "OFFICES_AREA_CODE": "130000"
   },
-  {
-  "hira": "かしわ",
-  "name": "柏",
-  "municipalities": "千葉県 柏市",
-  "CLASS_AREA_CODE": "1221700",
-  "OFFICES_AREA_CODE": "120000"
+  "yokohama": {
+    "name": "横浜",
+    "municipalities": "神奈川県 横浜市",
+    "CLASS_AREA_CODE": "1410000",
+    "OFFICES_AREA_CODE": "140000"
   },
-  {
-  "hira": "みと",
-  "name": "水戸",
-  "municipalities": "茨城県 水戸市",
-  "CLASS_AREA_CODE": "0820100",
-  "OFFICES_AREA_CODE": "080000"
+  "kawasaki": {
+    "name": "川崎",
+    "municipalities": "神奈川県 川崎市",
+    "CLASS_AREA_CODE": "1413000",
+    "OFFICES_AREA_CODE": "140000"
   },
-  {
-  "hira": "とりで",
-  "name": "取手",
-  "municipalities": "茨城県 取手市",
-  "CLASS_AREA_CODE": "0821700",
-  "OFFICES_AREA_CODE": "080000"
+  "mizonokuchi": {
+    "name": "溝の口",
+    "municipalities": "神奈川県 川崎市",
+    "CLASS_AREA_CODE": "1413000",
+    "OFFICES_AREA_CODE": "140000"
   },
-  {
-  "hira": "つくば",
-  "name": "つくば",
-  "municipalities": "茨城県 つくば市",
-  "CLASS_AREA_CODE": "0822000",
-  "OFFICES_AREA_CODE": "080000"
+  "sagamiharahashimoto": {
+    "name": "相模原橋本",
+    "municipalities": "神奈川県 相模原市",
+    "CLASS_AREA_CODE": "1415000",
+    "OFFICES_AREA_CODE": "140000"
   },
-  {
-  "hira": "たかさき",
-  "name": "高崎",
-  "municipalities": "群馬県 高崎市",
-  "CLASS_AREA_CODE": "1020200",
-  "OFFICES_AREA_CODE": "100000"
+  "hiratsuka": {
+    "name": "湘南平塚",
+    "municipalities": "神奈川県 平塚市",
+    "CLASS_AREA_CODE": "1420300",
+    "OFFICES_AREA_CODE": "140000"
   },
-  {
-  "hira": "うつのみや",
-  "name": "宇都宮",
-  "municipalities": "栃木県 宇都宮市",
-  "CLASS_AREA_CODE": "0920100",
-  "OFFICES_AREA_CODE": "090000"
+  "honatugi": {
+    "name": "本厚木",
+    "municipalities": "神奈川県 厚木市",
+    "CLASS_AREA_CODE": "1421200",
+    "OFFICES_AREA_CODE": "140000"
   },
-  {
-  "hira": "なごや",
-  "name": "名古屋",
-  "municipalities": "愛知県 名古屋市",
-  "CLASS_AREA_CODE": "2310000",
-  "OFFICES_AREA_CODE": "230000"
+  "omiya": {
+    "name": "大宮",
+    "municipalities": "埼玉県 さいたま市",
+    "CLASS_AREA_CODE": "1110000",
+    "OFFICES_AREA_CODE": "110000"
   },
-  {
-  "hira": "めいえき",
-  "name": "名駅",
-  "municipalities": "愛知県 名古屋市",
-  "CLASS_AREA_CODE": "2310000",
-  "OFFICES_AREA_CODE": "230000"
+  "kawagoe": {
+    "name": "川越",
+    "municipalities": "埼玉県 川越市",
+    "CLASS_AREA_CODE": "1120100",
+    "OFFICES_AREA_CODE": "110000"
   },
-  {
-  "hira": "ひがしおかざき",
-  "name": "東岡崎",
-  "municipalities": "愛知県 岡崎市",
-  "CLASS_AREA_CODE": "2320200",
-  "OFFICES_AREA_CODE": "230000"
+  "kawaguchiekimae": {
+    "name": "川口駅前",
+    "municipalities": "埼玉県 川口市",
+    "CLASS_AREA_CODE": "1120300",
+    "OFFICES_AREA_CODE": "110000"
   },
-  {
-  "hira": "しずおか",
-  "name": "静岡",
-  "municipalities": "静岡県 静岡市",
-  "CLASS_AREA_CODE": "2210001",
-  "OFFICES_AREA_CODE": "220000"
+  "kasukabe": {
+    "name": "春日部",
+    "municipalities": "埼玉県 春日部市",
+    "CLASS_AREA_CODE": "1121400",
+    "OFFICES_AREA_CODE": "110000"
   },
-  {
-  "hira": "はままつ",
-  "name": "浜松",
-  "municipalities": "静岡県 浜松市",
-  "CLASS_AREA_CODE": "2213001",
-  "OFFICES_AREA_CODE": "220000"
+  "chiba": {
+    "name": "千葉",
+    "municipalities": "千葉県 千葉市",
+    "CLASS_AREA_CODE": "1210000",
+    "OFFICES_AREA_CODE": "120000"
   },
-  {
-  "hira": "ぎふ",
-  "name": "岐阜",
-  "municipalities": "岐阜県 岐阜市",
-  "CLASS_AREA_CODE": "2120100",
-  "OFFICES_AREA_CODE": "210000"
+  "kaihinmakuhari": {
+    "name": "海浜幕張",
+    "municipalities": "千葉県 千葉市",
+    "CLASS_AREA_CODE": "1210000",
+    "OFFICES_AREA_CODE": "120000"
   },
-  {
-  "hira": "よっかいち",
-  "name": "四日市",
-  "municipalities": "三重県 四日市市",
-  "CLASS_AREA_CODE": "2420200",
-  "OFFICES_AREA_CODE": "240000"
+  "matsudo": {
+    "name": "松戸",
+    "municipalities": "千葉県 松戸市",
+    "CLASS_AREA_CODE": "1220700",
+    "OFFICES_AREA_CODE": "120000"
   },
-  {
-  "hira": "にいがた",
-  "name": "新潟",
-  "municipalities": "新潟県 新潟市",
-  "CLASS_AREA_CODE": "1510000",
-  "OFFICES_AREA_CODE": "150000"
+  "kashiwa": {
+    "name": "柏",
+    "municipalities": "千葉県 柏市",
+    "CLASS_AREA_CODE": "1221700",
+    "OFFICES_AREA_CODE": "120000"
   },
-  {
-  "hira": "かなざわ",
-  "name": "金沢",
-  "municipalities": "石川県 金沢市",
-  "CLASS_AREA_CODE": "1720100",
-  "OFFICES_AREA_CODE": "170000"
+  "mito": {
+    "name": "水戸",
+    "municipalities": "茨城県 水戸市",
+    "CLASS_AREA_CODE": "0820100",
+    "OFFICES_AREA_CODE": "080000"
   },
-  {
-  "hira": "てんのうじ",
-  "name": "天王寺",
-  "municipalities": "大阪府 大阪市",
-  "CLASS_AREA_CODE": "2710000",
-  "OFFICES_AREA_CODE": "270000"
+  "toride": {
+    "name": "茨城取手",
+    "municipalities": "茨城県 取手市",
+    "CLASS_AREA_CODE": "0821700",
+    "OFFICES_AREA_CODE": "080000"
   },
-  {
-  "hira": "うめだ",
-  "name": "梅田",
-  "municipalities": "大阪府 大阪市",
-  "CLASS_AREA_CODE": "2710000",
-  "OFFICES_AREA_CODE": "270000"
+  "tsukuba": {
+    "name": "つくば",
+    "municipalities": "茨城県 つくば市",
+    "CLASS_AREA_CODE": "0822000",
+    "OFFICES_AREA_CODE": "080000"
   },
-  {
-  "hira": "しんさいばし",
-  "name": "心斎橋",
-  "municipalities": "大阪府 大阪市",
-  "CLASS_AREA_CODE": "2710000",
-  "OFFICES_AREA_CODE": "270000"
+  "gunmamaebashi": {
+    "name": "群馬前橋",
+    "municipalities": "群馬県 前橋市",
+    "CLASS_AREA_CODE": "1020100",
+    "OFFICES_AREA_CODE": "100000"
   },
-  {
-  "hira": "こうべ",
-  "name": "神戸",
-  "municipalities": "兵庫県 神戸市",
-  "CLASS_AREA_CODE": "2810000",
-  "OFFICES_AREA_CODE": "280000"
+  "takasaki": {
+    "name": "高崎",
+    "municipalities": "群馬県 高崎市",
+    "CLASS_AREA_CODE": "1020200",
+    "OFFICES_AREA_CODE": "100000"
   },
-  {
-    "hira": "ひめじ",
+  "gunmaota": {
+    "name": "群馬太田",
+    "municipalities": "群馬県 太田市",
+    "CLASS_AREA_CODE": "1020500",
+    "OFFICES_AREA_CODE": "100000"
+  },
+  "utsunomiya": {
+    "name": "東武宇都宮",
+    "municipalities": "栃木県 宇都宮市",
+    "CLASS_AREA_CODE": "0920100",
+    "OFFICES_AREA_CODE": "090000"
+  },
+  "jrutsunomiya": {
+    "name": "JR宇都宮",
+    "municipalities": "栃木県 宇都宮市",
+    "CLASS_AREA_CODE": "0920100",
+    "OFFICES_AREA_CODE": "090000"
+  },
+  "nagoya": {
+    "name": "名古屋栄",
+    "municipalities": "愛知県 名古屋市",
+    "CLASS_AREA_CODE": "2310000",
+    "OFFICES_AREA_CODE": "230000"
+  },
+  "meieki": {
+    "name": "名駅",
+    "municipalities": "愛知県 名古屋市",
+    "CLASS_AREA_CODE": "2310000",
+    "OFFICES_AREA_CODE": "230000"
+  },
+  "higashiokazaki": {
+    "name": "東岡崎",
+    "municipalities": "愛知県 岡崎市",
+    "CLASS_AREA_CODE": "2320200",
+    "OFFICES_AREA_CODE": "230000"
+  },
+  "shizuoka": {
+    "name": "静岡",
+    "municipalities": "静岡県 静岡市南部",
+    "CLASS_AREA_CODE": "2210001",
+    "OFFICES_AREA_CODE": "220000"
+  },
+  "hamamatsu": {
+    "name": "浜松",
+    "municipalities": "静岡県 浜松市南部",
+    "CLASS_AREA_CODE": "2213001",
+    "OFFICES_AREA_CODE": "220000"
+  },
+  "gifu": {
+    "name": "岐阜",
+    "municipalities": "岐阜県 岐阜市",
+    "CLASS_AREA_CODE": "2120100",
+    "OFFICES_AREA_CODE": "210000"
+  },
+  "yokkaichi": {
+    "name": "四日市",
+    "municipalities": "三重県 四日市市",
+    "CLASS_AREA_CODE": "2420200",
+    "OFFICES_AREA_CODE": "240000"
+  },
+  "niigata": {
+    "name": "新潟",
+    "municipalities": "新潟県 新潟市",
+    "CLASS_AREA_CODE": "1510000",
+    "OFFICES_AREA_CODE": "150000"
+  },
+  "nagano": {
+    "name": "長野",
+    "municipalities": "長野県 長野市",
+    "CLASS_AREA_CODE": "2020100",
+    "OFFICES_AREA_CODE": "200000"
+  },
+  "kanazawa": {
+    "name": "金沢",
+    "municipalities": "石川県 金沢市",
+    "CLASS_AREA_CODE": "1720100",
+    "OFFICES_AREA_CODE": "170000"
+  },
+  "tennouji": {
+    "name": "天王寺",
+    "municipalities": "大阪府 大阪市",
+    "CLASS_AREA_CODE": "2710000",
+    "OFFICES_AREA_CODE": "270000"
+  },
+  "umeda": {
+    "name": "梅田",
+    "municipalities": "大阪府 大阪市",
+    "CLASS_AREA_CODE": "2710000",
+    "OFFICES_AREA_CODE": "270000"
+  },
+  "osaka": {
+    "name": "心斎橋",
+    "municipalities": "大阪府 大阪市",
+    "CLASS_AREA_CODE": "2710000",
+    "OFFICES_AREA_CODE": "270000"
+  },
+  "sakaihigashi": {
+    "name": "堺東",
+    "municipalities": "大阪府 堺市",
+    "CLASS_AREA_CODE": "2714000",
+    "OFFICES_AREA_CODE": "270000"
+  },
+  "kobe": {
+    "name": "神戸三宮",
+    "municipalities": "兵庫県 神戸市",
+    "CLASS_AREA_CODE": "2810000",
+    "OFFICES_AREA_CODE": "280000"
+  },
+  "himeji": {
     "name": "姫路",
     "municipalities": "兵庫県 姫路市",
     "CLASS_AREA_CODE": "2820100",
     "OFFICES_AREA_CODE": "280000"
   },
-  {
-    "hira": "きょうと",
-    "name": "京都",
+  "nishinomiyakitaguchi": {
+    "name": "西宮北口",
+    "municipalities": "兵庫県 西宮市",
+    "CLASS_AREA_CODE": "2820400",
+    "OFFICES_AREA_CODE": "280000"
+  },
+  "kyoto": {
+    "name": "京都四条烏丸",
     "municipalities": "京都府 京都市",
     "CLASS_AREA_CODE": "2610000",
     "OFFICES_AREA_CODE": "260000"
   },
-  {
-    "hira": "ひろしま",
+  "kyotoyamashina": {
+    "name": "京都山科",
+    "municipalities": "京都府 京都市",
+    "CLASS_AREA_CODE": "2610000",
+    "OFFICES_AREA_CODE": "260000"
+  },
+  "narasaidaiji": {
+    "name": "奈良西大寺",
+    "municipalities": "奈良県 奈良市",
+    "CLASS_AREA_CODE": "2920100",
+    "OFFICES_AREA_CODE": "290000"
+  },
+  "hiroshima": {
     "name": "広島",
     "municipalities": "広島県 広島市中区",
     "CLASS_AREA_CODE": "3410100",
     "OFFICES_AREA_CODE": "340000"
   },
-  {
-    "hira": "おかやま",
+  "okayama": {
     "name": "岡山",
     "municipalities": "岡山県 岡山市",
     "CLASS_AREA_CODE": "3310000",
     "OFFICES_AREA_CODE": "330000"
   },
-  {
-    "hira": "たかまつ",
+  "takamatsu": {
     "name": "高松",
     "municipalities": "香川県 高松市",
     "CLASS_AREA_CODE": "3720100",
     "OFFICES_AREA_CODE": "370000"
   },
-  {
-    "hira": "ふくおか",
-    "name": "福岡",
-    "municipalities": "福岡県 福岡市",
-    "CLASS_AREA_CODE": "4013000",
-    "OFFICES_AREA_CODE": "400000"
+  "matsuyama": {
+    "name": "松山",
+    "municipalities": "愛媛県 松山市",
+    "CLASS_AREA_CODE": "3820100",
+    "OFFICES_AREA_CODE": "380000"
   },
-  {
-    "hira": "きたきゅうしゅう",
+  "kitakyusyu": {
     "name": "北九州",
     "municipalities": "福岡県 北九州市",
     "CLASS_AREA_CODE": "4010000",
     "OFFICES_AREA_CODE": "400000"
   },
-  {
-    "hira": "かごしま",
+  "fukuoka": {
+    "name": "福岡薬院",
+    "municipalities": "福岡県 福岡市",
+    "CLASS_AREA_CODE": "4013000",
+    "OFFICES_AREA_CODE": "400000"
+  },
+  "hakataekiminami": {
+    "name": "博多駅南",
+    "municipalities": "福岡県 福岡市",
+    "CLASS_AREA_CODE": "4013000",
+    "OFFICES_AREA_CODE": "400000"
+  },
+  "kurume": {
+    "name": "久留米",
+    "municipalities": "福岡県 久留米市",
+    "CLASS_AREA_CODE": "4020300",
+    "OFFICES_AREA_CODE": "400000"
+  },
+  "kagoshima": {
     "name": "鹿児島",
     "municipalities": "鹿児島県 鹿児島市",
     "CLASS_AREA_CODE": "4620100",
     "OFFICES_AREA_CODE": "460100"
+  },
+  "nagasakiekimae": {
+    "name": "長崎駅前",
+    "municipalities": "長崎県 長崎市",
+    "CLASS_AREA_CODE": "4220100",
+    "OFFICES_AREA_CODE": "420000"
+  },
+  "naha": {
+    "name": "那覇",
+    "municipalities": "沖縄県 那覇市",
+    "CLASS_AREA_CODE": "4720100",
+    "OFFICES_AREA_CODE": "471000"
   }
-]
+}
