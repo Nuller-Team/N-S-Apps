@@ -1,11 +1,11 @@
+import CAMPUSALERT from "@/islands/campus-alert.tsx";
+import links from "@/data/campus-alert.json" assert { type: "json" };
+import { Handlers } from "@/utils/handler.ts";
 import { PageProps } from "$fresh/server.ts";
-import CAMPUSALERT from "@/islands/campus_alert.tsx";
 import { State } from "@/routes/_middleware.ts";
 import Head from "@/components/Head.tsx";
 import { asset } from "$fresh/runtime.ts";
 import Layout from "@/components/Layout.tsx";
-import { Handlers } from "@/utils/handler.ts";
-import links from "@/data/campus-alert.json" assert { type: "json" };
 
 export const handler: Handlers = {
   GET(_req, ctx) {
@@ -18,9 +18,10 @@ const TITLE =
 const DESCRIPTION = `N/S高の全キャンパスの気象等による注意報,警報,特別警報が出ているかを確認することができます。
 このツールを使用するにはGoogleアカウントでログインが必要です。`;
 
-export default function CampusAlert(props: PageProps<State>) {
+export default function CampusAlertIndex(props: PageProps<State>) {
+  const state = props.data;
   const ogImageUrl = new URL(asset("/ns-app/campus-alert.png"), props.url).href;
-  if (!props.data.user?.id) {
+  if (!state.user?.id) {
     return (
       <>
         <Head
@@ -29,7 +30,7 @@ export default function CampusAlert(props: PageProps<State>) {
           href={props.url.href}
           imageUrl={ogImageUrl}
         />
-        <Layout state={props.data}>
+        <Layout state={state}>
           <section class="bg-white py-12">
             <div class="container mx-auto px-4">
               <div
@@ -67,18 +68,18 @@ export default function CampusAlert(props: PageProps<State>) {
           href={props.url.href}
           imageUrl={ogImageUrl}
         />
-        <Layout state={props.data}>
-          <div
-            class={"font-semibold mb-8 text-center py-14 md:py-24 space-y-2"}
-          >
-            <h1 class={"text-red-400 text-5xl md:text-7xl"}>
-              N/S Campus Alert
-            </h1>
-            <h1 class={"text-black font-bold text-lg md:text-xl"}>
-              N/S高のキャンパスに警報が出ているかを簡単に確認
-            </h1>
+        <Layout state={props.state}>
+          <div class="bg-gray-50 py-14 md:py-24">
+            <div class="text-center mb-8 space-y-4">
+              <h1 class="text-red-500 text-5xl md:text-7xl font-bold">
+                N/S Campus Alert
+              </h1>
+              <h2 class="text-black text-lg md:text-xl font-semibold">
+                N/S高のキャンパスに警報が出ているかを簡単に確認
+              </h2>
+            </div>
           </div>
-          <CAMPUSALERT state={props.data} links={links} />
+          <CAMPUSALERT links={links} href={props.url}></CAMPUSALERT>
         </Layout>
       </>
     );
