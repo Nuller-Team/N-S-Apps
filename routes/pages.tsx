@@ -1,6 +1,6 @@
 import { asset } from "$fresh/runtime.ts";
 import PAGES from "@/islands/pages.tsx";
-import links from "@/data/pages.json" assert { type: "json" };
+import links from "@/data/pages.json" with { type: "json" };
 import { PageProps } from "$fresh/server.ts";
 import { State } from "@/routes/_middleware.ts";
 import Head from "@/components/Head.tsx";
@@ -32,9 +32,7 @@ export default function Pages(props: PageProps<State>) {
           <section class="bg-white py-12">
             <div class="container mx-auto px-4">
               <div
-                class={
-                  "font-semibold mb-8 text-center py-20 md:py-36 space-y-2"
-                }
+                class={"font-semibold mb-8 text-center py-20 md:py-36 space-y-2"}
               >
                 <h1 class={"text-orange-300 text-5xl md:text-7xl"}>
                   N/S Pages
@@ -51,7 +49,8 @@ export default function Pages(props: PageProps<State>) {
               <img
                 class="p-2 rounded-lg shadow-lg w-auto sm:w-96"
                 src={"/ns-app/pages.png"}
-              ></img>
+              >
+              </img>
             </div>
           </section>
         </Layout>

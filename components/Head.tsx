@@ -25,7 +25,7 @@ export default function Head({
       />
       <link rel="icon" href="/favicon.ico" sizes="48x48" />
       <link rel="manifest" href="/manifest.json" />
-      <link rel="apple-touch-icon" href="./512.png"></link>
+      <link rel="apple-touch-icon" href="./512.png" />
     </_Head>
   );
 }

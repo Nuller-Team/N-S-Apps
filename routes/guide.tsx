@@ -11,7 +11,8 @@ export const handler: Handlers = {
   },
 };
 const TITLE = "N/S Apps｜もっと、いろんなデバイスで";
-const DESCRIPTION = `N/S Appsをインストールする手順を公開しているページです。このページにアクセスする場合は、ログインは不要です。`;
+const DESCRIPTION =
+  `N/S Appsをインストールする手順を公開しているページです。このページにアクセスする場合は、ログインは不要です。`;
 
 export default function Inst(props: PageProps<State>) {
   const ogImageUrl = new URL(asset("/ns-app/apps.png"), props.url).href;
@@ -36,7 +37,8 @@ export default function Inst(props: PageProps<State>) {
                   class="w-10 h-10"
                   src="guide/share.png"
                   alt="Share Icon"
-                ></img>
+                >
+                </img>
                 <div class="p-4">
                   <p>シェアボタンをタップします。</p>
                 </div>
@@ -46,7 +48,8 @@ export default function Inst(props: PageProps<State>) {
                   class="w-10 h-10"
                   src="guide/plus.png"
                   alt="Plus Icon"
-                ></img>
+                >
+                </img>
                 <div class="p-4">
                   <p>
                     上にスワイプして、「ホーム画面に追加」をタップし、「追加」をタップします。
@@ -54,7 +57,7 @@ export default function Inst(props: PageProps<State>) {
                 </div>
               </div>
               <div class="bg-white rounded-lg shadow-md flex p-10 justify-beetween items-center">
-                <img class="w-10" src="icon/512.png" alt="N/S Apps Icon"></img>
+                <img class="w-10" src="icon/512.png" alt="N/S Apps Icon" />
                 <div class="p-4">
                   <p>N/S Appsを起動します。</p>
                 </div>
@@ -69,7 +72,8 @@ export default function Inst(props: PageProps<State>) {
                   class="w-10 h-10"
                   src="guide/3.png"
                   alt="3point Icon"
-                ></img>
+                >
+                </img>
                 <div class="p-4">
                   <p>3点リーダーをタップします。</p>
                 </div>
@@ -79,13 +83,14 @@ export default function Inst(props: PageProps<State>) {
                   class="w-10 h-10"
                   src="guide/in.png"
                   alt="install Icon"
-                ></img>
+                >
+                </img>
                 <div class="p-4">
                   <p>「アプリをインストール」をタップします。</p>
                 </div>
               </div>
               <div class="bg-white rounded-lg shadow-md flex p-10 justify-beetween items-center">
-                <img class="w-10" src="icon/512.png" alt="N/S Apps Icon"></img>
+                <img class="w-10" src="icon/512.png" alt="N/S Apps Icon" />
                 <div class="p-4">
                   <p>N/S Appsを「インストール」します。</p>
                 </div>

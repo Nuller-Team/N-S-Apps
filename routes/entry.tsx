@@ -9,5 +9,5 @@ export const handler: Handlers = {
       },
     });
     return response;
-  }
-}
+  },
+};

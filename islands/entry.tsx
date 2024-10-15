@@ -4,7 +4,7 @@ import IconCheck from "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/check.tsx"
 import { State } from "@/routes/_middleware.ts";
 
 interface propsType {
-  state: State
+  state: State;
 }
 
 export default function EntryForm(props: propsType) {
@@ -38,14 +38,15 @@ export default function EntryForm(props: propsType) {
             </input>
           </div>
           <input
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="name"
-              type="text"
-              name="entry.1813499992"
-              value={props.state.user?.name}
-              required
-              hidden={true}
-            ></input>
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="name"
+            type="text"
+            name="entry.1813499992"
+            value={props.state.user?.name}
+            required
+            hidden={true}
+          >
+          </input>
           <div class="mb-4">
             <label class="block text-gray-700 font-bold mb-2" for="email">
               メールアドレス
@@ -62,16 +63,16 @@ export default function EntryForm(props: propsType) {
             </input>
           </div>
           <input
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline disabled:(cursor-not-allowed)"
-              id="email"
-              type="email"
-              disabled={false}
-              value={props.state.user?.email}
-              name="entry.559509131"
-              required
-              hidden={true}
-            >
-            </input>
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline disabled:(cursor-not-allowed)"
+            id="email"
+            type="email"
+            disabled={false}
+            value={props.state.user?.email}
+            name="entry.559509131"
+            required
+            hidden={true}
+          >
+          </input>
           <div class="mb-4">
             <label class="block text-gray-700 font-bold mb-2" for="github">
               Discord
@@ -125,10 +126,12 @@ export default function EntryForm(props: propsType) {
             </textarea>
           </div>
           <div class="flex items-center justify-between">
-            <input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            type="submit"
-            value={"送信する"}
-            ></input>
+            <input
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              type="submit"
+              value={"送信する"}
+            >
+            </input>
           </div>
         </form>
       </div>

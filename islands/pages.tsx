@@ -24,7 +24,7 @@ export default function PAGES({ links }: SaizencodeTypes) {
           regex.test(menu.name) ||
           regex.test(menu.emoji) ||
           regex.test(menu.tag) ||
-          regex.test(menu.links)
+          regex.test(menu.links),
       );
       setMenu(filteredLinks);
     }
@@ -40,7 +40,8 @@ export default function PAGES({ links }: SaizencodeTypes) {
             id="search"
             placeholder="部分一致で検索可能です。"
             value={searchMenu}
-            onChange={(e) => setSearchMenu((e.target as HTMLInputElement).value)}
+            onChange={(e) =>
+              setSearchMenu((e.target as HTMLInputElement).value)}
             class="border-2 border-gray-400 rounded-full py-2 px-4 block w-full appearance-none leading-normal focus:outline-none focus:border-blue-500"
           />
         </div>
@@ -51,18 +52,20 @@ export default function PAGES({ links }: SaizencodeTypes) {
             key={menuItem.name}
             class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 px-2 mb-4"
           >
-          <a href={menuItem.links}>
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-              <div class="px-3 py-4 h-100">
-                <h3 class="text-lg font-medium text-gray-800 mb-2 truncate">
-                  {menuItem.name}
-                </h3>
-                <div class="text-sm text-gray-600 mb-4 truncate">{menuItem.tag}</div>
+            <a href={menuItem.links}>
+              <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="px-3 py-4 h-100">
+                  <h3 class="text-lg font-medium text-gray-800 mb-2 truncate">
+                    {menuItem.name}
+                  </h3>
+                  <div class="text-sm text-gray-600 mb-4 truncate">
+                    {menuItem.tag}
+                  </div>
                   <div class="bg-amber-100 h-full text-blue-700 text-center py-20 text-5xl rounded-lg aspect-video justify-center flex">
                     {menuItem.emoji}
+                  </div>
                 </div>
               </div>
-            </div>
             </a>
           </div>
         ))}

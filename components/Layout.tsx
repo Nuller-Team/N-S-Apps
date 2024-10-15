@@ -1,6 +1,6 @@
 import type { ComponentChild, ComponentChildren, JSX } from "preact";
 import { State } from "@/routes/_middleware.ts";
-import IconBrandX from "https://deno.land/x/tabler_icons_tsx@0.0.5/tsx/brand-x.tsx"
+import IconBrandX from "https://deno.land/x/tabler_icons_tsx@0.0.5/tsx/brand-x.tsx";
 
 function Header(props: JSX.HTMLAttributes<HTMLElement>) {
   return (
@@ -9,7 +9,7 @@ function Header(props: JSX.HTMLAttributes<HTMLElement>) {
         <div class="container mx-auto px-4">
           <div class="flex justify-between items-center">
             <a href="/">
-              <image src="/logo.png" class={"h-11 p-1"}></image>
+              <image src="/logo.png" class={"h-11 p-1"} />
             </a>
             {props.children}
           </div>
@@ -181,7 +181,8 @@ export default function Layout(props: LayoutProps) {
             <img
               src={props.state.user?.avatarUrl}
               class={"h-10 rounded-full"}
-            ></img>
+            >
+            </img>
           </div>
         ),
       },
@@ -203,8 +204,9 @@ function Nav(props: NavProps) {
   return (
     <nav>
       <ul
-        class={`flex gap-x-8 gap-y-2 items-center justify-between h-full ${props.class ?? ""
-          }`}
+        class={`flex gap-x-8 gap-y-2 items-center justify-between h-full ${
+          props.class ?? ""
+        }`}
       >
         {props.items.map((item) => (
           <li>

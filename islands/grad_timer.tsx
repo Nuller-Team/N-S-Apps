@@ -1,9 +1,5 @@
-import { useState, useEffect } from "preact/hooks";
-import {
-  DateTime,
-  datetime,
-  diffInMillisec,
-} from "ptera";
+import { useEffect, useState } from "preact/hooks";
+import { DateTime, datetime, diffInMillisec } from "ptera";
 import { h } from "preact";
 import { State } from "@/routes/_middleware.ts";
 
@@ -28,29 +24,32 @@ export default function TIMES({ state }: propsType) {
         Graduation_year = 2000 + 15 + scData.gen + 3;
       }
       setHaveUsed(true);
-      if (scData.admission_month == "4")
+      if (scData.admission_month == "4") {
         return datetime(`${Graduation_year}-04-01 00:00`).toZonedTime(
-          "asia/Tokyo"
+          "asia/Tokyo",
         );
-      if (scData.admission_month == "7")
+      }
+      if (scData.admission_month == "7") {
         return datetime(`${Graduation_year}-07-01 00:00`).toZonedTime(
-          "asia/Tokyo"
+          "asia/Tokyo",
         );
-      if (scData.admission_month == "10")
+      }
+      if (scData.admission_month == "10") {
         return datetime(`${Graduation_year}-10-01 00:00`).toZonedTime(
-          "asia/Tokyo"
+          "asia/Tokyo",
         );
-      if (scData.admission_month == "1")
+      }
+      if (scData.admission_month == "1") {
         return datetime(`${Graduation_year + 1}-01-01 00:00`).toZonedTime(
-          "asia/Tokyo"
+          "asia/Tokyo",
         );
+      }
     }
     return datetime().toZonedTime("asia/Tokyo");
   });
   const [selectedOption, setSelectedOption] = useState(options[0]);
-  const [error, setError] = useState("");
   const [time, setTime] = useState(
-    diffInMillisec(GraduationDate, datetime().toZonedTime("asia/Tokyo"))
+    diffInMillisec(GraduationDate, datetime().toZonedTime("asia/Tokyo")),
   );
 
   useEffect(() => {
@@ -65,11 +64,11 @@ export default function TIMES({ state }: propsType) {
   };
 
   const handleChange = (
-    event: h.JSX.TargetedEvent<HTMLSelectElement, Event>
+    event: h.JSX.TargetedEvent<HTMLSelectElement, Event>,
   ) => {
     const selectedValue = parseInt(event.currentTarget.value);
     setSelectedOption(
-      options.find((option) => option.value === selectedValue)!
+      options.find((option) => option.value === selectedValue)!,
     );
   };
 
@@ -78,22 +77,28 @@ export default function TIMES({ state }: propsType) {
     if (scData.name == "N") {
       Graduation_year = 2000 + 15 + scData.gen + 3;
     }
-    if (selectedOption.value == 4)
+    if (selectedOption.value == 4) {
       setGraduationDate(
-        datetime(`${Graduation_year}-04-01 00:00`).toZonedTime("asia/Tokyo")
+        datetime(`${Graduation_year}-04-01 00:00`).toZonedTime("asia/Tokyo"),
       );
-    if (selectedOption.value == 7)
+    }
+    if (selectedOption.value == 7) {
       setGraduationDate(
-        datetime(`${Graduation_year}-07-01 00:00`).toZonedTime("asia/Tokyo")
+        datetime(`${Graduation_year}-07-01 00:00`).toZonedTime("asia/Tokyo"),
       );
-    if (selectedOption.value == 10)
+    }
+    if (selectedOption.value == 10) {
       setGraduationDate(
-        datetime(`${Graduation_year}-10-01 00:00`).toZonedTime("asia/Tokyo")
+        datetime(`${Graduation_year}-10-01 00:00`).toZonedTime("asia/Tokyo"),
       );
-    if (selectedOption.value == 1)
+    }
+    if (selectedOption.value == 1) {
       setGraduationDate(
-        datetime(`${Graduation_year + 1}-01-01 00:00`).toZonedTime("asia/Tokyo")
+        datetime(`${Graduation_year + 1}-01-01 00:00`).toZonedTime(
+          "asia/Tokyo",
+        ),
       );
+    }
     setHaveUsed(true);
   };
 
@@ -101,7 +106,7 @@ export default function TIMES({ state }: propsType) {
     <>
       <div hidden={!haveUsed}>
         <div className="font-bold text-center text-xl md:text-2xl lg:text-3xl 2xl:text-4xl">
-          あなたが{scData.name}高を卒業するまで<br></br>
+          あなたが{scData.name}高を卒業するまで<br />
           <a
             className="text-6xl md:text-7xl lg:text-8xl 2xl:text-9xl text-blue-400"
             onClick={() => {
@@ -110,7 +115,7 @@ export default function TIMES({ state }: propsType) {
           >
             {Math.floor(time / 1000)}
           </a>
-          <br></br>
+          <br />
           秒が残っています
         </div>
       </div>
@@ -133,14 +138,13 @@ export default function TIMES({ state }: propsType) {
               <option value={option.value}>{option.label}</option>
             ))}
           </select>
-          <div class="p-2"></div>
+          <div class="p-2" />
           <button
             class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring w-16 flex items-start justify-center"
             onClick={decision_admission_month}
           >
             決定
           </button>
-          <p class="text-red-400 font-bold">{error}</p>
         </div>
       </div>
     </>

@@ -28,18 +28,16 @@ export default function Profile(props: PageProps<State>) {
           imageUrl={ogImageUrl}
         />
         <Layout state={props.data}>
-        <section class="bg-white py-12">
+          <section class="bg-white py-12">
             <div class="container mx-auto px-4">
               <div
-                class={
-                  "font-semibold mb-8 text-center py-20 md:py-36 space-y-2"
-                }
+                class={"font-semibold mb-8 text-center py-20 md:py-36 space-y-2"}
               >
                 <h1 class={"text-sky-300 text-5xl md:text-7xl"}>
                   N/S Emoji
                 </h1>
                 <h1 class={"text-black font-bold text-lg md:text-xl"}>
-                簡単に絵文字作ろう
+                  簡単に絵文字作ろう
                 </h1>
               </div>
               <footer class={"flex justify-center py-10"}>
@@ -51,7 +49,8 @@ export default function Profile(props: PageProps<State>) {
                 class="p-2 rounded-lg shadow-lg w-auto sm:w-96"
                 src={"/ns-app/emoji.png"}
                 alt="verify"
-              ></img>
+              >
+              </img>
             </div>
           </section>
         </Layout>
@@ -68,8 +67,13 @@ export default function Profile(props: PageProps<State>) {
         />
         <Layout state={props.data}>
           <div class="bg-gray-100">
-            <div class="space-y-2 py-14 font-semibold mb-8 text-center md:py-24 bg-white"><h1 class="text-green-400 text-5xl md:text-7xl">N/S Emoji</h1><h1 class="text-black text-lg font-bold md:text-xl">簡単に絵文字を作ろう</h1></div>
-            <Emoji/>
+            <div class="space-y-2 py-14 font-semibold mb-8 text-center md:py-24 bg-white">
+              <h1 class="text-green-400 text-5xl md:text-7xl">N/S Emoji</h1>
+              <h1 class="text-black text-lg font-bold md:text-xl">
+                簡単に絵文字を作ろう
+              </h1>
+            </div>
+            <Emoji />
           </div>
         </Layout>
       </>

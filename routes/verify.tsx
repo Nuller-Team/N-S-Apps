@@ -33,9 +33,7 @@ export default function Verify(props: PageProps<State>) {
           <section class="bg-white py-12">
             <div class="container mx-auto px-4">
               <div
-                class={
-                  "text-2xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-semibold mb-8 text-center py-20 md:py-36 space-y-2"
-                }
+                class={"text-2xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-semibold mb-8 text-center py-20 md:py-36 space-y-2"}
               >
                 <h1 class={"text-sky-500 text-5xl md:text-7xl"}>N/S Verify</h1>
                 <h1 class={"text-black font-bold text-lg md:text-xl"}>
@@ -51,7 +49,8 @@ export default function Verify(props: PageProps<State>) {
                 class="p-2 rounded-lg shadow-lg w-auto sm:w-96"
                 src={"/ns-app/verify.png"}
                 alt="verify"
-              ></img>
+              >
+              </img>
             </div>
           </section>
         </Layout>
@@ -74,7 +73,8 @@ export default function Verify(props: PageProps<State>) {
                 <img
                   src={props.data.user?.avatarUrl}
                   class="rounded-full"
-                ></img>
+                >
+                </img>
               </div>
               <div class="text-center mt-5">
                 <h1 class="text-2xl font-bold">🎉あなたはN/S高生です🎉</h1>

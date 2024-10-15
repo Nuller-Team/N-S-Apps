@@ -17,7 +17,7 @@ async function getValue<T>(
   return res.value;
 }
 
-async function getValues<T>(
+async function _getValues<T>(
   selector: Deno.KvListSelector,
   options?: Deno.KvListOptions,
 ) {
@@ -75,7 +75,6 @@ export async function createUser(user: User) {
     .commit();
 
   if (!res.ok) throw new Error(`Failed to create user: ${user}`);
-
 }
 
 export async function updateUser(user: User) {

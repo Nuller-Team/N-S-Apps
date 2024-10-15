@@ -28,7 +28,7 @@ import * as $grad_timer_1 from "./islands/grad_timer.tsx";
 import * as $pages_1 from "./islands/pages.tsx";
 import * as $profile_app from "./islands/profile-app.tsx";
 import * as $times_1 from "./islands/times.tsx";
-import { type Manifest } from "$fresh/server.ts";
+import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
   routes: {
