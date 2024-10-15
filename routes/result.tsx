@@ -12,7 +12,8 @@ export const handler: Handlers = {
 };
 
 const TITLE = "N/S Result｜成績を素早く簡単に確認";
-const DESCRIPTION = `Chromeの拡張機能を用いてN/S高の成績を素早く簡単に確認することができます。
+const DESCRIPTION =
+  `Chromeの拡張機能を用いてN/S高の成績を素早く簡単に確認することができます。
 このツールを使用するにはGoogleアカウントでログインが必要です。`;
 
 export default function Result(props: PageProps<State>) {
@@ -194,7 +195,7 @@ export default function Result(props: PageProps<State>) {
                 <p>
                   このページの「ダウンロード」ボタンにリンクが記載されています。Googleアカウントログインが必要です。
                 </p>
-                <img src="result/Chrome1.png"></img>
+                <img src="result/Chrome1.png" />
               </div>
               <div
                 class={"bg-white py-5 px-6 shadow-md rounded-md text-center"}
@@ -203,7 +204,7 @@ export default function Result(props: PageProps<State>) {
                   ✅拡張機能を追加を選択
                 </h3>
                 <p>これを行うことによりインストールが完了します。</p>
-                <img src="result/Chrome2.png"></img>
+                <img src="result/Chrome2.png" />
               </div>
               <div
                 class={"bg-white py-5 px-6 shadow-md rounded-md text-center"}
@@ -212,7 +213,7 @@ export default function Result(props: PageProps<State>) {
                   ✅成績を素早く確認できるようにします。
                 </h3>
                 <p>パズルボタンから「N/SResult」をピン留めします。</p>
-                <img src="result/Chrome3.png"></img>
+                <img src="result/Chrome3.png" />
               </div>
               <div
                 class={"bg-white py-5 px-6 shadow-md rounded-md text-center"}
@@ -222,7 +223,7 @@ export default function Result(props: PageProps<State>) {
                     ✅成績を素早く確認できるようにします。
                   </h3>
                   <p>パズルボタンから「N/SResult」をピン留めします。</p>
-                  <img src="result/Chrome3.png"></img>
+                  <img src="result/Chrome3.png" />
                 </div>
               </div>
             </div>

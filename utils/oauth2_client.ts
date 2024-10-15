@@ -6,6 +6,6 @@ export const oauth2Client = createGoogleOAuth2Client({
     scope: [
       "https://www.googleapis.com/auth/userinfo.profile",
       "https://www.googleapis.com/auth/userinfo.email",
-    ]
+    ],
   },
 });

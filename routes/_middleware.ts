@@ -2,7 +2,7 @@ import { MiddlewareHandlerContext } from "$fresh/server.ts";
 import { walk } from "$std/fs/walk.ts";
 import { getSessionId } from "kv_oauth";
 import { redirect, setRedirectUrlCookie } from "@/utils/redirect.ts";
-import { User, getUserBySession } from "@/utils/db.ts";
+import { getUserBySession, User } from "@/utils/db.ts";
 import { Status } from "$std/http/http_status.ts";
 
 const STATIC_DIR_ROOT = new URL("../static", import.meta.url);
@@ -18,7 +18,7 @@ export interface State {
 
 export async function handler(
   req: Request,
-  ctx: MiddlewareHandlerContext<State>
+  ctx: MiddlewareHandlerContext<State>,
 ) {
   const { hostname, pathname } = new URL(req.url);
 

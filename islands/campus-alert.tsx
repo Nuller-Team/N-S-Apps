@@ -21,7 +21,7 @@ interface MenuWithKey extends MenuType {
 export default function Home({ links, href }: HomeType): JSX.Element {
   const [searchMenu, setSearchMenu] = useState("");
   const [menu, setMenu] = useState<MenuWithKey[]>(
-    Object.entries(links).map(([key, value]) => ({ ...value, key }))
+    Object.entries(links).map(([key, value]) => ({ ...value, key })),
   );
 
   useEffect(() => {
@@ -32,7 +32,7 @@ export default function Home({ links, href }: HomeType): JSX.Element {
       const filteredLinks = Object.entries(links)
         .map(([key, value]) => ({ ...value, key }))
         .filter(
-          (menu) => regex.test(menu.name) || regex.test(menu.municipalities)
+          (menu) => regex.test(menu.name) || regex.test(menu.municipalities),
         );
       setMenu(filteredLinks);
     }
@@ -50,8 +50,7 @@ export default function Home({ links, href }: HomeType): JSX.Element {
               class="bg-transparent outline-none rounded-full bg-white p-2 border-2 border-gray-500 w-full"
               value={searchMenu}
               onInput={(e) =>
-                setSearchMenu((e.target as HTMLInputElement).value)
-              }
+                setSearchMenu((e.target as HTMLInputElement).value)}
             />
           </div>
           <div>
@@ -70,7 +69,7 @@ export default function Home({ links, href }: HomeType): JSX.Element {
                   </div>
                   <div class="flex items-center mb-2">
                     <div class="text-2xl font-bold">
-                      <p class={"underline"}> {menuItem.name}キャンパス</p>
+                      <p class={"underline"}>{menuItem.name}キャンパス</p>
                     </div>
                   </div>
                 </div>

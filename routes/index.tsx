@@ -8,7 +8,7 @@ import Head from "@/components/Head.tsx";
 import { Handlers } from "@/utils/handler.ts";
 
 import { State } from "@/routes/_middleware.ts";
-import apps from "@/data/apps.json" assert { type: "json" };
+import apps from "@/data/apps.json" with { type: "json" };
 
 export const handler: Handlers = {
   GET(_req, ctx) {
@@ -27,9 +27,7 @@ export default function test(props: PageProps<State>) {
             <section class="bg-white py-12">
               <div class="container mx-auto px-4">
                 <div
-                  class={
-                    "text-2xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-semibold mb-8 text-center py-20 md:py-36 space-y-2"
-                  }
+                  class={"text-2xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-semibold mb-8 text-center py-20 md:py-36 space-y-2"}
                 >
                   <h1 class={"text-black"}>あなたはN/S高生ではないため</h1>
                   <h1 class={"text-red-500"}>アプリを使うことはできません</h1>
@@ -42,7 +40,8 @@ export default function test(props: PageProps<State>) {
                 <img
                   class="p-2 rounded-lg shadow-lg w-auto sm:w-96"
                   src={"/ns-app/apps.png"}
-                ></img>
+                >
+                </img>
               </div>
             </section>
           </Layout>
@@ -56,9 +55,7 @@ export default function test(props: PageProps<State>) {
           <section class="bg-white py-12">
             <div class="container mx-auto px-4">
               <div
-                class={
-                  "text-2xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-semibold mb-8 text-center py-20 md:py-36 space-y-2"
-                }
+                class={"text-2xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-semibold mb-8 text-center py-20 md:py-36 space-y-2"}
               >
                 <h1 class={"text-black"}>N/S高生の学校生活を</h1>
                 <h1 class={"text-purple-500"}>より便利にするアプリたち</h1>
@@ -67,15 +64,15 @@ export default function test(props: PageProps<State>) {
                 <image src="/svg/home.svg" />
               </footer>
               <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-center">
-                <img class="p-2 rounded-lg" src={"/ns-app/apps.png"}></img>
-                <img class="p-2 rounded-lg" src={"/ns-app/checker.png"}></img>
+                <img class="p-2 rounded-lg" src={"/ns-app/apps.png"} />
+                <img class="p-2 rounded-lg" src={"/ns-app/checker.png"} />
                 <img
                   class="p-2 rounded-lg"
                   src={"/ns-app/grad-timer.png"}
-                ></img>
-                <img class="p-2 rounded-lg" src={"/ns-app/profile.png"}></img>
-                <img class="p-2 rounded-lg" src={"/ns-app/result.png"}></img>
-                <img class="p-2 rounded-lg" src={"/ns-app/times.png"}></img>
+                />
+                <img class="p-2 rounded-lg" src={"/ns-app/profile.png"} />
+                <img class="p-2 rounded-lg" src={"/ns-app/result.png"} />
+                <img class="p-2 rounded-lg" src={"/ns-app/times.png"} />
               </div>
             </div>
           </section>

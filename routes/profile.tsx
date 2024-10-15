@@ -13,7 +13,8 @@ export const handler: Handlers = {
 };
 
 const TITLE = "N/S Profile｜あなただけのプロフィールを";
-const DESCRIPTION = `N/S Profileは、Xなどで使える、自己紹介画像を簡単に作成するアプリです。
+const DESCRIPTION =
+  `N/S Profileは、Xなどで使える、自己紹介画像を簡単に作成するアプリです。
 様々なデザインを使ってあなただけのプロフィールを作成しましょう！
 このツールを使用するにはGoogleアカウントでログインが必要です。`;
 
@@ -29,12 +30,10 @@ export default function Profile(props: PageProps<State>) {
           imageUrl={ogImageUrl}
         />
         <Layout state={props.data}>
-        <section class="bg-white py-12">
+          <section class="bg-white py-12">
             <div class="container mx-auto px-4">
               <div
-                class={
-                  "font-semibold mb-8 text-center py-20 md:py-36 space-y-2"
-                }
+                class={"font-semibold mb-8 text-center py-20 md:py-36 space-y-2"}
               >
                 <h1 class={"text-sky-300 text-5xl md:text-7xl"}>
                   N/S Profile
@@ -52,7 +51,8 @@ export default function Profile(props: PageProps<State>) {
                 class="p-2 rounded-lg shadow-lg w-auto sm:w-96"
                 src={"/ns-app/profile.png"}
                 alt="verify"
-              ></img>
+              >
+              </img>
             </div>
           </section>
         </Layout>
@@ -69,8 +69,13 @@ export default function Profile(props: PageProps<State>) {
         />
         <Layout state={props.data}>
           <div class="bg-gray-100">
-            <div class="space-y-2 py-14 font-semibold mb-8 text-center md:py-24 bg-white"><h1 class="text-sky-300 text-5xl md:text-7xl">N/S Profile</h1><h1 class="text-black text-lg font-bold md:text-xl">あなただけのプロフィールを</h1></div>
-            <PROFILE state={props.data}/>
+            <div class="space-y-2 py-14 font-semibold mb-8 text-center md:py-24 bg-white">
+              <h1 class="text-sky-300 text-5xl md:text-7xl">N/S Profile</h1>
+              <h1 class="text-black text-lg font-bold md:text-xl">
+                あなただけのプロフィールを
+              </h1>
+            </div>
+            <PROFILE state={props.data} />
           </div>
         </Layout>
       </>

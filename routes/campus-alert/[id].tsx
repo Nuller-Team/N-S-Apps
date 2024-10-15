@@ -2,7 +2,7 @@ import { State } from "@/routes/_middleware.ts";
 import Head from "@/components/Head.tsx";
 import { asset } from "$fresh/runtime.ts";
 import Layout from "@/components/Layout.tsx";
-import links from "@/data/campus-alert.json" assert { type: "json" };
+import links from "@/data/campus-alert.json" with { type: "json" };
 import type { JSX } from "preact";
 import type { RouteContext } from "$fresh/server.ts";
 
@@ -51,14 +51,15 @@ const transweather: { [key: string]: string } = {
 
 const TITLE =
   "N/S Campus Alert｜N/S高のキャンパスに警報が出ているかを簡単に確認";
-const DESCRIPTION = `N/S高の全キャンパスの気象等による注意報,警報,特別警報が出ているかを確認することができます。
+const DESCRIPTION =
+  `N/S高の全キャンパスの気象等による注意報,警報,特別警報が出ているかを確認することができます。
 このツールを使用するにはGoogleアカウントでログインが必要です。`;
 
 const CampusAlertJson: { [key: string]: MenuType } = links;
 
 export default async function CampusAlert(
-  req: Request,
-  ctx: RouteContext<unknown, CampusAlert>
+  _req: Request,
+  ctx: RouteContext<unknown, CampusAlert>,
 ) {
   const ogImageUrl = new URL(asset("/ns-app/campus-alert.png"), ctx.url).href;
   const state = ctx.state;
@@ -76,9 +77,7 @@ export default async function CampusAlert(
           <section class="bg-white py-12">
             <div class="container mx-auto px-4">
               <div
-                class={
-                  "font-semibold mb-8 text-center py-20 md:py-36 space-y-2"
-                }
+                class={"font-semibold mb-8 text-center py-20 md:py-36 space-y-2"}
               >
                 <h1 class={"text-red-400 text-5xl md:text-7xl"}>
                   N/S Campus Alert
@@ -95,7 +94,8 @@ export default async function CampusAlert(
               <img
                 class="p-2 rounded-lg shadow-lg w-auto sm:w-96"
                 src={"/ns-app/campus-alert.png"}
-              ></img>
+              >
+              </img>
             </div>
           </section>
         </Layout>
@@ -112,42 +112,42 @@ export default async function CampusAlert(
           imageUrl={ogImageUrl}
         />
         <Layout state={state}>
-            <div class="bg-gray-50 py-14 md:py-24">
-              <div class="text-center mb-8 space-y-4">
-                <h1 class="text-red-500 text-5xl md:text-7xl font-bold">
-                  N/S Campus Alert
-                </h1>
-                <h2 class="text-black text-lg md:text-xl font-semibold">
-                  N/S高のキャンパスに警報が出ているかを簡単に確認
-                </h2>
-              </div>
+          <div class="bg-gray-50 py-14 md:py-24">
+            <div class="text-center mb-8 space-y-4">
+              <h1 class="text-red-500 text-5xl md:text-7xl font-bold">
+                N/S Campus Alert
+              </h1>
+              <h2 class="text-black text-lg md:text-xl font-semibold">
+                N/S高のキャンパスに警報が出ているかを簡単に確認
+              </h2>
             </div>
-            <div class="bg-gray-100 py-8">
-              <div class="container mx-auto px-4">
-                <div class="mb-8">
-                  <div class="bg-white rounded-lg shadow-lg p-6 mb-4">
-                    <div class="flex items-center mb-4">
-                      <p class="font-bold text-gray-600 text-sm">
-                        {AlertInfo.municipalities}
-                      </p>
-                    </div>
-                    <div class="flex mb-4">
-                      <p class="text-2xl font-bold text-gray-800">
-                        {AlertInfo.name}キャンパス
-                      </p>
-                    </div>
-                    <div class="space-y-2">
-                      <AlertView
-                        warning={AlertInfo.warning}
-                        name={AlertInfo.name}
-                        municipalities={AlertInfo.municipalities}
-                      />
-                    </div>
+          </div>
+          <div class="bg-gray-100 py-8">
+            <div class="container mx-auto px-4">
+              <div class="mb-8">
+                <div class="bg-white rounded-lg shadow-lg p-6 mb-4">
+                  <div class="flex items-center mb-4">
+                    <p class="font-bold text-gray-600 text-sm">
+                      {AlertInfo.municipalities}
+                    </p>
+                  </div>
+                  <div class="flex mb-4">
+                    <p class="text-2xl font-bold text-gray-800">
+                      {AlertInfo.name}キャンパス
+                    </p>
+                  </div>
+                  <div class="space-y-2">
+                    <AlertView
+                      warning={AlertInfo.warning}
+                      name={AlertInfo.name}
+                      municipalities={AlertInfo.municipalities}
+                    />
                   </div>
                 </div>
               </div>
             </div>
-            <div class="bg-gray-50 py-40 md:py-52" />
+          </div>
+          <div class="bg-gray-50 py-40 md:py-52" />
         </Layout>
       </>
     );
@@ -204,7 +204,9 @@ async function getAlertInfo(id: string): Promise<AlertData> {
   const CampusInfo = CampusAlertJson[id];
   const res = await (
     await fetch(
-      `https://www.jma.go.jp/bosai/warning/data/warning/${CampusInfo["OFFICES_AREA_CODE"]}.json`
+      `https://www.jma.go.jp/bosai/warning/data/warning/${
+        CampusInfo["OFFICES_AREA_CODE"]
+      }.json`,
     )
   ).json();
   let warningsData = [];
@@ -216,7 +218,7 @@ async function getAlertInfo(id: string): Promise<AlertData> {
       break;
     }
   }
-  let warningDataElement: JSX.Element[] = [];
+  const warningDataElement: JSX.Element[] = [];
   for (let i = 0; i < (warningsData as unknown[]).length; i++) {
     const warning = warningsData[i];
     if (
@@ -229,19 +231,19 @@ async function getAlertInfo(id: string): Promise<AlertData> {
         warningDataElement.push(
           <p class="text-white bg-purple-500 inline-block p-1 rounded-lg text-sm">
             {transweather[warning["code"]]}
-          </p>
+          </p>,
         );
       } else if (transweather[warning["code"]].endsWith("警報")) {
         warningDataElement.push(
           <p class="text-white bg-red-500 inline-block p-1 rounded-lg text-sm">
             {transweather[warning["code"]]}
-          </p>
+          </p>,
         );
       } else {
         warningDataElement.push(
           <p class="text-white bg-yellow-500 inline-block p-1 rounded-lg text-sm">
             {transweather[warning["code"]]}
-          </p>
+          </p>,
         );
       }
     }
