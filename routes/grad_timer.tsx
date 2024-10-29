@@ -31,9 +31,7 @@ export default function GradTimer(props: PageProps<State>) {
           <section class="bg-white py-12">
             <div class="container mx-auto px-4">
               <div
-                class={
-                  "font-semibold mb-8 text-center py-20 md:py-36 space-y-2"
-                }
+                class={"font-semibold mb-8 text-center py-20 md:py-36 space-y-2"}
               >
                 <h1 class={"text-pink-400 text-5xl md:text-7xl"}>
                   N/S Grad Timer
@@ -50,7 +48,8 @@ export default function GradTimer(props: PageProps<State>) {
               <img
                 class="p-2 rounded-lg shadow-lg w-auto sm:w-96"
                 src={"/ns-app/grad-timer.png"}
-              ></img>
+              >
+              </img>
             </div>
           </section>
         </Layout>

@@ -1,4 +1,4 @@
-import { Handlers, PageProps } from "$fresh/server.ts";
+import { Handlers } from "$fresh/server.ts";
 import { State } from "@/routes/_middleware.ts";
 
 import { handleCallback } from "kv_oauth";
@@ -8,16 +8,16 @@ import {
   getRedirectUrlCookie,
 } from "@/utils/redirect.ts";
 import {
-  User,
   createUser,
   deleteUserBySession,
   getUser,
   updateUser,
+  User,
 } from "@/utils/db.ts";
 
 async function getGoogleUser(accessToken: string): Promise<GoogleUser> {
   const response = await fetch(
-    `https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${accessToken}`
+    `https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${accessToken}`,
   );
   if (!response.ok) {
     await response.body?.cancel();
@@ -40,11 +40,11 @@ interface GoogleUser {
 
 // deno-lint-ignore no-explicit-any
 export const handler: Handlers<any, State> = {
-  async GET(req, ctx) {
+  async GET(req, _ctx) {
     const { response, accessToken, sessionId } = await handleCallback(
       req,
       oauth2Client,
-      getRedirectUrlCookie(req.headers)
+      getRedirectUrlCookie(req.headers),
     );
     deleteRedirectUrlCookie(response.headers);
 

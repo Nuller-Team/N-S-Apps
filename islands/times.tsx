@@ -1,4 +1,4 @@
-import { useState, useEffect } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 import { DateTime, datetime, diffInMillisec } from "ptera";
 import { h } from "preact";
 import { State } from "@/routes/_middleware.ts";
@@ -17,7 +17,7 @@ const options = [
 export default function TIMES({ state }: propsType) {
   const scData = state.user?.school!;
   const [haveUsed, setHaveUsed] = useState<boolean>(false);
-  const [school, setSchool] = useState(() => {
+  const [school, _setSchool] = useState(() => {
     if (scData.name == "N") return "N高";
     if (scData.name == "S") return "S高";
     else return "N中等部";
@@ -31,29 +31,32 @@ export default function TIMES({ state }: propsType) {
         Enrollment_year = 2000 + scData.gen;
       }
       setHaveUsed(true);
-      if (scData.admission_month == "4")
+      if (scData.admission_month == "4") {
         return datetime(`${Enrollment_year}-04-01 00:00`).toZonedTime(
-          "asia/Tokyo"
+          "asia/Tokyo",
         );
-      if (scData.admission_month == "7")
+      }
+      if (scData.admission_month == "7") {
         return datetime(`${Enrollment_year}-07-01 00:00`).toZonedTime(
-          "asia/Tokyo"
+          "asia/Tokyo",
         );
-      if (scData.admission_month == "10")
+      }
+      if (scData.admission_month == "10") {
         return datetime(`${Enrollment_year}-10-01 00:00`).toZonedTime(
-          "asia/Tokyo"
+          "asia/Tokyo",
         );
-      if (scData.admission_month == "1")
+      }
+      if (scData.admission_month == "1") {
         return datetime(`${Enrollment_year + 1}-01-01 00:00`).toZonedTime(
-          "asia/Tokyo"
+          "asia/Tokyo",
         );
+      }
     }
     return datetime().toZonedTime("asia/Tokyo");
   });
   const [selectedOption, setSelectedOption] = useState(options[0]);
-  const [error, setError] = useState("");
   const [time, setTime] = useState(
-    diffInMillisec(datetime().toZonedTime("asia/Tokyo"), EnrollmentDate)
+    diffInMillisec(datetime().toZonedTime("asia/Tokyo"), EnrollmentDate),
   );
 
   useEffect(() => {
@@ -68,11 +71,11 @@ export default function TIMES({ state }: propsType) {
   };
 
   const handleChange = (
-    event: h.JSX.TargetedEvent<HTMLSelectElement, Event>
+    event: h.JSX.TargetedEvent<HTMLSelectElement, Event>,
   ) => {
     const selectedValue = parseInt(event.currentTarget.value);
     setSelectedOption(
-      options.find((option) => option.value === selectedValue)!
+      options.find((option) => option.value === selectedValue)!,
     );
   };
 
@@ -83,22 +86,28 @@ export default function TIMES({ state }: propsType) {
     } else if (scData.name == "NJR") {
       Enrollment_year = 2000 + scData.gen;
     }
-    if (selectedOption.value == 4)
+    if (selectedOption.value == 4) {
       setEnrollmentDate(
-        datetime(`${Enrollment_year}-04-01 00:00`).toZonedTime("asia/Tokyo")
+        datetime(`${Enrollment_year}-04-01 00:00`).toZonedTime("asia/Tokyo"),
       );
-    if (selectedOption.value == 7)
+    }
+    if (selectedOption.value == 7) {
       setEnrollmentDate(
-        datetime(`${Enrollment_year}-07-01 00:00`).toZonedTime("asia/Tokyo")
+        datetime(`${Enrollment_year}-07-01 00:00`).toZonedTime("asia/Tokyo"),
       );
-    if (selectedOption.value == 10)
+    }
+    if (selectedOption.value == 10) {
       setEnrollmentDate(
-        datetime(`${Enrollment_year}-10-01 00:00`).toZonedTime("asia/Tokyo")
+        datetime(`${Enrollment_year}-10-01 00:00`).toZonedTime("asia/Tokyo"),
       );
-    if (selectedOption.value == 1)
+    }
+    if (selectedOption.value == 1) {
       setEnrollmentDate(
-        datetime(`${Enrollment_year + 1}-01-01 00:00`).toZonedTime("asia/Tokyo")
+        datetime(`${Enrollment_year + 1}-01-01 00:00`).toZonedTime(
+          "asia/Tokyo",
+        ),
       );
+    }
     setHaveUsed(true);
   };
 
@@ -106,7 +115,7 @@ export default function TIMES({ state }: propsType) {
     <>
       <div hidden={!haveUsed}>
         <div className="font-bold text-center text-xl md:text-2xl lg:text-3xl 2xl:text-4xl">
-          あなたが{school}に入ってから<br></br>
+          あなたが{school}に入ってから<br />
           <a
             className="text-6xl md:text-7xl lg:text-8xl 2xl:text-9xl text-green-400"
             onClick={() => {
@@ -115,7 +124,7 @@ export default function TIMES({ state }: propsType) {
           >
             {Math.floor(time / 1000)}
           </a>
-          <br></br>
+          <br />
           秒が経過しています
         </div>
       </div>
@@ -138,14 +147,13 @@ export default function TIMES({ state }: propsType) {
               <option value={option.value}>{option.label}</option>
             ))}
           </select>
-          <div class="p-2"></div>
+          <div class="p-2" />
           <button
             class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring w-16 flex items-start justify-center"
             onClick={decision_admission_month}
           >
             決定
           </button>
-          <p class="text-red-400 font-bold">{error}</p>
         </div>
       </div>
     </>

@@ -13,7 +13,8 @@ export const handler: Handlers = {
 };
 
 const TITLE = "N/S Times｜N/S高に入ってから何秒？";
-const DESCRIPTION = `N/S高に入学してから何秒経過しているかを確認することができます。
+const DESCRIPTION =
+  `N/S高に入学してから何秒経過しているかを確認することができます。
 このツールを使用するにはGoogleアカウントでログインが必要です。`;
 
 export default function Times(props: PageProps<State>) {
@@ -31,9 +32,7 @@ export default function Times(props: PageProps<State>) {
           <section class="bg-white py-12">
             <div class="container mx-auto px-4">
               <div
-                class={
-                  "font-semibold mb-8 text-center py-20 md:py-36 space-y-2"
-                }
+                class={"font-semibold mb-8 text-center py-20 md:py-36 space-y-2"}
               >
                 <h1 class={"text-yellow-500 text-5xl md:text-7xl"}>
                   N/S Times
@@ -50,7 +49,8 @@ export default function Times(props: PageProps<State>) {
               <img
                 class="p-2 rounded-lg shadow-lg w-auto sm:w-96"
                 src={"/ns-app/times.png"}
-              ></img>
+              >
+              </img>
             </div>
           </section>
         </Layout>

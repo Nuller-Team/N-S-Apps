@@ -10,7 +10,7 @@ export const REDIRECT_URL_COOKIE_NAME = "redirect-url";
  */
 export function redirect(
   location: string,
-  status: Status.Created | RedirectStatus = 303
+  status: Status.Created | RedirectStatus = 303,
 ) {
   return new Response(null, {
     headers: {
