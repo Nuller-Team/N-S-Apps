@@ -3,6 +3,7 @@ import { asset } from "$fresh/runtime.ts";
 import Head from "@/components/Head.tsx";
 import { State } from "@/routes/_middleware.ts";
 import Layout from "@/components/Layout.tsx";
+import Alert from "@/components/Alert.tsx";
 import { Handlers } from "@/utils/handler.ts";
 
 export const handler: Handlers = {
@@ -27,6 +28,10 @@ export default function Result(props: PageProps<State>) {
         href={props.url.href}
       />
       <Layout state={props.data}>
+      <Alert
+        message="このサービスは2025年3月31日で提供を終了しました。アーカイブとして表示しています。" 
+        link="https://support.nuller.jp/news/ns_result_future"
+      />
         <section
           class="bg-white py-80 font-bold"
           style="background-image: url(result/back.png);"
@@ -38,11 +43,11 @@ export default function Result(props: PageProps<State>) {
             <p class="mt-4 text-gray-800">
               N/S
               Resultは、N高の成績を簡単かつスピーディーに確認できるアプリです。
+              <p class="text-lg mb-8 text-center">※2025年3月末で提供を終了しています。</p>
             </p>
             <div class="mt-8">
               <a
-                href="https://chrome.google.com/webstore/detail/ns-result/bpcfecdbikofccaldngncmhhiemjoakg?hl=ja&authuser=0"
-                class="px-6 py-3 font-semibold text-white bg-blue-500 hover:bg-blue-600 rounded-md"
+                class="px-6 py-3 opacity-50 cursor-not-allowed font-semibold text-white bg-blue-500 hover:bg-blue-600 rounded-md"
               >
                 ダウンロード
               </a>
@@ -168,11 +173,10 @@ export default function Result(props: PageProps<State>) {
               <p class="text-lg mb-8">
                 N高の成績を簡単・素早く確認しましょう！
               </p>
-              <p class="text-lg mb-8 text-center">Chrome 対応</p>
+              <p class="text-lg mb-8 text-center">※2025年3月末で提供を終了しています。</p>
               <div class="flex justify-center">
                 <a
-                  href="https://chrome.google.com/webstore/detail/ns-result/bpcfecdbikofccaldngncmhhiemjoakg?hl=ja&authuser=0"
-                  class="bg-white text-blue-600 hover:bg-blue-700 font-semibold py-3 px-6 rounded-full mr-4"
+                  class="bg-white opacity-50 cursor-not-allowed  text-blue-600 font-semibold py-3 px-6 rounded-full mr-4"
                 >
                   ダウンロード
                 </a>
