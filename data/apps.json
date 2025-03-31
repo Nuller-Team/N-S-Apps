@@ -1,11 +1,5 @@
 [
   {
-    "title": "N/S Result",
-    "link": "/result",
-    "image": "result",
-    "njr": false
-  },
-  {
     "title": "N/S Times",
     "link": "/times",
     "image": "times",
