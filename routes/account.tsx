@@ -35,7 +35,7 @@ export default function AccountPage(props: PageProps<State>) {
     <>
       <Head title="Account" href={props.url.href} />
       <Layout state={props.data}>
-        <div class="max-w-lg m-auto w-full flex-1 p-4 flex flex-col justify-center">
+      <div class="max-w-lg min-h-screen m-auto w-full flex-1 px-8 flex flex-col justify-center">
           <img
             src={props.data.user?.avatarUrl}
             alt="User Avatar"
