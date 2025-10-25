@@ -62,6 +62,9 @@ export const handler: Handlers<any, State> = {
         } else if (school_name === "S") {
           gen -= 20;
           school = "S";
+        } else if (school_name === "R") {
+          gen -= 25;
+          school = "R";
         }
 
         const user: User = {

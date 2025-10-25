@@ -33,7 +33,7 @@ export interface User {
   email: string;
   name: string;
   school: {
-    name: "N" | "S" | "NJR";
+    name: "N" | "S" | "R" | "NJR";
     gen: number;
     admission_month: "4" | "7" | "10" | "1" | "";
   };
