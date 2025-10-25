@@ -99,7 +99,7 @@ function Footer(): JSX.Element {
           <hr class="my-6 border-gray-200 sm:mx-auto  lg:my-8" />
           <div class="sm:flex sm:items-center sm:justify-between">
             <span class="text-sm text-gray-500 sm:text-center">
-              © 2023{" "}
+              © 2025{" "}
               <a href="https://nuller.jp/" class="hover:underline">
                 Nuller
               </a>
