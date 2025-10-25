@@ -19,9 +19,17 @@ export default function TIMES({ state }: propsType) {
   const [haveUsed, setHaveUsed] = useState<boolean>(false);
   const [GraduationDate, setGraduationDate] = useState<DateTime>(() => {
     if (scData.admission_month) {
-      let Graduation_year = 2000 + 20 + scData.gen + 3;
+      let Graduation_year: number;
       if (scData.name == "N") {
-        Graduation_year = 2000 + 15 + scData.gen + 3;
+        Graduation_year = 2015 + scData.gen + 3;
+      } else if (scData.name == "S") {
+        Graduation_year = 2020 + scData.gen + 3;
+      } else if (scData.name == "R") {
+        Graduation_year = 2025 + scData.gen + 3;
+      } else if (scData.name == "NJR") {
+        Graduation_year = 2000 + scData.gen + 3;
+      } else {
+        Graduation_year = 2020 + scData.gen + 3;
       }
       setHaveUsed(true);
       if (scData.admission_month == "4") {
@@ -48,11 +56,13 @@ export default function TIMES({ state }: propsType) {
     return datetime().toZonedTime("asia/Tokyo");
   });
   const [selectedOption, setSelectedOption] = useState(options[0]);
-  const [time, setTime] = useState(
-    diffInMillisec(GraduationDate, datetime().toZonedTime("asia/Tokyo")),
-  );
+  const [time, setTime] = useState(0);
 
   useEffect(() => {
+    const today = datetime().toZonedTime("asia/Tokyo");
+    const times = diffInMillisec(GraduationDate, today);
+    setTime(times);
+
     const intervalID = setInterval(() => tick(), 1000);
     return () => clearInterval(intervalID);
   }, [GraduationDate]);
@@ -73,9 +83,17 @@ export default function TIMES({ state }: propsType) {
   };
 
   const decision_admission_month = () => {
-    let Graduation_year = 2000 + 20 + scData.gen + 3;
+    let Graduation_year: number;
     if (scData.name == "N") {
-      Graduation_year = 2000 + 15 + scData.gen + 3;
+      Graduation_year = 2015 + scData.gen + 3;
+    } else if (scData.name == "S") {
+      Graduation_year = 2020 + scData.gen + 3;
+    } else if (scData.name == "R") {
+      Graduation_year = 2025 + scData.gen + 3;
+    } else if (scData.name == "NJR") {
+      Graduation_year = 2000 + scData.gen + 3;
+    } else {
+      Graduation_year = 2020 + scData.gen + 3;
     }
     if (selectedOption.value == 4) {
       setGraduationDate(
@@ -107,16 +125,31 @@ export default function TIMES({ state }: propsType) {
       <div hidden={!haveUsed}>
         <div className="font-bold text-center text-xl md:text-2xl lg:text-3xl 2xl:text-4xl">
           あなたが{scData.name}高を卒業するまで<br />
-          <a
-            className="text-6xl md:text-7xl lg:text-8xl 2xl:text-9xl text-blue-400"
-            onClick={() => {
-              setHaveUsed(false);
-            }}
-          >
-            {Math.floor(time / 1000)}
-          </a>
+          <div className="inline-flex items-baseline">
+            <a
+              className="text-7xl lg:text-8xl 2xl:text-9xl text-blue-400 font-mono"
+              onClick={() => {
+                setHaveUsed(false);
+              }}
+            >
+              {Math.floor(time / 1000 / 86400)}
+            </a>
+            <span className="text-3xl md:text-3.5xl lg:text-4xl 2xl:text-4.5xl ml-1">日</span>
+          </div>
+          と
+          <div className="inline-flex items-baseline">
+            <a
+              className="text-7xl lg:text-8xl 2xl:text-9xl text-blue-400 font-mono"
+              onClick={() => {
+                setHaveUsed(false);
+              }}
+            >
+              {Math.floor((time / 1000) % 86400)}
+            </a>
+            <span className="text-3xl md:text-3.5xl lg:text-4xl 2xl:text-4.5xl ml-1">秒</span>
+          </div>
           <br />
-          秒が残っています
+          が残っています
         </div>
       </div>
       <div hidden={haveUsed} class="w-full">
