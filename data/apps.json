@@ -3,54 +3,63 @@
     "title": "N/S Times",
     "link": "/times",
     "image": "times",
-    "njr": true
+    "njr": true,
+    "enabled": true
   },
   {
     "title": "N/S Grad Timer",
     "link": "/grad_timer",
     "image": "grad-timer",
-    "njr": false
+    "njr": false,
+    "enabled": true
   },
   {
     "title": "N/S Pages",
     "link": "/pages",
     "image": "pages",
-    "njr": false
+    "njr": false,
+    "enabled": false
   },
   {
     "title": "N/S Campus Alert",
     "link": "/campus-alert",
     "image": "campus-alert",
-    "njr": false
+    "njr": false,
+    "enabled": true
   },
   {
     "title": "N/S Verify",
     "link": "/verify",
     "image": "verify",
-    "njr": false
+    "njr": false,
+    "enabled": true
   },
   {
     "title": "N/S Profile",
     "link": "/profile",
     "image": "profile",
-    "njr": false
+    "njr": false,
+    "enabled": true
   },
   {
     "title": "N/S Emoji",
     "link": "/emoji",
     "image": "emoji",
-    "njr": true
+    "njr": true,
+    "enabled": true
   },
   {
     "title": "Nullerへ応募する",
     "link": "/entry",
     "image": "entry",
-    "njr": true
+    "njr": true,
+    "enabled": true
   },
   {
     "title": "#times_Nullerに参加する",
     "link": "https://n-highschool.slack.com/archives/C0534GJBZT6",
     "image": "slack",
-    "njr": false
+    "njr": false,
+    "enabled": true
   }
 ]
