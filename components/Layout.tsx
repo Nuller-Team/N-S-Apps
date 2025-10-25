@@ -9,7 +9,7 @@ function Header(props: JSX.HTMLAttributes<HTMLElement>) {
         <div class="container mx-auto px-4">
           <div class="flex justify-between items-center">
             <a href="/">
-              <image src="/logo.png" class={"h-11 p-1"} />
+              <image src="/logo.png" class="h-11 p-1" />
             </a>
             {props.children}
           </div>
@@ -180,7 +180,7 @@ export default function Layout(props: LayoutProps) {
           <div>
             <img
               src={props.state.user?.avatarUrl}
-              class={"h-10 rounded-full"}
+              class="h-10 rounded-full"
             >
             </img>
           </div>
@@ -204,9 +204,8 @@ function Nav(props: NavProps) {
   return (
     <nav>
       <ul
-        class={`flex gap-x-8 gap-y-2 items-center justify-between h-full ${
-          props.class ?? ""
-        }`}
+        class={`flex gap-x-8 gap-y-2 items-center justify-between h-full ${props.class ?? ""
+          }`}
       >
         {props.items.map((item) => (
           <li>

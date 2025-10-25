@@ -33,16 +33,16 @@ export default function Profile(props: PageProps<State>) {
           <section class="bg-white py-12">
             <div class="container mx-auto px-4">
               <div
-                class={"font-semibold mb-8 text-center py-20 md:py-36 space-y-2"}
+                class="font-semibold mb-8 text-center py-20 md:py-36 space-y-2"
               >
-                <h1 class={"text-sky-300 text-5xl md:text-7xl"}>
+                <h1 class="text-sky-300 text-5xl md:text-7xl">
                   N/S Profile
                 </h1>
-                <h1 class={"text-black font-bold text-lg md:text-xl"}>
+                <h1 class="text-black font-bold text-lg md:text-xl">
                   あなただけのプロフィールを
                 </h1>
               </div>
-              <footer class={"flex justify-center py-10"}>
+              <footer class="flex justify-center py-10">
                 <img src="/svg/profile.svg" alt="verify" />
               </footer>
             </div>

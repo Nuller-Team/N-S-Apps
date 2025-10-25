@@ -33,14 +33,14 @@ export default function Verify(props: PageProps<State>) {
           <section class="bg-white py-12">
             <div class="container mx-auto px-4">
               <div
-                class={"text-2xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-semibold mb-8 text-center py-20 md:py-36 space-y-2"}
+                class="text-2xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-semibold mb-8 text-center py-20 md:py-36 space-y-2"
               >
-                <h1 class={"text-sky-500 text-5xl md:text-7xl"}>N/S Verify</h1>
-                <h1 class={"text-black font-bold text-lg md:text-xl"}>
+                <h1 class="text-sky-500 text-5xl md:text-7xl">N/S Verify</h1>
+                <h1 class="text-black font-bold text-lg md:text-xl">
                   エンカをもっと楽しく
                 </h1>
               </div>
-              <footer class={"flex justify-center py-10"}>
+              <footer class="flex justify-center py-10">
                 <img src="/svg/verify.svg" alt="verify" />
               </footer>
             </div>

@@ -27,12 +27,12 @@ export default function test(props: PageProps<State>) {
             <section class="bg-white py-12">
               <div class="container mx-auto px-4">
                 <div
-                  class={"text-2xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-semibold mb-8 text-center py-20 md:py-36 space-y-2"}
+                  class="text-2xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-semibold mb-8 text-center py-20 md:py-36 space-y-2"
                 >
-                  <h1 class={"text-black"}>あなたはN/S高生ではないため</h1>
-                  <h1 class={"text-red-500"}>アプリを使うことはできません</h1>
+                  <h1 class="text-black">あなたはN/S高生ではないため</h1>
+                  <h1 class="text-red-500">アプリを使うことはできません</h1>
                 </div>
-                <footer class={"flex justify-center py-10"}>
+                <footer class="flex justify-center py-10">
                   <image src="/svg/campus-alert.svg" />
                 </footer>
               </div>
@@ -55,12 +55,12 @@ export default function test(props: PageProps<State>) {
           <section class="bg-white py-12">
             <div class="container mx-auto px-4">
               <div
-                class={"text-2xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-semibold mb-8 text-center py-20 md:py-36 space-y-2"}
+                class="text-2xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-semibold mb-8 text-center py-20 md:py-36 space-y-2"
               >
-                <h1 class={"text-black"}>N/S高生の学校生活を</h1>
-                <h1 class={"text-purple-500"}>より便利にするアプリたち</h1>
+                <h1 class="text-black">N/S高生の学校生活を</h1>
+                <h1 class="text-purple-500">より便利にするアプリたち</h1>
               </div>
-              <footer class={"flex justify-center py-10"}>
+              <footer class="flex justify-center py-10">
                 <image src="/svg/home.svg" />
               </footer>
               <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-center">

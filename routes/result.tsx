@@ -28,10 +28,10 @@ export default function Result(props: PageProps<State>) {
         href={props.url.href}
       />
       <Layout state={props.data}>
-      <Alert
-        message="このサービスは2025年3月31日で提供を終了しました。アーカイブとして表示しています。" 
-        link="https://support.nuller.jp/news/ns_result_future"
-      />
+        <Alert
+          message="このサービスは2025年3月31日で提供を終了しました。アーカイブとして表示しています。"
+          link="https://support.nuller.jp/news/ns_result_future"
+        />
         <section
           class="bg-white py-80 font-bold"
           style="background-image: url(result/back.png);"
@@ -61,7 +61,7 @@ export default function Result(props: PageProps<State>) {
             </h2>
             <div class="grid gap-x-10 gap-y-10 grid-cols-1 md:grid-cols-3">
               <div
-                class={"bg-white py-5 px-6 shadow-md rounded-md text-center"}
+                class="bg-white py-5 px-6 shadow-md rounded-md text-center"
               >
                 <h3 class="text-xl font-semibold text-gray-800 py-2">
                   ✅簡単な成績確認！
@@ -72,7 +72,7 @@ export default function Result(props: PageProps<State>) {
                 </p>
               </div>
               <div
-                class={"bg-white py-5 px-6 shadow-md rounded-md text-center"}
+                class="bg-white py-5 px-6 shadow-md rounded-md text-center"
               >
                 <h3 class="text-xl font-semibold text-gray-800 py-2">
                   🎨シンプルなデザイン！
@@ -83,7 +83,7 @@ export default function Result(props: PageProps<State>) {
                 </p>
               </div>
               <div
-                class={"bg-white py-5 px-6 shadow-md rounded-md text-center"}
+                class="bg-white py-5 px-6 shadow-md rounded-md text-center"
               >
                 <h3 class="text-xl font-semibold text-gray-800 py-2">
                   🔒プライバシー重視！
@@ -94,7 +94,7 @@ export default function Result(props: PageProps<State>) {
                 </p>
               </div>
               <div
-                class={"bg-white py-5 px-6 shadow-md rounded-md text-center"}
+                class="bg-white py-5 px-6 shadow-md rounded-md text-center"
               >
                 <h3 class="text-xl font-semibold text-gray-800 py-2">
                   💻パソコンで成績確認！
@@ -104,7 +104,7 @@ export default function Result(props: PageProps<State>) {
                 </p>
               </div>
               <div
-                class={"bg-white py-5 px-6 shadow-md rounded-md text-center"}
+                class="bg-white py-5 px-6 shadow-md rounded-md text-center"
               >
                 <h3 class="text-xl font-semibold text-gray-800 py-2">
                   🌍完全無料のオープンソースアプリ！
@@ -123,7 +123,7 @@ export default function Result(props: PageProps<State>) {
             </h2>
             <div class="grid gap-x-3 gap-y-10 grid-cols-1 md:grid-cols-3">
               <div
-                class={"bg-white py-5 px-6 shadow-md rounded-md text-center"}
+                class="bg-white py-5 px-6 shadow-md rounded-md text-center"
               >
                 <h3 class="text-xl font-semibold text-gray-800 py-4">
                   ✅N/S高生で構成されたチーム
@@ -136,7 +136,7 @@ export default function Result(props: PageProps<State>) {
                 </a>
               </div>
               <div
-                class={"bg-white py-5 px-6 shadow-md rounded-md text-center"}
+                class="bg-white py-5 px-6 shadow-md rounded-md text-center"
               >
                 <h3 class="text-xl font-semibold text-gray-800 py-4">
                   ✅Nullerは技術の向上を目的として活動
@@ -149,7 +149,7 @@ export default function Result(props: PageProps<State>) {
                 </a>
               </div>
               <div
-                class={"bg-white py-5 px-6 shadow-md rounded-md text-center"}
+                class="bg-white py-5 px-6 shadow-md rounded-md text-center"
               >
                 <h3 class="text-xl font-semibold text-gray-800 py-4">
                   ✅様々なアプリを公開
@@ -191,7 +191,7 @@ export default function Result(props: PageProps<State>) {
             </h2>
             <div class="grid gap-x-3 gap-y-10 grid-cols-1 md:grid-cols-2">
               <div
-                class={"bg-white py-5 px-6 shadow-md rounded-md text-center"}
+                class="bg-white py-5 px-6 shadow-md rounded-md text-center"
               >
                 <h3 class="text-xl font-semibold text-gray-800 mb-2">
                   ✅ダウンロードリンクを開き、「Chromeに追加」を選択します。
@@ -202,7 +202,7 @@ export default function Result(props: PageProps<State>) {
                 <img src="result/Chrome1.png" />
               </div>
               <div
-                class={"bg-white py-5 px-6 shadow-md rounded-md text-center"}
+                class="bg-white py-5 px-6 shadow-md rounded-md text-center"
               >
                 <h3 class="text-xl font-semibold text-gray-800 mb-2">
                   ✅拡張機能を追加を選択
@@ -211,7 +211,7 @@ export default function Result(props: PageProps<State>) {
                 <img src="result/Chrome2.png" />
               </div>
               <div
-                class={"bg-white py-5 px-6 shadow-md rounded-md text-center"}
+                class="bg-white py-5 px-6 shadow-md rounded-md text-center"
               >
                 <h3 class="text-xl font-semibold text-gray-800 mb-2">
                   ✅成績を素早く確認できるようにします。
@@ -220,7 +220,7 @@ export default function Result(props: PageProps<State>) {
                 <img src="result/Chrome3.png" />
               </div>
               <div
-                class={"bg-white py-5 px-6 shadow-md rounded-md text-center"}
+                class="bg-white py-5 px-6 shadow-md rounded-md text-center"
               >
                 <div class="bg-white rounded-lg shadow-md p-6">
                   <h3 class="text-xl font-semibold text-gray-800 mb-2">
