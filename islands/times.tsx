@@ -20,15 +20,22 @@ export default function TIMES({ state }: propsType) {
   const [school, _setSchool] = useState(() => {
     if (scData.name == "N") return "N高";
     if (scData.name == "S") return "S高";
+    if (scData.name == "R") return "R高";
     else return "N中等部";
   });
   const [EnrollmentDate, setEnrollmentDate] = useState<DateTime>(() => {
     if (scData.admission_month) {
-      let Enrollment_year = 2000 + 20 + scData.gen;
+      let Enrollment_year: number;
       if (scData.name == "N") {
-        Enrollment_year = 2000 + 15 + scData.gen;
+        Enrollment_year = 2015 + scData.gen;
+      } else if (scData.name == "S") {
+        Enrollment_year = 2020 + scData.gen;
+      } else if (scData.name == "R") {
+        Enrollment_year = 2025 + scData.gen;
       } else if (scData.name == "NJR") {
         Enrollment_year = 2000 + scData.gen;
+      } else {
+        Enrollment_year = 2020 + scData.gen;
       }
       setHaveUsed(true);
       if (scData.admission_month == "4") {
@@ -55,11 +62,13 @@ export default function TIMES({ state }: propsType) {
     return datetime().toZonedTime("asia/Tokyo");
   });
   const [selectedOption, setSelectedOption] = useState(options[0]);
-  const [time, setTime] = useState(
-    diffInMillisec(datetime().toZonedTime("asia/Tokyo"), EnrollmentDate),
-  );
+  const [time, setTime] = useState(0);
 
   useEffect(() => {
+    const today = datetime().toZonedTime("asia/Tokyo");
+    const times = diffInMillisec(today, EnrollmentDate);
+    setTime(times);
+
     const intervalID = setInterval(() => tick(), 1000);
     return () => clearInterval(intervalID);
   }, [EnrollmentDate]);
@@ -80,11 +89,17 @@ export default function TIMES({ state }: propsType) {
   };
 
   const decision_admission_month = () => {
-    let Enrollment_year = 2000 + 20 + scData.gen;
+    let Enrollment_year: number;
     if (scData.name == "N") {
-      Enrollment_year = 2000 + 15 + scData.gen;
+      Enrollment_year = 2015 + scData.gen;
+    } else if (scData.name == "S") {
+      Enrollment_year = 2020 + scData.gen;
+    } else if (scData.name == "R") {
+      Enrollment_year = 2025 + scData.gen;
     } else if (scData.name == "NJR") {
       Enrollment_year = 2000 + scData.gen;
+    } else {
+      Enrollment_year = 2020 + scData.gen;
     }
     if (selectedOption.value == 4) {
       setEnrollmentDate(
@@ -116,16 +131,31 @@ export default function TIMES({ state }: propsType) {
       <div hidden={!haveUsed}>
         <div className="font-bold text-center text-xl md:text-2xl lg:text-3xl 2xl:text-4xl">
           あなたが{school}に入ってから<br />
-          <a
-            className="text-6xl md:text-7xl lg:text-8xl 2xl:text-9xl text-green-400"
-            onClick={() => {
-              setHaveUsed(false);
-            }}
-          >
-            {Math.floor(time / 1000)}
-          </a>
+          <div className="inline-flex items-baseline">
+            <a
+              className="text-7xl lg:text-8xl 2xl:text-9xl text-green-400 font-mono"
+              onClick={() => {
+                setHaveUsed(false);
+              }}
+            >
+              {Math.floor(time / 1000 / 86400)}
+            </a>
+            <span className="text-3xl md:text-3.5xl lg:text-4xl 2xl:text-4.5xl ml-1">日</span>
+          </div>
+          と
+          <div className="inline-flex items-baseline">
+            <a
+              className="text-7xl lg:text-8xl 2xl:text-9xl text-green-400 font-mono"
+              onClick={() => {
+                setHaveUsed(false);
+              }}
+            >
+              {Math.floor((time / 1000) % 86400)}
+            </a>
+            <span className="text-3xl md:text-3.5xl lg:text-4xl 2xl:text-4.5xl ml-1">秒</span>
+          </div>
           <br />
-          秒が経過しています
+          が経過しています
         </div>
       </div>
       <div hidden={haveUsed} class="w-full">

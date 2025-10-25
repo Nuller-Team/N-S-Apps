@@ -35,7 +35,7 @@ export default function AccountPage(props: PageProps<State>) {
     <>
       <Head title="Account" href={props.url.href} />
       <Layout state={props.data}>
-      <div class="max-w-lg min-h-screen m-auto w-full flex-1 px-8 flex flex-col justify-center">
+        <div class="max-w-lg min-h-screen m-auto w-full flex-1 px-8 flex flex-col justify-center">
           <img
             src={props.data.user?.avatarUrl}
             alt="User Avatar"
@@ -54,7 +54,7 @@ export default function AccountPage(props: PageProps<State>) {
           </ul>
           <a
             href="/signout"
-            class={"px-4 py-2 bg-blue-500 text-white text-lg rounded-lg border-2 border-blue-500 transition duration-300 disabled:(opacity-50 cursor-not-allowed) hover:(bg-transparent text-pink-700) block text-center mt-8"}
+            class="px-4 py-2 bg-blue-500 text-white text-lg rounded-lg border-2 border-blue-500 transition duration-300 disabled:(opacity-50 cursor-not-allowed) hover:(bg-transparent text-pink-700) block text-center mt-8"
           >
             Sign out
           </a>

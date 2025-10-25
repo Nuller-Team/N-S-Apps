@@ -6,6 +6,8 @@ import { State } from "@/routes/_middleware.ts";
 import Head from "@/components/Head.tsx";
 import Layout from "@/components/Layout.tsx";
 import { Handlers } from "@/utils/handler.ts";
+import DisabledApp from "@/components/DisabledApp.tsx";
+import Alert from "@/components/Alert.tsx";
 
 export const handler: Handlers = {
   GET(_req, ctx) {
@@ -29,19 +31,22 @@ export default function Pages(props: PageProps<State>) {
           imageUrl={ogImageUrl}
         />
         <Layout state={props.data}>
+          <Alert
+            message="このサービスは2025年10月25日で提供を終了しました。アーカイブとして表示しています。"
+          />
           <section class="bg-white py-12">
             <div class="container mx-auto px-4">
               <div
-                class={"font-semibold mb-8 text-center py-20 md:py-36 space-y-2"}
+                class="font-semibold mb-8 text-center py-20 md:py-36 space-y-2"
               >
-                <h1 class={"text-orange-300 text-5xl md:text-7xl"}>
+                <h1 class="text-orange-300 text-5xl md:text-7xl">
                   N/S Pages
                 </h1>
-                <h1 class={"text-black font-bold text-lg md:text-xl"}>
+                <h1 class="text-black font-bold text-lg md:text-xl">
                   N/S高でよく使うページやアプリをまとめています
                 </h1>
               </div>
-              <footer class={"flex justify-center py-10"}>
+              <footer class="flex justify-center py-10">
                 <img src="/svg/pages.svg" />
               </footer>
             </div>
@@ -66,15 +71,7 @@ export default function Pages(props: PageProps<State>) {
           imageUrl={ogImageUrl}
         />
         <Layout state={props.data}>
-          <div
-            class={"font-semibold mb-8 text-center py-14 md:py-24 space-y-2"}
-          >
-            <h1 class={"text-orange-300 text-5xl md:text-7xl"}>N/S Pages</h1>
-            <h1 class={"text-black font-bold text-lg md:text-xl"}>
-              N/S高でよく使うページやアプリをまとめています
-            </h1>
-          </div>
-          <PAGES links={links} />
+          <DisabledApp title="N/S Pages" url={props.url.href} state={props.data} />;
         </Layout>
       </>
     );

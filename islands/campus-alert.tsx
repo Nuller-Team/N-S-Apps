@@ -69,7 +69,7 @@ export default function Home({ links, href }: HomeType): JSX.Element {
                   </div>
                   <div class="flex items-center mb-2">
                     <div class="text-2xl font-bold">
-                      <p class={"underline"}>{menuItem.name}キャンパス</p>
+                      <p class="underline">{menuItem.name}キャンパス</p>
                     </div>
                   </div>
                 </div>

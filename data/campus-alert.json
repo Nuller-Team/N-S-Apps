@@ -1,139 +1,138 @@
 {
     "sapporo": {
         "name": "札幌大通",
-        "kana": "札幌大通",
         "municipalities": "石狩・空知・後志地方 札幌市",
         "address": "北海道札幌市中央区南1条西1-9 パークタワービル 2階",
         "latlon": [
-            "43.05988839476094",
-            "141.35465167586156"
+            "43.059888",
+            "141.355749"
         ],
         "CLASS_AREA_CODE": "0110000",
         "OFFICES_AREA_CODE": "016000"
     },
     "hakodate": {
         "name": "北海道函館",
-        "kana": "北海道函館",
         "municipalities": "渡島・檜山地方 函館市",
         "address": "北海道函館市本町6-12 ブリック函館 2F",
         "latlon": [
-            "41.789262189710094",
-            "140.7493133412973"
+            "41.7891116",
+            "140.7507793"
         ],
         "CLASS_AREA_CODE": "0120200",
         "OFFICES_AREA_CODE": "017000"
     },
     "sendaihirosedori": {
         "name": "仙台広瀬通",
-        "kana": "仙台広瀬通",
         "municipalities": "宮城県 仙台市東部",
-        "address": "宮城県仙台市青葉区国分町1-6-9 MIテラス仙台広瀬通り4F",
+        "address": "宮城県仙台市青葉区国分町1-6-9 MIテラス仙台広瀬通 4F",
         "latlon": [
-            "38.26156708397115",
-            "140.86806627529032"
+            "38.26156290000001",
+            "140.8706412"
         ],
         "CLASS_AREA_CODE": "0410001",
         "OFFICES_AREA_CODE": "040000"
     },
     "sendai": {
         "name": "仙台新寺通",
-        "kana": "仙台新寺通",
         "municipalities": "宮城県 仙台市東部",
         "address": "宮城県仙台市若林区新寺2-1-6 THE ISビル 4階",
         "latlon": [
-            "38.25671177957476",
-            "140.8837736503641"
+            "38.256734",
+            "140.885939"
         ],
         "CLASS_AREA_CODE": "0410001",
         "OFFICES_AREA_CODE": "040000"
     },
     "fukushima": {
         "name": "福島",
-        "kana": "福島",
         "municipalities": "福島県 福島市",
         "address": "福島県福島市舟場町1-20 リアライズ福島駅前通ビル7F",
         "latlon": [
-            "37.7528111134259",
-            "140.46864957526486"
+            "37.752802900000006",
+            "140.4712425"
         ],
         "CLASS_AREA_CODE": "0720100",
         "OFFICES_AREA_CODE": "070000"
     },
     "fukushimakoriyama": {
         "name": "福島郡山",
-        "kana": "福島郡山",
         "municipalities": "福島県 郡山市",
         "address": "福島県郡山市駅前2-3-7 エリート30 4階",
         "latlon": [
-            "37.39842987208256",
-            "140.38461117732558"
+            "37.39843",
+            "140.387186"
         ],
         "CLASS_AREA_CODE": "0720301",
         "OFFICES_AREA_CODE": "070000"
     },
+    "iwaki": {
+        "name": "いわき",
+        "municipalities": "福島県 いわき市",
+        "address": "福島県いわき市平小太郎町1-6 いわきセンタービル 3階",
+        "latlon": [
+            "37.052213172176344",
+            "140.8900178758499"
+        ],
+        "CLASS_AREA_CODE": "0720400",
+        "OFFICES_AREA_CODE": "070000"
+    },
     "aomori": {
         "name": "青森",
-        "kana": "青森",
         "municipalities": "青森県 青森市",
         "address": "青森県青森市長島2-13-1 AQUA青森スクエアビル 1F",
         "latlon": [
-            "40.823117130806644",
-            "140.73992397542378"
+            "40.8231131",
+            "140.7424989"
         ],
         "CLASS_AREA_CODE": "0220100",
         "OFFICES_AREA_CODE": "020000"
     },
     "iwatemorioka": {
         "name": "岩手盛岡",
-        "kana": "岩手盛岡",
         "municipalities": "岩手県 盛岡市",
         "address": "岩手県盛岡市盛岡駅前通16-21 盛岡駅前通ビル5階",
         "latlon": [
-            "39.70389287156315",
-            "141.13479107738954"
+            "39.703893",
+            "141.137366"
         ],
         "CLASS_AREA_CODE": "0320100",
         "OFFICES_AREA_CODE": "030000"
     },
     "yamagata": {
         "name": "山形",
-        "kana": "山形",
         "municipalities": "山形県 山形市",
         "address": "山形県山形市十日町1-1-34 リアライズ山形駅前通ビル1階",
         "latlon": [
-            "38.246602471870254",
-            "140.33106637734866"
+            "38.246603",
+            "140.333641"
         ],
         "CLASS_AREA_CODE": "0620100",
         "OFFICES_AREA_CODE": "060000"
     },
     "akita": {
         "name": "秋田",
-        "kana": "秋田",
         "municipalities": "秋田県 秋田市",
         "address": "秋田県秋田市中通2-4-19 商工中金・第一生命秋田ビル 9F",
         "latlon": [
-            "39.71703006206262",
-            "140.1254533568787"
+            "39.717231",
+            "140.125608"
         ],
         "CLASS_AREA_CODE": "0520100",
         "OFFICES_AREA_CODE": "050000"
     },
     "ochanomizu": {
         "name": "御茶ノ水",
-        "kana": "御茶の水",
         "municipalities": "東京都 千代田区",
         "address": "東京都千代田区神田猿楽町1-4-12 L.Biz神保町",
         "latlon": [
-            "35.6982944",
-            "139.7593651"
+            "35.698324",
+            "139.759259"
         ],
         "CLASS_AREA_CODE": "1310100",
         "OFFICES_AREA_CODE": "130000"
     },
     "akihabara": {
         "name": "秋葉原",
-        "kana": "秋葉原",
         "municipalities": "東京都 千代田区",
         "address": "東京都千代田区外神田3-16-8 秋葉原三和東洋ビル6階",
         "latlon": [
@@ -145,367 +144,160 @@
     },
     "harumi": {
         "name": "晴海",
-        "kana": "晴海",
         "municipalities": "東京都 中央区",
-        "address": "東京都中央区晴海3-10-1 晴海DAIWAビル11F",
+        "address": "東京都中央区晴海3-10-1 Daiwa晴海ビル11F",
         "latlon": [
-            "35.65404557259619",
-            "139.77665307644733"
+            "35.654045572595955",
+            "139.77665307652305"
         ],
         "CLASS_AREA_CODE": "1310200",
         "OFFICES_AREA_CODE": "130000"
     },
     "kinshichoekikitaguchi": {
         "name": "錦糸町駅北口",
-        "kana": "錦糸町駅北口",
         "municipalities": "東京都 墨田区",
         "address": "東京都墨田区太平2-8-11 齊征錦糸町ビル3階",
         "latlon": [
-            "35.700718428904324",
-            "139.80938537516508"
+            "35.700714",
+            "139.81196"
         ],
         "CLASS_AREA_CODE": "1310700",
         "OFFICES_AREA_CODE": "130000"
     },
     "toyocho": {
         "name": "東陽町",
-        "kana": "東陽町",
         "municipalities": "東京都 江東区",
         "address": "東京都江東区東陽3-23-24 VORT東陽町4階",
         "latlon": [
-            "35.66968227259094",
-            "139.8112721772798"
+            "35.669682",
+            "139.813847"
         ],
         "CLASS_AREA_CODE": "1310800",
         "OFFICES_AREA_CODE": "130000"
     },
     "kamatanishiguchi": {
         "name": "蒲田西口",
-        "kana": "蒲田西口",
         "municipalities": "東京都 大田区",
         "address": "東京都大田区西蒲田7-25-7 グレワンビル2階",
         "latlon": [
-            "35.56368727262559",
-            "139.71047817727694"
+            "35.563687",
+            "139.713053"
         ],
         "CLASS_AREA_CODE": "1311100",
         "OFFICES_AREA_CODE": "130000"
     },
     "yoga": {
         "name": "用賀",
-        "kana": "用賀",
         "municipalities": "東京都 世田谷区",
         "address": "東京都世田谷区上用賀5-5-10 万葉ビル 3F",
         "latlon": [
-            "35.627786695755546",
-            "139.6253805211528"
+            "35.6282200726044",
+            "139.6239117765223"
         ],
         "CLASS_AREA_CODE": "1311200",
         "OFFICES_AREA_CODE": "130000"
     },
     "yoyogi": {
         "name": "新宿代々木",
-        "kana": "新宿代々木",
         "municipalities": "東京都 渋谷区",
         "address": "東京都渋谷区代々木2-22-8 代々木二丁目プレイス1階・2階（旧 代々木かえつビル）",
         "latlon": [
-            "35.68553273734334",
-            "139.69496591534343"
+            "35.685538",
+            "139.69719000000003"
         ],
         "CLASS_AREA_CODE": "1311300",
         "OFFICES_AREA_CODE": "130000"
     },
+    "nippori": {
+        "name": "日暮里",
+        "municipalities": "東京都 文京区",
+        "address": "東京都文京区千駄木３丁目４３−３ ATK千駄木ビル 2階",
+        "latlon": [
+            "35.72837467257204",
+            "139.7612020757899"
+        ],
+        "CLASS_AREA_CODE": "1310500",
+        "OFFICES_AREA_CODE": "130000"
+    },
     "shibuya": {
         "name": "渋谷",
-        "kana": "渋谷",
         "municipalities": "東京都 渋谷区",
         "address": "東京都渋谷区渋谷1-3-9 ヒューリック渋谷一丁目ビル2階",
         "latlon": [
-            "35.661795300000016",
-            "139.69714256977542"
+            "35.661712",
+            "139.705858"
         ],
         "CLASS_AREA_CODE": "1311300",
         "OFFICES_AREA_CODE": "130000"
     },
     "ikebukuro": {
         "name": "池袋",
-        "kana": "池袋",
         "municipalities": "東京都 豊島区",
         "address": "東京都豊島区池袋4-32-8号 サンポウ池袋ビル 5階",
         "latlon": [
-            "35.7390357800836",
-            "139.7071730502745"
+            "35.739036",
+            "139.709367"
         ],
         "CLASS_AREA_CODE": "1311600",
         "OFFICES_AREA_CODE": "130000"
     },
     "hachioji": {
         "name": "八王子",
-        "kana": "八王子",
         "municipalities": "東京都 八王子市",
         "address": "東京都八王子市横山町25-6 ザイマックス八王子ビル 1F",
         "latlon": [
-            "35.66010667259407",
-            "139.3371922764475"
+            "35.660107",
+            "139.339767"
         ],
         "CLASS_AREA_CODE": "1320100",
         "OFFICES_AREA_CODE": "130000"
     },
     "tachikawa": {
         "name": "立川",
-        "kana": "立川",
         "municipalities": "東京都 立川市",
         "address": "東京都立川市錦町2-4-6 立川錦町SSビル 1階",
         "latlon": [
-            "35.693707",
-            "139.4171423"
+            "35.693764",
+            "139.417169"
         ],
         "CLASS_AREA_CODE": "1320200",
         "OFFICES_AREA_CODE": "130000"
     },
     "musashisakai": {
         "name": "武蔵境",
-        "kana": "武蔵境",
         "municipalities": "東京都 武蔵野市",
         "address": "東京都武蔵野市境南町2-3-16 武蔵境第一髙木ビル２階",
         "latlon": [
-            "35.70104452888528",
-            "139.54161457581117"
+            "35.70104",
+            "139.54419"
         ],
         "CLASS_AREA_CODE": "1320300",
         "OFFICES_AREA_CODE": "130000"
     },
     "machida": {
         "name": "町田",
-        "kana": "町田",
         "municipalities": "東京都 町田市",
         "address": "東京都町田市中町1-5‐1 フレグラント町田2階",
         "latlon": [
-            "35.547720744889965",
-            "139.44175071525265"
+            "35.547714",
+            "139.443935"
         ],
         "CLASS_AREA_CODE": "1320900",
         "OFFICES_AREA_CODE": "130000"
     },
     "seisekisakuragaoka": {
         "name": "聖蹟桜ヶ丘",
-        "kana": "聖蹟桜ゖ丘",
         "municipalities": "東京都 多摩市",
         "address": "東京都多摩市関戸一丁目7番5号 京王聖蹟桜ヶ丘ショッピングセンターC館7階",
         "latlon": [
-            "35.651517567983724",
-            "139.4479926875039"
+            "35.652209",
+            "139.447398"
         ],
         "CLASS_AREA_CODE": "1322400",
         "OFFICES_AREA_CODE": "130000"
     },
-    "yokohama": {
-        "name": "横浜",
-        "kana": "横浜",
-        "municipalities": "神奈川県 横浜市",
-        "address": "神奈川県横浜市神奈川区栄町2-9 東部ヨコハマビル1階",
-        "latlon": [
-            "35.469687980244174",
-            "139.625658915253"
-        ],
-        "CLASS_AREA_CODE": "1410000",
-        "OFFICES_AREA_CODE": "140000"
-    },
-    "kawasaki": {
-        "name": "川崎",
-        "kana": "川崎",
-        "municipalities": "神奈川県 川崎市",
-        "address": "神奈川県川崎市川崎区日進町7-1 川崎日進町ビルディング15階",
-        "latlon": [
-            "35.52640617263756",
-            "139.6915139772761"
-        ],
-        "CLASS_AREA_CODE": "1413000",
-        "OFFICES_AREA_CODE": "140000"
-    },
-    "mizonokuchi": {
-        "name": "溝の口",
-        "kana": "溝の口",
-        "municipalities": "神奈川県 川崎市",
-        "address": "神奈川県川崎市高津区溝口2-16-5 アイピー溝の口ビル4階",
-        "latlon": [
-            "35.60203297261302",
-            "139.6090400772781"
-        ],
-        "CLASS_AREA_CODE": "1413000",
-        "OFFICES_AREA_CODE": "140000"
-    },
-    "sagamiharahashimoto": {
-        "name": "相模原橋本",
-        "kana": "相模原橋本",
-        "municipalities": "神奈川県 相模原市",
-        "address": "神奈川県相模原市緑区橋本3-25-1 橋本MNビル2階",
-        "latlon": [
-            "35.59622767261482",
-            "139.34388137727782"
-        ],
-        "CLASS_AREA_CODE": "1415000",
-        "OFFICES_AREA_CODE": "140000"
-    },
-    "yokosuka": {
-        "name": "横須賀",
-        "kana": "横須賀",
-        "municipalities": "神奈川県 横須賀市",
-        "address": "神奈川県横須賀市米が浜通1-6 村瀬ビル 7F",
-        "latlon": [
-            "35.27875299730963",
-            "139.67347761079617"
-        ],
-        "CLASS_AREA_CODE": "1420100",
-        "OFFICES_AREA_CODE": "140000"
-    },
-    "hiratsuka": {
-        "name": "湘南平塚",
-        "kana": "湘南平塚",
-        "municipalities": "神奈川県 平塚市",
-        "address": "神奈川県平塚市宝町3-1 平塚MNビル8階",
-        "latlon": [
-            "35.329546449099055",
-            "139.3481803113836"
-        ],
-        "CLASS_AREA_CODE": "1420300",
-        "OFFICES_AREA_CODE": "140000"
-    },
-    "honatugi": {
-        "name": "本厚木",
-        "kana": "本厚木",
-        "municipalities": "神奈川県 厚木市",
-        "address": "神奈川県厚木市中町2-2-20 オーイズミ本厚木ビル7階",
-        "latlon": [
-            "35.44012185821775",
-            "139.36131031423028"
-        ],
-        "CLASS_AREA_CODE": "1421200",
-        "OFFICES_AREA_CODE": "140000"
-    },
-    "omiya": {
-        "name": "大宮",
-        "kana": "大宮",
-        "municipalities": "埼玉県 さいたま市",
-        "address": "埼玉県さいたま市大宮区高鼻町1-20-1 大宮中央ビルディング8階",
-        "latlon": [
-            "35.91010718014157",
-            "139.62825131526512"
-        ],
-        "CLASS_AREA_CODE": "1110000",
-        "OFFICES_AREA_CODE": "110000"
-    },
-    "kawagoe": {
-        "name": "川越",
-        "kana": "川越",
-        "municipalities": "埼玉県 川越市",
-        "address": "埼玉県川越市脇田本町16-23 川越駅前ビル６階",
-        "latlon": [
-            "35.90837091734845",
-            "139.47878371140646"
-        ],
-        "CLASS_AREA_CODE": "1120100",
-        "OFFICES_AREA_CODE": "110000"
-    },
-    "kumagaya": {
-        "name": "熊谷",
-        "kana": "熊谷",
-        "municipalities": "埼玉県 熊谷市",
-        "address": "埼玉県熊谷市筑波1-27-3 サンハイツ大和第1 1F",
-        "latlon": [
-            "36.14403697244152",
-            "139.38824847646526"
-        ],
-        "CLASS_AREA_CODE": "1120200",
-        "OFFICES_AREA_CODE": "110000"
-    },
-    "kawaguchiekimae": {
-        "name": "川口駅前",
-        "kana": "川口駅前",
-        "municipalities": "埼玉県 川口市",
-        "address": "埼玉県川口市栄町3-2-1  KIKビル3階",
-        "latlon": [
-            "35.80332006345139",
-            "139.72009587060398"
-        ],
-        "CLASS_AREA_CODE": "1120300",
-        "OFFICES_AREA_CODE": "110000"
-    },
-    "seibutokorozawa": {
-        "name": "西武所沢",
-        "kana": "西武所沢",
-        "municipalities": "埼玉県 所沢市",
-        "address": "埼玉県所沢市東住吉7-8 富士山ビル1F",
-        "latlon": [
-            "35.78290242438338",
-            "139.46908607516897"
-        ],
-        "CLASS_AREA_CODE": "1120800",
-        "OFFICES_AREA_CODE": "110000"
-    },
-    "kasukabe": {
-        "name": "春日部",
-        "kana": "春日部",
-        "municipalities": "埼玉県 春日部市",
-        "address": "埼玉県春日部市中央1-57-5 アイピー春日部ビル3階",
-        "latlon": [
-            "35.976157472493604",
-            "139.75005527728774"
-        ],
-        "CLASS_AREA_CODE": "1121400",
-        "OFFICES_AREA_CODE": "110000"
-    },
-    "chiba": {
-        "name": "千葉",
-        "kana": "千葉",
-        "municipalities": "千葉県 千葉市",
-        "address": "千葉県千葉市中央区弁天1-5-1 オーパスビルディング2階",
-        "latlon": [
-            "35.615305",
-            "140.111158"
-        ],
-        "CLASS_AREA_CODE": "1210000",
-        "OFFICES_AREA_CODE": "120000"
-    },
-    "kaihinmakuhari": {
-        "name": "海浜幕張",
-        "kana": "海浜幕張",
-        "municipalities": "千葉県 千葉市",
-        "address": "千葉県千葉市美浜区中瀬1-7-1 住友ケミカルエンジニアリングセンタービル23階",
-        "latlon": [
-            "35.6541269725959",
-            "140.03937457727932"
-        ],
-        "CLASS_AREA_CODE": "1210000",
-        "OFFICES_AREA_CODE": "120000"
-    },
-    "matsudo": {
-        "name": "松戸",
-        "kana": "松戸",
-        "municipalities": "千葉県 松戸市",
-        "address": "千葉県松戸市松戸1307-1 松戸ビル1階・2階",
-        "latlon": [
-            "35.78224517255506",
-            "139.89638717728275"
-        ],
-        "CLASS_AREA_CODE": "1220700",
-        "OFFICES_AREA_CODE": "120000"
-    },
-    "kashiwa": {
-        "name": "柏",
-        "kana": "柏",
-        "municipalities": "千葉県 柏市",
-        "address": "千葉県柏市明原1-8-22 JMR柏ビル（旧:大樹生命柏第二ビル) 1階",
-        "latlon": [
-            "35.8625636",
-            "139.967055"
-        ],
-        "CLASS_AREA_CODE": "1221700",
-        "OFFICES_AREA_CODE": "120000"
-    },
     "mito": {
         "name": "水戸",
-        "kana": "水戸",
         "municipalities": "茨城県 水戸市",
         "address": "茨城県水戸市南町1-3-35 オカバ水戸三の丸ビル３階",
         "latlon": [
@@ -517,139 +309,402 @@
     },
     "toride": {
         "name": "茨城取手",
-        "kana": "茨城取手",
         "municipalities": "茨城県 取手市",
         "address": "茨城県取手市新町1-8-38 新町第6ビル3階",
         "latlon": [
-            "35.89637227251859",
-            "140.05907597729535"
+            "35.896372",
+            "140.061651"
         ],
         "CLASS_AREA_CODE": "0821700",
         "OFFICES_AREA_CODE": "080000"
     },
     "tsukuba": {
         "name": "つくば",
-        "kana": "つくば",
         "municipalities": "茨城県 つくば市",
         "address": "茨城県つくば市吾妻1-7-1 トナリエクレオ4階",
         "latlon": [
-            "36.08051141548083",
-            "140.10952185044812"
+            "36.080507",
+            "140.111716"
         ],
         "CLASS_AREA_CODE": "0822000",
         "OFFICES_AREA_CODE": "080000"
     },
     "gunmamaebashi": {
         "name": "群馬前橋",
-        "kana": "群馬前橋",
         "municipalities": "群馬県 前橋市",
         "address": "群馬県前橋市表町2-2-6 前橋ファーストビルディング7階",
         "latlon": [
-            "36.3879816723678",
-            "139.06958707729873"
+            "36.387982",
+            "139.072162"
         ],
         "CLASS_AREA_CODE": "1020100",
         "OFFICES_AREA_CODE": "100000"
     },
     "takasaki": {
         "name": "高崎",
-        "kana": "高崎",
         "municipalities": "群馬県 高崎市",
         "address": "群馬県高崎市八島町58-1 ウエスト・ワンビル１階",
         "latlon": [
-            "36.32189887238737",
-            "139.00837677730655"
+            "36.321899",
+            "139.010952"
         ],
         "CLASS_AREA_CODE": "1020200",
         "OFFICES_AREA_CODE": "100000"
     },
     "gunmaota": {
         "name": "群馬太田",
-        "kana": "群馬太田",
         "municipalities": "群馬県 太田市",
         "address": "群馬県太田市飯田町1220-1 オカバ太田ビル4階",
         "latlon": [
-            "36.29173187239645",
-            "139.3761077772962"
+            "36.291732",
+            "139.378683"
         ],
         "CLASS_AREA_CODE": "1020500",
         "OFFICES_AREA_CODE": "100000"
     },
     "utsunomiya": {
         "name": "東武宇都宮",
-        "kana": "東武宇都宮",
         "municipalities": "栃木県 宇都宮市",
-        "address": "栃木県宇都宮市伝馬町1-9 宇都宮KSビル5階",
+        "address": "栃木県宇都宮市伝馬町１−９ 宇都宮ＫＳビル 5階",
         "latlon": [
-            "36.558277078413596",
-            "139.87682963126068"
+            "36.561484472316145",
+            "139.87707297582736"
         ],
         "CLASS_AREA_CODE": "0920100",
         "OFFICES_AREA_CODE": "090000"
     },
     "jrutsunomiya": {
         "name": "JR宇都宮",
-        "kana": "JR宇都宮",
         "municipalities": "栃木県 宇都宮市",
         "address": "栃木県宇都宮市大通り2-1-5 明治安田生命宇都宮大通りビル1階",
         "latlon": [
-            "36.5609404723165",
-            "139.88193542730315"
+            "36.560397",
+            "139.889373"
         ],
         "CLASS_AREA_CODE": "0920100",
         "OFFICES_AREA_CODE": "090000"
     },
+    "yokohama": {
+        "name": "横浜",
+        "municipalities": "神奈川県 横浜市",
+        "address": "神奈川県横浜市神奈川区栄町2-9 東部ヨコハマビル1階",
+        "latlon": [
+            "35.469688",
+            "139.627848"
+        ],
+        "CLASS_AREA_CODE": "1410000",
+        "OFFICES_AREA_CODE": "140000"
+    },
+    "kawasaki": {
+        "name": "川崎",
+        "municipalities": "神奈川県 川崎市",
+        "address": "神奈川県川崎市川崎区日進町7-1 川崎日進町ビルディング15階",
+        "latlon": [
+            "35.526406",
+            "139.694089"
+        ],
+        "CLASS_AREA_CODE": "1413000",
+        "OFFICES_AREA_CODE": "140000"
+    },
+    "mizonokuchi": {
+        "name": "溝の口",
+        "municipalities": "神奈川県 川崎市",
+        "address": "神奈川県川崎市高津区溝口2-16-5 アイピー溝の口ビル4階",
+        "latlon": [
+            "35.602033",
+            "139.611615"
+        ],
+        "CLASS_AREA_CODE": "1413000",
+        "OFFICES_AREA_CODE": "140000"
+    },
+    "sagamiharahashimoto": {
+        "name": "相模原橋本",
+        "municipalities": "神奈川県 相模原市",
+        "address": "神奈川県相模原市緑区橋本3-25-1 橋本MNビル2階",
+        "latlon": [
+            "35.596228",
+            "139.346456"
+        ],
+        "CLASS_AREA_CODE": "1415000",
+        "OFFICES_AREA_CODE": "140000"
+    },
+    "yokosuka": {
+        "name": "横須賀",
+        "municipalities": "神奈川県 横須賀市",
+        "address": "神奈川県横須賀市米が浜通1-6 村瀬ビル 7F",
+        "latlon": [
+            "35.278753",
+            "139.674678"
+        ],
+        "CLASS_AREA_CODE": "1420100",
+        "OFFICES_AREA_CODE": "140000"
+    },
+    "hiratsuka": {
+        "name": "湘南平塚",
+        "municipalities": "神奈川県 平塚市",
+        "address": "神奈川県平塚市宝町3-1 平塚MNビル8階",
+        "latlon": [
+            "35.329625",
+            "139.35086800000002"
+        ],
+        "CLASS_AREA_CODE": "1420300",
+        "OFFICES_AREA_CODE": "140000"
+    },
+    "honatugi": {
+        "name": "本厚木",
+        "municipalities": "神奈川県 厚木市",
+        "address": "神奈川県厚木市中町2-2-20 オーイズミ本厚木ビル7階",
+        "latlon": [
+            "35.44064",
+            "139.363371"
+        ],
+        "CLASS_AREA_CODE": "1421200",
+        "OFFICES_AREA_CODE": "140000"
+    },
+    "omiya": {
+        "name": "大宮",
+        "municipalities": "埼玉県 さいたま市",
+        "address": "埼玉県さいたま市大宮区高鼻町1-20-1 大宮中央ビルディング8階",
+        "latlon": [
+            "35.910102",
+            "139.630439"
+        ],
+        "CLASS_AREA_CODE": "1110000",
+        "OFFICES_AREA_CODE": "110000"
+    },
+    "kawagoe": {
+        "name": "川越",
+        "municipalities": "埼玉県 川越市",
+        "address": "埼玉県川越市脇田本町16-23 川越駅前ビル６階",
+        "latlon": [
+            "35.908367",
+            "139.481364"
+        ],
+        "CLASS_AREA_CODE": "1120100",
+        "OFFICES_AREA_CODE": "110000"
+    },
+    "kumagaya": {
+        "name": "熊谷",
+        "municipalities": "埼玉県 熊谷市",
+        "address": "埼玉県熊谷市筑波1-27-3 サンハイツ大和第1 1F",
+        "latlon": [
+            "36.144037",
+            "139.390823"
+        ],
+        "CLASS_AREA_CODE": "1120200",
+        "OFFICES_AREA_CODE": "110000"
+    },
+    "kawaguchiekimae": {
+        "name": "川口駅前",
+        "municipalities": "埼玉県 川口市",
+        "address": "埼玉県川口市栄町3-2-1 KIKビル3階",
+        "latlon": [
+            "35.803481",
+            "139.71750700000004"
+        ],
+        "CLASS_AREA_CODE": "1120300",
+        "OFFICES_AREA_CODE": "110000"
+    },
+    "seibutokorozawa": {
+        "name": "西武所沢",
+        "municipalities": "埼玉県 所沢市",
+        "address": "埼玉県所沢市東住吉7-8 富士山ビル1F",
+        "latlon": [
+            "35.78289807255459",
+            "139.46908607652762"
+        ],
+        "CLASS_AREA_CODE": "1120800",
+        "OFFICES_AREA_CODE": "110000"
+    },
+    "kasukabe": {
+        "name": "春日部",
+        "municipalities": "埼玉県 春日部市",
+        "address": "埼玉県春日部市中央1-57-5 アイピー春日部ビル3階",
+        "latlon": [
+            "35.976158",
+            "139.75263"
+        ],
+        "CLASS_AREA_CODE": "1121400",
+        "OFFICES_AREA_CODE": "110000"
+    },
+    "chiba": {
+        "name": "千葉",
+        "municipalities": "千葉県 千葉市",
+        "address": "千葉県千葉市中央区弁天1-5-1 オーパスビルディング2階",
+        "latlon": [
+            "35.615305",
+            "140.111158"
+        ],
+        "CLASS_AREA_CODE": "1210000",
+        "OFFICES_AREA_CODE": "120000"
+    },
+    "kaihinmakuhari": {
+        "name": "海浜幕張",
+        "municipalities": "千葉県 千葉市",
+        "address": "千葉県千葉市美浜区中瀬1-7-1 住友ケミカルエンジニアリングセンタービル23階",
+        "latlon": [
+            "35.654127",
+            "140.04195"
+        ],
+        "CLASS_AREA_CODE": "1210000",
+        "OFFICES_AREA_CODE": "120000"
+    },
+    "matsudo": {
+        "name": "松戸",
+        "municipalities": "千葉県 松戸市",
+        "address": "千葉県松戸市松戸1307-1 松戸ビル1階・2階",
+        "latlon": [
+            "35.78261400000001",
+            "139.899404"
+        ],
+        "CLASS_AREA_CODE": "1220700",
+        "OFFICES_AREA_CODE": "120000"
+    },
+    "kashiwa": {
+        "name": "柏",
+        "municipalities": "千葉県 柏市",
+        "address": "千葉県柏市明原1-8-22 JMR柏ビル（旧:大樹生命柏第二ビル) 1階",
+        "latlon": [
+            "35.862543",
+            "139.967084"
+        ],
+        "CLASS_AREA_CODE": "1221700",
+        "OFFICES_AREA_CODE": "120000"
+    },
+    "niigata": {
+        "name": "新潟",
+        "municipalities": "新潟県 新潟市",
+        "address": "新潟県新潟市中央区東大通2-1-20 ステーションプラザ新潟1階",
+        "latlon": [
+            "37.914969",
+            "139.059517"
+        ],
+        "CLASS_AREA_CODE": "1510000",
+        "OFFICES_AREA_CODE": "150000"
+    },
+    "niigatanagaoka": {
+        "name": "新潟長岡",
+        "municipalities": "新潟県 長岡市",
+        "address": "新潟県長岡市表町1-11-1 長岡フロントビル3F",
+        "latlon": [
+            "37.44813777206961",
+            "138.84490677658803"
+        ],
+        "CLASS_AREA_CODE": "1520200",
+        "OFFICES_AREA_CODE": "150000"
+    },
+    "nagano": {
+        "name": "長野",
+        "municipalities": "長野県 長野市",
+        "address": "長野県長野市上千歳町1137-23 リアライズ長野ビル8階",
+        "latlon": [
+            "36.649646",
+            "138.189538"
+        ],
+        "CLASS_AREA_CODE": "2020100",
+        "OFFICES_AREA_CODE": "200000"
+    },
+    "matsumoto": {
+        "name": "長野松本",
+        "municipalities": "長野県 松本市松本",
+        "address": "長野県松本市中央2-6-1 リーガル松本ビル 6F",
+        "latlon": [
+            "36.232223",
+            "137.969528"
+        ],
+        "CLASS_AREA_CODE": "2020201",
+        "OFFICES_AREA_CODE": "200000"
+    },
+    "kanazawa": {
+        "name": "金沢",
+        "municipalities": "石川県 金沢市",
+        "address": "石川県金沢市本町1‐5-2 リファーレ2階",
+        "latlon": [
+            "36.575675",
+            "136.651577"
+        ],
+        "CLASS_AREA_CODE": "1720100",
+        "OFFICES_AREA_CODE": "170000"
+    },
+    "toyama": {
+        "name": "富山",
+        "municipalities": "富山県 富山市",
+        "address": "富山県富山市新桜町2-21 MKD.9富山ビル 3F",
+        "latlon": [
+            "36.69774597227651",
+            "137.21220277656045"
+        ],
+        "CLASS_AREA_CODE": "1620100",
+        "OFFICES_AREA_CODE": "160000"
+    },
+    "kofu": {
+        "name": "甲府",
+        "municipalities": "山梨県 甲府市",
+        "address": "山梨県甲府市宝1-20-22 GCT甲府ビル3F",
+        "latlon": [
+            "35.666844979614034",
+            "138.56252328298555"
+        ],
+        "CLASS_AREA_CODE": "1920100",
+        "OFFICES_AREA_CODE": "190000"
+    },
+    "fukui": {
+        "name": "福井",
+        "municipalities": "福井県 福井市",
+        "address": "福井県福井市大手3-4-1 福井放送会館 3階",
+        "latlon": [
+            "36.06293999576502",
+            "136.21845744189022"
+        ],
+        "CLASS_AREA_CODE": "1820100",
+        "OFFICES_AREA_CODE": "180000"
+    },
     "nagoya": {
         "name": "名古屋栄",
-        "kana": "名古屋栄",
         "municipalities": "愛知県 名古屋市",
         "address": "愛知県名古屋市中区新栄町2-3 YWCAビル6階",
         "latlon": [
-            "35.16990238031672",
-            "136.90906961524473"
+            "35.169846",
+            "136.911226"
         ],
         "CLASS_AREA_CODE": "2310000",
         "OFFICES_AREA_CODE": "230000"
     },
     "meieki": {
         "name": "名駅",
-        "kana": "名駅",
         "municipalities": "愛知県 名古屋市",
         "address": "愛知県名古屋市西区那古野2-11-23 新名古屋ビル7階",
         "latlon": [
-            "35.17781539119261",
-            "136.8868881122975"
+            "35.177574",
+            "136.886999"
         ],
         "CLASS_AREA_CODE": "2310000",
         "OFFICES_AREA_CODE": "230000"
     },
     "higashiokazaki": {
         "name": "東岡崎",
-        "kana": "東岡崎",
         "municipalities": "愛知県 岡崎市",
         "address": "愛知県岡崎市明大寺町川端19-14 山七ビルＡＮＮＥＸ１階",
         "latlon": [
-            "34.95269009320778",
-            "137.1663022391164"
+            "34.95269",
+            "137.16759000000002"
         ],
         "CLASS_AREA_CODE": "2320200",
         "OFFICES_AREA_CODE": "230000"
     },
     "toyota": {
         "name": "豊田",
-        "kana": "豊田",
         "municipalities": "愛知県 豊田市西部",
         "address": "愛知県豊田市喜多町2-170 KiTARAブルー棟4階",
         "latlon": [
-            "35.08706792278485",
-            "137.15485852642698"
+            "35.087147",
+            "137.158039"
         ],
         "CLASS_AREA_CODE": "2321101",
         "OFFICES_AREA_CODE": "230000"
     },
     "shizuoka": {
         "name": "静岡",
-        "kana": "静岡",
         "municipalities": "静岡県 静岡市南部",
         "address": "静岡県静岡市葵区黒金町3 シャンソンビル１階",
         "latlon": [
@@ -661,540 +716,440 @@
     },
     "numazu": {
         "name": "静岡沼津",
-        "kana": "静岡沼津",
         "municipalities": "静岡県 沼津市",
         "address": "静岡県沼津市大手町1-1-3 沼津産業ビル 8F",
         "latlon": [
-            "35.102288872779646",
-            "138.85816737642745"
+            "35.102289",
+            "138.860742"
         ],
         "CLASS_AREA_CODE": "2220300",
         "OFFICES_AREA_CODE": "220000"
     },
     "hamamatsu": {
         "name": "浜松",
-        "kana": "浜松",
         "municipalities": "静岡県 浜松市南部",
         "address": "静岡県浜松市中央区中央3-9-3 UNビル3階",
         "latlon": [
-            "34.7067223903081",
-            "137.7371384504099"
+            "34.706705",
+            "137.739304"
         ],
         "CLASS_AREA_CODE": "2213001",
         "OFFICES_AREA_CODE": "220000"
     },
     "gifu": {
         "name": "岐阜",
-        "kana": "岐阜",
         "municipalities": "岐阜県 岐阜市",
         "address": "岐阜県岐阜市神田町9-20 G-Front 3階",
         "latlon": [
-            "35.411352052333015",
-            "136.7564526152497"
+            "35.411281",
+            "136.758819"
         ],
         "CLASS_AREA_CODE": "2120100",
         "OFFICES_AREA_CODE": "210000"
     },
     "yokkaichi": {
         "name": "四日市",
-        "kana": "四日市",
         "municipalities": "三重県 四日市市",
-        "address": "三重県四日市市鵜の森1-5-17 d_ll YOKKAICHI 1階",
+        "address": "三重県四日市市鵜の森1-5-17 FORECAST四日市(旧 d_ll YOKKAICHI) 1階",
         "latlon": [
-            "34.96702409830166",
-            "136.61343401968787"
+            "34.967206",
+            "136.614061"
         ],
         "CLASS_AREA_CODE": "2420200",
         "OFFICES_AREA_CODE": "240000"
     },
-    "niigata": {
-        "name": "新潟",
-        "kana": "新潟",
-        "municipalities": "新潟県 新潟市",
-        "address": "新潟県新潟市中央区東大通2-1-20 ステーションプラザ新潟1階",
-        "latlon": [
-            "37.91497341175535",
-            "139.05732285050155"
-        ],
-        "CLASS_AREA_CODE": "1510000",
-        "OFFICES_AREA_CODE": "150000"
-    },
-    "niigatanagaoka": {
-        "name": "新潟長岡",
-        "kana": "新潟長岡",
-        "municipalities": "新潟県 長岡市",
-        "address": "新潟県長岡市表町1-11-1 長岡フロントビル3F",
-        "latlon": [
-            "37.448142030909224",
-            "138.8449067752497"
-        ],
-        "CLASS_AREA_CODE": "1520200",
-        "OFFICES_AREA_CODE": "150000"
-    },
-    "nagano": {
-        "name": "長野",
-        "kana": "長野",
-        "municipalities": "長野県 長野市",
-        "address": "長野県長野市上千歳町1137-23 リアライズ長野ビル8階",
-        "latlon": [
-            "36.649645672290276",
-            "138.18696267730544"
-        ],
-        "CLASS_AREA_CODE": "2020100",
-        "OFFICES_AREA_CODE": "200000"
-    },
-    "matsumoto": {
-        "name": "長野松本",
-        "kana": "長野松本",
-        "municipalities": "長野県 松本市松本",
-        "address": "長野県松本市中央2-6-1 リーガル松本ビル 6F",
-        "latlon": [
-            "36.232222572414365",
-            "137.96695337646855"
-        ],
-        "CLASS_AREA_CODE": "2020201",
-        "OFFICES_AREA_CODE": "200000"
-    },
-    "kanazawa": {
-        "name": "金沢",
-        "kana": "金沢",
-        "municipalities": "石川県 金沢市",
-        "address": "石川県金沢市本町1‐5-2 リファーレ2階",
-        "latlon": [
-            "36.575675179897225",
-            "136.64938265109853"
-        ],
-        "CLASS_AREA_CODE": "1720100",
-        "OFFICES_AREA_CODE": "170000"
-    },
-    "toyama": {
-        "name": "富山",
-        "kana": "富山",
-        "municipalities": "富山県 富山市",
-        "address": "富山県富山市新桜町2-21 MKD.9富山ビル 3F",
-        "latlon": [
-            "36.69772037227652",
-            "137.21212937648576"
-        ],
-        "CLASS_AREA_CODE": "1620100",
-        "OFFICES_AREA_CODE": "160000"
-    },
-    "kofu": {
-        "name": "甲府",
-        "kana": "甲府",
-        "municipalities": "山梨県 甲府市",
-        "address": "山梨県甲府市宝1-20-22 GCT甲府ビル3F",
-        "latlon": [
-            "35.66667157259189",
-            "138.55975547644786"
-        ],
-        "CLASS_AREA_CODE": "1920100",
-        "OFFICES_AREA_CODE": "190000"
-    },
     "tennouji": {
         "name": "天王寺",
-        "kana": "天王寺",
         "municipalities": "大阪府 大阪市",
         "address": "大阪府大阪市阿倍野区阿倍野筋1-5-36 アベノセンタービル3階",
         "latlon": [
-            "34.65868408119925",
-            "135.4711667840965"
+            "34.646482000000006",
+            "135.512269"
         ],
         "CLASS_AREA_CODE": "2710000",
         "OFFICES_AREA_CODE": "270000"
     },
     "umeda": {
         "name": "梅田",
-        "kana": "梅田",
         "municipalities": "大阪府 大阪市",
         "address": "大阪府大阪市北区芝田2-7-18 ルーシッドスクエア梅田 9階",
         "latlon": [
-            "34.7072658",
-            "135.496249"
+            "34.707265",
+            "135.496322"
         ],
         "CLASS_AREA_CODE": "2710000",
         "OFFICES_AREA_CODE": "270000"
     },
     "osaka": {
         "name": "心斎橋",
-        "kana": "心斎橋",
         "municipalities": "大阪府 大阪市",
         "address": "大阪府大阪市中央区心斎橋筋2-7-18 プライムスクエア心斎橋 6階",
         "latlon": [
-            "34.67093798044219",
-            "135.49853631523143"
+            "34.670911",
+            "135.500717"
         ],
         "CLASS_AREA_CODE": "2710000",
         "OFFICES_AREA_CODE": "270000"
     },
     "kyobashi": {
         "name": "京橋",
-        "kana": "京橋",
         "municipalities": "大阪府 大阪市",
         "address": "大阪府大阪市中央区城見2-2-22 マルイトOBPビル2F",
         "latlon": [
-            "34.694255283559734",
-            "135.5304159751181"
+            "34.69382947292224",
+            "135.5300659764895"
         ],
         "CLASS_AREA_CODE": "2710000",
         "OFFICES_AREA_CODE": "270000"
     },
     "sakaihigashi": {
         "name": "堺東",
-        "kana": "堺東",
         "municipalities": "大阪府 堺市",
         "address": "大阪府堺市堺区一条通16-8 サンビル堺東3階",
         "latlon": [
-            "34.57119317296609",
-            "135.47969287725186"
+            "34.571193",
+            "135.482268"
         ],
         "CLASS_AREA_CODE": "2714000",
         "OFFICES_AREA_CODE": "270000"
     },
     "osakaikeda": {
         "name": "大阪池田",
-        "kana": "大阪池田",
         "municipalities": "大阪府 池田市",
         "address": "大阪府池田市満寿美町3-2 木平ビル4F",
         "latlon": [
-            "34.820187476793286",
-            "135.42469267512394"
+            "34.82018307287742",
+            "135.42469267649415"
         ],
         "CLASS_AREA_CODE": "2720400",
         "OFFICES_AREA_CODE": "270000"
     },
+    "hirakata": {
+        "name": "枚方",
+        "municipalities": "大阪府 枚方市",
+        "address": "大阪府枚方市新町一丁目１番８号 Hirakata Woven 4階",
+        "latlon": [
+            "34.81919081414627",
+            "135.6427385546054"
+        ],
+        "CLASS_AREA_CODE": "2721000",
+        "OFFICES_AREA_CODE": "270000"
+    },
     "kobe": {
         "name": "神戸三宮",
-        "kana": "神戸三宮",
         "municipalities": "兵庫県 神戸市",
         "address": "兵庫県神戸市中央区海岸通6 建隆ビルⅡ 8階",
         "latlon": [
-            "34.68678918034201",
-            "135.18934025023856"
+            "34.686761",
+            "135.191537"
         ],
         "CLASS_AREA_CODE": "2810000",
         "OFFICES_AREA_CODE": "280000"
     },
     "himeji": {
         "name": "姫路",
-        "kana": "姫路",
         "municipalities": "兵庫県 姫路市",
         "address": "兵庫県姫路市十二所前町45 朝日ビル7階",
         "latlon": [
-            "34.830234972874",
-            "134.68576337641767"
+            "34.83023497287395",
+            "134.6857633757501"
         ],
         "CLASS_AREA_CODE": "2820100",
         "OFFICES_AREA_CODE": "280000"
     },
     "akashi": {
         "name": "明石",
-        "kana": "明石",
         "municipalities": "兵庫県 明石市",
         "address": "兵庫県明石市大明石町1-7-4 白菊グランドビル8F",
         "latlon": [
-            "34.64830738602326",
-            "134.98818507511604"
+            "34.648276672938316",
+            "134.98817147648805"
         ],
         "CLASS_AREA_CODE": "2820300",
         "OFFICES_AREA_CODE": "280000"
     },
     "nishinomiyakitaguchi": {
         "name": "西宮北口",
-        "kana": "西宮北口",
         "municipalities": "兵庫県 西宮市",
         "address": "兵庫県西宮市高松町8-25 阪急西宮ガーデンズプラス館8階",
         "latlon": [
-            "34.74343897290431",
-            "135.35517197725622"
+            "34.743439",
+            "135.357747"
         ],
         "CLASS_AREA_CODE": "2820400",
         "OFFICES_AREA_CODE": "280000"
     },
     "ashiya": {
         "name": "芦屋",
-        "kana": "芦屋",
         "municipalities": "兵庫県 芦屋市",
         "address": "兵庫県芦屋市船戸町4-1 ラポルテ本館5F",
         "latlon": [
-            "34.735292872907465",
-            "135.30398107641417"
+            "34.73521907290752",
+            "135.30399807649107"
         ],
         "CLASS_AREA_CODE": "2820600",
         "OFFICES_AREA_CODE": "280000"
     },
     "sanda": {
         "name": "三田",
-        "kana": "三田",
         "municipalities": "兵庫県 三田市",
         "address": "兵庫県三田市中央町4-24 坊音第2ビル2F",
         "latlon": [
-            "34.88881787309707",
-            "135.22419727512707"
+            "34.88881347285334",
+            "135.2241972764963"
         ],
         "CLASS_AREA_CODE": "2821900",
         "OFFICES_AREA_CODE": "280000"
     },
     "kyoto": {
         "name": "京都四条烏丸",
-        "kana": "京都四条烏丸",
         "municipalities": "京都府 京都市",
         "address": "京都府京都市下京区烏丸通仏光寺下ル大政所町680 インターワンプレイス烏丸Ⅱ 9階",
         "latlon": [
-            "35.0009098",
-            "135.7594276"
+            "35.00084",
+            "135.759496"
         ],
         "CLASS_AREA_CODE": "2610000",
         "OFFICES_AREA_CODE": "260000"
     },
     "kyotoyamashina": {
         "name": "京都山科",
-        "kana": "京都山科",
         "municipalities": "京都府 京都市",
         "address": "京都府京都市山科区四ノ宮神田町4 古橋山科ビル4階",
         "latlon": [
-            "34.98950827281842",
-            "135.81824527726238"
+            "34.989508",
+            "135.82082"
         ],
         "CLASS_AREA_CODE": "2610000",
         "OFFICES_AREA_CODE": "260000"
     },
     "shigakusatsu": {
         "name": "滋賀草津",
-        "kana": "滋賀草津",
         "municipalities": "滋賀県 草津市",
         "address": "滋賀県栗東市小柿7丁目9-11 滋賀中央ビル3F",
         "latlon": [
-            "35.019883966021126",
-            "135.96718207513328"
+            "35.01988",
+            "135.969757"
         ],
         "CLASS_AREA_CODE": "2520600",
         "OFFICES_AREA_CODE": "250000"
     },
     "narasaidaiji": {
         "name": "奈良西大寺",
-        "kana": "奈良西大寺",
         "municipalities": "奈良県 奈良市西部",
         "address": "奈良県奈良市西大寺南町2-4 サンスクリット西大寺3階",
         "latlon": [
-            "34.69295827292226",
-            "135.77892557725482"
+            "34.692958",
+            "135.781501"
         ],
         "CLASS_AREA_CODE": "2920101",
         "OFFICES_AREA_CODE": "290000"
     },
     "naraoujiekimae": {
         "name": "奈良王寺駅前",
-        "kana": "奈良王寺駅前",
         "municipalities": "奈良県 王寺町",
         "address": "奈良県北葛城郡王寺町王寺2-6-12 服部ビル 3F",
         "latlon": [
-            "34.59651958879681",
-            "135.7029874251137"
+            "34.5964583729569",
+            "135.70297667648617"
         ],
         "CLASS_AREA_CODE": "2942500",
         "OFFICES_AREA_CODE": "290000"
     },
     "hiroshima": {
         "name": "広島",
-        "kana": "広島",
         "municipalities": "広島県 広島市中区",
         "address": "広島県広島市中区大手町3-1-9 広島鯉城通りビル 4階",
         "latlon": [
-            "34.388762080420086",
-            "132.4529292502285"
+            "34.38876",
+            "132.455125"
         ],
         "CLASS_AREA_CODE": "3410100",
         "OFFICES_AREA_CODE": "340000"
     },
     "okayama": {
         "name": "岡山",
-        "kana": "岡山",
         "municipalities": "岡山県 岡山市",
         "address": "岡山県岡山市北区下石井1-1-3 日本生命岡山第二ビル・新館３階・４階",
         "latlon": [
-            "34.66356839323324",
-            "133.91742463911456"
+            "34.663568",
+            "133.918712"
         ],
         "CLASS_AREA_CODE": "3310000",
         "OFFICES_AREA_CODE": "330000"
     },
     "kurashiki": {
         "name": "倉敷",
-        "kana": "倉敷",
         "municipalities": "岡山県 倉敷市",
         "address": "岡山県倉敷市昭和2-4-6 倉敷アークスクエア1F",
         "latlon": [
-            "34.60422837295415",
-            "133.76916977640983"
+            "34.604228",
+            "133.771745"
         ],
         "CLASS_AREA_CODE": "3320200",
         "OFFICES_AREA_CODE": "330000"
     },
     "takamatsu": {
         "name": "高松",
-        "kana": "高松",
         "municipalities": "香川県 高松市",
         "address": "香川県高松市番町1-6-1 両備高松ビル3階",
         "latlon": [
-            "34.343758209663946",
-            "134.0456095504001"
+            "34.343724",
+            "134.047781"
         ],
         "CLASS_AREA_CODE": "3720100",
         "OFFICES_AREA_CODE": "370000"
     },
     "matsuyama": {
         "name": "松山",
-        "kana": "松山",
         "municipalities": "愛媛県 松山市",
         "address": "愛媛県松山市千舟町5-5-3 EME松山千舟町ビル4階",
         "latlon": [
-            "33.836482300030646",
-            "132.76295808465576"
+            "33.837017",
+            "132.763001"
         ],
         "CLASS_AREA_CODE": "3820100",
         "OFFICES_AREA_CODE": "380000"
     },
     "tokushima": {
         "name": "徳島",
-        "kana": "徳島",
         "municipalities": "徳島県 徳島市",
         "address": "徳島県徳島市寺島本町東3-12-6 徳島駅前濱口ビル 9F",
         "latlon": [
-            "34.07372831500929",
-            "134.55078573857105"
+            "34.07367737314883",
+            "134.54956797646827"
         ],
         "CLASS_AREA_CODE": "3620100",
         "OFFICES_AREA_CODE": "360000"
     },
     "kitakyusyu": {
         "name": "北九州",
-        "kana": "北九州",
         "municipalities": "福岡県 北九州市",
         "address": "福岡県北九州市小倉北区米町2-1-2 小倉第一生命ビルディング4階",
         "latlon": [
-            "33.88349383395719",
-            "130.88312875038778"
+            "33.883489",
+            "130.885321"
         ],
         "CLASS_AREA_CODE": "4010000",
         "OFFICES_AREA_CODE": "400000"
     },
     "fukuoka": {
         "name": "福岡薬院",
-        "kana": "福岡薬院",
         "municipalities": "福岡県 福岡市",
         "address": "福岡県福岡市中央区渡辺通2-4-8 小学館ビル7階",
         "latlon": [
-            "33.58182948073641",
-            "130.40059051520274"
+            "33.581834",
+            "130.40278"
         ],
         "CLASS_AREA_CODE": "4013000",
         "OFFICES_AREA_CODE": "400000"
     },
     "hakataekiminami": {
         "name": "博多駅南",
-        "kana": "博多駅南",
         "municipalities": "福岡県 福岡市",
         "address": "福岡県福岡市博多区博多駅南2-14-8 博多駅サウスビル3階",
         "latlon": [
-            "33.58151317333813",
-            "130.41919007722734"
+            "33.581513",
+            "130.421765"
         ],
         "CLASS_AREA_CODE": "4013000",
         "OFFICES_AREA_CODE": "400000"
     },
     "kurume": {
         "name": "久留米",
-        "kana": "久留米",
         "municipalities": "福岡県 久留米市",
         "address": "福岡県久留米市天神町1-8 千歳プラザ（リベール）6階",
         "latlon": [
-            "33.31177707344487",
-            "130.51883027722047"
+            "33.311777",
+            "130.521405"
         ],
         "CLASS_AREA_CODE": "4020300",
         "OFFICES_AREA_CODE": "400000"
     },
     "kumamoto": {
         "name": "熊本",
-        "kana": "熊本",
         "municipalities": "熊本県 熊本市",
         "address": "熊本県熊本市中央区花畑町10-34 熊本花畑ビル4F",
         "latlon": [
-            "32.802301873653086",
-            "130.7042770763475"
+            "32.80225067365305",
+            "130.70429057642585"
         ],
         "CLASS_AREA_CODE": "4310000",
         "OFFICES_AREA_CODE": "430000"
     },
     "kagoshima": {
         "name": "鹿児島",
-        "kana": "鹿児島",
         "municipalities": "鹿児島県 鹿児島市",
-        "address": "鹿児島県鹿児島市山之口町1-30 出原ビル2階",
+        "address": "鹿児島県鹿児島市中町7-1 コアナ天文館4階",
         "latlon": [
-            "31.588471850846062",
-            "130.54929825032872"
+            "31.59231027702506",
+            "130.5514279878722"
         ],
         "CLASS_AREA_CODE": "4620100",
         "OFFICES_AREA_CODE": "460100"
     },
     "nagasakiekimae": {
         "name": "長崎駅前",
-        "kana": "長崎駅前",
         "municipalities": "長崎県 長崎市",
         "address": "長崎県長崎市西坂町2-3 長崎駅前第一生命ビルディング3階",
         "latlon": [
-            "32.754547373673034",
-            "129.86827507720696"
+            "32.754547",
+            "129.87085"
         ],
         "CLASS_AREA_CODE": "4220100",
         "OFFICES_AREA_CODE": "420000"
     },
     "nagasakisasebo": {
         "name": "長崎佐世保",
-        "kana": "長崎佐世保",
         "municipalities": "長崎県 佐世保市",
         "address": "長崎県佐世保市白南風町8-17 佐世保交通センタービル7F",
         "latlon": [
-            "33.16406867350424",
-            "129.72508197635966"
+            "33.1640686735044",
+            "129.72508197643776"
         ],
         "CLASS_AREA_CODE": "4220201",
         "OFFICES_AREA_CODE": "420000"
     },
     "oita": {
         "name": "大分",
-        "kana": "大分",
         "municipalities": "大分県 大分市",
         "address": "大分県大分市都町1-1-23 TKフロンティアビル 12F",
         "latlon": [
-            "33.23959706020378",
-            "131.60410357505265"
+            "33.23627233561502",
+            "131.60538030793154"
         ],
         "CLASS_AREA_CODE": "4420100",
         "OFFICES_AREA_CODE": "440000"
     },
+    "miyazaki": {
+        "name": "宮崎",
+        "municipalities": "宮崎県 宮崎市",
+        "address": "宮崎県宮崎市橘通東４丁目２−６ エリーズ宮崎ビル 2階",
+        "latlon": [
+            "31.91834737403429",
+            "131.4213488756275"
+        ],
+        "CLASS_AREA_CODE": "4520100",
+        "OFFICES_AREA_CODE": "450000"
+    },
     "sagaekimae": {
         "name": "佐賀駅前",
-        "kana": "佐賀駅前",
         "municipalities": "佐賀県 佐賀市",
         "address": "佐賀県佐賀市駅前中央1-9-38 佐賀新聞 佐賀駅前ビル1F",
         "latlon": [
-            "33.26318895898303",
-            "130.29436597505364"
+            "33.26314847346414",
+            "130.29426967644102"
         ],
         "CLASS_AREA_CODE": "4120100",
         "OFFICES_AREA_CODE": "410000"
     },
     "naha": {
         "name": "那覇",
-        "kana": "那覇",
         "municipalities": "沖縄本島地方 那覇市",
         "address": "沖縄県那覇市泊2-15-9 住太郎那覇ビル9階",
         "latlon": [
-            "26.225844877063178",
-            "127.68312017706417"
+            "26.225845",
+            "127.685695"
         ],
         "CLASS_AREA_CODE": "4720100",
         "OFFICES_AREA_CODE": "471000"
