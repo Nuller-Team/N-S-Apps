@@ -1,12 +1,12 @@
-import { Handlers, PageProps } from "$fresh/server.ts";
 import { ComponentChild } from "preact";
 import Head from "@/components/Head.tsx";
 import { State } from "@/routes/_middleware.ts";
 import Layout from "@/components/Layout.tsx";
+import { Handlers } from "fresh/compat";
 
 export const handler: Handlers<State, State> = {
-  GET(_request, ctx) {
-    return ctx.render(ctx.state);
+  GET(ctx) {
+    return ctx.render(<AccountPage {...ctx.state} url={ctx.req.url} />);
   },
 };
 
@@ -30,26 +30,29 @@ function Row(props: RowProps) {
   );
 }
 
-export default function AccountPage(props: PageProps<State>) {
+export default function AccountPage(
+  props: State & { url: string },
+) {
+  const url = new URL(props.url);
   return (
     <>
-      <Head title="Account" href={props.url.href} />
-      <Layout state={props.data}>
+      <Head title="Account" href={url.href} />
+      <Layout state={props}>
         <div class="max-w-lg min-h-screen m-auto w-full flex-1 px-8 flex flex-col justify-center">
           <img
-            src={props.data.user?.avatarUrl}
+            src={props.user?.avatarUrl}
             alt="User Avatar"
             crossOrigin="anonymous"
             class="max-w-[50%] self-center rounded-full aspect-square mb-4 md:mb-6"
           />
           <ul>
-            <Row title="名前" text={props.data.user?.name!} />
+            <Row title="名前" text={props.user?.name!} />
           </ul>
           <ul>
             <Row
               title="所属"
-              text={props.data.user?.school.name + "高等学校" +
-                props.data.user?.school.gen + "期生"}
+              text={props.user?.school.name + "高等学校" +
+                props.user?.school.gen + "期生"}
             />
           </ul>
           <a

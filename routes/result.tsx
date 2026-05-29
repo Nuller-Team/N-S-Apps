@@ -1,14 +1,13 @@
-import { PageProps } from "$fresh/server.ts";
-import { asset } from "$fresh/runtime.ts";
+import { asset } from "fresh/runtime";
 import Head from "@/components/Head.tsx";
 import { State } from "@/routes/_middleware.ts";
 import Layout from "@/components/Layout.tsx";
 import Alert from "@/components/Alert.tsx";
-import { Handlers } from "@/utils/handler.ts";
+import { Handlers } from "fresh/compat";
 
-export const handler: Handlers = {
-  GET(_req, ctx) {
-    return ctx.render({ ...ctx.state });
+export const handler: Handlers<State, State> = {
+  GET(ctx) {
+    return ctx.render(<Result {...ctx.state} url={ctx.req.url} />);
   },
 };
 
@@ -17,17 +16,18 @@ const DESCRIPTION =
   `Chromeの拡張機能を用いてN/S高の成績を素早く簡単に確認することができます。
 このツールを使用するにはGoogleアカウントでログインが必要です。`;
 
-export default function Result(props: PageProps<State>) {
-  const ogImageUrl = new URL(asset("/ns-app/result.png"), props.url).href;
+export default function Result(props: State & { url: string }) {
+  const url = new URL(props.url);
+  const ogImageUrl = new URL(asset("/ns-app/result.png"), url).href;
   return (
     <>
       <Head
         imageUrl={ogImageUrl}
         title={TITLE}
         description={DESCRIPTION}
-        href={props.url.href}
+        href={url.href}
       />
-      <Layout state={props.data}>
+      <Layout state={props}>
         <Alert
           message="このサービスは2025年3月31日で提供を終了しました。アーカイブとして表示しています。"
           link="https://support.nuller.jp/news/ns_result_future"
@@ -43,12 +43,12 @@ export default function Result(props: PageProps<State>) {
             <p class="mt-4 text-gray-800">
               N/S
               Resultは、N高の成績を簡単かつスピーディーに確認できるアプリです。
-              <p class="text-lg mb-8 text-center">※2025年3月末で提供を終了しています。</p>
+              <p class="text-lg mb-8 text-center">
+                ※2025年3月末で提供を終了しています。
+              </p>
             </p>
             <div class="mt-8">
-              <a
-                class="px-6 py-3 opacity-50 cursor-not-allowed font-semibold text-white bg-blue-500 hover:bg-blue-600 rounded-md"
-              >
+              <a class="px-6 py-3 opacity-50 cursor-not-allowed font-semibold text-white bg-blue-500 hover:bg-blue-600 rounded-md">
                 ダウンロード
               </a>
             </div>
@@ -60,9 +60,7 @@ export default function Result(props: PageProps<State>) {
               特徴
             </h2>
             <div class="grid gap-x-10 gap-y-10 grid-cols-1 md:grid-cols-3">
-              <div
-                class="bg-white py-5 px-6 shadow-md rounded-md text-center"
-              >
+              <div class="bg-white py-5 px-6 shadow-md rounded-md text-center">
                 <h3 class="text-xl font-semibold text-gray-800 py-2">
                   ✅簡単な成績確認！
                 </h3>
@@ -71,9 +69,7 @@ export default function Result(props: PageProps<State>) {
                   Resultを使えば、N高の成績をブラウザ上部のメニューからワンタップで確認できます。
                 </p>
               </div>
-              <div
-                class="bg-white py-5 px-6 shadow-md rounded-md text-center"
-              >
+              <div class="bg-white py-5 px-6 shadow-md rounded-md text-center">
                 <h3 class="text-xl font-semibold text-gray-800 py-2">
                   🎨シンプルなデザイン！
                 </h3>
@@ -82,9 +78,7 @@ export default function Result(props: PageProps<State>) {
                   Resultのデザインはシンプルで使いやすく、スッキリとした画面で成績を確認できます。
                 </p>
               </div>
-              <div
-                class="bg-white py-5 px-6 shadow-md rounded-md text-center"
-              >
+              <div class="bg-white py-5 px-6 shadow-md rounded-md text-center">
                 <h3 class="text-xl font-semibold text-gray-800 py-2">
                   🔒プライバシー重視！
                 </h3>
@@ -93,9 +87,7 @@ export default function Result(props: PageProps<State>) {
                   「Result」は、N/S高のマイページのデザインを変更するための機能です。開発者は、ユーザーの情報を取得することはありません。
                 </p>
               </div>
-              <div
-                class="bg-white py-5 px-6 shadow-md rounded-md text-center"
-              >
+              <div class="bg-white py-5 px-6 shadow-md rounded-md text-center">
                 <h3 class="text-xl font-semibold text-gray-800 py-2">
                   💻パソコンで成績確認！
                 </h3>
@@ -103,9 +95,7 @@ export default function Result(props: PageProps<State>) {
                   Chrome拡張機能技術を使用して、PCで成績確認ができます。Macでも簡単にチェックできます。
                 </p>
               </div>
-              <div
-                class="bg-white py-5 px-6 shadow-md rounded-md text-center"
-              >
+              <div class="bg-white py-5 px-6 shadow-md rounded-md text-center">
                 <h3 class="text-xl font-semibold text-gray-800 py-2">
                   🌍完全無料のオープンソースアプリ！
                 </h3>
@@ -122,9 +112,7 @@ export default function Result(props: PageProps<State>) {
               学生開発チームNullerとは？
             </h2>
             <div class="grid gap-x-3 gap-y-10 grid-cols-1 md:grid-cols-3">
-              <div
-                class="bg-white py-5 px-6 shadow-md rounded-md text-center"
-              >
+              <div class="bg-white py-5 px-6 shadow-md rounded-md text-center">
                 <h3 class="text-xl font-semibold text-gray-800 py-4">
                   ✅N/S高生で構成されたチーム
                 </h3>
@@ -135,9 +123,7 @@ export default function Result(props: PageProps<State>) {
                   詳しく
                 </a>
               </div>
-              <div
-                class="bg-white py-5 px-6 shadow-md rounded-md text-center"
-              >
+              <div class="bg-white py-5 px-6 shadow-md rounded-md text-center">
                 <h3 class="text-xl font-semibold text-gray-800 py-4">
                   ✅Nullerは技術の向上を目的として活動
                 </h3>
@@ -148,9 +134,7 @@ export default function Result(props: PageProps<State>) {
                   応募する
                 </a>
               </div>
-              <div
-                class="bg-white py-5 px-6 shadow-md rounded-md text-center"
-              >
+              <div class="bg-white py-5 px-6 shadow-md rounded-md text-center">
                 <h3 class="text-xl font-semibold text-gray-800 py-4">
                   ✅様々なアプリを公開
                 </h3>
@@ -173,11 +157,11 @@ export default function Result(props: PageProps<State>) {
               <p class="text-lg mb-8">
                 N高の成績を簡単・素早く確認しましょう！
               </p>
-              <p class="text-lg mb-8 text-center">※2025年3月末で提供を終了しています。</p>
+              <p class="text-lg mb-8 text-center">
+                ※2025年3月末で提供を終了しています。
+              </p>
               <div class="flex justify-center">
-                <a
-                  class="bg-white opacity-50 cursor-not-allowed  text-blue-600 font-semibold py-3 px-6 rounded-full mr-4"
-                >
+                <a class="bg-white opacity-50 cursor-not-allowed  text-blue-600 font-semibold py-3 px-6 rounded-full mr-4">
                   ダウンロード
                 </a>
               </div>
@@ -190,9 +174,7 @@ export default function Result(props: PageProps<State>) {
               ダウンロード手順
             </h2>
             <div class="grid gap-x-3 gap-y-10 grid-cols-1 md:grid-cols-2">
-              <div
-                class="bg-white py-5 px-6 shadow-md rounded-md text-center"
-              >
+              <div class="bg-white py-5 px-6 shadow-md rounded-md text-center">
                 <h3 class="text-xl font-semibold text-gray-800 mb-2">
                   ✅ダウンロードリンクを開き、「Chromeに追加」を選択します。
                 </h3>
@@ -201,27 +183,21 @@ export default function Result(props: PageProps<State>) {
                 </p>
                 <img src="result/Chrome1.png" />
               </div>
-              <div
-                class="bg-white py-5 px-6 shadow-md rounded-md text-center"
-              >
+              <div class="bg-white py-5 px-6 shadow-md rounded-md text-center">
                 <h3 class="text-xl font-semibold text-gray-800 mb-2">
                   ✅拡張機能を追加を選択
                 </h3>
                 <p>これを行うことによりインストールが完了します。</p>
                 <img src="result/Chrome2.png" />
               </div>
-              <div
-                class="bg-white py-5 px-6 shadow-md rounded-md text-center"
-              >
+              <div class="bg-white py-5 px-6 shadow-md rounded-md text-center">
                 <h3 class="text-xl font-semibold text-gray-800 mb-2">
                   ✅成績を素早く確認できるようにします。
                 </h3>
                 <p>パズルボタンから「N/SResult」をピン留めします。</p>
                 <img src="result/Chrome3.png" />
               </div>
-              <div
-                class="bg-white py-5 px-6 shadow-md rounded-md text-center"
-              >
+              <div class="bg-white py-5 px-6 shadow-md rounded-md text-center">
                 <div class="bg-white rounded-lg shadow-md p-6">
                   <h3 class="text-xl font-semibold text-gray-800 mb-2">
                     ✅成績を素早く確認できるようにします。

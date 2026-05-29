@@ -1,10 +1,10 @@
 import { State } from "@/routes/_middleware.ts";
 import Head from "@/components/Head.tsx";
-import { asset } from "$fresh/runtime.ts";
+import { asset } from "fresh/runtime";
 import Layout from "@/components/Layout.tsx";
 import links from "@/data/campus-alert.json" with { type: "json" };
 import type { JSX } from "preact";
-import type { RouteContext } from "$fresh/server.ts";
+import { RouteContext } from "fresh/compat";
 
 interface MenuType {
   name: string;
@@ -58,7 +58,6 @@ const DESCRIPTION =
 const CampusAlertJson: { [key: string]: MenuType } = links;
 
 export default async function CampusAlert(
-  _req: Request,
   ctx: RouteContext<unknown, CampusAlert>,
 ) {
   const ogImageUrl = new URL(asset("/ns-app/campus-alert.png"), ctx.url).href;
@@ -76,9 +75,7 @@ export default async function CampusAlert(
         <Layout state={state}>
           <section class="bg-white py-12">
             <div class="container mx-auto px-4">
-              <div
-                class="font-semibold mb-8 text-center py-20 md:py-36 space-y-2"
-              >
+              <div class="font-semibold mb-8 text-center py-20 md:py-36 space-y-2">
                 <h1 class="text-red-400 text-5xl md:text-7xl">
                   N/S Campus Alert
                 </h1>
@@ -204,7 +201,8 @@ async function getAlertInfo(id: string): Promise<AlertData> {
   const CampusInfo = CampusAlertJson[id];
   const res = await (
     await fetch(
-      `https://www.jma.go.jp/bosai/warning/data/warning/${CampusInfo["OFFICES_AREA_CODE"]
+      `https://www.jma.go.jp/bosai/warning/data/warning/${
+        CampusInfo["OFFICES_AREA_CODE"]
       }.json`,
     )
   ).json();

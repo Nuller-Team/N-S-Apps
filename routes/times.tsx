@@ -1,14 +1,13 @@
-import { PageProps } from "$fresh/server.ts";
 import TIMES from "@/islands/times.tsx";
 import { State } from "@/routes/_middleware.ts";
 import Head from "@/components/Head.tsx";
-import { asset } from "$fresh/runtime.ts";
+import { asset } from "fresh/runtime";
 import Layout from "@/components/Layout.tsx";
-import { Handlers } from "@/utils/handler.ts";
+import { Handlers } from "fresh/compat";
 
-export const handler: Handlers = {
-  GET(_req, ctx) {
-    return ctx.render({ ...ctx.state });
+export const handler: Handlers<State, State> = {
+  GET(ctx) {
+    return ctx.render(<Times {...ctx.state} url={ctx.req.url} />);
   },
 };
 
@@ -17,23 +16,22 @@ const DESCRIPTION =
   `N/S高に入学してから何秒経過しているかを確認することができます。
 このツールを使用するにはGoogleアカウントでログインが必要です。`;
 
-export default function Times(props: PageProps<State>) {
-  const ogImageUrl = new URL(asset("/ns-app/times.png"), props.url).href;
-  if (!props.data.user?.id) {
+export default function Times(props: State & { url: string }) {
+  const url = new URL(props.url);
+  const ogImageUrl = new URL(asset("/ns-app/times.png"), url).href;
+  if (!props.user?.id) {
     return (
       <>
         <Head
           title={TITLE}
           description={DESCRIPTION}
-          href={props.url.href}
+          href={url.href}
           imageUrl={ogImageUrl}
         />
-        <Layout state={props.data}>
+        <Layout state={props}>
           <section class="bg-white py-12">
             <div class="container mx-auto px-4">
-              <div
-                class="font-semibold mb-8 text-center py-20 md:py-36 space-y-2"
-              >
+              <div class="font-semibold mb-8 text-center py-20 md:py-36 space-y-2">
                 <h1 class="text-yellow-500 text-5xl md:text-7xl">
                   N/S Times
                 </h1>
@@ -62,12 +60,12 @@ export default function Times(props: PageProps<State>) {
         <Head
           title={TITLE}
           description={DESCRIPTION}
-          href={props.url.href}
+          href={url.href}
           imageUrl={ogImageUrl}
         />
-        <Layout state={props.data}>
+        <Layout state={props}>
           <div class="flex justify-center items-center h-screen">
-            <TIMES state={props.data} />
+            <TIMES state={props} />
           </div>
         </Layout>
       </>

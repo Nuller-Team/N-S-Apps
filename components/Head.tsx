@@ -1,4 +1,4 @@
-import { Head as _Head } from "$fresh/runtime.ts";
+import { Head as FreshHead } from "fresh/runtime";
 import { SITE_DESCRIPTION, SITE_NAME } from "@/utils/constants.ts";
 import Meta from "@/components/Meta.tsx";
 
@@ -16,7 +16,7 @@ export default function Head({
   imageUrl,
 }: HeadProps) {
   return (
-    <_Head>
+    <FreshHead>
       <Meta
         title={title ?? SITE_NAME}
         description={description ?? SITE_DESCRIPTION}
@@ -26,6 +26,6 @@ export default function Head({
       <link rel="icon" href="/favicon.ico" sizes="48x48" />
       <link rel="manifest" href="/manifest.json" />
       <link rel="apple-touch-icon" href="./512.png" />
-    </_Head>
+    </FreshHead>
   );
 }

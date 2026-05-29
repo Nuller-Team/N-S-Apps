@@ -40,6 +40,7 @@ export interface User {
   avatarUrl: string;
 
   sessionId: string;
+  googleAccessToken?: string;
 }
 
 /**
@@ -89,6 +90,26 @@ export async function updateUser(user: User) {
     .commit();
 
   if (!res.ok) throw new Error(`Failed to update user: ${user}`);
+}
+
+export async function replaceUserSession(
+  user: User,
+  previousSessionId?: string,
+) {
+  const usersKey = ["users", user.id];
+  const usersBySessionKey = ["users_by_session", user.sessionId];
+  const atomicOp = kv.atomic();
+
+  if (previousSessionId && previousSessionId !== user.sessionId) {
+    atomicOp.delete(["users_by_session", previousSessionId]);
+  }
+
+  const res = await atomicOp
+    .set(usersKey, user)
+    .set(usersBySessionKey, user)
+    .commit();
+
+  if (!res.ok) throw new Error(`Failed to replace user session: ${user}`);
 }
 
 export async function deleteUserBySession(sessionId: string) {

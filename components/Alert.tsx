@@ -4,9 +4,7 @@ type AlertProps = {
 };
 export default function Alert({ message, link }: AlertProps) {
   return (
-    <div
-      class=" bg-red-700 text-white"
-    >
+    <div class=" bg-red-700 text-white">
       <div class="m-auto flex md:flex-row flex-col gap-x-4 gap-y-2 justify-center items-center p-2">
         <div>{message}</div>
         {link && (

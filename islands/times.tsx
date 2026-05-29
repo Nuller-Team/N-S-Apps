@@ -1,6 +1,5 @@
 import { useEffect, useState } from "preact/hooks";
 import { DateTime, datetime, diffInMillisec } from "ptera";
-import { h } from "preact";
 import { State } from "@/routes/_middleware.ts";
 
 interface propsType {
@@ -140,7 +139,9 @@ export default function TIMES({ state }: propsType) {
             >
               {Math.floor(time / 1000 / 86400)}
             </a>
-            <span className="text-3xl md:text-3.5xl lg:text-4xl 2xl:text-4.5xl ml-1">日</span>
+            <span className="text-3xl md:text-3.5xl lg:text-4xl 2xl:text-4.5xl ml-1">
+              日
+            </span>
           </div>
           と
           <div className="inline-flex items-baseline">
@@ -152,7 +153,9 @@ export default function TIMES({ state }: propsType) {
             >
               {Math.floor((time / 1000) % 86400)}
             </a>
-            <span className="text-3xl md:text-3.5xl lg:text-4xl 2xl:text-4.5xl ml-1">秒</span>
+            <span className="text-3xl md:text-3.5xl lg:text-4xl 2xl:text-4.5xl ml-1">
+              秒
+            </span>
           </div>
           <br />
           が経過しています

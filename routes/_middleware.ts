@@ -1,48 +1,80 @@
-import { MiddlewareHandlerContext } from "$fresh/server.ts";
-import { walk } from "$std/fs/walk.ts";
-import { getSessionId } from "kv_oauth";
-import { redirect, setRedirectUrlCookie } from "@/utils/redirect.ts";
-import { getUserBySession, User } from "@/utils/db.ts";
-import { Status } from "$std/http/http_status.ts";
+import { FreshContext } from "fresh";
+import { deleteCookie } from "@std/http/cookie";
+import { redirect } from "@/utils/redirect.ts";
+import { deleteUserBySession, getUserBySession, User } from "@/utils/db.ts";
+import {
+  deleteAppSessionCookie,
+  getAppSessionToken,
+  hashSessionToken,
+} from "@/utils/auth_session.ts";
+import { getGoogleUser } from "@/utils/google.ts";
 
-const STATIC_DIR_ROOT = new URL("../static", import.meta.url);
-const staticFileNames: string[] = [];
-for await (const { name } of walk(STATIC_DIR_ROOT, { includeDirs: false })) {
-  staticFileNames.push(name);
-}
+const STATIC_PATHS = ["_frsh", ".well-known", "static"];
 
 export interface State {
   user?: User;
   sessionId?: string;
 }
 
+function clearSessionAndRedirect(req: Request, sessionId: string) {
+  const url = new URL(req.url);
+  const from = encodeURIComponent(`${url.pathname}${url.search}`);
+  const res = redirect(`/signIn?from=${from}`, 302);
+  deleteAppSessionCookie(res.headers);
+  deleteCookie(res.headers, "auth_session", { path: "/" });
+  return deleteUserBySession(sessionId).then(() => res);
+}
+
 export async function handler(
-  req: Request,
-  ctx: MiddlewareHandlerContext<State>,
+  ctx: FreshContext<State>,
 ) {
+  const req = ctx.req;
   const { hostname, pathname } = new URL(req.url);
 
-  if (hostname != "n-s-apps.nuller.jp" && hostname != "localhost") {
-    return redirect("https://n-s-apps.nuller.jp", Status.Found);
+  if (
+    hostname != "n-s-apps.nuller.jp" && hostname != "localhost" &&
+    hostname != "127.0.0.1"
+  ) {
+    // return redirect("https://n-s-apps.nuller.jp", 302);
   }
 
-  // KeepAlliveや静的リクエストのセッション管理データを処理しない
-  if (["_frsh", ...staticFileNames].some((part) => pathname.includes(part))) {
+  if (STATIC_PATHS.some((part) => pathname.includes(part))) {
     return await ctx.next();
   }
 
-  ctx.state.sessionId = await getSessionId(req);
+  if (pathname.toLowerCase() === "/callback") {
+    return await ctx.next();
+  }
 
-  if (ctx.state.sessionId) {
-    const user = await getUserBySession(ctx.state.sessionId);
-    if (user) {
-      ctx.state.user = user;
+  const appSessionToken = getAppSessionToken(req.headers);
+  if (appSessionToken) {
+    try {
+      ctx.state.sessionId = await hashSessionToken(appSessionToken);
+    } catch (e) {
+      console.error("[ERROR] Failed to extract app session:", e);
     }
   }
-  const res = await ctx.next();
-  if (ctx.destination === "route" && pathname == "/signin") {
-    setRedirectUrlCookie(req, res);
+
+  if (ctx.state.sessionId) {
+    try {
+      const user = await getUserBySession(ctx.state.sessionId);
+      if (user) {
+        if (!user.googleAccessToken) {
+          return await clearSessionAndRedirect(req, user.sessionId);
+        }
+
+        try {
+          await getGoogleUser(user.googleAccessToken);
+        } catch (_e) {
+          return await clearSessionAndRedirect(req, user.sessionId);
+        }
+
+        ctx.state.user = user;
+      }
+    } catch (_e) {
+      // Ignore user lookup errors so the normal route can decide what to show.
+    }
   }
 
-  return res;
+  return await ctx.next();
 }
