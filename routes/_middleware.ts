@@ -1,6 +1,5 @@
 import { FreshContext } from "fresh";
 import { deleteCookie } from "@std/http/cookie";
-import { Status } from "jsr:@std/http@1";
 import { redirect } from "@/utils/redirect.ts";
 import { deleteUserBySession, getUserBySession, User } from "@/utils/db.ts";
 import {
@@ -20,7 +19,7 @@ export interface State {
 function clearSessionAndRedirect(req: Request, sessionId: string) {
   const url = new URL(req.url);
   const from = encodeURIComponent(`${url.pathname}${url.search}`);
-  const res = redirect(`/signIn?from=${from}`, Status.Found);
+  const res = redirect(`/signIn?from=${from}`, 302);
   deleteAppSessionCookie(res.headers);
   deleteCookie(res.headers, "auth_session", { path: "/" });
   return deleteUserBySession(sessionId).then(() => res);
@@ -36,7 +35,7 @@ export async function handler(
     hostname != "n-s-apps.nuller.jp" && hostname != "localhost" &&
     hostname != "127.0.0.1"
   ) {
-    // return redirect("https://n-s-apps.nuller.jp", Status.Found);
+    // return redirect("https://n-s-apps.nuller.jp", 302);
   }
 
   if (STATIC_PATHS.some((part) => pathname.includes(part))) {
