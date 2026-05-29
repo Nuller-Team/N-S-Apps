@@ -9,7 +9,9 @@ import {
 } from "@/utils/auth_session.ts";
 import { getGoogleUser } from "@/utils/google.ts";
 
-const STATIC_PATHS = ["_frsh", ".well-known", "static"];
+const STATIC_PATH_PREFIXES = ["/_frsh", "/.well-known", "/assets"];
+const STATIC_FILE_EXTENSION_PATTERN =
+  /\.(?:css|js|mjs|map|png|jpg|jpeg|gif|webp|avif|svg|ico|json|txt|xml|webmanifest|woff2?|ttf|otf)$/i;
 
 export interface State {
   user?: User;
@@ -35,10 +37,13 @@ export async function handler(
     hostname != "n-s-apps.nuller.jp" && hostname != "localhost" &&
     hostname != "127.0.0.1"
   ) {
-    // return redirect("https://n-s-apps.nuller.jp", 302);
+    return redirect("https://n-s-apps.nuller.jp", 302);
   }
 
-  if (STATIC_PATHS.some((part) => pathname.includes(part))) {
+  if (
+    STATIC_PATH_PREFIXES.some((prefix) => pathname.startsWith(prefix)) ||
+    STATIC_FILE_EXTENSION_PATTERN.test(pathname)
+  ) {
     return await ctx.next();
   }
 
@@ -72,7 +77,7 @@ export async function handler(
         ctx.state.user = user;
       }
     } catch (_e) {
-      // Ignore user lookup errors so the normal route can decide what to show.
+      // エラーが発生してもセッションを消してリダイレクトさせる
     }
   }
 
