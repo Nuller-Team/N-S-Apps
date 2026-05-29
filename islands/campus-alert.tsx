@@ -1,6 +1,6 @@
 import { useEffect, useState } from "preact/hooks";
 import { JSX } from "preact/jsx-runtime";
-import { asset } from "$fresh/runtime.ts";
+import { asset } from "fresh/runtime";
 
 interface MenuType {
   name: string;

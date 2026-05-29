@@ -1,30 +1,30 @@
-import { PageProps } from "$fresh/server.ts";
-import { asset } from "$fresh/runtime.ts";
+import { asset } from "fresh/runtime";
 import { State } from "@/routes/_middleware.ts";
 import Head from "@/components/Head.tsx";
 import Layout from "@/components/Layout.tsx";
-import { Handlers } from "@/utils/handler.ts";
+import { Handlers } from "fresh/compat";
 
-export const handler: Handlers = {
-  GET(_req, ctx) {
-    return ctx.render({ ...ctx.state });
+export const handler: Handlers<State, State> = {
+  GET(ctx) {
+    return ctx.render(<Inst {...ctx.state} url={ctx.req.url} />);
   },
 };
 const TITLE = "N/S Apps｜もっと、いろんなデバイスで";
 const DESCRIPTION =
   `N/S Appsをインストールする手順を公開しているページです。このページにアクセスする場合は、ログインは不要です。`;
 
-export default function Inst(props: PageProps<State>) {
-  const ogImageUrl = new URL(asset("/ns-app/apps.png"), props.url).href;
+export default function Inst(props: State & { url: string }) {
+  const url = new URL(props.url);
+  const ogImageUrl = new URL(asset("/ns-app/apps.png"), url).href;
   return (
     <>
       <Head
         title={TITLE}
         description={DESCRIPTION}
-        href={props.url.href}
+        href={url.href}
         imageUrl={ogImageUrl}
       />
-      <Layout state={props.data}>
+      <Layout state={props}>
         <body class="bg-gray-100">
           <div class="flex flex-wrap justify-center">
             <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 space-y-4">

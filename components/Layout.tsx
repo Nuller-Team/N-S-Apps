@@ -5,7 +5,7 @@ import IconBrandX from "https://deno.land/x/tabler_icons_tsx@0.0.5/tsx/brand-x.t
 function Header(props: JSX.HTMLAttributes<HTMLElement>) {
   return (
     <>
-      <nav class="py-4 border-b">
+      <nav class="py-4 border-b border-gray-200">
         <div class="container mx-auto px-4">
           <div class="flex justify-between items-center">
             <a href="/">
@@ -204,8 +204,9 @@ function Nav(props: NavProps) {
   return (
     <nav>
       <ul
-        class={`flex gap-x-8 gap-y-2 items-center justify-between h-full ${props.class ?? ""
-          }`}
+        class={`flex gap-x-8 gap-y-2 items-center justify-between h-full ${
+          props.class ?? ""
+        }`}
       >
         {props.items.map((item) => (
           <li>

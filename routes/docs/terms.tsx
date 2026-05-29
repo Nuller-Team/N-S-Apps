@@ -1,22 +1,15 @@
-import { PageProps } from "$fresh/server.ts";
-import { asset } from "$fresh/runtime.ts";
+import { PageProps } from "fresh";
+import { asset } from "fresh/runtime";
 import { State } from "@/routes/_middleware.ts";
 import Head from "@/components/Head.tsx";
 import Layout from "@/components/Layout.tsx";
-import { Handlers } from "@/utils/handler.ts";
-
-export const handler: Handlers = {
-  GET(_req, ctx) {
-    return ctx.render({ ...ctx.state });
-  },
-};
 
 export default function Terms(props: PageProps<State>) {
   const ogImageUrl = new URL(asset("/ns-app/apps.png"), props.url).href;
   return (
     <>
       <Head title={"利用規約"} href={props.url.href} imageUrl={ogImageUrl} />
-      <Layout state={props.data}>
+      <Layout state={props.state}>
         <div class="bg-gray-100">
           <div class="container mx-auto py-8">
             <h1 class="text-3xl font-bold mb-8">利用規約</h1>

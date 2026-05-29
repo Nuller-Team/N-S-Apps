@@ -13,8 +13,9 @@ interface ProjectProps {
 export default function Projects(props: ProjectProps) {
   return (
     <div
-      class={`pt-8 grid grid-cols-1 md:grid-cols-3 items-center ${props.class ?? ""
-        }`}
+      class={`pt-8 grid grid-cols-1 md:grid-cols-3 items-center ${
+        props.class ?? ""
+      }`}
     >
       {props.items
         .filter((item) => item.link.length > 0 && item.enabled !== false)
